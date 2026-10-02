@@ -101,3 +101,7 @@ uv run --locked python -m scripts.run_experiment3_questions run --output runs/ex
 ```
 
 The checked-in pack is already built. `build` only creates a new pack when its destination does not exist. Hosted runs need your own key in the environment or ignored `.env`; the CLI does not read a key held only in another server's memory.
+
+## Subsequent recurrence check
+
+The [conflict repetition](experiment-3-conflict-repetition.md) adds four new conflict pairs and three repeats of both frozen question sets. Explicit precedence retains the same stale-conflict error on every family and repetition. It gets the current-conflict side right, but regresses the stale side's owner. The original 32-request run remains unchanged. The next comparison will test software evidence eligibility and selection before conflict comparison, using further cases and the same questions.

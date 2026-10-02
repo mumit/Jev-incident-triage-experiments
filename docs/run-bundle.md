@@ -73,3 +73,5 @@ The builder requires a clean working tree and refuses to overwrite an archive. T
 ## Subsequent development evidence
 
 The v1 historical archive does not contain the experiment 3 input-facts or question-precedence runs. Their reports are tracked under `checkpoints/`; exact requests and responses remain in ignored local run directories. A fresh clone can inspect the separate draft packs and prepared requests, and replay local ML for the input-facts pack. Missing hosted predictions stay explicit. New hosted runs require a key and incur provider charges; they may produce different responses.
+
+The repeated conflict run is also outside the v1 archive. Its tracked report records the master plan and three repetitions; raw files remain in ignored `runs/experiment-3-conflicts/`. A fresh clone can inspect the new draft pack and prepared requests, but needs saved run files to inspect returned decisions.

@@ -70,3 +70,7 @@ Saved experiment 3 predictions remain local and ignored. On a fresh clone the tr
 Use **Comparison → Question precedence** to open the separate 16-packet pack. Both Jev arms receive identical combined evidence. **Exact input** places original and selected questions side by side; **Decisions** exposes the two saved outputs, probabilities and full requests/responses. Local ML replay is absent because this trial changes only Jev questions. Training selection is disabled because the pack has no training split.
 
 [The question guide](experiment-3-question-precedence.md) records the user-selected teaching rule, exact changes, scores, six fixes and remaining owner regression. These predictions remain outside the historical release bundle.
+
+### Repeated conflict comparison
+
+Choose **Comparison → Conflict repetition**, then **Repetition**. The top score set describes eight packets in the selected repeat. **Across all three repetitions** separately reports response counts and packet agreement. Decisions shows the selected repeat and all repeats for the same packet. References remain hidden until revealed. [The conflict guide](experiment-3-conflict-repetition.md) records the recurring failure and two variable original-question outputs.

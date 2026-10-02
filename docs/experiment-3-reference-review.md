@@ -65,3 +65,5 @@ All reported scores are against draft references. Disagreement in the flagged ca
 ## Subsequent question comparison
 
 On October 2, the user selected NOC retention until current evidence links a fault to affected service for the synthetic study. That resolves the intended teaching disposition, not specialist review of a real network policy. The [question-precedence comparison](experiment-3-question-precedence.md) records the exact instruction changes and a separate 32-request run on new development cases. The original answer keys and 144-request comparison remain unchanged.
+
+The [repeated conflict check](experiment-3-conflict-repetition.md) preserves both question sets and confirms the stale-conflict failure across four further pairs and three repetitions. It adds recurrence evidence while leaving specialist review, the original references and earlier runs unchanged.

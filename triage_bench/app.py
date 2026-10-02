@@ -240,6 +240,7 @@ def handler_for(app, comparison_port=None):
     study_handler = None
     pilot_study = None
     question_study = None
+    conflict_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -251,8 +252,13 @@ def handler_for(app, comparison_port=None):
         return study_handler
 
     def pilot(kind='facts'):
-        nonlocal pilot_study, question_study
+        nonlocal pilot_study, question_study, conflict_study
         with study_lock:
+            if kind == 'conflicts':
+                if conflict_study is None:
+                    from .experiment3.conflict_service import ConflictStudy
+                    conflict_study = ConflictStudy(app.root)
+                return conflict_study
             if kind == 'questions':
                 if question_study is None:
                     from .experiment3.question_service import QuestionStudy
@@ -293,6 +299,9 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/experiment-3-conflict-report.json':
+                    report=app.root / 'checkpoints/experiment-3-conflicts-2026-10-02.json'
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded repetition report.'})
                 if path.path == '/experiment-3-question-report.json':
                     report=app.root / 'checkpoints/experiment-3-questions-2026-10-02.json'
                     return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded question comparison.'})
@@ -301,11 +310,13 @@ def handler_for(app, comparison_port=None):
                     return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded Jev development report.'})
                 if path.path == '/experiment-3-report.json':
                     return self.send(200,(app.root / 'checkpoints/experiment-3-development-2026-10-01.json').read_bytes())
-                if path.path == '/api/experiment3/catalog': return self.send(200, pilot(parse_qs(path.query).get('trial',['facts'])[0]).catalog())
+                if path.path == '/api/experiment3/catalog':
+                    params=parse_qs(path.query);kind=params.get('trial',['facts'])[0]
+                    return self.send(200,pilot(kind).catalog(**({'repetition':int(params.get('repetition',['1'])[0])} if kind=='conflicts' else {})))
                 if path.path in {'/api/experiment3/case', '/api/experiment3/export'}:
                     params={k:v[0] for k,v in parse_qs(path.query).items()}
                     kind=params.get('trial','facts')
-                    data=pilot(kind).case(params.get('id'), params.get('variant','original' if kind=='questions' else 'baseline'), params.get('split','development'))
+                    data=pilot(kind).case(params.get('id'), params.get('variant','baseline' if kind=='facts' else 'original'), params.get('split','development'),**({'repetition':int(params.get('repetition','1'))} if kind=='conflicts' else {}))
                     if path.path.endswith('/export'):
                         filename=data['record']['id'] + '-' + params.get('variant','baseline') + '-request.json'
                         return self.send(200, data['request'], download=filename)

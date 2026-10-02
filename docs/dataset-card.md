@@ -56,3 +56,7 @@ The historical counts and definitions above remain unchanged. A separate `data/e
 The subsequent `data/experiment-3-question-draft/` pack contains 16 further development packets in eight pairs across eight new written families. Six pairs change a draft decision; two test invariance. It has no training or held-out split. Both Jev arms receive identical combined evidence and differ only in three question instructions.
 
 The references apply the user-selected teaching rule: keep NOC until current evidence links a fault to an affected service. The 15-minute window, conflict disposition and network realism remain unreviewed assumptions. The [question comparison](experiment-3-question-precedence.md) records exact changes and results. These families are now exposed development cases; later revisions need further cases.
+
+## Conflict repetition pack
+
+`data/experiment-3-conflict-draft/` adds eight development packets in four new written families. Each pair changes only the nominal measurement timestamp from current to stale. Three hosted repetitions do not create new incidents or independent families. The references, 15-minute window and instrument classifications remain unreviewed teaching assumptions. [The repetition guide](experiment-3-conflict-repetition.md) records the controls and results.

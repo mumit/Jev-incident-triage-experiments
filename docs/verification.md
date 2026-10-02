@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **94 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **100 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -89,3 +89,11 @@ Nine new Python tests check reproducible fresh families, six decision-changing a
 The hosted trial completed 32 requests with zero failures; every response reported `jev-1.13.0`. Saved source, request and data fingerprints match, and recomputation reproduces both score sets. The original 144-request run still verifies unchanged. These checks establish the controlled comparison and evidence recording; they do not validate references or probability calibration.
 
 Browser review covered the comparison selector, exact original/revised question definitions, a corrected unrelated-fault packet, the remaining stale-conflict owner regression, reference reveal, copied and downloaded requests and the formatted results article. The selected JSON download matched the recorded request. Desktop, 820-pixel and 390-pixel layouts had no page overflow; tables scroll inside their containers. Browser error logs were empty.
+
+## Repeated conflict checks
+
+Six new tests cover reproducible new conflict families, identical requests across three planned repetitions, the complete master plan saved before inference, response variation, credential redaction, rate-limit stops across the study, failure-inclusive denominators, edited-summary rejection, repetition selection, missing-result fixtures and exact HTTP request exports. The validator confirms eight distinct packets in four decision-changing pairs.
+
+All 48 hosted requests completed with zero failures and reported `jev-1.13.0`. The app recomputes child scores and master response/agreement summaries before displaying them. Source, request and data fingerprints still verify the previous 144-request and 32-request runs. The historical baseline's data, evidence and recorded results remain unchanged. These checks do not validate synthetic references, instrument thresholds or general reproducibility.
+
+Browser review covered all three repetitions, the variable load-panel diagnostic, timestamp indexing, draft-reference reveal, exact request downloads and both earlier comparisons. The downloaded JSON matched the prepared request. Desktop, 820-pixel and 390-pixel layouts contained the tables without page overflow; browser error logs were empty. The guide's return action now preserves the packet, question arm, repetition and inspection step, with the local-route guard checked in the reader tests.

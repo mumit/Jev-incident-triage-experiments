@@ -1,0 +1,20 @@
+{
+  "version": "experiment-3-conflict-draft-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "records": 8,
+  "pairs": 4,
+  "families": 4,
+  "human_decision": {
+    "date": "2026-10-02",
+    "scope": "Synthetic teaching decision; not network-specialist signoff",
+    "decision": "Keep NOC until current evidence links the fault to the affected service."
+  },
+  "telemetry_assumption": "15-minute validity and comparable-instrument conflict rule remain provisional. Instrument values and classifications are teaching examples, not validated network thresholds.",
+  "sha256": {
+    "development.inputs.jsonl": "37f371513b0edc2a52b896b6b3dd57a58ef629f3fb2f4606ccc9ce4db66ad4cb",
+    "development.labels.jsonl": "eba3201e1f9995d9fbf7487ba9b55c6721024ef9ace6e5531f91cccc7bf07a84"
+  }
+}

@@ -13,6 +13,7 @@ DOCUMENTS = {
     'experiment-3': 'docs/experiment-3-development.md',
     'experiment-3-review': 'docs/experiment-3-reference-review.md',
     'experiment-3-questions': 'docs/experiment-3-question-precedence.md',
+    'experiment-3-conflicts': 'docs/experiment-3-conflict-repetition.md',
     'overview': 'docs/experiment-overview.md', 'dataset-card': 'docs/dataset-card.md',
     'evaluation-plan': 'docs/evaluation-plan.md', 'performance-review': 'docs/performance-review.md',
     'policy': 'docs/policy.md', 'samples': 'docs/samples.md', 'learning-guide': 'docs/learning-guide.md',
@@ -27,9 +28,10 @@ def return_path(value):
     """Only a relative walkthrough URL can become the return action."""
     value = value or ''
     parsed = urlparse(value)
-    if parsed.scheme or parsed.netloc or parsed.path != '/explorer' or '\\' in value or len(value) > 4096:
+    if parsed.scheme or parsed.netloc or parsed.path not in {'/explorer', '/experiment-3'} or '\\' in value or len(value) > 4096:
         return DEFAULT_RETURN
-    if parsed.fragment and parsed.fragment not in CHAPTERS:
+    sections = CHAPTERS if parsed.path == '/explorer' else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
+    if parsed.fragment and parsed.fragment not in sections:
         return DEFAULT_RETURN
     return value
 
@@ -63,6 +65,8 @@ def render_study(study, params):
         if not parsed.scheme and not parsed.netloc:
             if parsed.path == '../checkpoints/experiment-3-development-2026-10-01.json':
                 return '/experiment-3-report.json'
+            if parsed.path == '../checkpoints/experiment-3-conflicts-2026-10-02.json':
+                return '/experiment-3-conflict-report.json'
             if parsed.path == '../checkpoints/experiment-3-questions-2026-10-02.json':
                 return '/experiment-3-question-report.json'
             if parsed.path == '../checkpoints/experiment-3-jev-2026-10-01.json':

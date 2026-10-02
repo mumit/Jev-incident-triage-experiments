@@ -31,7 +31,7 @@ class StudyPageTests(unittest.TestCase):
 
     def test_return_action_accepts_only_local_walkthrough_and_escapes_attributes(self):
         for unsafe in [None, '', '//outside.example/explorer', 'https://outside.example/explorer',
-                       '/study', '/explorer#unknown', '/explorer?x=\\evil', '/explorer?' + 'x' * 4096]:
+                       '/study', '/explorer#unknown', '/experiment-3#unknown', '/explorer?x=\\evil', '/explorer?' + 'x' * 4096]:
             self.assertEqual(return_path(unsafe), DEFAULT_RETURN)
         back = '/explorer?split=validation&case=NS-b073aba91088&model=ml&field=priority&view=decisions#cases'
         page = self.render('# Northstar Telecom: learning\n\n## Purpose\nText.', {'return': back})
@@ -40,6 +40,10 @@ class StudyPageTests(unittest.TestCase):
         injected = '/explorer?case=" onmouseover="bad'
         page = self.render('# Study', {'return': injected})
         self.assertNotIn(' onmouseover="bad', page)
+        pilot = '/experiment-3?trial=conflicts&repetition=3&case=NSC-example-b&variant=precedence#decisions'
+        self.assertEqual(return_path(pilot), pilot)
+        page = self.render('# Study', {'return': pilot})
+        self.assertIn('href="' + html.escape(pilot, quote=True) + '"', page)
 
     def test_reader_keeps_case_context_and_routes_reference_links(self):
         back = '/explorer?split=validation&case=NS-b073aba91088&model=ml_structured&field=priority&view=decisions#models'
