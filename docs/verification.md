@@ -1,10 +1,10 @@
 # Verification
 
-October 1, 2026. This document records the current implementation checks and their limits. [The measured review](performance-review.md) records experiment results; [the overview](experiment-overview.md) explains the study.
+October 2, 2026. This document records the current implementation checks and their limits. [The measured review](performance-review.md) records experiment results; [the overview](experiment-overview.md) explains the study.
 
 ## Automated checks
 
-The working checkout passes **85 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **94 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -81,3 +81,11 @@ The first hosted comparison completed 144 requests with zero failures. Every res
 
 
 Browser checks covered all nine result rows, selected ML/Jev variants, hidden and revealed draft references, exact request copying and downloading, matching saved request/response hashes, returned probabilities and unscored training packets. The stale-measurement case exposed a one-minute report age alongside a 95-minute measurement age. Desktop, 820-pixel and 390-pixel layouts had no page overflow; wide tables scroll within their containers. The new review article and hosted report links worked, and browser error logs were empty.
+
+## October 2 question trial
+
+Nine new Python tests check reproducible fresh families, six decision-changing and two invariant pairs, identical states and priority questions, input allowlisting, question fingerprints, serial ordering, prewritten requests, credential redaction, stop conditions, failure-inclusive scoring, edited-metric rejection and read-only inspection/export routes. A data-only fixture shows missing predictions explicitly and rejects training inspection for this development-only pack.
+
+The hosted trial completed 32 requests with zero failures; every response reported `jev-1.13.0`. Saved source, request and data fingerprints match, and recomputation reproduces both score sets. The original 144-request run still verifies unchanged. These checks establish the controlled comparison and evidence recording; they do not validate references or probability calibration.
+
+Browser review covered the comparison selector, exact original/revised question definitions, a corrected unrelated-fault packet, the remaining stale-conflict owner regression, reference reveal, copied and downloaded requests and the formatted results article. The selected JSON download matched the recorded request. Desktop, 820-pixel and 390-pixel layouts had no page overflow; tables scroll inside their containers. Browser error logs were empty.

@@ -121,3 +121,5 @@ I will use the familiar failures to design that work, then evaluate frozen chang
 ## Development after this checkpoint
 
 The [experiment 3 development guide](experiment-3-development.md) records the new draft pack, local pilot and completed 144-request Jev comparison. That work changes application source while preserving the historical data and evidence recorded here. This checkpoint remains the pre-experiment-3 baseline; it does not capture the new pilot.
+
+The subsequent [question-precedence trial](experiment-3-question-precedence.md) uses a further separate draft pack and matched questions on identical states. It also preserves this historical baseline.

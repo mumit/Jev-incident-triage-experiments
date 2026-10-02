@@ -64,3 +64,9 @@ The page compares four local ML variants, unchanged rules and four Jev inputs. I
 The hosted run completed 144 requests with zero failures. The added facts did not improve Jev’s aggregate score, and no variant got both packets right in a decision-changing pair. References and the measurement window still need specialist review; no final held-out set exists. [The development guide](experiment-3-development.md) records both comparisons. [The reference review](experiment-3-reference-review.md) identifies the unresolved assumptions.
 
 Saved experiment 3 predictions remain local and ignored. On a fresh clone the tracked reports remain readable, but the workbench explicitly reports missing local or hosted responses. Training packets stay unscored. The historical release bundle does not include these new runs.
+
+### Question-precedence comparison
+
+Use **Comparison → Question precedence** to open the separate 16-packet pack. Both Jev arms receive identical combined evidence. **Exact input** places original and selected questions side by side; **Decisions** exposes the two saved outputs, probabilities and full requests/responses. Local ML replay is absent because this trial changes only Jev questions. Training selection is disabled because the pack has no training split.
+
+[The question guide](experiment-3-question-precedence.md) records the user-selected teaching rule, exact changes, scores, six fixes and remaining owner regression. These predictions remain outside the historical release bundle.

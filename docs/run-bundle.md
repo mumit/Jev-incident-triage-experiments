@@ -69,3 +69,7 @@ uv run --locked python -m scripts.study_bundle create runs/bundles/northstar-stu
 ```
 
 The builder requires a clean working tree and refuses to overwrite an archive. This version packages only the four fixed study runs. A future experiment needs an updated run selection, manifest version, release tag and documentation; do not replace the v1 asset with different results.
+
+## Subsequent development evidence
+
+The v1 historical archive does not contain the experiment 3 input-facts or question-precedence runs. Their reports are tracked under `checkpoints/`; exact requests and responses remain in ignored local run directories. A fresh clone can inspect the separate draft packs and prepared requests, and replay local ML for the input-facts pack. Missing hosted predictions stay explicit. New hosted runs require a key and incur provider charges; they may produce different responses.

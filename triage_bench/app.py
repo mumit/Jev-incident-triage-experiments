@@ -239,6 +239,7 @@ class App:
 def handler_for(app, comparison_port=None):
     study_handler = None
     pilot_study = None
+    question_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -249,9 +250,16 @@ def handler_for(app, comparison_port=None):
                 study_handler = explorer_handler_for(Study(app.root))
         return study_handler
 
-    def pilot():
-        nonlocal pilot_study
+    def pilot(kind='facts'):
+        nonlocal pilot_study, question_study
         with study_lock:
+            if kind == 'questions':
+                if question_study is None:
+                    from .experiment3.question_service import QuestionStudy
+                    question_study = QuestionStudy(app.root)
+                return question_study
+            if kind != 'facts':
+                raise ValueError('Unknown development comparison.')
             if pilot_study is None:
                 from .experiment3.service import PilotStudy
                 pilot_study = PilotStudy(app.root)
@@ -285,15 +293,19 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/experiment-3-question-report.json':
+                    report=app.root / 'checkpoints/experiment-3-questions-2026-10-02.json'
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded question comparison.'})
                 if path.path == '/experiment-3-jev-report.json':
                     report=app.root / 'checkpoints/experiment-3-jev-2026-10-01.json'
                     return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded Jev development report.'})
                 if path.path == '/experiment-3-report.json':
                     return self.send(200,(app.root / 'checkpoints/experiment-3-development-2026-10-01.json').read_bytes())
-                if path.path == '/api/experiment3/catalog': return self.send(200, pilot().catalog())
+                if path.path == '/api/experiment3/catalog': return self.send(200, pilot(parse_qs(path.query).get('trial',['facts'])[0]).catalog())
                 if path.path in {'/api/experiment3/case', '/api/experiment3/export'}:
                     params={k:v[0] for k,v in parse_qs(path.query).items()}
-                    data=pilot().case(params.get('id'), params.get('variant','baseline'), params.get('split','development'))
+                    kind=params.get('trial','facts')
+                    data=pilot(kind).case(params.get('id'), params.get('variant','original' if kind=='questions' else 'baseline'), params.get('split','development'))
                     if path.path.endswith('/export'):
                         filename=data['record']['id'] + '-' + params.get('variant','baseline') + '-request.json'
                         return self.send(200, data['request'], download=filename)

@@ -61,3 +61,7 @@ For a smaller diagnostic run, use `--pair` with an existing pair ID. Each select
 Compare Jev's four variants within this draft pack and against the corresponding local ML inputs. Retain all four outputs and inspect both-record pair accuracy, regressions, contradictory decisions and high-probability errors. Provider probabilities remain uncalibrated for operations.
 
 All reported scores are against draft references. Disagreement in the flagged cases may reveal a reference assumption or question ambiguity rather than a model failure. This development run cannot establish operational performance or an improvement over historical scores. Further changes need new development cases; reviewed references and frozen transformations must precede a new held-out evaluation.
+
+## Subsequent question comparison
+
+On October 2, the user selected NOC retention until current evidence links a fault to affected service for the synthetic study. That resolves the intended teaching disposition, not specialist review of a real network policy. The [question-precedence comparison](experiment-3-question-precedence.md) records the exact instruction changes and a separate 32-request run on new development cases. The original answer keys and 144-request comparison remain unchanged.

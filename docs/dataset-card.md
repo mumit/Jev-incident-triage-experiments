@@ -50,3 +50,9 @@ Use [the data atlas](observatory.md) to inspect families and pairs, and [the eva
 ## Experiment 3 draft pack
 
 The historical counts and definitions above remain unchanged. A separate `data/experiment-3-draft/` pack adds 72 training packets across 12 families and 36 development packets across nine disjoint families. Every pair changes one declared field. References remain provisional, and no new final held-out split exists. [The development guide](experiment-3-development.md#new-data) describes construction and review questions. Neither pack establishes real network representativeness.
+
+## Question-precedence development pack
+
+The subsequent `data/experiment-3-question-draft/` pack contains 16 further development packets in eight pairs across eight new written families. Six pairs change a draft decision; two test invariance. It has no training or held-out split. Both Jev arms receive identical combined evidence and differ only in three question instructions.
+
+The references apply the user-selected teaching rule: keep NOC until current evidence links a fault to an affected service. The 15-minute window, conflict disposition and network realism remain unreviewed assumptions. The [question comparison](experiment-3-question-precedence.md) records exact changes and results. These families are now exposed development cases; later revisions need further cases.

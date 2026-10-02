@@ -29,12 +29,15 @@ The [October 1 baseline](docs/current-state.md) fixes the current source, data, 
 
 Experiment 3 now has a [development workbench](http://127.0.0.1:8768/experiment-3) with 72 new training packets, 36 development packets, deterministic input facts, matched local ML results and a completed 144-request Jev comparison. Its references remain provisional. Use `/experiment-3` on your own server. [The development guide](docs/experiment-3-development.md) records the controls, results and next review.
 
+The [question-precedence comparison](docs/experiment-3-question-precedence.md) adds 16 new development packets and a matched two-arm Jev trial. Explicit precedence scores 93.8% against 56.3% for original questions on identical combined evidence. References remain drafts; one owner regression is visible. Choose **Comparison** in the workbench to switch studies.
+
 ## Read and explore
 
 | Document | What it covers |
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Question precedence](docs/experiment-3-question-precedence.md) | Exact instruction changes, new paired cases, results and the remaining regression. |
 | [Experiment 3 reference review](docs/experiment-3-reference-review.md) | Unresolved assumptions, hosted run controls and reproduction. |
 | [Walkthrough guide](docs/observatory.md) | The eight chapters, case inspection, ML microscope, Jev requests and local sandbox. |
 | [Learning guide](docs/learning-guide.md) | Running comparisons and interpreting disagreements. |
@@ -81,6 +84,7 @@ Node.js is needed for the browser-script checks, not for running the Python app.
 ```bash
 uv run --locked python -m triage_bench validate
 uv run --locked python -m scripts.run_experiment3_local validate
+uv run --locked python -m scripts.run_experiment3_questions validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
@@ -90,7 +94,7 @@ node --check triage_bench/web/experiment3.js
 bash -n start.command
 ```
 
-The working checkout passes 85 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 94 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

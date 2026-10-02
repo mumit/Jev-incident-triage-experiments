@@ -1,0 +1,20 @@
+{
+  "version": "experiment-3-question-draft-1",
+  "synthetic": true,
+  "operator": "Northstar Telecom",
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": {
+    "date": "2026-10-02",
+    "scope": "Synthetic teaching decision; not network-specialist signoff",
+    "decision": "Keep NOC until current evidence links the fault to the affected service."
+  },
+  "records": 16,
+  "pairs": 8,
+  "families": 8,
+  "telemetry_assumption": "15-minute declared window and same-bus conflict disposition remain provisional.",
+  "sha256": {
+    "development.inputs.jsonl": "bed164fcd47a4ef3a60ad47ea323e0309122c4b90d806ec39ca19e9e0ce90984",
+    "development.labels.jsonl": "6f87e9b05562b731bf6e1062e4a9f67a2e7edb3e436b1fbd342390794e34b58b"
+  }
+}
