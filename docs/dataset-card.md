@@ -68,3 +68,7 @@ The references apply the user-selected teaching rule: keep NOC until current evi
 ## Selection-robustness development pack
 
 `data/experiment-3-robustness-draft/` contains eight packets in four new written families and correlated pairs: three decision changes and one invariance. They test an inclusive validity boundary, a visible path with partial inventory, missing inventory and concurrent current faults in two domains. References were written before inference; the multiple-domain disposition interprets the frozen no-unique-domain clause provisionally. Three repeated requests do not add independent incidents. The pack has no training or held-out split. [The robustness guide](experiment-3-selection-robustness.md) records the controls and measured results.
+
+## Structured ML development pack
+
+`data/experiment-3-structured-ml-draft/` contains 96 training packets in 16 families and 64 development packets in 16 further families. Forty-eight training pairs and 32 development pairs share constructed mechanisms and templates; the development pairs include 26 decision changes and six invariances. New prose and family names avoid overlap with earlier packs, but vocabulary correlations remain. In particular, training uses “test” only for nominal readings while development also uses it for a transport fault. References remain drafts and the pack has no final held-out split. [The feature guide](experiment-3-structured-ml.md) explains the measured transfer failures.

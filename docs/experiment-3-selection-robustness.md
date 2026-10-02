@@ -48,7 +48,9 @@ Eight constructed packets cannot establish safe context removal or representativ
 
 ## Next step
 
-I will keep the filter and Jev questions frozen and turn to the pending ML comparison: test structured dependency and freshness features against a text baseline with the same training settings and separate new development families. That will show whether moving these facts into ML's features helps beyond putting them into prose. Network-specialist review remains necessary before generating final held-out families for either model.
+The [structured ML comparison](experiment-3-structured-ml.md) fits four matched classifiers on 96 new training packets and scores 64 development packets. Both feature blocks together match 52/64 draft references versus 24/64 for the text baseline, with 20/32 versus 6/32 pairs correct. It fixes 28 complete packets and loses none, but introduces eight wrong owner fields and ten wrong diagnostic fields on already-failed packets. Current transport faults still receive NOC at about 85% probability. Jev makes no calls in this comparison.
+
+The next development study will counterbalance fault and nominal wording while keeping feature construction and classifier settings fixed. Training uses “test” only in nominal readings; development also uses it for transport faults. New development families must check whether broader wording reduces that shortcut without losing freshness and dependency behavior. Specialist review remains necessary before final held-out evaluation.
 
 ## Inspect and reproduce
 

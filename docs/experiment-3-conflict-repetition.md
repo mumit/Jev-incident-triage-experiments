@@ -37,7 +37,7 @@ The remaining failure is more than a single unusual response: it recurs on these
 
 The earlier 93.8% score came from a broader, different development pack. The 50.0% score here describes a targeted conflict subset, not a drop measured on the same cases. Eight packets and three serial repeats also cannot establish population accuracy, independence of responses or general model reproducibility.
 
-The subsequent evidence-selection comparison retained raw reports for inspection and calculated which measurements were current and related. It separated an explicit eligibility summary from an input containing only eligible observations, with questions fixed and current-conflict controls retained. Further development families kept this design separate from the cases that informed it. Reference and validity-window review must precede final held-out evaluation. The structured-feature ML comparison remains pending.
+The subsequent evidence-selection comparison retained raw reports for inspection and calculated which measurements were current and related. It separated an explicit eligibility summary from an input containing only eligible observations, with questions fixed and current-conflict controls retained. Further development families kept this design separate from the cases that informed it. Reference and validity-window review must precede final held-out evaluation. The subsequent [structured ML comparison](experiment-3-structured-ml.md) records the feature study and its remaining wording failures.
 
 ## Inspect
 

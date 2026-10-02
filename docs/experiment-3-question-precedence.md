@@ -86,7 +86,7 @@ Original questions select power correctly on that packet while missing the diagn
 
 This matched result supports the hypothesis that explicit decision precedence can help Jev apply the supplied facts. It does not prove that implicit precedence caused the first comparison's failures: this pack differs, and the three instruction changes happened together. A single response per packet and arm also leaves response variability unmeasured.
 
-I will retain the revised questions as a development candidate. The remaining conflict failure needs further cases that distinguish comparable current conflicts from stale contradictory reports, with both quantity and operating conditions clear. Specialist review must still validate the references and validity windows. A separate ML comparison of structured dependency and age features remains pending.
+I will retain the revised questions as a development candidate. The remaining conflict failure needs further cases that distinguish comparable current conflicts from stale contradictory reports, with both quantity and operating conditions clear. Specialist review must still validate the references and validity windows. The subsequent [structured ML comparison](experiment-3-structured-ml.md) now records that feature study and its field regressions on further families.
 
 Before a final evaluation, freeze reviewed references, questions and transformations and use new held-out families. These 16 packets have now informed the interpretation and cannot serve as an untouched test of later revisions.
 

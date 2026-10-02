@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **115 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **124 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -113,3 +113,11 @@ Seven new tests cover reproducible families, the invariant inventory-coverage pa
 All 48 hosted requests completed with zero failures and reported `jev-1.13.0`. Child and master fingerprints and recomputed scores verify; the tracked report matches the recorded summary. All earlier experiment 3 runs still verify. The historical audit finds only the intended app and reader source changes; its nine data files, 67 evidence files and 18 recorded result checks remain unchanged. These checks establish evidence integrity, not operational accuracy or valid diagnostic references.
 
 Browser review covered all repetitions, the one-second boundary, partial-path retention, missing-inventory removal, provisional multiple-domain references and both exact inputs. Copy feedback appeared and the downloaded JSON matched the prepared request. The guide linked to its report and returned to the same packet, input, repetition and step. Desktop, 820-pixel and 390-pixel layouts showed no page overflow; browser error logs were empty. The earlier selection view retained its saved scores.
+
+## Structured ML checks
+
+Nine new tests cover reproducible data, single-field pairs, disjoint families, input/reference isolation, observation-bound categories, reordering, unknown evidence and train-only vocabularies. They check identical impact-only priority probabilities, preservation of the earlier compact baseline recipe, complete log-odds reconstruction, immutable runs, evidence tamper rejection, missing-result inspection, feature-only HTTP exports and rejection of local training routes for hosted-only studies. A separate check counts newly wrong fields on packets already failed by the baseline.
+
+All four local fits completed on 96 training packets and scored 64 development packets. Recorded inputs, predictions, vectors and explanations verify. Every saved explanation reconstructs its probability margin from the intercept, shown contributions and remaining contribution. The tracked report matches the run and independently calculated fixes/regressions. Seven dataset validators pass; all earlier saved runs remain unchanged and verify. These checks establish implementation and evidence integrity, not operational accuracy, calibration or representative scenario coverage.
+
+Browser review covered feature-set and probability-field selection, observation channels, nonzero vectors, draft-reference reveal and training packets without evaluation predictions. Copy feedback appeared; downloaded JSON matched the exact saved feature bundle. The guide linked to its report and preserved the case, arm and inspection step on return. Desktop, 820-pixel and 390-pixel layouts showed no page overflow; browser error logs were empty. The workbench reports field regressions alongside complete-packet gains.

@@ -84,3 +84,7 @@ The [selection guide](experiment-3-evidence-selection.md) records the matched 36
 ### Selection robustness
 
 Choose **Comparison → Selection robustness** to inspect eight new packets across three repeats of the same combined and selected inputs. **Repetition** changes the saved score and response; **Decisions** also shows all three outputs together. The boundary case displays seconds so the inclusive 15-minute limit is visible. Use the partial and missing inventory pairs to inspect retained paths and empty eligible sets. The multiple-domain disposition remains a draft interpretation. [The robustness guide](experiment-3-selection-robustness.md) records the one distinct boundary fix, repeated three times, and the unchanged controls.
+
+### Structured ML features
+
+Choose **Comparison → Structured features: ML**. The new pack has training and development selectors. **Exact input** shows shared text, added counts, observation channels and the saved nonzero fitted vector. **Decisions** compares all four feature sets and rules. Select a probability field to inspect the selected class against its runner-up: intercept, top contributions and remaining contributions sum to the log-odds margin. Reference reveal marks field disagreements separately. The result table also reports newly wrong fields on packets the baseline already failed. Training packets show prepared inputs without evaluation predictions. [The feature guide](experiment-3-structured-ml.md) records results and the wording shortcut.
