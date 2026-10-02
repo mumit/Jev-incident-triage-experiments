@@ -60,3 +60,7 @@ The references apply the user-selected teaching rule: keep NOC until current evi
 ## Conflict repetition pack
 
 `data/experiment-3-conflict-draft/` adds eight development packets in four new written families. Each pair changes only the nominal measurement timestamp from current to stale. Three hosted repetitions do not create new incidents or independent families. The references, 15-minute window and instrument classifications remain unreviewed teaching assumptions. [The repetition guide](experiment-3-conflict-repetition.md) records the controls and results.
+
+## Evidence-selection development pack
+
+`data/experiment-3-selection-draft/` contains 12 packets in six new written families and decision-changing pairs. Three current-conflict controls pair with a stale nominal measurement; other pairs vary stale or unknown fault times or an excluded dependency relationship. The pack has no training or held-out split. References precede inference and remain provisional. [The selection guide](experiment-3-evidence-selection.md) explains filtering, source indices and the limits of these constructed instrument readings.

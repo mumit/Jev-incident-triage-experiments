@@ -1,0 +1,20 @@
+{
+  "version": "experiment-3-selection-draft-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "records": 12,
+  "pairs": 6,
+  "families": 6,
+  "human_decision": {
+    "date": "2026-10-02",
+    "scope": "Synthetic teaching decision; not network-specialist signoff",
+    "decision": "Keep NOC until current evidence links the fault to the affected service."
+  },
+  "telemetry_assumption": "15-minute validity, instrument classifications and conflict disposition are teaching assumptions, not validated network thresholds.",
+  "sha256": {
+    "development.labels.jsonl": "2605b5059df8e1903508eeac7db48fbe5c3c534d425250630654b6865badfba2",
+    "development.inputs.jsonl": "a59ed9a6afeda4a988bdd38bbd3cddd912a1ed87b68b6b6d7de9e9f72cf4cdba"
+  }
+}

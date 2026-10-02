@@ -241,6 +241,7 @@ def handler_for(app, comparison_port=None):
     pilot_study = None
     question_study = None
     conflict_study = None
+    selection_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -252,8 +253,13 @@ def handler_for(app, comparison_port=None):
         return study_handler
 
     def pilot(kind='facts'):
-        nonlocal pilot_study, question_study, conflict_study
+        nonlocal pilot_study, question_study, conflict_study, selection_study
         with study_lock:
+            if kind == 'selection':
+                if selection_study is None:
+                    from .experiment3.selection_service import SelectionStudy
+                    selection_study = SelectionStudy(app.root)
+                return selection_study
             if kind == 'conflicts':
                 if conflict_study is None:
                     from .experiment3.conflict_service import ConflictStudy
@@ -299,6 +305,9 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/experiment-3-selection-report.json':
+                    report=app.root / 'checkpoints/experiment-3-selection-2026-10-02.json'
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded evidence-selection comparison.'})
                 if path.path == '/experiment-3-conflict-report.json':
                     report=app.root / 'checkpoints/experiment-3-conflicts-2026-10-02.json'
                     return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded repetition report.'})
@@ -316,7 +325,7 @@ def handler_for(app, comparison_port=None):
                 if path.path in {'/api/experiment3/case', '/api/experiment3/export'}:
                     params={k:v[0] for k,v in parse_qs(path.query).items()}
                     kind=params.get('trial','facts')
-                    data=pilot(kind).case(params.get('id'), params.get('variant','baseline' if kind=='facts' else 'original'), params.get('split','development'),**({'repetition':int(params.get('repetition','1'))} if kind=='conflicts' else {}))
+                    data=pilot(kind).case(params.get('id'), params.get('variant','baseline' if kind in {'facts','selection'} else 'original'), params.get('split','development'),**({'repetition':int(params.get('repetition','1'))} if kind=='conflicts' else {}))
                     if path.path.endswith('/export'):
                         filename=data['record']['id'] + '-' + params.get('variant','baseline') + '-request.json'
                         return self.send(200, data['request'], download=filename)

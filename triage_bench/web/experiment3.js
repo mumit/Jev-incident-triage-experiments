@@ -6,8 +6,9 @@ const fields = {initial_owner:'Investigating team', priority:'Priority', next_ch
 const stages = ['evidence','facts','input','decisions'];
 const guides = ['Start with the observation and the field that changes between A and B.', 'Follow the supporting paths and compare measurement age with report age.', 'Compare the added facts with the baseline. Policy and questions are identical.', 'Inspect each error against the draft rationale, then switch to the paired packet.'];
 const pageQuery=new URLSearchParams(location.search);
-const trial=['questions','conflicts'].includes(pageQuery.get('trial'))?pageQuery.get('trial'):'facts';
+const trial=['questions','conflicts','selection'].includes(pageQuery.get('trial'))?pageQuery.get('trial'):'facts';
 const repetition=['1','2','3'].includes(pageQuery.get('repetition'))?pageQuery.get('repetition'):'1';
+const questionTrial=trial==='questions'||trial==='conflicts';
 let catalog, detail, selected = {}, stage = 'evidence', generation = 0;
 async function api(path, options) {
   const response = await fetch(path, options);
@@ -34,6 +35,13 @@ function scores() {
     for(const link of document.querySelectorAll('[data-main-guide]'))link.href='/study?doc=experiment-3-questions';
     $('comparison-description').textContent='Identical combined evidence in both arms. Only owner, diagnostic and evidence-sufficiency instructions change. Checkpoint, policy, choices and priority question stay fixed. References remain provisional.';
     $('run-local').hidden=true; $('split').disabled=true;
+  }
+  if(trial==='selection') {
+    $('hero-title').innerHTML='Select usable evidence.<br>Keep the questions fixed.';
+    $('hero-intro').textContent='Inspect what software retains or removes, then compare three Jev inputs on the same new packets.';
+    $('results-heading').textContent='Same packets, three evidence inputs';
+    $('variant-label').textContent='Evidence input';
+    $('comparison-description').textContent='The combined baseline, explicit eligibility facts and eligible observations only use identical explicit questions. Current contradictions remain in the input. References are provisional.';
   }
   if(trial==='conflicts') {
     $('repetition-label').hidden=false;$('repetition').value=repetition;
@@ -77,8 +85,7 @@ async function loadCase() {
     detail=result;renderCase();
     $('copy-request').disabled=false; $('download-request').disabled=false;
     document.querySelector('.workbench').setAttribute('aria-busy','false');
-    const q=new URLSearchParams({trial,repetition,split:selected.split,case:selected.id,variant:selected.variant});
-    history.replaceState(null,'','/experiment-3?'+q+'#'+stage);
+    showStage(stage);
   } catch(error) { if(token===generation){notice(error.message,true);document.querySelector('.workbench').setAttribute('aria-busy','false');} }
 }
 function valueAt(packet,path) { return path.replace(/^input\./,'').replace(/\[(\d+)\]/g,'.$1').split('.').reduce((o,k)=>o?.[k],packet); }
@@ -106,11 +113,20 @@ function renderCase() {
   $('measurement-included').textContent=trial!=='facts'||['measurement','combined'].includes(selected.variant)?'Included in this variant':'Not included in this variant';
   $('dependency').innerHTML=detail.dependency_facts.map(f=>`<div class="dependency-card"><strong>Observation ${f.observation_index+1} · ${esc(f.asset_id||'unknown asset')}</strong> <span class="status ${f.relation==='unknown'?'tone-unknown':'tone-current'}">${esc(f.relation.replaceAll('_',' '))}</span><p class="muted">${f.supported_site_count} supported · ${f.excluded_site_count} excluded · ${f.unknown_site_count===null?'unknown scope':f.unknown_site_count+' unknown'}</p><div class="paths">${f.supporting_paths.map(p=>`<span class="path">${p.path.map(esc).join(' → ')}</span>`).join('')}</div>${f.excluded_sites.length?`<p class="muted">Excluded by the complete map: ${f.excluded_sites.map(esc).join(', ')}</p>`:''}${f.unknown_sites.length?`<p class="muted">Relationship unknown for: ${f.unknown_sites.map(esc).join(', ')}</p>`:''}</div>`).join('');
   $('measurement').innerHTML=`<table><thead><tr><th>Observation</th><th>Report age</th><th>Measurement age</th><th>Declared window</th><th>Status</th></tr></thead><tbody>${detail.measurement_facts.map(f=>`<tr><td>${f.observation_index+1}</td><td>${f.report_age_minutes} min</td><td>${f.measurement_age_minutes===null?'Unknown':f.measurement_age_minutes+' min'}</td><td>${f.declared_valid_for_minutes??'Unknown'} min</td><td><span class="status tone-${f.freshness_status}">${f.freshness_status}</span></td></tr>`).join('')}</tbody></table>`;
-  $('baseline-heading').textContent=trial!=='facts'?'Original questions':'Compact baseline';
-  $('baseline-packet').textContent=pretty(trial!=='facts'?detail.question_sets.original:detail.packets.baseline);$('selected-packet').textContent=pretty(trial!=='facts'?detail.question_sets[selected.variant]:detail.packets[selected.variant]);$('selected-heading').textContent=catalog.variants[selected.variant];
-  $('input-meta').textContent=`${catalog.variants[selected.variant]} · ${detail.request.model} · ${detail.request_bytes.toLocaleString()} request bytes · ${trial!=='facts'?'identical state across question arms':'identical policy and questions across variants'}`;
+  $('baseline-heading').textContent=questionTrial?'Original questions':trial==='selection'?'Combined facts':'Compact baseline';
+  $('baseline-packet').textContent=pretty(questionTrial?detail.question_sets.original:detail.packets.baseline);$('selected-packet').textContent=pretty(questionTrial?detail.question_sets[selected.variant]:detail.packets[selected.variant]);$('selected-heading').textContent=catalog.variants[selected.variant];
+  $('input-meta').textContent=`${catalog.variants[selected.variant]} · ${detail.request.model} · ${detail.request_bytes.toLocaleString()} request bytes · ${questionTrial?'identical state across question arms':'identical policy and questions across variants'}`;
   $('request-note').textContent=selected.split==='train'?'This is a prepared training-packet request. Training packets do not enter hosted evaluation.':detail.hosted_outputs?.[selected.variant]?'The saved Jev run used this state, the fixed policy and identical questions. The corresponding local ML variant receives the same state string. Inspect the saved request and response in Decisions.':'The selected ML variant receives the same state string. Policy, checkpoint and questions stay fixed across variants. No saved hosted response exists for this packet and variant.';
-  if(trial!=='facts')$('request-note').textContent='Both arms receive the same combined state string. Compare the full questions below, then inspect the saved request and response in Decisions. Priority and valid choices are unchanged.';
+  if(questionTrial)$('request-note').textContent='Both arms receive the same combined state string. Compare the full questions below, then inspect the saved request and response in Decisions. Priority and valid choices are unchanged.';
+  if(trial==='selection')$('request-note').textContent='Compare the combined baseline with the selected input. All three use the frozen explicit questions. Removed reports stay in Raw evidence, outside the selected request. No reference decisions enter Jev.';
+  if(trial==='selection')$('facts-note').textContent='Dependency and age facts below describe every raw report. The eligibility table shows which observations and fact rows enter the selected request. The calculators do not read reference answers.';
+  $('eligibility-review').hidden=trial!=='selection';
+  if(trial==='selection') {
+    $('eligibility-note').textContent=selected.variant==='selected'?'Only eligible observations and their reindexed facts enter this request. Source numbers refer to Raw evidence.':selected.variant==='eligibility'?'All reports remain. An added block marks eligibility without selecting a fault domain.':'All reports and the existing dependency and age facts remain. The eligibility calculation below is for inspection only.';
+    const kept=detail.eligibility.filter(r=>r.eligible);
+    $('eligibility-rows').innerHTML=`<table><thead><tr><th>Raw observation</th><th>Freshness</th><th>Supported sites</th><th>Eligible</th><th>Reason</th><th>Request observation</th></tr></thead><tbody>${detail.eligibility.map(r=>`<tr><td>${r.observation_index+1}</td><td>${esc(r.freshness_status)}</td><td>${r.supported_site_count}</td><td>${r.eligible?'Yes':'No'}</td><td>${esc(r.reasons.join(', ')||'Current and related')}</td><td>${selected.variant==='selected'?(r.eligible?kept.indexOf(r)+1:'Removed'):r.observation_index+1}</td></tr>`).join('')}</tbody></table>`;
+    if(selected.variant==='selected')for(const id of ['dependency-included','measurement-included'])$(id).textContent='Only retained observations enter Jev';
+  }
   $('request').textContent=pretty(detail.request);$('request-hashes').textContent=pretty({state_sha256:detail.state_sha256,questions_sha256:detail.questions_sha256});
   $('reference').open=false;$('reference-content').innerHTML=`<p class="status tone-unknown">Draft · not reviewed by a network specialist</p><table><tbody>${Object.entries(fields).map(([f,label])=>`<tr><th>${label}</th><td>${esc(key.labels[f])}</td></tr>`).join('')}</tbody></table><p>${esc(key.label_rationale)}</p>`;
   decisions();probabilities();
@@ -135,10 +151,10 @@ function probabilities() {
 function showStage(value,focus=false) {
   stage=stages.includes(value)?value:'evidence';
   for(const name of stages){const active=name===stage;$('stage-'+name).hidden=!active;$('tab-'+name).setAttribute('aria-selected',String(active));$('tab-'+name).tabIndex=active?0:-1;}
-  const index=stages.indexOf(stage);$('previous-stage').disabled=index===0;$('next-stage').disabled=index===3;$('next-stage').textContent=['Calculate facts →','Compare input →','Inspect decisions →','Last step'][index];$('step-guide').textContent=trial!=='facts'&&stage==='input'?'Compare the original and explicit instructions. Both receive identical evidence.':guides[index];
+  const index=stages.indexOf(stage);$('previous-stage').disabled=index===0;$('next-stage').disabled=index===3;$('next-stage').textContent=['Calculate facts →','Compare input →','Inspect decisions →','Last step'][index];$('step-guide').textContent=questionTrial&&stage==='input'?'Compare the original and explicit instructions. Both receive identical evidence.':guides[index];
   if(detail)history.replaceState(null,'','/experiment-3?'+new URLSearchParams({trial,repetition,split:selected.split,case:selected.id,variant:selected.variant})+'#'+stage);
   for(const link of document.querySelectorAll('[data-main-guide]')) {
-    const doc=trial==='conflicts'?'experiment-3-conflicts':trial==='questions'?'experiment-3-questions':'experiment-3';
+    const doc=trial==='selection'?'experiment-3-selection':trial==='conflicts'?'experiment-3-conflicts':trial==='questions'?'experiment-3-questions':'experiment-3';
     link.href='/study?'+new URLSearchParams({doc,return:location.pathname+location.search+location.hash});
   }
   if(focus)$('tab-'+stage).focus();

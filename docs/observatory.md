@@ -74,3 +74,9 @@ Use **Comparison → Question precedence** to open the separate 16-packet pack. 
 ### Repeated conflict comparison
 
 Choose **Comparison → Conflict repetition**, then **Repetition**. The top score set describes eight packets in the selected repeat. **Across all three repetitions** separately reports response counts and packet agreement. Decisions shows the selected repeat and all repeats for the same packet. References remain hidden until revealed. [The conflict guide](experiment-3-conflict-repetition.md) records the recurring failure and two variable original-question outputs.
+
+### Evidence selection
+
+Choose **Comparison → Evidence selection** for the new 12-packet pack. **Evidence input** switches combined facts, added eligibility facts and eligible observations only. In **Calculated facts**, the eligibility table shows whether each raw observation remains in the selected request and maps it to its new position. **Exact input** compares baseline and selected states; full requests expose the unchanged explicit questions. Removed reports remain in **Raw evidence**. **Decisions** shows actual outputs, partial field improvements and probabilities, with reference markers only after reveal.
+
+The [selection guide](experiment-3-evidence-selection.md) records the matched 36-call comparison: selection fixes three packets and retains nine correct controls; eligibility facts alone fix no complete packet. The guide returns to the same packet, input and inspection step. Neither this small 100% result nor its three current-conflict controls establishes operational filtering safety.

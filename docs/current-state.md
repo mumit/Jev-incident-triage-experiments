@@ -125,3 +125,5 @@ The [experiment 3 development guide](experiment-3-development.md) records the ne
 The subsequent [question-precedence trial](experiment-3-question-precedence.md) uses a further separate draft pack and matched questions on identical states. It also preserves this historical baseline.
 
 The subsequent [conflict repetition](experiment-3-conflict-repetition.md) adds a further development pack and repeated fixed requests. It preserves the pre-experiment-3 baseline recorded here.
+
+The subsequent [evidence-selection comparison](experiment-3-evidence-selection.md) adds 12 further development packets and preserves this historical baseline. Its matched input scores do not replace any result recorded in the stocktake.

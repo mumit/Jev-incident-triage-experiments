@@ -54,3 +54,7 @@ uv run --locked python -m scripts.run_experiment3_conflicts run --output runs/ex
 ```
 
 A key in the environment or ignored `.env` is needed for hosted inference. A new output directory is required; existing runs cannot be overwritten. No training or held-out data is added.
+
+## Subsequent input comparison
+
+The [evidence-selection comparison](experiment-3-evidence-selection.md) completed 36 calls on 12 further packets with explicit questions frozen. Adding eligibility facts alone fixes no complete packet. Selecting eligible observations fixes all three stale-conflict packets and retains nine correct controls, including current conflicts. The repetition study stays unchanged; the new score is a matched comparison on different cases.
