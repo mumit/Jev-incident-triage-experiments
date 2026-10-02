@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **124 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **132 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -121,3 +121,11 @@ Nine new tests cover reproducible data, single-field pairs, disjoint families, i
 All four local fits completed on 96 training packets and scored 64 development packets. Recorded inputs, predictions, vectors and explanations verify. Every saved explanation reconstructs its probability margin from the intercept, shown contributions and remaining contribution. The tracked report matches the run and independently calculated fixes/regressions. Seven dataset validators pass; all earlier saved runs remain unchanged and verify. These checks establish implementation and evidence integrity, not operational accuracy, calibration or representative scenario coverage.
 
 Browser review covered feature-set and probability-field selection, observation channels, nonzero vectors, draft-reference reveal and training packets without evaluation predictions. Copy feedback appeared; downloaded JSON matched the exact saved feature bundle. The guide linked to its report and preserved the case, arm and inspection step on return. Desktop, 820-pixel and 390-pixel layouts showed no page overflow; browser error logs were empty. The workbench reports field regressions alongside complete-packet gains.
+
+## Training-wording checks
+
+Eight new tests cover reproducible matched data, unchanged training targets, single-field pairs, exact method-word counts, identical development inputs and synonym controls. They verify the frozen feature settings, shared impact-only priority, input/reference isolation, train-only vocabularies, immutable runs, evidence tamper rejection and field regressions on already-failed packets. Missing-run fixtures expose actual training wording without fabricated predictions. HTTP exports preserve the selected training arm, and the reader links to the recorded report. Agreement and correctness have separate denominators.
+
+All three local fits completed on 96 training packets each and scored the same 80 development packets. The recorded report matches the saved run and independently recomputed control scores. Source and data hashes, vectors, method-word weights, score margins and matched changes verify. Eight dataset validators pass, and all earlier recorded sources and evidence still verify. These checks establish implementation and evidence integrity, not valid references, calibration or operational accuracy.
+
+Browser review covered all three training wordings, actual report substitutions, development predictions, probability fields, feature channels, a new owner regression and training packets without evaluation results. Copy feedback appeared and downloaded JSON matched the selected input and saved vector. The formatted guide linked to its report and returned to the same case, arm and inspection step. Desktop, 820-pixel and 390-pixel layouts had no page overflow; tables scroll within their containers. Browser error logs were empty, and the earlier structured comparison retained its saved scores. Pair rationale is now explicitly labeled A-to-B, alongside the reference for the selected packet.

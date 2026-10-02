@@ -88,3 +88,7 @@ Choose **Comparison → Selection robustness** to inspect eight new packets acro
 ### Structured ML features
 
 Choose **Comparison → Structured features: ML**. The new pack has training and development selectors. **Exact input** shows shared text, added counts, observation channels and the saved nonzero fitted vector. **Decisions** compares all four feature sets and rules. Select a probability field to inspect the selected class against its runner-up: intercept, top contributions and remaining contributions sum to the log-odds margin. Reference reveal marks field disagreements separately. The result table also reports newly wrong fields on packets the baseline already failed. Training packets show prepared inputs without evaluation predictions. [The feature guide](experiment-3-structured-ml.md) records results and the wording shortcut.
+
+## Training wording
+
+Choose **Comparison → Training wording: ML**. The result view shows the method-word counts, control scores, synonym agreement and learned coefficients. Select **Training → Exact input** to read the actual report substitutions across all three arms. Development inputs are identical, while fitted vocabularies and vectors can differ. Links open a corrected stale-conflict packet and a new power-owner regression. [The wording guide](experiment-3-wording.md) explains why weaker shortcut weights did not improve accuracy.

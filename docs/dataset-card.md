@@ -72,3 +72,7 @@ The references apply the user-selected teaching rule: keep NOC until current evi
 ## Structured ML development pack
 
 `data/experiment-3-structured-ml-draft/` contains 96 training packets in 16 families and 64 development packets in 16 further families. Forty-eight training pairs and 32 development pairs share constructed mechanisms and templates; the development pairs include 26 decision changes and six invariances. New prose and family names avoid overlap with earlier packs, but vocabulary correlations remain. In particular, training uses “test” only for nominal readings while development also uses it for a transport fault. References remain drafts and the pack has no final held-out split. [The feature guide](experiment-3-structured-ml.md) explains the measured transfer failures.
+
+## Training-wording pack
+
+The [wording study](experiment-3-wording.md) reuses the 96 structured-study training packets and their targets in three matched wording arms. Its 80 development packets form 40 pairs in 20 new families. Only method nouns differ between coupled and counterbalanced training inputs. New development references remain drafts, with no final held-out split. Shared templates, mechanisms and simplified vocabulary still limit independence and realism.

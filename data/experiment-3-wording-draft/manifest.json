@@ -1,0 +1,66 @@
+{
+  "schema": "experiment-3-wording-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": "Keep NOC until current evidence links the fault to the affected service.",
+  "arms": {
+    "baseline": "Original training wording",
+    "coupled": "Matched coupled wording",
+    "balanced": "Counterbalanced wording"
+  },
+  "splits": {
+    "train": {
+      "records": 96,
+      "families": 16,
+      "pairs": 48
+    },
+    "development": {
+      "records": 80,
+      "families": 20,
+      "pairs": 40
+    }
+  },
+  "training_intervention": "Matched coupled versus balanced differs only in tests/diagnostics nouns in twelve domain families; extra families unchanged. Original wording is a bridge control.",
+  "training_word_counts": {
+    "coupled": {
+      "fault": {
+        "tests": 0,
+        "diagnostics": 72
+      },
+      "normal": {
+        "tests": 24,
+        "diagnostics": 0
+      }
+    },
+    "balanced": {
+      "fault": {
+        "tests": 36,
+        "diagnostics": 36
+      },
+      "normal": {
+        "tests": 12,
+        "diagnostics": 12
+      }
+    }
+  },
+  "construction": "Original training mechanisms and references; new development family names and prose, shared templates and simplified vocabulary. Correlated variations are not independent incidents.",
+  "sha256": {
+    "balanced/development.inputs.jsonl": "baaedd52bdeefc6b763a746f3aa030971dfb46f7c1f97ab1c99e2566ea8c64c5",
+    "balanced/development.labels.jsonl": "8922e200313fedd1bf87bdf23721298bf708a01cf5565bff3681e3c74da15cfc",
+    "balanced/manifest.json": "0d6b0d0e4bff997c3fb20799a30772b9762553f005180e861200fcd743850f82",
+    "balanced/train.inputs.jsonl": "a4218895c5c952987c30f2445f632945f8b2399bf8684d17c9fc22dbfdf28872",
+    "balanced/train.labels.jsonl": "cb88704ba9d359fd4810bcd43bb150798263d260602c134ae89fd502b703259f",
+    "baseline/development.inputs.jsonl": "baaedd52bdeefc6b763a746f3aa030971dfb46f7c1f97ab1c99e2566ea8c64c5",
+    "baseline/development.labels.jsonl": "8922e200313fedd1bf87bdf23721298bf708a01cf5565bff3681e3c74da15cfc",
+    "baseline/manifest.json": "2cc00cb08ccaee37f1b4440cf639726d9284a379ee21418d487e2119d2ed3fcc",
+    "baseline/train.inputs.jsonl": "9536d4037dae3dd6caf3d7e948b7fd5c0770a7bc0b2fa9df9cf224c20c768e80",
+    "baseline/train.labels.jsonl": "cb88704ba9d359fd4810bcd43bb150798263d260602c134ae89fd502b703259f",
+    "coupled/development.inputs.jsonl": "baaedd52bdeefc6b763a746f3aa030971dfb46f7c1f97ab1c99e2566ea8c64c5",
+    "coupled/development.labels.jsonl": "8922e200313fedd1bf87bdf23721298bf708a01cf5565bff3681e3c74da15cfc",
+    "coupled/manifest.json": "779550cbca8688e044f119b979589cc3728162f660490915d4af3781bcbfab98",
+    "coupled/train.inputs.jsonl": "741a9b3c0efddb9641cc7885033e727ccd46dc9966a03d4e5714a061c351fc65",
+    "coupled/train.labels.jsonl": "cb88704ba9d359fd4810bcd43bb150798263d260602c134ae89fd502b703259f"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "version": "experiment-3-wording-draft-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "splits": {
+    "train": {
+      "records": 96,
+      "families": 16,
+      "pairs": 48
+    },
+    "development": {
+      "records": 80,
+      "families": 20,
+      "pairs": 40
+    }
+  },
+  "sha256": {
+    "development.inputs.jsonl": "baaedd52bdeefc6b763a746f3aa030971dfb46f7c1f97ab1c99e2566ea8c64c5",
+    "development.labels.jsonl": "8922e200313fedd1bf87bdf23721298bf708a01cf5565bff3681e3c74da15cfc",
+    "train.inputs.jsonl": "741a9b3c0efddb9641cc7885033e727ccd46dc9966a03d4e5714a061c351fc65",
+    "train.labels.jsonl": "cb88704ba9d359fd4810bcd43bb150798263d260602c134ae89fd502b703259f"
+  }
+}

@@ -65,7 +65,7 @@ These results compare feature sets on identical new data. They are not deltas fr
 
 ## Next step
 
-I will test counterbalanced fault and nominal wording in a separate development study, with feature construction and classifier settings fixed. “Test” and “diagnostic” should occur in both healthy and faulty reports. New development families will check transfer of fault wording, current contradictions, stale nominal reports, unknown times and incomplete inventory. The current run and references will stay frozen. Specialist review must settle the synthetic policy before final held-out evaluation.
+The [training-wording comparison](experiment-3-wording.md) is complete on 80 new development packets. Counterbalancing “tests” and “diagnostics” weakens their method-word weights but scores 61/80 against 64/80 for matched coupled wording. It fixes one packet and loses four, with new owner, diagnostic and evidence errors. The original training bridge scores 65/80. The next study will separate report interpretation from policy application using new development families; the original combined candidate stays unchanged. Specialist review remains necessary before final held-out evaluation.
 
 ## Inspect and reproduce
 
