@@ -62,3 +62,5 @@ A fresh local clone restored the archive and passed all 45 Python tests without 
 ## October 1 baseline audit
 
 The [current-state checkpoint](current-state.md) matches 28 source files, nine dataset files and 67 portable evidence files. Recomputed scoring reproduces all saved metrics for 18 approach results across four runs. A self-comparison of the recorded test run reports zero score changes. Five additional tests cover checkpoint overwrite refusal, changed versus missing files, portable metadata, edited summaries and suppression of score deltas for different inputs, answer keys or policy.
+
+A fresh local clone of the audit source restored the public v1 evidence bundle and passed the baseline verification, including all 18 recomputed approach results. Metadata normalization makes its fingerprints match the original checkout without exposing personal paths.

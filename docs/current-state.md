@@ -14,7 +14,8 @@ Experiment 3 has not started. The lab recommends diagnostics; it does not execut
 
 | Reference | Version or location |
 |---|---|
-| Application source | `98f5c9d4fbad909806f4ffd788bbde2a449f9e17` |
+| Application before stocktake | `98f5c9d4fbad909806f4ffd788bbde2a449f9e17` |
+| Source including audit tooling | `84e414ae663f803204c87078de41a816cb71a6ac` |
 | Experiment 2 inference checkpoint | `6a44f62`; four file hashes in the freeze record |
 | Jev requested and returned checkpoint | `jev-1.13.0` in both experiment 2 variants |
 | Historical evidence | Public `study-evidence-v1` release, with four runs and a freeze record |
@@ -61,7 +62,7 @@ All-four accuracy requires every decision to match an accepted reference. Failed
 | Jev · original | 50.9% | 57.7% | 79.2% | 58.3% |
 | Jev · focused | 100.0% | 90.9% | 87.5% | 75.0% |
 
-The audit reproduced every saved metric in all four runs. Experiment 2 has zero failed or missing responses. Experiment 1 retains five probability-format failures in its Jev validation run. Metrics absent from that older run remain null in the checkpoint, rather than being presented as historically recorded results.
+The audit reproduced every saved metric in all four runs. A fresh local clone restored the public evidence bundle and matched the same source, data, evidence and result fingerprints. Experiment 2 has zero failed or missing responses. Experiment 1 retains five probability-format failures in its Jev validation run. Metrics absent from that older run remain null in the checkpoint, rather than being presented as historically recorded results.
 
 Priority accounts for much of the improvement. With the separate software-priority calculation, original Jev's test score rises from 57.7% to 90.9%, and original ML's from 59.5% to 79.1%. Revised ML learned its priority mapping from training labels. Neither score explains which bundled experiment 2 change caused a semantic improvement.
 
