@@ -4,7 +4,7 @@ September 30, 2026. This document records the current implementation checks and 
 
 ## Automated checks
 
-The working checkout passes **51 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All three browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **56 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All three browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -58,3 +58,7 @@ The checks establish the behavior of this teaching tool. They do not certify sce
 The `study-evidence-v1` release provides the four documented synthetic runs and freeze record as an archive outside Git history. Its manifest binds the evidence to a source commit, dataset fingerprints and per-file checksums. Metadata paths become repository-relative; prediction rows and returned responses remain unchanged. [The bundle guide](run-bundle.md) explains restoration, and [HANDOFF.md](../HANDOFF.md) describes the next task.
 
 A fresh local clone restored the archive and passed all 45 Python tests without skips. Rebuilding the measured review from those restored runs reproduced the committed report exactly. Restoration did not require a Jev key or make hosted calls.
+
+## October 1 baseline audit
+
+The [current-state checkpoint](current-state.md) matches 28 source files, nine dataset files and 67 portable evidence files. Recomputed scoring reproduces all saved metrics for 18 approach results across four runs. A self-comparison of the recorded test run reports zero score changes. Five additional tests cover checkpoint overwrite refusal, changed versus missing files, portable metadata, edited summaries and suppression of score deltas for different inputs, answer keys or policy.

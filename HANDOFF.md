@@ -31,6 +31,10 @@ The repository contains synthetic inputs, separate answer keys, code and measure
 
 Follow the [restore instructions](docs/run-bundle.md), then start the app and open `/explorer` on your server. Port 8766 is the default. Existing case links use the original working session at port 8768; substitute your own port. Restoring and inspecting the bundle requires no Jev calls. New hosted comparisons require your own key in **Model settings** and incur provider charges.
 
+## Comparison baseline
+
+The [October 1 stocktake](docs/current-state.md) and `checkpoints/study-baseline-2026-10-01.json` record application source `98f5c9d`, the frozen dataset, recorded settings and results. Verification checks source, data and portable historical evidence fingerprints and recomputes the saved scores. The comparison command reports deltas only for matching evaluation inputs, answer keys and policy. New families need a new baseline and changed variants on the same evaluation set.
+
 ## Next task
 
 I will test explicit dependency coverage and measurement freshness separately before combining them:

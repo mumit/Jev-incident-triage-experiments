@@ -9,6 +9,7 @@ from urllib.parse import parse_qs, urlencode, urlparse
 from markdown_it import MarkdownIt
 
 DOCUMENTS = {
+    'current-state': 'docs/current-state.md',
     'overview': 'docs/experiment-overview.md', 'dataset-card': 'docs/dataset-card.md',
     'evaluation-plan': 'docs/evaluation-plan.md', 'performance-review': 'docs/performance-review.md',
     'policy': 'docs/policy.md', 'samples': 'docs/samples.md', 'learning-guide': 'docs/learning-guide.md',

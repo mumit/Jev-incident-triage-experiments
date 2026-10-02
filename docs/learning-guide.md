@@ -12,6 +12,10 @@ Choose **Study walkthrough** and start the guided tour. It begins with radio sch
 
 The walkthrough reads the fixed saved experiment runs. A fresh clone has no historical run files, so it shows missing results while keeping data inspection and local ML replay available.
 
+## Keep comparisons anchored
+
+The [current-state baseline](current-state.md) records the source, data, training settings and measured results before experiment 3. Verify its checkpoint before changing the experiment. Compare score changes only on matching evaluation inputs, answer keys and policy; new families need baseline and changed variants on the same new cases. The baseline guide gives the verification and comparison commands.
+
 ## Run a new comparison
 
 In **Comparison lab**, expand **Run a new comparison**. Select **Learning set · one case per family** and **ML · original** to run the 11 teaching cases locally. Read the packet before revealing **Benchmark reference decisions**; the reference is separate from the model prediction.

@@ -25,6 +25,8 @@ Startup does not call Jev or download language-model weights. The app fits local
 
 Start with [HANDOFF.md](HANDOFF.md) for the current state, experimental controls and next task. Restore the four historical runs from the [study evidence release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1) using the [bundle guide](docs/run-bundle.md). The archive stays outside Git history; `runs/` remains ignored.
 
+The [October 1 baseline](docs/current-state.md) fixes the current source, data, settings and results before experiment 3. Its `checkpoints/study-baseline-2026-10-01.json` supports file verification and comparisons with future saved runs.
+
 ## Read and explore
 
 | Document | What it covers |
@@ -82,7 +84,7 @@ node --check triage_bench/web/study.js
 bash -n start.command
 ```
 
-The working checkout passes 51 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 56 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

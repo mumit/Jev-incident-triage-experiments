@@ -1,0 +1,118 @@
+# Current study baseline
+
+October 1, 2026. This is the starting point for experiment 3. The `checkpoints/study-baseline-2026-10-01.json` records the application source, dataset, settings and results. Its verification reads saved files and recomputes scores without fitting models or calling Jev.
+
+## What is complete
+
+Two experiments compare Rules, ML · original, ML · revised, Jev · original and Jev · focused. Every approach selects an investigating team, priority, next diagnostic and evidence sufficiency under the fictional Northstar Telecom policy.
+
+The app supports saved comparisons, eight walkthrough chapters, exact Jev request inspection, ML score reconstruction, paired cases and a local evidence sandbox. The study reader renders Markdown with section navigation, expandable tables, copyable code and links into case inspection.
+
+Experiment 3 has not started. The lab recommends diagnostics; it does not execute network changes. Its observations describe abnormalities, rather than raw KPI time series.
+
+## Fixed references
+
+| Reference | Version or location |
+|---|---|
+| Application source | `98f5c9d4fbad909806f4ffd788bbde2a449f9e17` |
+| Experiment 2 inference checkpoint | `6a44f62`; four file hashes in the freeze record |
+| Jev requested and returned checkpoint | `jev-1.13.0` in both experiment 2 variants |
+| Historical evidence | Public `study-evidence-v1` release, with four runs and a freeze record |
+| Current comparison checkpoint | `checkpoints/study-baseline-2026-10-01.json` |
+
+The checkpoint fingerprints 28 application, audit, dependency and launcher files; nine dataset files; and 67 historical evidence files. It includes recomputed summaries for 18 approach results across four runs. JSON metadata paths become repository-relative and formatting is normalized, so release restoration and the original local evidence can be compared. Prediction and input JSONL bytes remain exact.
+
+The four frozen inference files are `experiments.py`, `ml.py`, `runner.py` and `policy.py`. Their current hashes match the freeze record. That record applies to experiment 2; experiment 1 predates the revised representations and response handler.
+
+Raw runs remain ignored. The checkpoint contains audited summaries, hashes and a few error identifiers; the [release bundle](run-bundle.md) supplies the predictions and responses needed for a full audit. Credentials, current session settings and personal filesystem paths are excluded.
+
+## Data and methods
+
+| Dataset | Packets | Scenario families | Role |
+|---|---:|---:|---|
+| Training | 600 | 30 | Fits both ML variants |
+| Validation | 220 | 11 | Guided experiment 2 revisions |
+| Test | 220 | 11 | Checks the frozen revisions |
+| Challenge | 24 | 4 types, 12 pairs | Tests controlled input changes |
+
+The 11-packet learning set belongs to validation. Regular families have 20 correlated variations. Training, validation and test family IDs are disjoint, but wording and network patterns can recur. Five test packets and four challenge packets appeared in earlier runs. Subsequent review exposed their failures, so they cannot provide an untouched evaluation for further tuning.
+
+| Approach | Representation and method |
+|---|---|
+| Rules | Observation keywords, fixed routing and exact impact-priority calculation |
+| ML · original | Original policy-and-incident state; word TF-IDF and four logistic classifiers |
+| ML · revised | Compact state; word/character TF-IDF and structured impact; impact-only priority classifier |
+| Jev · original | Original state and short Choice definitions |
+| Jev · focused | Compact state and explicit independent task definitions |
+
+Both ML variants fit only the original 600 training packets. The original ML/Jev pair shares the original state; the revised ML/focused Jev pair shares the compact state. Neither receives labels, family IDs or generation metadata during inference. Jev received no telecom fine-tuning in this study.
+
+The checkpoint records each run's policy and question fingerprints, request variant, declared context, ML training fingerprints, parameters and scikit-learn version. Hosted runs declared 32,768 context tokens. Both experiment 2 Jev variants used the bounded probability-rounding handler, which retains raw values and does not alter selected answers.
+
+## Recorded results
+
+All-four accuracy requires every decision to match an accepted reference. Failed and missing responses count as errors.
+
+| Approach | Validation | Test | Challenge | Both challenge packets correct |
+|---|---:|---:|---:|---:|
+| Rules | 90.9% | 90.9% | 87.5% | 75.0% |
+| ML · original | 58.6% | 59.5% | 16.7% | 0.0% |
+| ML · revised | 86.4% | 96.8% | 58.3% | 50.0% |
+| Jev · original | 50.9% | 57.7% | 79.2% | 58.3% |
+| Jev · focused | 100.0% | 90.9% | 87.5% | 75.0% |
+
+The audit reproduced every saved metric in all four runs. Experiment 2 has zero failed or missing responses. Experiment 1 retains five probability-format failures in its Jev validation run. Metrics absent from that older run remain null in the checkpoint, rather than being presented as historically recorded results.
+
+Priority accounts for much of the improvement. With the separate software-priority calculation, original Jev's test score rises from 57.7% to 90.9%, and original ML's from 59.5% to 79.1%. Revised ML learned its priority mapping from training labels. Neither score explains which bundled experiment 2 change caused a semantic improvement.
+
+## Failures to carry forward
+
+| Approach and evaluation | Recorded weakness |
+|---|---|
+| Jev · focused, test | All 20 neighbour-change variations select a different diagnostic from the reference; owner and evidence disposition are correct. The diagnostic reference needs specialist review. |
+| Jev · focused, challenge | Three changed-dependency packets miss owner, diagnostic and evidence disposition. All three owner errors assign at least 80% probability to the wrong choice. |
+| ML · revised, validation | Maintenance-scope cases still miss the diagnostic and evidence decision, and revised ML introduces owner errors. |
+| ML · revised, test | Six owner errors and seven diagnostic errors in the transport-direction family |
+| ML · revised, challenge | Six dependency cases and four stale-evidence cases miss owner/diagnostic decisions; six evidence-sufficiency errors across these two types |
+
+The [measured review](performance-review.md) links individual cases. Scores describe constructed teaching scenarios, not operational accuracy. Model probabilities are uncalibrated, reference diagnostics can be ambiguous, and latency reflects the recorded machine and serial hosted execution rather than a throughput test.
+
+## Compare future changes
+
+Preserve this checkpoint and the released evidence. Store new runs under new IDs, and capture later checkpoints in new files.
+
+A direct score comparison requires identical evaluation input and answer-key hashes and the same policy. The comparison command also lists changes to questions, model identity, context, training and other recorded settings. Those changes need explanation before attributing a gain. Multiple simultaneous changes cannot establish which one caused it.
+
+New scenario families require a fresh baseline and changed variants evaluated on the same new cases. Their absolute scores can be shown beside the historical study for context, but their difference is not a measured improvement over the historical dataset. Keep historical model replay separate from ML variants retrained on the new training split; fit all competing new ML variants on that same split.
+
+### Verify this baseline
+
+```bash
+uv run --locked python -m scripts.study_checkpoint verify checkpoints/study-baseline-2026-10-01.json
+```
+
+The report distinguishes changed files from missing evidence and checks saved summaries against recomputed results. A fresh clone needs the [historical bundle](run-bundle.md) for the evidence checks. A mismatch exits with status 1; inspect it rather than rewriting the baseline. Later application changes may be intentional even when inference and data still match.
+
+### Compare a saved run
+
+```bash
+uv run --locked python -m scripts.study_checkpoint compare checkpoints/study-baseline-2026-10-01.json --reference test --run runs/app/3739acf583a64c79
+```
+
+This self-comparison reports zero score changes. Substitute a new run directory for an actual comparison. Different data or policy suppresses score deltas; changed settings remain visible. The command currently recognizes the five existing approach identifiers. New experiment 3 identifiers need explicit reference mappings before comparison.
+
+### Capture a later checkpoint
+
+Commit matching application changes first, then use a new output filename and the local capture date:
+
+```bash
+uv run --locked python -m scripts.study_checkpoint capture checkpoints/study-baseline-next.json --as-of YYYY-MM-DD
+```
+
+The current capture selection remains the four historical runs. Register new experiment run IDs before capturing their results. The tool refuses to overwrite a checkpoint and checks that application files match the stated source commit.
+
+## Immediate next task
+
+Prepare independent dependency and measurement-age transformations, new development families and a reviewable inspection flow. Keep Jev's checkpoint, questions and decision policy fixed for the first input comparisons. Train the new ML baseline and feature variants on the same new training split. Specialist review and frozen answer keys come before final evaluation; hosted calls follow a bounded development run plan.
+
+I will use the familiar failures to design that work, then evaluate frozen changes on separate families. Read-only diagnostic tools depend on those results. Raw KPI anomaly detection remains a separate experiment.
