@@ -39,7 +39,9 @@ The [selection-robustness check](docs/experiment-3-selection-robustness.md) comp
 
 The [structured ML comparison](docs/experiment-3-structured-ml.md) fits four matched classifiers on 96 new training packets and scores 64 development packets. Both feature blocks together match 52/64 draft references versus 24/64 for the text baseline, with 20/32 versus 6/32 pairs correct. It fixes 28 complete packets and loses none, but introduces eight wrong owner fields and ten wrong diagnostic fields on already-failed packets. Current transport faults still receive NOC at about 85% probability. Jev makes no calls in this comparison.
 
-The [training-wording comparison](docs/experiment-3-wording.md) is complete on 80 new development packets. Counterbalancing “tests” and “diagnostics” weakens their method-word weights but scores 61/80 against 64/80 for matched coupled wording. It fixes one packet and loses four, with new owner, diagnostic and evidence errors. The original training bridge scores 65/80. The next study will separate report interpretation from policy application using new development families; the original combined candidate stays unchanged. Specialist review remains necessary before final held-out evaluation.
+The [training-wording comparison](docs/experiment-3-wording.md) is complete on 80 new development packets. Counterbalancing “tests” and “diagnostics” weakens their method-word weights but scores 61/80 against 64/80 for matched coupled wording. It fixes one packet and loses four, with new owner, diagnostic and evidence errors. The original training bridge scores 65/80. The original combined candidate stays unchanged.
+
+The [report-policy study](docs/experiment-3-interpretation.md) compares a text-only report classifier and explicit report rules feeding the same fixed policy. Separate report annotations describe domain and fault/normal/unknown meaning, independent of packet decisions. On 108 new development packets, Report ML scores 62/108 against 55/108 for matched packet ML and 70/108 for the previous frozen candidate. Report rules match all draft references on this simple authored pack. Inspect the report readings, policy traces and fitted contributions at **Comparison → Report interpretation and policy**. No Jev calls were made.
 
 ## Read and explore
 
@@ -47,6 +49,7 @@ The [training-wording comparison](docs/experiment-3-wording.md) is complete on 8
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Report interpretation and policy](docs/experiment-3-interpretation.md) | Report annotations, interpreter errors, policy traces and matched architecture results. |
 | [Training wording](docs/experiment-3-wording.md) | Matched method-word intervention, negative result, controls and regressions. |
 | [Structured ML features](docs/experiment-3-structured-ml.md) | Matched feature sets, fitted vectors, score contributions and field regressions. |
 | [Selection robustness](docs/experiment-3-selection-robustness.md) | Validity boundaries, inventory gaps, multiple-domain controls and three repeated fixed requests. |
@@ -105,6 +108,7 @@ uv run --locked python -m scripts.run_experiment3_selection validate
 uv run --locked python -m scripts.run_experiment3_robustness validate
 uv run --locked python -m scripts.run_experiment3_structured_ml validate
 uv run --locked python -m scripts.run_experiment3_wording validate
+uv run --locked python -m scripts.run_experiment3_interpretation validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
@@ -114,7 +118,7 @@ node --check triage_bench/web/experiment3.js
 bash -n start.command
 ```
 
-The working checkout passes 132 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 142 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

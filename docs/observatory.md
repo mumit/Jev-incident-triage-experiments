@@ -92,3 +92,9 @@ Choose **Comparison → Structured features: ML**. The new pack has training and
 ## Training wording
 
 Choose **Comparison → Training wording: ML**. The result view shows the method-word counts, control scores, synonym agreement and learned coefficients. Select **Training → Exact input** to read the actual report substitutions across all three arms. Development inputs are identical, while fitted vocabularies and vectors can differ. Links open a corrected stale-conflict packet and a new power-owner regression. [The wording guide](experiment-3-wording.md) explains why weaker shortcut weights did not improve accuracy.
+
+## Report interpretation and policy
+
+Choose **Comparison → Report interpretation and policy**. **Exact input** separates text-only interpreter inputs from policy facts. **Decisions** compares report meanings before showing packet choices. Open each policy trace to follow predicted meaning, freshness, service support and the resulting disposition. Select **Report ML → policy** to inspect a report's domain or reading vector, fitted probabilities and score contributions. Draft report annotations appear only after reference reveal, separately from inference inputs. Training packets show inputs and annotations without evaluation predictions.
+
+The result view distinguishes report accuracy, packet accuracy, field regressions and wrong readings hidden by correct triage. Example links open a fault misread as normal, uncertainty promoted to a fault and a missed conflict with a correct final answer. [The report-policy guide](experiment-3-interpretation.md) explains why the original frozen packet candidate remains preferable on this pack.

@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **132 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **142 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -129,3 +129,13 @@ Eight new tests cover reproducible matched data, unchanged training targets, sin
 All three local fits completed on 96 training packets each and scored the same 80 development packets. The recorded report matches the saved run and independently recomputed control scores. Source and data hashes, vectors, method-word weights, score margins and matched changes verify. Eight dataset validators pass, and all earlier recorded sources and evidence still verify. These checks establish implementation and evidence integrity, not valid references, calibration or operational accuracy.
 
 Browser review covered all three training wordings, actual report substitutions, development predictions, probability fields, feature channels, a new owner regression and training packets without evaluation results. Copy feedback appeared and downloaded JSON matched the selected input and saved vector. The formatted guide linked to its report and returned to the same case, arm and inspection step. Desktop, 820-pixel and 390-pixel layouts had no page overflow; tables scroll within their containers. Browser error logs were empty, and the earlier structured comparison retained its saved scores. Pair rationale is now explicitly labeled A-to-B, alongside the reference for the selected packet.
+
+## Report-policy checks
+
+Ten new tests cover reproducible data, separate report annotations, stale faults that retain their report meaning, input/reference isolation and train-only vocabularies. They verify policy joins, current contradictions, visible paths, missing relationships, negation and uncertainty precedence, saved vectors and reconstructed report margins. Immutable-run and tamper checks recompute report attribution and policy traces. Missing-evidence fixtures expose inputs and annotations without invented predictions; HTTP exports keep report references outside interpreter inputs and link the formatted guide to its recorded report.
+
+The actual run fits the new packet classifier on 186 training packets and the report classifier on 210 training reports, plus the previous 96-packet bridge. It scores 108 development packets and 124 reports. The tracked report matches saved evidence and independently recomputed regressions against both matched packet ML and the bridge. All 124 report vectors, 248 report margins, 216 packet vectors and 864 packet margins verify. Nine dataset validators pass; earlier recorded sources, data, predictions and scores remain unchanged. No Jev calls were made.
+
+Browser review covered every inference path, both report score fields, report selection, current/stale conflict pairs, policy traces, reference reveal and training inputs without evaluation predictions. Revealing references preserves an expanded policy explanation. Copy feedback appeared and downloaded JSON matched the selected input and report vectors. The formatted guide linked to its recorded report and returned to the same packet, arm and step. Desktop, 820-pixel and 390-pixel layouts showed no page overflow; browser error logs were empty. The earlier structured comparison retained its scores.
+
+These checks establish evidence integrity and app behavior. The annotations, validity threshold and comparable-report grouping remain drafts. Explicit report expressions cover the pack's written vocabulary; their perfect development score does not establish blind transfer or operational accuracy.

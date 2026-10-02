@@ -1,0 +1,33 @@
+{
+  "schema": "experiment-3-interpretation-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "annotation_construction": "Domain and reading are written report meanings. They are not inferred from triage keys; stale or disconnected faults retain fault annotations.",
+  "policy_assumptions": "15-minute inclusive validity; current same-asset/domain reports are comparable in these written cases. Recovery requires no impact and current normal service probes. No operational claims.",
+  "splits": {
+    "train": {
+      "records": 186,
+      "families": 31,
+      "pairs": 93
+    },
+    "development": {
+      "records": 108,
+      "families": 27,
+      "pairs": 54
+    }
+  },
+  "observation_counts": {
+    "train": 210,
+    "development": 124
+  },
+  "sha256": {
+    "development.inputs.jsonl": "477424956a38dc02223f878716bd7b2603cf86455b12dad6cda37602b7f50ab7",
+    "development.labels.jsonl": "3a5cfd4c89dac651c3abd6a22b9f9e7df45b6e5cad99b2dcebe19cc54a862e41",
+    "development.observations.jsonl": "494249fee68e6c5bcf03923c8120825c53201bade99c42c458c692f1b87f7bf4",
+    "train.inputs.jsonl": "2d04fb7ad942b46998b4f35a46a3857b58e2d5e66a4267aeca12a393b18e24d4",
+    "train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571"
+  }
+}

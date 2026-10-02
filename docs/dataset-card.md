@@ -76,3 +76,7 @@ The references apply the user-selected teaching rule: keep NOC until current evi
 ## Training-wording pack
 
 The [wording study](experiment-3-wording.md) reuses the 96 structured-study training packets and their targets in three matched wording arms. Its 80 development packets form 40 pairs in 20 new families. Only method nouns differ between coupled and counterbalanced training inputs. New development references remain drafts, with no final held-out split. Shared templates, mechanisms and simplified vocabulary still limit independence and realism.
+
+## Report-interpretation pack
+
+The [report-policy study](experiment-3-interpretation.md) adds 186 training packets in 31 families and 108 development packets in 27 further families. Separate annotations describe the 210 training and 124 development reports as domain plus fault, normal or unknown. A stale or disconnected fault retains its fault annotation even when the packet reference retains NOC. These report meanings are written from the templates before fitting, not inferred from packet answers. Development pairs vary paths, measurement time, contradictions, negation, uncertainty and missing inventory. Domain names appear literally in report prefixes; shared templates and vocabulary make this a limited teaching pack. References, validity thresholds and same-asset comparability remain provisional. There is no final held-out split.

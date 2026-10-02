@@ -245,6 +245,7 @@ def handler_for(app, comparison_port=None):
     robustness_study = None
     structured_study = None
     wording_study = None
+    interpretation_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -256,8 +257,13 @@ def handler_for(app, comparison_port=None):
         return study_handler
 
     def pilot(kind='facts'):
-        nonlocal pilot_study, question_study, conflict_study, selection_study, robustness_study, structured_study, wording_study
+        nonlocal pilot_study, question_study, conflict_study, selection_study, robustness_study, structured_study, wording_study, interpretation_study
         with study_lock:
+            if kind == 'interpretation':
+                if interpretation_study is None:
+                    from .experiment3.interpretation_service import InterpretationStudy
+                    interpretation_study = InterpretationStudy(app.root)
+                return interpretation_study
             if kind == 'wording':
                 if wording_study is None:
                     from .experiment3.wording_service import WordingStudy
@@ -323,6 +329,9 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/experiment-3-interpretation-report.json':
+                    report=app.root / 'checkpoints/experiment-3-interpretation-2026-10-02.json'
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded interpretation comparison.'})
                 if path.path == '/experiment-3-wording-report.json':
                     report=app.root / 'checkpoints/experiment-3-wording-2026-10-02.json'
                     return self.send(200,json.loads(report.read_text()))
@@ -352,7 +361,7 @@ def handler_for(app, comparison_port=None):
                 if path.path in {'/api/experiment3/case', '/api/experiment3/export'}:
                     params={k:v[0] for k,v in parse_qs(path.query).items()}
                     kind=params.get('trial','facts')
-                    data=pilot(kind).case(params.get('id'), params.get('variant','baseline' if kind in {'facts','selection','robustness','structured','wording'} else 'original'), params.get('split','development'),**({'repetition':int(params.get('repetition','1'))} if kind in {'conflicts','robustness'} else {}))
+                    data=pilot(kind).case(params.get('id'), params.get('variant','baseline' if kind in {'facts','selection','robustness','structured','wording','interpretation'} else 'original'), params.get('split','development'),**({'repetition':int(params.get('repetition','1'))} if kind in {'conflicts','robustness'} else {}))
                     if path.path.endswith('/export'):
                         filename=data['record']['id'] + '-' + params.get('variant','baseline') + '-request.json'
                         return self.send(200, data['request'], download=filename)
@@ -392,7 +401,7 @@ def handler_for(app, comparison_port=None):
                     return self.forward_comparison(data)
                 if urlparse(self.path).path=='/api/experiment3/run':
                     kind=parse_qs(urlparse(self.path).query).get('trial',['facts'])[0]
-                    if kind not in {'facts','structured','wording'}:return self.send(400,{'error':'Local training is unavailable for this comparison.'})
+                    if kind not in {'facts','structured','wording','interpretation'}:return self.send(400,{'error':'Local training is unavailable for this comparison.'})
                     return self.send(200,pilot(kind).run_local())
                 if self.path=='/api/config': return self.send(200,app.configure(data))
                 if self.path=='/api/jobs': return self.send(202,app.start(data))

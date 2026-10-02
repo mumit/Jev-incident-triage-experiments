@@ -65,7 +65,7 @@ These results compare feature sets on identical new data. They are not deltas fr
 
 ## Next step
 
-The [training-wording comparison](experiment-3-wording.md) is complete on 80 new development packets. Counterbalancing “tests” and “diagnostics” weakens their method-word weights but scores 61/80 against 64/80 for matched coupled wording. It fixes one packet and loses four, with new owner, diagnostic and evidence errors. The original training bridge scores 65/80. The next study will separate report interpretation from policy application using new development families; the original combined candidate stays unchanged. Specialist review remains necessary before final held-out evaluation.
+The [training-wording comparison](experiment-3-wording.md) is complete on 80 new development packets. Counterbalancing “tests” and “diagnostics” weakens their method-word weights but scores 61/80 against 64/80 for matched coupled wording. It fixes one packet and loses four, with new owner, diagnostic and evidence errors. The original training bridge scores 65/80. The subsequent [report-policy study](experiment-3-interpretation.md) is complete on 108 further development packets. Report ML gets 62/108 right versus 55/108 for matched packet ML and 70/108 for the previous frozen candidate. Its report readings fail despite correct domain choices. The next comparison will broaden report training wording with fixed settings and policy; specialist review still precedes final held-out evaluation.
 
 ## Inspect and reproduce
 

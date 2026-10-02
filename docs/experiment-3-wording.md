@@ -89,11 +89,9 @@ In `NSW-ebc3b6e65b9a-a`, a single current power fault has a visible service path
 
 The original training bridge scores one packet better than the coupled arm, while introducing two newly wrong evidence fields on already-failed packets. Even the grammatical normalization has effects, which is why the counterbalanced comparison uses the matched coupled control. The new 80-packet scores are not deltas from the earlier 64-packet pack or a ranking against Jev's different data.
 
-## Next step
+## Follow-up and next step
 
-I will keep the original combined candidate and test fault-reading interpretation separately from policy application. A small supervised observation classifier could distinguish fault, normal and unknown readings within each domain. Its training annotations must come from the written observation evidence, with references kept separate; software can then apply the existing dependency, freshness and conflict rules to those readings.
-
-The next comparison needs new development families with varied fault descriptions, healthy readings containing fault-related words, negation and explicit uncertainty. A text-only observation classifier and a rules interpretation should receive the same reports before either feeds the fixed policy. This would isolate whether the failure comes from reading a report or applying the decision rule. It would also create a new architecture comparison, so its scores must remain separate from this fixed-feature study. Specialist review still precedes final held-out evaluation.
+The [report-policy comparison](experiment-3-interpretation.md) now separates observation interpretation from policy application on further families, with separately written report annotations. Report ML scores 62/108 against 55/108 for matched packet ML, but the previous frozen candidate scores 70/108. It identifies every domain and misreads most report states. The next training intervention will broaden fault, normal and uncertain wording while holding the report model and policy fixed. All recorded wording inputs, targets and fitted evidence remain unchanged.
 
 ## Inspect and reproduce
 
