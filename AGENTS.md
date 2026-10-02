@@ -17,3 +17,5 @@ Use the app labels Rules, ML · original, ML · revised, Jev · original and Jev
 Write study narration in first person for authorship, choices, judgments and limitations. Let models, data, methods and results lead descriptions of their behavior. Avoid repeated “I used,” “I trained” or “I will” openings. Preserve completed-versus-planned work and technical qualifications when revising prose.
 
 Keep HANDOFF.md and the historical bundle guide aligned with the study. Historical evidence is a versioned release asset, not tracked run files. Never overwrite an existing run or replace a released bundle with different evidence.
+
+Experiment 3 lives in `triage_bench/experiment3/` and a separate draft data directory. Preserve historical inference and data. Its four ML arms share training packets and settings; only input facts vary. Keep references provisional and Jev explicitly unrun until recorded hosted responses exist. Do not generalize draft development scores into historical deltas or operational claims. Include `experiment3.js` in syntax checks and run the new pack validator.

@@ -77,4 +77,4 @@ If a response fails, inspect its recorded status and settings. The app stops tha
 
 ## Next experiment
 
-I will test explicit dependency coverage and measurement freshness on new families, one input change at a time, then evaluate the frozen revisions on separate families. The comparison will score software priority separately and include a review of regressions and high-probability errors. [The overview](experiment-overview.md#next-experiment) records the plan. Raw KPI time-series anomaly detection remains a later, separate experiment.
+The separate [experiment 3 workbench](experiment-3-development.md) now exposes dependency and measurement-age calculations, four matched local ML variants and exact prepared Jev requests. Follow raw evidence, calculated facts, input and decisions; compare packets A and B before revealing the draft references. A fresh clone can run the local comparison without Jev. Specialist review, hosted Jev comparisons and final held-out evaluation remain pending. [The overview](experiment-overview.md#next-experiment) records the plan. Raw KPI time-series anomaly detection remains a later, separate experiment.

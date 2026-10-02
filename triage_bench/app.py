@@ -238,6 +238,7 @@ class App:
 
 def handler_for(app, comparison_port=None):
     study_handler = None
+    pilot_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -247,6 +248,14 @@ def handler_for(app, comparison_port=None):
                 from .explorer import Study, handler_for as explorer_handler_for
                 study_handler = explorer_handler_for(Study(app.root))
         return study_handler
+
+    def pilot():
+        nonlocal pilot_study
+        with study_lock:
+            if pilot_study is None:
+                from .experiment3.service import PilotStudy
+                pilot_study = PilotStudy(app.root)
+        return pilot_study
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -258,13 +267,14 @@ def handler_for(app, comparison_port=None):
             origin=self.headers.get('Origin')
             return not origin or origin in {'http://'+host for host in expected}
 
-        def send(self, status, body, content_type='application/json'):
+        def send(self, status, body, content_type='application/json', download=None):
             if urlparse(self.path).path in {'/explorer','/explorer.js','/explorer.css','/api/study','/api/case','/api/microscope','/api/sandbox','/api/export','/study.md','/study','/study.css','/study.js'}:
                 return explorer_handler().send(self, status, body, content_type)
             data=body if isinstance(body,bytes) else json.dumps(body).encode()
             self.send_response(status)
             self.send_header('Content-Type',content_type)
             self.send_header('Content-Length',str(len(data)))
+            if download: self.send_header('Content-Disposition', 'attachment; filename="' + download + '"')
             self.send_header('Cache-Control','no-store')
             self.send_header('X-Content-Type-Options','nosniff')
             self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; frame-ancestors 'none'")
@@ -275,6 +285,16 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/experiment-3-report.json':
+                    return self.send(200,(app.root / 'checkpoints/experiment-3-development-2026-10-01.json').read_bytes())
+                if path.path == '/api/experiment3/catalog': return self.send(200, pilot().catalog())
+                if path.path in {'/api/experiment3/case', '/api/experiment3/export'}:
+                    params={k:v[0] for k,v in parse_qs(path.query).items()}
+                    data=pilot().case(params.get('id'), params.get('variant','baseline'), params.get('split','development'))
+                    if path.path.endswith('/export'):
+                        filename=data['record']['id'] + '-' + params.get('variant','baseline') + '-request.json'
+                        return self.send(200, data['request'], download=filename)
+                    return self.send(200, data)
                 if path.path=='/api/study-status': return self.send(200,{'available':True})
                 if path.path in {'/explorer','/explorer.js','/explorer.css','/api/study','/api/case','/api/microscope','/api/export','/study.md','/study','/study.css','/study.js'}:
                     return explorer_handler().do_GET(self)
@@ -288,7 +308,7 @@ def handler_for(app, comparison_port=None):
                     return self.send(200,sorted(jobs,key=lambda j:j['created_at'],reverse=True))
                 if path.path.startswith('/api/jobs/'):
                     return self.send(200,app.snapshot(path.path.split('/')[-1]))
-                assets={'/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
+                assets={'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
                 if path.path in assets:
                     filename,mime=assets[path.path]
                     return self.send(200,(Path(__file__).parent/'web'/filename).read_bytes(),mime)
@@ -308,6 +328,7 @@ def handler_for(app, comparison_port=None):
                 if not isinstance(data,dict): raise ValueError('Expected a JSON object.')
                 if comparison_port and self.path in {'/api/config','/api/jobs','/api/cancel'}:
                     return self.forward_comparison(data)
+                if self.path=='/api/experiment3/run': return self.send(200,pilot().run_local())
                 if self.path=='/api/config': return self.send(200,app.configure(data))
                 if self.path=='/api/jobs': return self.send(202,app.start(data))
                 if self.path=='/api/cancel': return self.send(200,app.cancel(data.get('id')))

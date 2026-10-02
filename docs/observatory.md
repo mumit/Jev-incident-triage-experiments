@@ -13,7 +13,7 @@ The default startup port is 8766. The current session is at [port 8768](http://1
 5. **Results.** Switch between validation, held-out test and paired challenges. Choose all-four accuracy, individual fields, semantic decisions or the separate software-priority score. Pair scoring appears only for challenges. Family cells always show all-four correctness; select one to inspect an incorrect packet, or a correct one if the approach passed that family.
 6. **Case workbench.** Follow **Evidence**, **Decisions** and **Inside an approach**. **Choose a packet** opens dataset and family selectors; **Failure filters** selects mistakes for an approach. Previous/next moves within matching packets. Hide the reference to try a decision first. **Paired change** compares both graphs or exact changed fields. Browser Back restores the case or inspection step. An empty filter explains that the previously opened evidence remains visible.
 7. **Evidence sandbox.** Edit impact or the first observation and run rules and both local ML variants. The before/after table marks changed choices. Edits persist across chapters; selecting another packet starts a new sandbox. Further edits mark the replay stale. Reset discards edits. Jev is not rerun, and edited evidence has no new reference score.
-8. **Next experiment.** Read the planned tests of dependency coverage and measurement freshness on new families. The experiment has not run. The existing saved results stay unchanged.
+8. **Experiment 3.** Open the separate draft development workbench to inspect dependency and measurement-age facts, prepared Jev inputs and matched local ML results. Hosted Jev and final held-out evaluation remain pending. Historical saved results stay unchanged.
 
 ## Read the study
 
@@ -54,3 +54,11 @@ Use this only when a comparison process actually runs at port 8767. Both process
 The walkthrough reads the fixed run IDs in `triage_bench/explorer.py`, documented in [the measured review](performance-review.md). Raw runs and the freeze record remain local and ignored by Git. A fresh clone still supports data inspection and local models, but historical predictions and hash verification require the original run files. New comparisons appear in the comparison lab without replacing the walkthrough's fixed experiments.
 
 These are constructed teaching scenarios, with correlated family variations. Scores measure agreement with the synthetic policy, not reliability on a real network. See [the dataset card](dataset-card.md) and [verification](verification.md).
+
+## Experiment 3 development workbench
+
+Choose **Experiment 3** to open the separate development pack. Its four steps connect raw evidence, calculated dependency/age facts, exact prepared Jev input and saved local decisions. Switch between A and B to inspect the one declared intervention. The reference remains hidden until revealed; opening it marks local decisions that disagree with the draft accepted answers.
+
+The page compares four local ML variants and unchanged rules, exposes probabilities and fingerprints, and exports the selected Jev request. **Run local ML comparison** fits on the new training split and scores development only. It creates a new run without overwriting old evidence or calling Jev. Training packets have no saved evaluation predictions.
+
+References and the measurement window need specialist review. Jev has not run on this pack, and no new final held-out set exists. [The development guide](experiment-3-development.md) records the local results and limitations.

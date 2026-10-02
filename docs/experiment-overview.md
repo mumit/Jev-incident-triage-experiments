@@ -243,6 +243,8 @@ The rules scores show how much of these written scenarios keywords and explicit 
 
 ## Next experiment
 
+The first [experiment 3 development pilot](experiment-3-development.md) is now available in the app. It adds a separate draft pack, deterministic transformations, exact prepared Jev requests and four matched local ML comparisons. Hosted Jev and final held-out evaluation remain pending. The plan below describes the remaining study.
+
 I will test whether explicit dependency facts and measurement freshness reduce unsupported owner assignments and improve requests for evidence.
 
 The new scenarios will cover independent network layouts, related and unrelated alarms, current and stale measurements, missing topology, conflicting evidence and irrelevant changes. Network specialists will review ambiguous diagnostic references before I freeze the new answer keys. The existing results will remain unchanged.

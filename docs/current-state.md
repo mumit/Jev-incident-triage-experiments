@@ -117,3 +117,7 @@ The current capture selection remains the four historical runs. Register new exp
 Prepare independent dependency and measurement-age transformations, new development families and a reviewable inspection flow. Keep Jev's checkpoint, questions and decision policy fixed for the first input comparisons. Train the new ML baseline and feature variants on the same new training split. Specialist review and frozen answer keys come before final evaluation; hosted calls follow a bounded development run plan.
 
 I will use the familiar failures to design that work, then evaluate frozen changes on separate families. Read-only diagnostic tools depend on those results. Raw KPI anomaly detection remains a separate experiment.
+
+## Development after this checkpoint
+
+The [experiment 3 development guide](experiment-3-development.md) records the new draft pack, local pilot and prepared Jev requests. That work changes application source while preserving the historical data and evidence recorded here. This checkpoint remains the pre-experiment-3 baseline; it does not capture the new pilot.

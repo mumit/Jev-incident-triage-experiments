@@ -1,10 +1,10 @@
 # Verification
 
-September 30, 2026. This document records the current implementation checks and their limits. [The measured review](performance-review.md) records experiment results; [the overview](experiment-overview.md) explains the study.
+October 1, 2026. This document records the current implementation checks and their limits. [The measured review](performance-review.md) records experiment results; [the overview](experiment-overview.md) explains the study.
 
 ## Automated checks
 
-The working checkout passes **56 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All three browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **74 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -64,3 +64,11 @@ A fresh local clone restored the archive and passed all 45 Python tests without 
 The [current-state checkpoint](current-state.md) matches 28 source files, nine dataset files and 67 portable evidence files. Recomputed scoring reproduces all saved metrics for 18 approach results across four runs. A self-comparison of the recorded test run reports zero score changes. Five additional tests cover checkpoint overwrite refusal, changed versus missing files, portable metadata, edited summaries and suppression of score deltas for different inputs, answer keys or policy.
 
 A fresh local clone of the audit source restored the public v1 evidence bundle and passed the baseline verification, including all 18 recomputed approach results. Metadata normalization makes its fingerprints match the original checkout without exposing personal paths.
+
+## Experiment 3 development checks
+
+Eighteen new Python tests cover transformation isolation, identical questions, measurement/report age, boundary and unknown statuses, impossible timestamps, directional paths, partial maps and cycles. They also check draft pair integrity, reproducible generation, train-only fitting, matched settings, run overwrite refusal, source drift, recomputed scores and local HTTP request exports. The new validator confirms 72 training and 36 development packets.
+
+Browser inspection covered raw evidence, calculated facts, exact input and decisions, paired topology changes, stale measurement with recent arrival, missing topology, hidden draft references, probabilities and unscored training packets. The app's local replay completed without hosted calls. Desktop, 820-pixel and 390-pixel layouts were checked; a topology-diff overflow was corrected. Request copying produced success feedback. A server-backed JSON download completed, and its parsed body matched the exact prepared request. A fresh data-only fixture exposed inputs and prepared requests without inventing local or Jev results.
+
+The baseline audit still matches all nine historical data files, 67 evidence files and 18 recomputed approach results. It reports the intended changes to five application files. The four frozen inference files are unchanged. New local pilot scores use draft references and are separate from historical comparisons; the app verifies saved input, training, source and prediction fingerprints and recomputes scores before displaying them.

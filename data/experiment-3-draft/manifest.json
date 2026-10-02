@@ -1,0 +1,26 @@
+{
+  "version": "experiment-3-draft-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "telemetry_assumption": "Each observation declares a 15-minute validity window; this teaching assumption needs specialist review.",
+  "splits": {
+    "train": {
+      "records": 72,
+      "families": 12,
+      "pairs": 36
+    },
+    "development": {
+      "records": 36,
+      "families": 9,
+      "pairs": 18
+    }
+  },
+  "sha256": {
+    "development.inputs.jsonl": "9b185095d46db7f7096093525c449b890d868776e7f329a6bc0d25db99a29625",
+    "development.labels.jsonl": "4041c2e86e93a5a0caece2c564ce29c407a3441e73d552e2288ace492b2da11d",
+    "train.inputs.jsonl": "a888e560f83996e2a2adf89f1eca8d81c6c1149180a85a112071a38e384e9cc2",
+    "train.labels.jsonl": "d77a79c4a65ad62d93ca6be9d0f93871564d6cf8ec6b3e0a34041a79bc9d2655"
+  }
+}

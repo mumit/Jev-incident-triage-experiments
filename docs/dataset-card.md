@@ -46,3 +46,7 @@ The runnable validator checks the public input records and answer-key rows. See 
 The app joins inputs and keys for human inspection while keeping the keys out of inference. Original ML and Jev receive the same original state; revised ML and focused Jev receive the same compact state. Only ML fits on the 600 training packets. Five test and four challenge packets appeared in earlier runs, as disclosed in [the overview](experiment-overview.md).
 
 Use [the data atlas](observatory.md) to inspect families and pairs, and [the evaluation plan](evaluation-plan.md) for score definitions. Raw KPI detection requires a separate dataset and experiment.
+
+## Experiment 3 draft pack
+
+The historical counts and definitions above remain unchanged. A separate `data/experiment-3-draft/` pack adds 72 training packets across 12 families and 36 development packets across nine disjoint families. Every pair changes one declared field. References remain provisional, and no new final held-out split exists. [The development guide](experiment-3-development.md#new-data) describes construction and review questions. Neither pack establishes real network representativeness.

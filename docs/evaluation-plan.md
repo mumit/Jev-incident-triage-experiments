@@ -8,7 +8,7 @@ The outputs are `initial_owner`, `priority`, `next_check` and `insufficient_evid
 
 In experiment 1, original ML and original Jev receive the same allowlisted policy-and-incident state. In experiment 2, revised ML and focused Jev receive the same compact state. Revised ML also derives structured impact features from that state; focused Jev receives more explicit questions. Rules read observations and impact. No approach receives reference labels, family IDs or generation metadata during inference.
 
-Each ML vocabulary and classifier fits only the 600 training records. Jev uses the fixed hosted checkpoint `jev-1.13.0`, without telecom fine-tuning in this study. These approaches have different training histories.
+In experiments 1 and 2, each ML vocabulary and classifier fits only the 600 original training records. Experiment 3 fits its four matched variants only on the 72 new training packets. Jev uses the fixed hosted checkpoint `jev-1.13.0`, without telecom fine-tuning in this study. These approaches have different training histories.
 
 ## Implemented scores
 
@@ -38,7 +38,7 @@ Each regular evaluation set has 11 families with 20 correlated variations per fa
 
 ## Next experiment
 
-I will test explicit dependency coverage and measurement freshness on new development families, changing one input element at a time and including correct cases to detect regressions. The policy and Jev checkpoint will stay fixed, and ML fitting will use only training data.
+The [experiment 3 development pilot](experiment-3-development.md) now compares four local ML input variants on 36 paired packets: compact baseline, dependency facts, measurement age and both. The new references remain drafts. The policy, questions and Jev checkpoint are unchanged, and all four classifiers fit only the same new training split. Jev requests are prepared but have not been sent. No final held-out set exists.
 
 Before evaluating separate families, I will freeze the transformations and questions. The evaluation will retain all four outputs, score software priority separately and include a review of high-probability errors. Network specialists will review ambiguous diagnostic references before I freeze the answer keys. See [the overview](experiment-overview.md#next-experiment).
 

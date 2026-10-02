@@ -4,9 +4,9 @@
 
 I compare hosted Jev, trained ML and rules on incident decisions for the fictional **Northstar Telecom** network. The study examines failures and whether clearer inputs, questions or software calculations improve decisions. It recommends diagnostics without executing network changes.
 
-Two experiments are complete. The app includes an eight-chapter study walkthrough, saved-case inspection, an ML feature microscope, a local evidence sandbox and a formatted study reader at `/study`. The reader uses the repository Markdown and preserves the selected walkthrough context. The next experiment has not run.
+Two experiments are complete. The app includes an eight-chapter study walkthrough, saved-case inspection, an ML feature microscope, a local evidence sandbox and a formatted study reader at `/study`. The reader uses the repository Markdown and preserves the selected walkthrough context. Experiment 3 now has a separate draft training/development pack, deterministic dependency and measurement-age facts, prepared Jev requests and a matched local ML pilot at `/experiment-3`. Jev has not run on the new pack, references need specialist review and no final held-out set exists.
 
-The current handoff and historical evidence belong to the [`study-evidence-v1` release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1). Its tag identifies the source version; the bundle manifest records the full source commit. The frozen inference checkpoint is `6a44f62`. Later UI and documentation work preserves its four inference files.
+The historical handoff and evidence belong to the [`study-evidence-v1` release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1). Its tag identifies the source version; the bundle manifest records the full source commit. The frozen inference checkpoint is `6a44f62`. Later UI and documentation work preserves its four inference files.
 
 ## Read first
 
@@ -35,22 +35,20 @@ Follow the [restore instructions](docs/run-bundle.md), then start the app and op
 
 The [October 1 stocktake](docs/current-state.md) and `checkpoints/study-baseline-2026-10-01.json` record application and audit source `84e414a`, the frozen dataset, recorded settings and results. Verification checks source, data and portable historical evidence fingerprints and recomputes the saved scores. The comparison command reports deltas only for matching evaluation inputs, answer keys and policy. New families need a new baseline and changed variants on the same evaluation set.
 
-## Next task
+## Experiment 3 development
 
-I will test explicit dependency coverage and measurement freshness separately before combining them:
+Read the [development guide](docs/experiment-3-development.md) and its machine-readable report. The new pack has 72 training and 36 development packets across disjoint families. Four local classifiers share a recipe and differ only in textual input facts. They fit only the new training split. Rules remain unchanged.
 
-- Calculate which affected sites depend on an observed faulty node. Supply supporting paths and a coverage summary alongside the raw topology. Missing or incomplete topology must stay unknown.
-- Distinguish report arrival time from measurement time. Add explicit measurement age and freshness status; a missing measurement time must stay unknown.
-- Write new scenarios with independent layouts, related and unrelated alarms, conflicting evidence and irrelevant changes. Obtain network-specialist review of realism and ambiguous diagnostic references before freezing the answer keys.
-- Compare one change at a time on new development families, including correct cases to detect regressions. Freeze transformations and questions before evaluating separate families.
-- Retain all four outputs, score software priority separately and inspect semantic accuracy, paired sensitivity, high-probability errors and failures. Fit ML features and classifiers only on training data; keep the policy and Jev checkpoint fixed.
+All-four development accuracy is 16.7% for the compact baseline, 30.6% with dependency facts, 13.9% with measurement facts and 27.8% with both. Rules score 50.0%. These are small-sample draft-reference results on different data, not deltas from experiment 2. Raw pilot predictions remain ignored; a fresh clone can replay them with the CLI or app button.
 
-The [overview](docs/experiment-overview.md#next-experiment) and [evaluation plan](docs/evaluation-plan.md#next-experiment) give the full plan. Raw KPI time-series anomaly detection remains a separate future experiment. The existing dataset has narrative observations, not raw KPI time series.
+The next task is to review dependency semantics, telemetry validity and diagnostic alternatives with a network specialist. Then prepare a bounded hosted Jev comparison on the same four inputs, and a separate ML comparison of structured dependency/age features. New revisions need further development cases. Freeze reviewed references, transformations and questions before generating final held-out families.
+
+Raw KPI time-series anomaly detection remains separate. The historical dataset has narrative observations, not raw KPI time series.
 
 ## Working with Codex
 
 Open the cloned repository as a Codex project so it reads `AGENTS.md`. A useful first task is:
 
-> Read HANDOFF.md and the linked study docs. Verify the restored historical evidence and inspect the dependency and stale-measurement failures. Prepare the new development and evaluation families and a comparison plan for dependency coverage and measurement freshness. Keep recorded results and inference unchanged while designing the next experiment. Do not make hosted Jev calls during this preparation.
+> Read HANDOFF.md and docs/experiment-3-development.md. Verify the draft pack and replay the local pilot. Inspect the controlled pairs, exact prepared Jev inputs and ML regressions. Preserve historical inference, data and evidence. Document specialist-review questions and a bounded Jev development run plan before hosted inference.
 
 API keys, `.env`, local environments and run files stay out of Git. Preserve input/answer-key separation and report missing results explicitly. The ML microscope explains a fitted score, not physical causation; Jev's hosted weights and internal reasoning remain unavailable.
