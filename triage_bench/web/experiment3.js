@@ -6,8 +6,10 @@ const fields = {initial_owner:'Investigating team', priority:'Priority', next_ch
 const stages = ['evidence','facts','input','decisions'];
 const guides = ['Start with the observation and the field that changes between A and B.', 'Follow the supporting paths and compare measurement age with report age.', 'Compare the added facts with the baseline. Policy and questions are identical.', 'Inspect each error against the draft rationale, then switch to the paired packet.'];
 const pageQuery=new URLSearchParams(location.search);
-const trial=['questions','conflicts','selection'].includes(pageQuery.get('trial'))?pageQuery.get('trial'):'facts';
+const trial=['questions','conflicts','selection','robustness'].includes(pageQuery.get('trial'))?pageQuery.get('trial'):'facts';
 const repetition=['1','2','3'].includes(pageQuery.get('repetition'))?pageQuery.get('repetition'):'1';
+const repeatTrial=trial==='conflicts'||trial==='robustness';
+const selectionTrial=trial==='selection'||trial==='robustness';
 const questionTrial=trial==='questions'||trial==='conflicts';
 let catalog, detail, selected = {}, stage = 'evidence', generation = 0;
 async function api(path, options) {
@@ -22,6 +24,11 @@ function options(id, rows, value) {
   if (rows.some(r=>r[0]===value)) $(id).value=value;
 }
 function metric(value) { return Number.isFinite(value) ? (100*value).toFixed(1)+'%' : 'Unavailable'; }
+function minutes(value) {
+  if(value===null||value===undefined)return 'Unknown';
+  const seconds=Math.round(value*60),whole=Math.floor(seconds/60),part=seconds%60;
+  return part?`${whole} min ${part} s`:`${whole} min`;
+}
 function scores() {
   const pilot=catalog.pilot,hosted=catalog.hosted_pilot;
   $('comparison').value=trial;
@@ -36,7 +43,7 @@ function scores() {
     $('comparison-description').textContent='Identical combined evidence in both arms. Only owner, diagnostic and evidence-sufficiency instructions change. Checkpoint, policy, choices and priority question stay fixed. References remain provisional.';
     $('run-local').hidden=true; $('split').disabled=true;
   }
-  if(trial==='selection') {
+  if(selectionTrial) {
     $('hero-title').innerHTML='Select usable evidence.<br>Keep the questions fixed.';
     $('hero-intro').textContent='Inspect what software retains or removes, then compare three Jev inputs on the same new packets.';
     $('results-heading').textContent='Same packets, three evidence inputs';
@@ -51,6 +58,13 @@ function scores() {
     $('comparison-description').textContent='The questions and combined evidence remain fixed across repetitions. Only the paired nominal-reading timestamp changes from current to stale. Eight distinct packets are repeated three times; references remain drafts.';
     for(const link of document.querySelectorAll('[data-main-guide]'))link.href='/study?doc=experiment-3-conflicts';
   }
+  if(trial==='robustness') {
+    $('repetition-label').hidden=false;$('repetition').value=repetition;
+    $('hero-title').innerHTML='Test where the filter holds.<br>Repeat fixed requests.';
+    $('hero-intro').textContent='Inspect validity limits, inventory gaps and multiple current faults. The filter and explicit questions remain unchanged.';
+    $('results-heading').textContent='Repetition '+repetition+' · combined versus selected evidence';
+    $('comparison-description').textContent='Eight new packets in four correlated pairs compare combined facts and selected observations. Three repeats check decision agreement. The multiple-domain reference remains a draft interpretation.';
+  }
   $('jev-summary').textContent=hosted?`${hosted.attempted_requests} Jev requests attempted; ${hosted.failed_requests} failed.`:'Jev has not run on this pack.';
   if(catalog.repeat_summary)$('jev-summary').textContent=`${catalog.repeat_summary.attempted_requests} Jev requests attempted across three repetitions; ${catalog.repeat_summary.failed_requests} failed.`;
   const rows=[];
@@ -58,7 +72,7 @@ function scores() {
   if(hosted)for(const v of Object.keys(catalog.variants))rows.push({name:'Jev · '+catalog.variants[v],metrics:hosted.approaches[v].metrics,hosted:true});
   $('scores').innerHTML=rows.length?`<table><caption class="muted">Development packets · controlled pairs · provisional references</caption><thead><tr><th>Approach / input</th><th>All four correct</th><th>Three semantic decisions</th><th>Both packets correct</th><th>Owner / next check / evidence</th></tr></thead><tbody>${rows.map(r=>{const m=r.metrics;return `<tr class="${r.hosted?'hosted-row':''}"><td>${esc(r.name)}<small>${m.records} packets · ${m.attempted_records} attempted · ${m.failed_records} failed · ${m.missing_records} missing</small></td><td>${metric(m.all_fields_accuracy)}</td><td>${metric(m.semantic_decisions_accuracy)}</td><td>${metric(m.pair_all_fields_accuracy)}</td><td>${['initial_owner','next_check','insufficient_evidence'].map(f=>metric(m.fields[f].accuracy)).join(' / ')}</td></tr>`;}).join('')}</tbody></table><p class="muted">The scores use this draft pack, with failures and missing responses in the denominator. All four decisions remain visible. These results do not establish operational performance or an improvement over experiments 1 and 2.</p>`:`<p>${esc(catalog.status)}</p><p>Raw evidence, calculated facts and prepared Jev requests are available without saved runs.</p>`;
   if(pilot&&hosted&&(pilot.input_sha256!==hosted.input_sha256||pilot.label_sha256!==hosted.label_sha256))$('scores').insertAdjacentHTML('beforeend','<p class="change">The local and hosted runs cover different packets or references. Compare their per-packet decisions; aggregate scores are not matched.</p>');
-  $('repeat-summary').innerHTML=catalog.repeat_summary?`<h3>Across all three repetitions</h3><p class="muted">Eight distinct packets, four correlated pairs. Agreement does not establish correctness.</p><table><thead><tr><th>Questions</th><th>Correct responses</th><th>Both packets correct</th><th>Identical decisions on all repeats</th><th>Correct on all repeats</th></tr></thead><tbody>${Object.entries(catalog.repeat_summary.approaches).map(([a,m])=>`<tr><td>${esc(catalog.variants[a])}</td><td>${m.fully_correct_responses}/${m.planned_packet_responses}</td><td>${m.pair_successes}/${m.planned_pairs}</td><td>${m.cases_with_identical_decisions}/${m.distinct_packets}</td><td>${m.cases_correct_in_every_repetition}/${m.distinct_packets}</td></tr>`).join('')}</tbody></table>`:'';
+  $('repeat-summary').innerHTML=catalog.repeat_summary?`<h3>Across all three repetitions</h3><p class="muted">Eight distinct packets, four correlated pairs. Agreement does not establish correctness.</p><table><thead><tr><th>${trial==='robustness'?'Input':'Questions'}</th><th>Correct responses</th><th>Both packets correct</th><th>Identical decisions on all repeats</th><th>Correct on all repeats</th></tr></thead><tbody>${Object.entries(catalog.repeat_summary.approaches).map(([a,m])=>`<tr><td>${esc(catalog.variants[a])}</td><td>${m.fully_correct_responses}/${m.planned_packet_responses}</td><td>${m.pair_successes}/${m.planned_pairs}</td><td>${m.cases_with_identical_decisions}/${m.distinct_packets}</td><td>${m.cases_correct_in_every_repetition}/${m.distinct_packets}</td></tr>`).join('')}</tbody></table>`:'';
   $('provenance').textContent=pretty({data:catalog.manifest,local:pilot?{id:pilot.run_id,source_sha256:pilot.source_sha256,training:pilot.approaches.baseline.training}:null,hosted:hosted?{id:hosted.run_id,status:hosted.status,model:hosted.requested_model,endpoint:hosted.endpoint,execution:hosted.execution,requests_sha256:hosted.requests_sha256,source_sha256:hosted.source_sha256,stopped_reason:hosted.stopped_reason}:null});
 }
 function chooseFamilies(preferred) {
@@ -112,16 +126,16 @@ function renderCase() {
   $('dependency-included').textContent=trial!=='facts'||['dependency','combined'].includes(selected.variant)?'Included in this variant':'Not included in this variant';
   $('measurement-included').textContent=trial!=='facts'||['measurement','combined'].includes(selected.variant)?'Included in this variant':'Not included in this variant';
   $('dependency').innerHTML=detail.dependency_facts.map(f=>`<div class="dependency-card"><strong>Observation ${f.observation_index+1} · ${esc(f.asset_id||'unknown asset')}</strong> <span class="status ${f.relation==='unknown'?'tone-unknown':'tone-current'}">${esc(f.relation.replaceAll('_',' '))}</span><p class="muted">${f.supported_site_count} supported · ${f.excluded_site_count} excluded · ${f.unknown_site_count===null?'unknown scope':f.unknown_site_count+' unknown'}</p><div class="paths">${f.supporting_paths.map(p=>`<span class="path">${p.path.map(esc).join(' → ')}</span>`).join('')}</div>${f.excluded_sites.length?`<p class="muted">Excluded by the complete map: ${f.excluded_sites.map(esc).join(', ')}</p>`:''}${f.unknown_sites.length?`<p class="muted">Relationship unknown for: ${f.unknown_sites.map(esc).join(', ')}</p>`:''}</div>`).join('');
-  $('measurement').innerHTML=`<table><thead><tr><th>Observation</th><th>Report age</th><th>Measurement age</th><th>Declared window</th><th>Status</th></tr></thead><tbody>${detail.measurement_facts.map(f=>`<tr><td>${f.observation_index+1}</td><td>${f.report_age_minutes} min</td><td>${f.measurement_age_minutes===null?'Unknown':f.measurement_age_minutes+' min'}</td><td>${f.declared_valid_for_minutes??'Unknown'} min</td><td><span class="status tone-${f.freshness_status}">${f.freshness_status}</span></td></tr>`).join('')}</tbody></table>`;
-  $('baseline-heading').textContent=questionTrial?'Original questions':trial==='selection'?'Combined facts':'Compact baseline';
+  $('measurement').innerHTML=`<table><thead><tr><th>Observation</th><th>Report age</th><th>Measurement age</th><th>Declared window</th><th>Status</th></tr></thead><tbody>${detail.measurement_facts.map(f=>`<tr><td>${f.observation_index+1}</td><td>${minutes(f.report_age_minutes)}</td><td>${minutes(f.measurement_age_minutes)}</td><td>${f.declared_valid_for_minutes??'Unknown'} min</td><td><span class="status tone-${f.freshness_status}">${f.freshness_status}</span></td></tr>`).join('')}</tbody></table>`;
+  $('baseline-heading').textContent=questionTrial?'Original questions':selectionTrial?'Combined facts':'Compact baseline';
   $('baseline-packet').textContent=pretty(questionTrial?detail.question_sets.original:detail.packets.baseline);$('selected-packet').textContent=pretty(questionTrial?detail.question_sets[selected.variant]:detail.packets[selected.variant]);$('selected-heading').textContent=catalog.variants[selected.variant];
   $('input-meta').textContent=`${catalog.variants[selected.variant]} · ${detail.request.model} · ${detail.request_bytes.toLocaleString()} request bytes · ${questionTrial?'identical state across question arms':'identical policy and questions across variants'}`;
   $('request-note').textContent=selected.split==='train'?'This is a prepared training-packet request. Training packets do not enter hosted evaluation.':detail.hosted_outputs?.[selected.variant]?'The saved Jev run used this state, the fixed policy and identical questions. The corresponding local ML variant receives the same state string. Inspect the saved request and response in Decisions.':'The selected ML variant receives the same state string. Policy, checkpoint and questions stay fixed across variants. No saved hosted response exists for this packet and variant.';
   if(questionTrial)$('request-note').textContent='Both arms receive the same combined state string. Compare the full questions below, then inspect the saved request and response in Decisions. Priority and valid choices are unchanged.';
-  if(trial==='selection')$('request-note').textContent='Compare the combined baseline with the selected input. All three use the frozen explicit questions. Removed reports stay in Raw evidence, outside the selected request. No reference decisions enter Jev.';
-  if(trial==='selection')$('facts-note').textContent='Dependency and age facts below describe every raw report. The eligibility table shows which observations and fact rows enter the selected request. The calculators do not read reference answers.';
-  $('eligibility-review').hidden=trial!=='selection';
-  if(trial==='selection') {
+  if(selectionTrial)$('request-note').textContent='Compare the combined baseline with the selected input. Every input uses the frozen explicit questions. Removed reports stay in Raw evidence, outside the selected request. No reference decisions enter Jev.';
+  if(selectionTrial)$('facts-note').textContent='Dependency and age facts below describe every raw report. The eligibility table shows which observations and fact rows enter the selected request. The calculators do not read reference answers.';
+  $('eligibility-review').hidden=!selectionTrial;
+  if(selectionTrial) {
     $('eligibility-note').textContent=selected.variant==='selected'?'Only eligible observations and their reindexed facts enter this request. Source numbers refer to Raw evidence.':selected.variant==='eligibility'?'All reports remain. An added block marks eligibility without selecting a fault domain.':'All reports and the existing dependency and age facts remain. The eligibility calculation below is for inspection only.';
     const kept=detail.eligibility.filter(r=>r.eligible);
     $('eligibility-rows').innerHTML=`<table><thead><tr><th>Raw observation</th><th>Freshness</th><th>Supported sites</th><th>Eligible</th><th>Reason</th><th>Request observation</th></tr></thead><tbody>${detail.eligibility.map(r=>`<tr><td>${r.observation_index+1}</td><td>${esc(r.freshness_status)}</td><td>${r.supported_site_count}</td><td>${r.eligible?'Yes':'No'}</td><td>${esc(r.reasons.join(', ')||'Current and related')}</td><td>${selected.variant==='selected'?(r.eligible?kept.indexOf(r)+1:'Removed'):r.observation_index+1}</td></tr>`).join('')}</tbody></table>`;
@@ -138,7 +152,7 @@ function decisions() {
   if(hasLocal)for(const v of [...Object.keys(catalog.variants),'rules'])rows.push({name:v==='rules'?'Rules':'ML · '+catalog.variants[v],row:output[v],selected:v===selected.variant});
   if(hasHosted)for(const v of Object.keys(catalog.variants))rows.push({name:'Jev · '+catalog.variants[v],row:hosted[v],selected:v===selected.variant,hosted:true});
   $('decisions').innerHTML=selected.split==='train'||!rows.length?'<p>No saved evaluation predictions for this packet.</p>':`<table><thead><tr><th>Approach</th>${Object.values(fields).map(f=>`<th>${f}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr class="${r.selected?'selected-row':''}"><td>${esc(r.name)}</td>${Object.keys(fields).map(f=>{const prediction=r.row?.status==='ok'?r.row.predictions?.[f]:null;return `<td>${prediction?`<span class="${$('reference').open?(detail.draft_reference.accepted_answers[f].includes(prediction)?'status tone-correct':'status tone-error'):''}">${esc(prediction)}</span>`:r.row?.status==='error'?'Failed response':'Not attempted'}</td>`;}).join('')}</tr>`).join('')}${hasHosted?'':'<tr><td>Jev · input variants</td><td colspan="4">No saved hosted run</td></tr>'}</tbody></table>`;
-  $('repeated-decisions').innerHTML=trial==='conflicts'?`<h4>This packet across three planned repetitions</h4><table><thead><tr><th>Question arm</th><th>Repeat</th>${Object.values(fields).map(f=>`<th>${f}</th>`).join('')}</tr></thead><tbody>${Object.keys(catalog.variants).flatMap(a=>[1,2,3].map(n=>{const row=detail.repeated_outputs?.[String(n)]?.[a];return `<tr class="${String(n)===repetition&&a===selected.variant?'selected-row':''}"><td>${esc(catalog.variants[a])}</td><td>${n}</td>${Object.keys(fields).map(f=>{const v=row?.status==='ok'?row.predictions[f]:null;return `<td>${v?`<span class="${$('reference').open?(detail.draft_reference.accepted_answers[f].includes(v)?'status tone-correct':'status tone-error'):''}">${esc(v)}</span>`:row?'Failed response':'Not attempted'}</td>`;}).join('')}</tr>`;})).join('')}</tbody></table>`:'';
+  $('repeated-decisions').innerHTML=repeatTrial?`<h4>This packet across three planned repetitions</h4><table><thead><tr><th>${trial==='robustness'?'Input arm':'Question arm'}</th><th>Repeat</th>${Object.values(fields).map(f=>`<th>${f}</th>`).join('')}</tr></thead><tbody>${Object.keys(catalog.variants).flatMap(a=>[1,2,3].map(n=>{const row=detail.repeated_outputs?.[String(n)]?.[a];return `<tr class="${String(n)===repetition&&a===selected.variant?'selected-row':''}"><td>${esc(catalog.variants[a])}</td><td>${n}</td>${Object.keys(fields).map(f=>{const v=row?.status==='ok'?row.predictions[f]:null;return `<td>${v?`<span class="${$('reference').open?(detail.draft_reference.accepted_answers[f].includes(v)?'status tone-correct':'status tone-error'):''}">${esc(v)}</span>`:row?'Failed response':'Not attempted'}</td>`;}).join('')}</tr>`;})).join('')}</tbody></table>`:'';
   const row=hosted[selected.variant],request=detail.hosted_saved_requests?.[selected.variant];
   $('hosted-evidence').textContent=pretty({variant:selected.variant,attempted:!!row,request:request||null,response:row||null});
 }
@@ -154,7 +168,7 @@ function showStage(value,focus=false) {
   const index=stages.indexOf(stage);$('previous-stage').disabled=index===0;$('next-stage').disabled=index===3;$('next-stage').textContent=['Calculate facts →','Compare input →','Inspect decisions →','Last step'][index];$('step-guide').textContent=questionTrial&&stage==='input'?'Compare the original and explicit instructions. Both receive identical evidence.':guides[index];
   if(detail)history.replaceState(null,'','/experiment-3?'+new URLSearchParams({trial,repetition,split:selected.split,case:selected.id,variant:selected.variant})+'#'+stage);
   for(const link of document.querySelectorAll('[data-main-guide]')) {
-    const doc=trial==='selection'?'experiment-3-selection':trial==='conflicts'?'experiment-3-conflicts':trial==='questions'?'experiment-3-questions':'experiment-3';
+    const doc=trial==='robustness'?'experiment-3-robustness':trial==='selection'?'experiment-3-selection':trial==='conflicts'?'experiment-3-conflicts':trial==='questions'?'experiment-3-questions':'experiment-3';
     link.href='/study?'+new URLSearchParams({doc,return:location.pathname+location.search+location.hash});
   }
   if(focus)$('tab-'+stage).focus();

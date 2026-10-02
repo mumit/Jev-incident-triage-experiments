@@ -1,0 +1,20 @@
+{
+  "version": "experiment-3-robustness-draft-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "records": 8,
+  "pairs": 4,
+  "families": 4,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": {
+    "date": "2026-10-02",
+    "scope": "Synthetic teaching decision; not network-specialist signoff",
+    "decision": "Keep NOC until current evidence links the fault to the affected service."
+  },
+  "telemetry_assumption": "15-minute inclusive validity and multi-domain NOC disposition are provisional. Instrument classifications and required-service paths are teaching assumptions.",
+  "sha256": {
+    "development.inputs.jsonl": "99aa6f0881cd370d7e06675863cb4997bd3d7f33d7f55d7f84b00147f0a94857",
+    "development.labels.jsonl": "bdba8d8cd62f47548569adcdf1a35412456aa5e3cdc8f3ce44cf5e558d54ea81"
+  }
+}

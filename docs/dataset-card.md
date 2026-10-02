@@ -64,3 +64,7 @@ The references apply the user-selected teaching rule: keep NOC until current evi
 ## Evidence-selection development pack
 
 `data/experiment-3-selection-draft/` contains 12 packets in six new written families and decision-changing pairs. Three current-conflict controls pair with a stale nominal measurement; other pairs vary stale or unknown fault times or an excluded dependency relationship. The pack has no training or held-out split. References precede inference and remain provisional. [The selection guide](experiment-3-evidence-selection.md) explains filtering, source indices and the limits of these constructed instrument readings.
+
+## Selection-robustness development pack
+
+`data/experiment-3-robustness-draft/` contains eight packets in four new written families and correlated pairs: three decision changes and one invariance. They test an inclusive validity boundary, a visible path with partial inventory, missing inventory and concurrent current faults in two domains. References were written before inference; the multiple-domain disposition interprets the frozen no-unique-domain clause provisionally. Three repeated requests do not add independent incidents. The pack has no training or held-out split. [The robustness guide](experiment-3-selection-robustness.md) records the controls and measured results.

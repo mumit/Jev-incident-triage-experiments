@@ -56,7 +56,9 @@ This result supports testing the selected input further. An explicit eligibility
 
 Twelve constructed packets and one response per arm do not establish general reliability. The 100% score is agreement with provisional references on this pack. Different request lengths, positions and fact rows changed together. The earlier 50% repetition score used different cases; it is not the baseline for this gain.
 
-Before expanding the filter, I will test it unchanged on further development cases that could expose information loss: validity-window boundaries, partial inventory with a visible path, missing inventory, and multiple current fault reports. Repeated fixed requests can check whether the gain persists. Specialist review must settle the policy and telemetry windows before a final held-out evaluation. Structured-feature ML and raw KPI anomaly detection remain separate tasks.
+The [selection-robustness check](experiment-3-selection-robustness.md) completed 48 calls on eight new packets, repeating both frozen inputs three times. Selected observations match all eight draft references in every repeat; combined facts match seven. Selection fixes one validity-boundary packet, repeated three times, and introduces no new wrong fields. Both inputs pass the partial-inventory, missing-inventory and multiple-domain controls and keep identical decisions across repeats. The multiple-domain reference remains provisional; agreement does not establish correctness or operational reliability.
+
+The next comparison will test structured dependency and freshness features for ML against a text baseline, with matched training settings and separate new development families. Jev questions and the selection filter will remain frozen. Specialist review must settle references, validity windows and investigation sequencing before final held-out evaluation.
 
 ## Inspect and reproduce
 

@@ -35,12 +35,15 @@ The [conflict repetition](docs/experiment-3-conflict-repetition.md) checks four 
 
 The [evidence-selection comparison](docs/experiment-3-evidence-selection.md) completed 36 calls on 12 further packets with fixed explicit questions. The combined baseline and eligibility summary each score 75.0%; eligible observations only scores 100.0%, retaining current-conflict and empty-evidence controls. These are small draft-reference results, not operational reliability.
 
+The [selection-robustness check](docs/experiment-3-selection-robustness.md) completed 48 calls on eight new packets, repeating both frozen inputs three times. Selected observations match all eight draft references in every repeat; combined facts match seven. Selection fixes one validity-boundary packet, repeated three times, and introduces no new wrong fields. Both inputs pass the partial-inventory, missing-inventory and multiple-domain controls and keep identical decisions across repeats. The multiple-domain reference remains provisional; agreement does not establish correctness or operational reliability.
+
 ## Read and explore
 
 | Document | What it covers |
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Selection robustness](docs/experiment-3-selection-robustness.md) | Validity boundaries, inventory gaps, multiple-domain controls and three repeated fixed requests. |
 | [Evidence selection](docs/experiment-3-evidence-selection.md) | Software eligibility, retained/removed observations, matched results and limitations. |
 | [Conflict repetition](docs/experiment-3-conflict-repetition.md) | Repeated fixed questions, conflict recurrence and response variation. |
 | [Question precedence](docs/experiment-3-question-precedence.md) | Exact instruction changes, new paired cases, results and the remaining regression. |
@@ -93,6 +96,7 @@ uv run --locked python -m scripts.run_experiment3_local validate
 uv run --locked python -m scripts.run_experiment3_questions validate
 uv run --locked python -m scripts.run_experiment3_conflicts validate
 uv run --locked python -m scripts.run_experiment3_selection validate
+uv run --locked python -m scripts.run_experiment3_robustness validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
@@ -102,7 +106,7 @@ node --check triage_bench/web/experiment3.js
 bash -n start.command
 ```
 
-The working checkout passes 108 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 115 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

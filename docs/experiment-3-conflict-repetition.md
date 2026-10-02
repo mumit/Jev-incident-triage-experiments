@@ -37,7 +37,7 @@ The remaining failure is more than a single unusual response: it recurs on these
 
 The earlier 93.8% score came from a broader, different development pack. The 50.0% score here describes a targeted conflict subset, not a drop measured on the same cases. Eight packets and three serial repeats also cannot establish population accuracy, independence of responses or general model reproducibility.
 
-I will next test evidence selection in software: retain the raw reports for inspection, but calculate which measurements are current and related before comparing them for conflict. A matched comparison should separate an explicit eligibility summary from a state containing only eligible observations. Keep the questions fixed, include current-conflict controls and record regressions. Further development families are needed because these cases have now informed that design. Reference and validity-window review must precede any final held-out evaluation. The separate structured-feature ML comparison remains pending.
+The subsequent evidence-selection comparison retained raw reports for inspection and calculated which measurements were current and related. It separated an explicit eligibility summary from an input containing only eligible observations, with questions fixed and current-conflict controls retained. Further development families kept this design separate from the cases that informed it. Reference and validity-window review must precede final held-out evaluation. The structured-feature ML comparison remains pending.
 
 ## Inspect
 
@@ -58,3 +58,5 @@ A key in the environment or ignored `.env` is needed for hosted inference. A new
 ## Subsequent input comparison
 
 The [evidence-selection comparison](experiment-3-evidence-selection.md) completed 36 calls on 12 further packets with explicit questions frozen. Adding eligibility facts alone fixes no complete packet. Selecting eligible observations fixes all three stale-conflict packets and retains nine correct controls, including current conflicts. The repetition study stays unchanged; the new score is a matched comparison on different cases.
+
+The [selection-robustness check](experiment-3-selection-robustness.md) completed 48 calls on eight new packets, repeating both frozen inputs three times. Selected observations match all eight draft references in every repeat; combined facts match seven. Selection fixes one validity-boundary packet, repeated three times, and introduces no new wrong fields. Both inputs pass the partial-inventory, missing-inventory and multiple-domain controls and keep identical decisions across repeats. The multiple-domain reference remains provisional; agreement does not establish correctness or operational reliability.

@@ -15,6 +15,7 @@ DOCUMENTS = {
     'experiment-3-questions': 'docs/experiment-3-question-precedence.md',
     'experiment-3-conflicts': 'docs/experiment-3-conflict-repetition.md',
     'experiment-3-selection': 'docs/experiment-3-evidence-selection.md',
+    'experiment-3-robustness': 'docs/experiment-3-selection-robustness.md',
     'overview': 'docs/experiment-overview.md', 'dataset-card': 'docs/dataset-card.md',
     'evaluation-plan': 'docs/evaluation-plan.md', 'performance-review': 'docs/performance-review.md',
     'policy': 'docs/policy.md', 'samples': 'docs/samples.md', 'learning-guide': 'docs/learning-guide.md',
@@ -66,6 +67,8 @@ def render_study(study, params):
         if not parsed.scheme and not parsed.netloc:
             if parsed.path == '../checkpoints/experiment-3-development-2026-10-01.json':
                 return '/experiment-3-report.json'
+            if parsed.path == '../checkpoints/experiment-3-robustness-2026-10-02.json':
+                return '/experiment-3-robustness-report.json'
             if parsed.path == '../checkpoints/experiment-3-selection-2026-10-02.json':
                 return '/experiment-3-selection-report.json'
             if parsed.path == '../checkpoints/experiment-3-conflicts-2026-10-02.json':

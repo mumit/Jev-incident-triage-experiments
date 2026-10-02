@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **108 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **115 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -105,3 +105,11 @@ Eight new tests cover fresh paired data, eligibility on partial/unknown/excluded
 All 36 hosted requests completed with zero failures and reported `jev-1.13.0`. Recorded data, source and request fingerprints verify; response-file hashes and recomputed scores match. Frozen historical inference and data remain unchanged; the baseline audit records the intended app and reader changes. These checks establish implementation and evidence integrity, not scenario realism, reference validity or operational reliability.
 
 Browser review covered all three inputs, raw-to-request index mapping, current-conflict retention, unknown-time removal, partial field improvements and draft-reference reveal. Copying showed success feedback; downloaded JSON matched the prepared request. The reader returned to the same case/input/step and linked to the recorded report. Desktop, 820-pixel and 390-pixel layouts showed no page overflow; browser error logs were empty. The earlier repetition view retained its saved results. Hidden controls now stay hidden outside their comparison, and guide links update when the selected packet or input changes.
+
+## Selection-robustness checks
+
+Seven new tests cover reproducible families, the invariant inventory-coverage pair, inclusive validity boundaries, visible paths with partial inventory, empty eligible sets and retention of multiple current domains. They check identical questions and the historical combined input, all 48 requests planned before inference, three identical repeats, response variation, credential redaction, rate-limit stops, planned denominators, edited-summary rejection, immutable inspection snapshots, missing-result fixtures and exact HTTP exports. The validator confirms eight packets in four further families.
+
+All 48 hosted requests completed with zero failures and reported `jev-1.13.0`. Child and master fingerprints and recomputed scores verify; the tracked report matches the recorded summary. All earlier experiment 3 runs still verify. The historical audit finds only the intended app and reader source changes; its nine data files, 67 evidence files and 18 recorded result checks remain unchanged. These checks establish evidence integrity, not operational accuracy or valid diagnostic references.
+
+Browser review covered all repetitions, the one-second boundary, partial-path retention, missing-inventory removal, provisional multiple-domain references and both exact inputs. Copy feedback appeared and the downloaded JSON matched the prepared request. The guide linked to its report and returned to the same packet, input, repetition and step. Desktop, 820-pixel and 390-pixel layouts showed no page overflow; browser error logs were empty. The earlier selection view retained its saved scores.
