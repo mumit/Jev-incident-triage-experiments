@@ -3,3 +3,5 @@
 meter{width:100%;height:14px;accent-color:#719971} caption{text-align:left;padding:0 0 12px} .hero .eyebrow{color:var(--teal)}
 
 .pair-values>div{min-width:0} .skip-link{position:absolute;left:16px;top:-60px;background:white;padding:10px;z-index:10}.skip-link:focus{top:10px}.hero-action{display:inline-block;font-weight:650;margin-top:8px}
+
+.hosted-row{background:#f2f6f4} .hero aside a{display:inline-block} #hosted-evidence{max-height:600px}

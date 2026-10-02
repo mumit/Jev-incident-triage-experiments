@@ -4,7 +4,7 @@ October 1, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **74 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **85 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -72,3 +72,12 @@ Eighteen new Python tests cover transformation isolation, identical questions, m
 Browser inspection covered raw evidence, calculated facts, exact input and decisions, paired topology changes, stale measurement with recent arrival, missing topology, hidden draft references, probabilities and unscored training packets. The app's local replay completed without hosted calls. Desktop, 820-pixel and 390-pixel layouts were checked; a topology-diff overflow was corrected. Request copying produced success feedback. A server-backed JSON download completed, and its parsed body matched the exact prepared request. A fresh data-only fixture exposed inputs and prepared requests without inventing local or Jev results.
 
 The baseline audit still matches all nine historical data files, 67 evidence files and 18 recomputed approach results. It reports the intended changes to five application files. The four frozen inference files are unchanged. New local pilot scores use draft references and are separate from historical comparisons; the app verifies saved input, training, source and prediction fingerprints and recomputes scores before displaying them.
+
+## Experiment 3 hosted development checks
+
+Eleven additional Python tests cover context and checkpoint preflight, rotated serial execution, overwrite refusal, exact requests saved before inference, credential redaction, rate-limit and malformed-response stops, failure-inclusive scoring, request/source fingerprints and rejection of edited metrics. Partial-run checks keep missing development responses and unscored training packets explicit.
+
+The first hosted comparison completed 144 requests with zero failures. Every response reported `jev-1.13.0`. The app verifies the saved protocol, input and reference checksums, exact requests and prediction fingerprints, then recomputes every score before displaying results. The tracked hosted report matches that saved evidence. These checks establish recording and scoring integrity; they do not validate the draft references.
+
+
+Browser checks covered all nine result rows, selected ML/Jev variants, hidden and revealed draft references, exact request copying and downloading, matching saved request/response hashes, returned probabilities and unscored training packets. The stale-measurement case exposed a one-minute report age alongside a 95-minute measurement age. Desktop, 820-pixel and 390-pixel layouts had no page overflow; wide tables scroll within their containers. The new review article and hosted report links worked, and browser error logs were empty.

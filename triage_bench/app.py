@@ -285,6 +285,9 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/experiment-3-jev-report.json':
+                    report=app.root / 'checkpoints/experiment-3-jev-2026-10-01.json'
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded Jev development report.'})
                 if path.path == '/experiment-3-report.json':
                     return self.send(200,(app.root / 'checkpoints/experiment-3-development-2026-10-01.json').read_bytes())
                 if path.path == '/api/experiment3/catalog': return self.send(200, pilot().catalog())

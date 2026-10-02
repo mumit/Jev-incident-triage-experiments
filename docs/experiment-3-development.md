@@ -1,6 +1,6 @@
 # Northstar Telecom: experiment 3 development
 
-October 1, 2026. This is a local development pilot with **draft references**, not a final evaluation. Jev has not run on this pack. The [historical baseline](current-state.md), frozen inference and recorded results remain unchanged.
+October 1, 2026. This is a development comparison with **draft references**, not a final evaluation. The first 144-request Jev comparison completed with zero failed responses. Network-specialist review remains pending. The [historical baseline](current-state.md), frozen inference and recorded results remain unchanged.
 
 ## Purpose
 
@@ -68,7 +68,7 @@ Each of the four local classifiers fits on the same 72 new training packets. The
 
 The new facts enter ML as text in the state string. This pilot does not add structured dependency or age features. That keeps the first comparison focused on input representation; a later feature comparison can test whether explicit numerical and categorical features work better.
 
-Prepared Jev requests use `jev-1.13.0`, the unchanged policy and experiment 2 Choice definitions. Each corresponding ML variant receives exactly that request's state string. Jev's training history differs from these local classifiers. No hosted requests have been sent, so the page exposes prepared requests rather than fabricated Jev outcomes.
+Jev requests use `jev-1.13.0`, the unchanged policy and experiment 2 Choice definitions. Each corresponding ML variant receives exactly that request's state string. Jev's training history differs from these local classifiers. The completed hosted run used those exact prepared inputs. The page now exposes saved requests, returned responses and actual decisions. Training packets remain outside hosted evaluation.
 
 Rules retain the original keyword routing and impact-priority calculation. They do not use the new fact calculators.
 
@@ -97,6 +97,36 @@ The family breakdown gives useful starting points:
 
 The added facts expose information that compact inputs lose, but text features and independently fitted heads still produce inconsistent decisions. This small pilot does not isolate the reason for every regression. It also does not establish that rules are generally better, that Jev will improve, or that the historical 96.8% revised-ML test score has fallen. These are different packets, training data and provisional references; historical score deltas would be misleading.
 
+## Jev development results
+
+Run `development-2026-10-01-v1` completed 144 of 144 requests with zero failures. Every response reported `jev-1.13.0`. The serial run rotated variant order by packet and made no warmup calls or retries. The [machine-readable hosted report](../checkpoints/experiment-3-jev-2026-10-01.json) records settings, request and source fingerprints and full metrics. [The reference review and run plan](experiment-3-reference-review.md) records unresolved assumptions.
+
+| Jev input | All four correct | Both packets correct | Owner | Next check | Evidence |
+|---|---:|---:|---:|---:|---:|
+| Compact baseline | 44.4% | 11.1% | 50.0% | 52.8% | 50.0% |
+| Dependency facts | 41.7% | 11.1% | 50.0% | 50.0% | 50.0% |
+| Measurement age | 38.9% | 11.1% | 47.2% | 41.7% | 55.6% |
+| Both facts | 41.7% | 11.1% | 47.2% | 47.2% | 55.6% |
+
+Priority is correct on every packet. All-four accuracy therefore equals the semantic and software-priority scores. Each variant gets two of 18 pairs fully correct, both involving an irrelevant inventory edge. **None gets both packets correct in any of the 14 decision-changing pairs.**
+
+Dependency facts and combined facts each introduce one fully correct-packet regression and fix none. Measurement facts introduce two and fix none. Those aggregate changes are one or two packets in a small draft set; they do not establish a general disadvantage from supplying facts.
+
+The Jev results expose several distinct problems:
+
+- **A regression on current evidence:** in [relay detour A](http://127.0.0.1:8768/experiment-3?split=development&case=NS3-81dfbb73c7db-a&variant=combined#decisions), baseline Jev chooses transport and its matching check. The combined input changes them to RAN and a radio check, despite the same microwave-backhaul fault and a supporting path. Its owner and diagnostic now disagree with the draft reference.
+- **Stale evidence remains influential:** in [roof supply display B](http://127.0.0.1:8768/experiment-3?split=development&case=NS3-e860465a7e33-b&variant=combined#decisions), the combined input explicitly says the voltage reading is 95 minutes old and stale. Jev still chooses power with 95% selected-answer probability. It lowers the probability of sufficient evidence but still selects sufficient evidence.
+- **Unknown dependency does not lead to NOC:** in [inventory not delivered B](http://127.0.0.1:8768/experiment-3?split=development&case=NS3-0f2efd79f1fd-b&variant=combined#decisions), the combined input marks the relationship unknown. Jev chooses transport with 100% selected-answer probability. That conflicts with the current draft disposition; specialist review must determine whether the domain-specific malfunction alone justifies initial investigation.
+- **Conflict is noticed without the draft ownership change:** in [supply feed disagreement A](http://127.0.0.1:8768/experiment-3?split=development&case=NS3-827d2395a313-a&variant=combined#decisions), Jev chooses to gather evidence and marks it insufficient, but retains power ownership. The draft expects NOC. When the nominal reading becomes stale in B, Jev still gathers evidence rather than selecting the current power diagnostic.
+
+### What this suggests
+
+I do not recommend adopting either added fact block on this evidence. The calculations expose relevant information, but neither produces a consistent Jev decision across the controlled changes.
+
+The saved questions emphasize that a directly observed malfunction supports domain investigation. The new references also require current measurements and a supported relationship to the affected service. The questions do not explicitly state how the new freshness and relationship fields control that decision. In addition, the fact block describes the validity window as operationally unvalidated. Those are possible explanations to test, not demonstrated causes of the errors.
+
+A further comparison should clarify the precedence of usable evidence while keeping the same facts, rather than adding more narrative context. It also needs cases that did not influence that revision. The reference review must address whether NOC ownership is necessary whenever evidence is insufficient, or whether a domain team can investigate while collecting evidence. I will keep the original references and this run unchanged while that question is reviewed.
+
 ## Reproduce and inspect
 
 Start the app and open `/experiment-3`. A fresh clone can inspect inputs and exact requests immediately. **Run local ML comparison** fits four local models and writes a new ignored run directory; it does not call Jev. Every run is separate and existing outputs cannot be overwritten.
@@ -108,12 +138,12 @@ uv run --locked python -m scripts.run_experiment3_local validate
 uv run --locked python -m scripts.run_experiment3_local run --output runs/experiment-3/my-first-pilot
 ```
 
-The tracked report describes the recorded pilot; per-packet predictions require the local run or a replay. The app does not present the report as live results when those predictions are missing.
+The tracked reports describe the recorded local and hosted pilots; per-packet predictions require their saved runs. Local ML can be replayed without Jev; a new hosted run incurs provider charges and may return different results. The app does not present the report as live results when those predictions are missing.
 
 ## Next steps
 
 I will review the cases and references with a network specialist before treating these scores as a basis for choosing a transformation. The first review should address dependency completeness, telemetry validity and conflicting evidence.
 
-A bounded Jev development comparison would use the same four prepared inputs: 36 packets × four variants, or 144 hosted requests. It needs explicit run settings, request fingerprints and retained responses. The current page exports requests and runs local ML only.
+The first bounded Jev comparison is now complete. Further Jev work should test question precedence separately from the input facts, after reviewing the flagged reference assumptions. The [run-plan guide](experiment-3-reference-review.md) explains the CLI and controls; a new output directory preserves each subsequent run.
 
 For ML, the next controlled comparison can add structured relationship and freshness features while retaining this text baseline. Any revision should use further development cases, record regressions and keep training separate. Reviewed references, fixed transformations and questions must precede evaluation on new held-out families. Read-only diagnostic tools and raw KPI anomaly detection remain later work.

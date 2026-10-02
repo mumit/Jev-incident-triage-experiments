@@ -19,12 +19,14 @@ function options(id, rows, value) {
 }
 function metric(value) { return Number.isFinite(value) ? (100*value).toFixed(1)+'%' : 'Unavailable'; }
 function scores() {
-  const pilot=catalog.pilot;
-  $('scores').innerHTML = pilot ? `<table><caption class="muted">36 development packets · 18 controlled pairs · provisional references</caption><thead><tr><th>Local approach</th><th>All four correct</th><th>Three semantic decisions</th><th>Both packets correct</th><th>Owner / next check / evidence</th></tr></thead><tbody>${[...Object.keys(catalog.variants),'rules'].map(v=>{
-    const m=pilot.approaches[v].metrics;
-    return `<tr><td>${esc(v==='rules'?'Rules':catalog.variants[v])}${v==='rules'?'': '<small>ML · matched recipe</small>'}</td><td>${metric(m.all_fields_accuracy)}</td><td>${metric(m.semantic_decisions_accuracy)}</td><td>${metric(m.pair_all_fields_accuracy)}</td><td>${['initial_owner','next_check','insufficient_evidence'].map(f=>metric(m.fields[f].accuracy)).join(' / ')}</td></tr>`;
-  }).join('')}</tbody></table><p class="muted">Priority is correct on every packet for all five local approaches. This small constructed pack does not establish operational performance or an improvement over experiments 1 and 2.</p>` : `<p>${esc(catalog.status)}</p><p>Raw evidence, calculated facts and prepared Jev requests are available before running local ML.</p>`;
-  $('provenance').textContent=pretty({data:catalog.manifest,run:pilot ? {id:pilot.run_id,source_sha256:pilot.source_sha256,training:pilot.approaches.baseline.training,input_sha256:pilot.input_sha256,label_sha256:pilot.label_sha256} : null,jev_status:'not_run'});
+  const pilot=catalog.pilot,hosted=catalog.hosted_pilot;
+  $('jev-summary').textContent=hosted?`${hosted.attempted_requests} Jev requests attempted; ${hosted.failed_requests} failed.`:'Jev has not run on this pack.';
+  const rows=[];
+  if(pilot)for(const v of [...Object.keys(catalog.variants),'rules'])rows.push({name:v==='rules'?'Rules':'ML · '+catalog.variants[v],metrics:pilot.approaches[v].metrics});
+  if(hosted)for(const v of Object.keys(catalog.variants))rows.push({name:'Jev · '+catalog.variants[v],metrics:hosted.approaches[v].metrics,hosted:true});
+  $('scores').innerHTML=rows.length?`<table><caption class="muted">Development packets · controlled pairs · provisional references</caption><thead><tr><th>Approach / input</th><th>All four correct</th><th>Three semantic decisions</th><th>Both packets correct</th><th>Owner / next check / evidence</th></tr></thead><tbody>${rows.map(r=>{const m=r.metrics;return `<tr class="${r.hosted?'hosted-row':''}"><td>${esc(r.name)}<small>${m.records} packets · ${m.attempted_records} attempted · ${m.failed_records} failed · ${m.missing_records} missing</small></td><td>${metric(m.all_fields_accuracy)}</td><td>${metric(m.semantic_decisions_accuracy)}</td><td>${metric(m.pair_all_fields_accuracy)}</td><td>${['initial_owner','next_check','insufficient_evidence'].map(f=>metric(m.fields[f].accuracy)).join(' / ')}</td></tr>`;}).join('')}</tbody></table><p class="muted">The scores use this draft pack, with failures and missing responses in the denominator. All four decisions remain visible. These results do not establish operational performance or an improvement over experiments 1 and 2.</p>`:`<p>${esc(catalog.status)}</p><p>Raw evidence, calculated facts and prepared Jev requests are available without saved runs.</p>`;
+  if(pilot&&hosted&&(pilot.input_sha256!==hosted.input_sha256||pilot.label_sha256!==hosted.label_sha256))$('scores').insertAdjacentHTML('beforeend','<p class="change">The local and hosted runs cover different packets or references. Compare their per-packet decisions; aggregate scores are not matched.</p>');
+  $('provenance').textContent=pretty({data:catalog.manifest,local:pilot?{id:pilot.run_id,source_sha256:pilot.source_sha256,training:pilot.approaches.baseline.training}:null,hosted:hosted?{id:hosted.run_id,status:hosted.status,model:hosted.requested_model,endpoint:hosted.endpoint,execution:hosted.execution,requests_sha256:hosted.requests_sha256,source_sha256:hosted.source_sha256,stopped_reason:hosted.stopped_reason}:null});
 }
 function chooseFamilies(preferred) {
   const families=[...new Set(catalog.cases[$('split').value].map(r=>r.family))];
@@ -81,22 +83,26 @@ function renderCase() {
   $('measurement').innerHTML=`<table><thead><tr><th>Observation</th><th>Report age</th><th>Measurement age</th><th>Declared window</th><th>Status</th></tr></thead><tbody>${detail.measurement_facts.map(f=>`<tr><td>${f.observation_index+1}</td><td>${f.report_age_minutes} min</td><td>${f.measurement_age_minutes===null?'Unknown':f.measurement_age_minutes+' min'}</td><td>${f.declared_valid_for_minutes??'Unknown'} min</td><td><span class="status tone-${f.freshness_status}">${f.freshness_status}</span></td></tr>`).join('')}</tbody></table>`;
   $('baseline-packet').textContent=pretty(detail.packets.baseline);$('selected-packet').textContent=pretty(detail.packets[selected.variant]);$('selected-heading').textContent=catalog.variants[selected.variant];
   $('input-meta').textContent=`${catalog.variants[selected.variant]} · ${detail.request.model} · ${detail.request_bytes.toLocaleString()} request bytes · identical policy and questions across variants`;
+  $('request-note').textContent=selected.split==='train'?'This is a prepared training-packet request. Training packets do not enter hosted evaluation.':detail.hosted_outputs?.[selected.variant]?'The saved Jev run used this state, the fixed policy and identical questions. The corresponding local ML variant receives the same state string. Inspect the saved request and response in Decisions.':'The selected ML variant receives the same state string. Policy, checkpoint and questions stay fixed across variants. No saved hosted response exists for this packet and variant.';
   $('request').textContent=pretty(detail.request);$('request-hashes').textContent=pretty({state_sha256:detail.state_sha256,questions_sha256:detail.questions_sha256});
   $('reference').open=false;$('reference-content').innerHTML=`<p class="status tone-unknown">Draft · not reviewed by a network specialist</p><table><tbody>${Object.entries(fields).map(([f,label])=>`<tr><th>${label}</th><td>${esc(key.labels[f])}</td></tr>`).join('')}</tbody></table><p>${esc(key.label_rationale)}</p>`;
   decisions();probabilities();
 }
 function decisions() {
-  const output=detail.outputs;
-  $('decision-note').textContent=selected.split==='train'?'This packet was used for training. Evaluation predictions are unavailable; inspect the draft reference separately.':'Saved predictions from the local development pilot. Jev has not run; its prepared request is available in step 3.';
-  $('decisions').innerHTML=selected.split==='train'||!catalog.pilot?'<p>No saved evaluation predictions for this packet.</p>':`<table><thead><tr><th>Approach</th>${Object.values(fields).map(f=>`<th>${f}</th>`).join('')}</tr></thead><tbody>${[...Object.keys(catalog.variants),'rules'].map(v=>`<tr class="${v===selected.variant?'selected-row':''}"><td>${esc(v==='rules'?'Rules':catalog.variants[v])}</td>${Object.keys(fields).map(f=>`<td>${(output[v]?.predictions?.[f] ? `<span class="${$('reference').open?(detail.draft_reference.accepted_answers[f].includes(output[v].predictions[f])?'status tone-correct':'status tone-error'):''}">${esc(output[v].predictions[f])}</span>` : 'Unavailable')}</td>`).join('')}</tr>`).join('')}<tr><td>Jev · all four variants</td><td colspan="4">Not run</td></tr></tbody></table>`;
+  const output=detail.outputs,hosted=detail.hosted_outputs||{},hasLocal=!!catalog.pilot,hasHosted=!!catalog.hosted_pilot;
+  $('decision-note').textContent=selected.split==='train'?'This packet was used for training. Evaluation predictions are unavailable; inspect the draft reference separately.':'Actual saved decisions. References remain drafts. Reveal them to mark disagreements. Missing and failed responses remain explicit.';
+  const rows=[];
+  if(hasLocal)for(const v of [...Object.keys(catalog.variants),'rules'])rows.push({name:v==='rules'?'Rules':'ML · '+catalog.variants[v],row:output[v],selected:v===selected.variant});
+  if(hasHosted)for(const v of Object.keys(catalog.variants))rows.push({name:'Jev · '+catalog.variants[v],row:hosted[v],selected:v===selected.variant,hosted:true});
+  $('decisions').innerHTML=selected.split==='train'||!rows.length?'<p>No saved evaluation predictions for this packet.</p>':`<table><thead><tr><th>Approach</th>${Object.values(fields).map(f=>`<th>${f}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr class="${r.selected?'selected-row':''}"><td>${esc(r.name)}</td>${Object.keys(fields).map(f=>{const prediction=r.row?.status==='ok'?r.row.predictions?.[f]:null;return `<td>${prediction?`<span class="${$('reference').open?(detail.draft_reference.accepted_answers[f].includes(prediction)?'status tone-correct':'status tone-error'):''}">${esc(prediction)}</span>`:r.row?.status==='error'?'Failed response':'Not attempted'}</td>`;}).join('')}</tr>`).join('')}${hasHosted?'':'<tr><td>Jev · all four variants</td><td colspan="4">No saved hosted run</td></tr>'}</tbody></table>`;
+  const row=hosted[selected.variant],request=detail.hosted_saved_requests?.[selected.variant];
+  $('hosted-evidence').textContent=pretty({variant:selected.variant,attempted:!!row,request:request||null,response:row||null});
 }
 function probabilities() {
   if(!detail)return;
   const field=$('probability-field').value;
-  $('probabilities').innerHTML=`<div class="prob-grid">${Object.keys(catalog.variants).map(v=>{
-    const row=detail.outputs[v],dist=row?.probabilities?.[field];
-    return `<div class="prob-card"><strong>${esc(catalog.variants[v])}</strong>${dist?Object.entries(dist).sort((a,b)=>b[1]-a[1]).map(([c,p])=>`<div class="prob-bar"><span>${esc(c)}${row.predictions[field]===c?' ✓':''}</span><meter min="0" max="1" value="${p}" aria-label="${esc(c)} probability"></meter><span>${(p*100).toFixed(1)}%</span></div>`).join(''):'<p class="muted">No saved evaluation probabilities.</p>'}</div>`;
-  }).join('')}</div>`;
+  const cards=(group,rows)=>Object.keys(catalog.variants).map(v=>{const row=rows[v],dist=row?.status==='ok'?row.probabilities?.[field]:null;return `<div class="prob-card"><strong>${esc(group+' · '+catalog.variants[v])}</strong>${dist?Object.entries(dist).sort((a,b)=>b[1]-a[1]).map(([c,p])=>`<div class="prob-bar"><span>${esc(c)}${row.predictions[field]===c?' ✓':''}</span><meter min="0" max="1" value="${p}" aria-label="${esc(c)} probability"></meter><span>${(p*100).toFixed(1)}%</span></div>`).join(''):'<p class="muted">No saved evaluation probabilities.</p>'}</div>`;}).join('');
+  $('probabilities').innerHTML=`<h4>Local ML probabilities</h4><div class="prob-grid">${cards('ML',detail.outputs)}</div><h4>Hosted Jev probabilities</h4><div class="prob-grid">${cards('Jev',detail.hosted_outputs||{})}</div>`;
 }
 function showStage(value,focus=false) {
   stage=stages.includes(value)?value:'evidence';
@@ -116,7 +122,7 @@ $('probability-field').addEventListener('change',probabilities);
 $('reference').addEventListener('toggle',()=>{if(detail)decisions();});
 $('run-local').addEventListener('click',async()=>{
   $('run-local').disabled=true;notice('Fitting four local classifiers on training data and scoring development packets…');
-  try { catalog=await api('/api/experiment3/run',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});scores();await loadCase();notice(catalog.status); }catch(error){notice(error.message,true);}finally{$('run-local').disabled=false;}
+  try { catalog=await api('/api/experiment3/run',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});scores();await loadCase();notice(catalog.status+' '+catalog.hosted_status); }catch(error){notice(error.message,true);}finally{$('run-local').disabled=false;}
 });
 $('download-request').addEventListener('click',()=>{if(!detail)return;const link=document.createElement('a');link.href='/api/experiment3/export?'+new URLSearchParams({id:selected.id,split:selected.split,variant:selected.variant});link.download=`${selected.id}-${selected.variant}-request.json`;link.click();});
 $('copy-request').addEventListener('click',async()=>{if(!detail)return;try{await navigator.clipboard.writeText(pretty(detail.request));notice('Exact request copied. It contains no API key or draft reference.');}catch{ $('copy-text').value=pretty(detail.request);$('copy-dialog').showModal();$('copy-text').select(); }});$('close-copy').addEventListener('click',()=>$('copy-dialog').close());
@@ -129,6 +135,6 @@ $('copy-request').addEventListener('click',async()=>{if(!detail)return;try{await
     const rows=catalog.cases[$('split').value].filter(r=>r.family===$('family').value);
     options('pair',[...new Set(rows.map(r=>r.pair_id))].map((p,i)=>[p,`Pair ${i+1}`]),row?.pair_id);
     if(query.get('variant') in catalog.variants)$('variant').value=query.get('variant');
-    selected.packet=row?.id.slice(-1)||'a';showStage(location.hash.slice(1));await loadCase();notice(catalog.status);
+    selected.packet=row?.id.slice(-1)||'a';showStage(location.hash.slice(1));await loadCase();notice(catalog.status+' '+catalog.hosted_status);
   }catch(error){notice(error.message,true);$('run-local').disabled=true;}
 })();

@@ -4,7 +4,7 @@
 
 I compare hosted Jev, trained ML and rules on incident decisions for the fictional **Northstar Telecom** network. The study examines failures and whether clearer inputs, questions or software calculations improve decisions. It recommends diagnostics without executing network changes.
 
-Two experiments are complete. The app includes an eight-chapter study walkthrough, saved-case inspection, an ML feature microscope, a local evidence sandbox and a formatted study reader at `/study`. The reader uses the repository Markdown and preserves the selected walkthrough context. Experiment 3 now has a separate draft training/development pack, deterministic dependency and measurement-age facts, prepared Jev requests and a matched local ML pilot at `/experiment-3`. Jev has not run on the new pack, references need specialist review and no final held-out set exists.
+Two experiments are complete. The app includes an eight-chapter study walkthrough, saved-case inspection, an ML feature microscope, a local evidence sandbox and a formatted study reader at `/study`. The reader uses the repository Markdown and preserves the selected walkthrough context. Experiment 3 now has a separate draft training/development pack, deterministic dependency and measurement-age facts, matched local ML results and a completed 144-request Jev comparison at `/experiment-3`. The page exposes exact requests, responses and probabilities. References need specialist review and no final held-out set exists.
 
 The historical handoff and evidence belong to the [`study-evidence-v1` release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1). Its tag identifies the source version; the bundle manifest records the full source commit. The frozen inference checkpoint is `6a44f62`. Later UI and documentation work preserves its four inference files.
 
@@ -41,7 +41,11 @@ Read the [development guide](docs/experiment-3-development.md) and its machine-r
 
 All-four development accuracy is 16.7% for the compact baseline, 30.6% with dependency facts, 13.9% with measurement facts and 27.8% with both. Rules score 50.0%. These are small-sample draft-reference results on different data, not deltas from experiment 2. Raw pilot predictions remain ignored; a fresh clone can replay them with the CLI or app button.
 
-The next task is to review dependency semantics, telemetry validity and diagnostic alternatives with a network specialist. Then prepare a bounded hosted Jev comparison on the same four inputs, and a separate ML comparison of structured dependency/age features. New revisions need further development cases. Freeze reviewed references, transformations and questions before generating final held-out families.
+Jev completed all 144 requests with zero failures. All-four accuracy is 44.4% for the baseline, 41.7% with dependency facts, 38.9% with measurement facts and 41.7% with both. No variant gets both packets right in any of the 14 decision-changing pairs. The added facts fix no fully correct-packet errors and introduce one or two regressions. These results do not support adopting either addition.
+
+Read the [reference review](docs/experiment-3-reference-review.md) before interpreting disagreements as model failures. The next task is specialist review of dependency semantics, telemetry validity and ownership when evidence is insufficient. Then test explicit question precedence on new development families, keeping input facts fixed. A separate ML comparison can add structured dependency/age features. Freeze reviewed references, transformations and questions before generating final held-out families.
+
+The hosted machine-readable report is tracked; exact requests and responses remain in ignored `runs/experiment-3-jev/`. The public historical bundle does not contain experiment 3 runs. A fresh clone shows missing predictions explicitly and can replay local ML without Jev. A new hosted run requires a key and incurs charges.
 
 Raw KPI time-series anomaly detection remains separate. The historical dataset has narrative observations, not raw KPI time series.
 
@@ -49,6 +53,6 @@ Raw KPI time-series anomaly detection remains separate. The historical dataset h
 
 Open the cloned repository as a Codex project so it reads `AGENTS.md`. A useful first task is:
 
-> Read HANDOFF.md and docs/experiment-3-development.md. Verify the draft pack and replay the local pilot. Inspect the controlled pairs, exact prepared Jev inputs and ML regressions. Preserve historical inference, data and evidence. Document specialist-review questions and a bounded Jev development run plan before hosted inference.
+> Read HANDOFF.md, docs/experiment-3-development.md and docs/experiment-3-reference-review.md. Verify the draft pack and inspect the recorded ML/Jev comparison, controlled pairs and regressions. Preserve historical inference, data and saved runs. Resolve the flagged reference assumptions before changing questions; use new development families for further revisions. Do not treat the existing development cases as held-out evaluation.
 
 API keys, `.env`, local environments and run files stay out of Git. Preserve input/answer-key separation and report missing results explicitly. The ML microscope explains a fitted score, not physical causation; Jev's hosted weights and internal reasoning remain unavailable.

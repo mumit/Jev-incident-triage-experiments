@@ -27,14 +27,15 @@ Start with [HANDOFF.md](HANDOFF.md) for the current state, experimental controls
 
 The [October 1 baseline](docs/current-state.md) fixes the current source, data, settings and results before experiment 3. Its `checkpoints/study-baseline-2026-10-01.json` supports file verification and comparisons with future saved runs.
 
-Experiment 3 now has a [development workbench](http://127.0.0.1:8768/experiment-3) with 72 new training packets, 36 development packets, deterministic input facts and a matched local ML pilot. Jev has not run on this pack; its references are provisional. Use `/experiment-3` on your own server. [The development guide](docs/experiment-3-development.md) records the controls, results and next review.
+Experiment 3 now has a [development workbench](http://127.0.0.1:8768/experiment-3) with 72 new training packets, 36 development packets, deterministic input facts, matched local ML results and a completed 144-request Jev comparison. Its references remain provisional. Use `/experiment-3` on your own server. [The development guide](docs/experiment-3-development.md) records the controls, results and next review.
 
 ## Read and explore
 
 | Document | What it covers |
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
-| [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, dependency and age transformations, matched local pilot and prepared Jev requests. |
+| [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Experiment 3 reference review](docs/experiment-3-reference-review.md) | Unresolved assumptions, hosted run controls and reproduction. |
 | [Walkthrough guide](docs/observatory.md) | The eight chapters, case inspection, ML microscope, Jev requests and local sandbox. |
 | [Learning guide](docs/learning-guide.md) | Running comparisons and interpreting disagreements. |
 | [Measured performance review](docs/performance-review.md) | Scores, saved case links, regressions, run IDs and fingerprints. |
@@ -63,7 +64,7 @@ Every approach selects an initial investigating team, priority, next diagnostic 
 
 Experiment 1 evaluated the original approaches. Experiment 2 revised ML's features and Jev's state and questions after validation review, then froze them before full test and challenge checks. Both ML variants fit only the original 600 training records. Each ML/Jev pair receives the same state string; their training histories differ. The rules use observation text and structured impact.
 
-**With software priority** is a separate score that replaces priority with the exact policy calculation while retaining the three model decisions. Saved predictions remain unchanged. Experiment 3 tests dependency coverage and measurement age separately on a new draft pack. A local development pilot has run; hosted Jev and final held-out evaluation remain pending.
+**With software priority** is a separate score that replaces priority with the exact policy calculation while retaining the three model decisions. Saved predictions remain unchanged. Experiment 3 tests dependency coverage and measurement age separately on a new draft pack. Local ML and hosted Jev development comparisons are complete. Specialist review and final held-out evaluation remain pending.
 
 ## Data and saved results
 
@@ -89,7 +90,7 @@ node --check triage_bench/web/experiment3.js
 bash -n start.command
 ```
 
-The working checkout passes 74 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 85 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

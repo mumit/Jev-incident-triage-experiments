@@ -243,19 +243,17 @@ The rules scores show how much of these written scenarios keywords and explicit 
 
 ## Next experiment
 
-The first [experiment 3 development pilot](experiment-3-development.md) is now available in the app. It adds a separate draft pack, deterministic transformations, exact prepared Jev requests and four matched local ML comparisons. Hosted Jev and final held-out evaluation remain pending. The plan below describes the remaining study.
+The [experiment 3 development comparison](experiment-3-development.md) now includes a separate draft pack, deterministic dependency and measurement-age facts, four matched local ML variants and 144 completed Jev requests. The policy, checkpoint and questions stayed fixed. References remain provisional; no final held-out set exists.
 
-I will test whether explicit dependency facts and measurement freshness reduce unsupported owner assignments and improve requests for evidence.
+Dependency facts raise local ML all-four accuracy from 16.7% to 30.6%. For Jev, the compact baseline scores 44.4%; dependency facts score 41.7%, measurement facts 38.9% and both 41.7%. No Jev variant gets both packets right in any of the 14 decision-changing pairs. These small draft-set results do not support adopting either fact addition for Jev or comparing scores with experiment 2.
 
-The new scenarios will cover independent network layouts, related and unrelated alarms, current and stale measurements, missing topology, conflicting evidence and irrelevant changes. Network specialists will review ambiguous diagnostic references before I freeze the new answer keys. The existing results will remain unchanged.
+I will review the flagged references with a network specialist, especially whether an observed fault warrants domain investigation when its incident relationship is unknown, and whether insufficient evidence requires NOC ownership. The [reference review](experiment-3-reference-review.md) also identifies the unvalidated 15-minute telemetry window and conflict assumptions.
 
-The comparison will test the frozen revised approaches against versions that add dependency facts, measurement-age facts, or both, retaining all four model outputs and scoring software-calculated priority separately. Jev and ML will still choose the investigating team, diagnostic and evidence disposition.
+The next Jev comparison should clarify how relationship and freshness facts control decisions while retaining the same input facts. That tests question precedence separately from representation. New development families must guide the revision because the current failures have already influenced it. For ML, a separate comparison can add structured dependency and age features while retaining the text baseline.
 
-The ML models will train only on the new training split. New validation families will guide the changes; separate test families will provide the final evaluation. Controlled pairs will test whether decisions change when relevant facts change and stay stable when added information is irrelevant.
+Reviewed references, fixed transformations and questions must precede evaluation on new held-out families. The evaluation should measure individual decisions, both-packet accuracy, high-probability errors and regressions. Those results will determine whether to proceed to read-only diagnostic tools.
 
-The evaluation will measure owner, diagnostic and evidence accuracy; both-record pair accuracy; high-probability errors; and how often the system retains NOC ownership to gather evidence. Improvement must reduce unsupported assignments without losing correct decisions elsewhere. The results will determine whether to proceed to read-only diagnostic tools.
-
-Raw KPI anomaly detection will remain a separate experiment. That work will measure detection quality and false alarms before testing Jev’s interpretation of the detected evidence.
+Raw KPI anomaly detection remains a separate experiment. That work will measure detection quality and false alarms before testing Jev’s interpretation of the detected evidence.
 
 ## Evidence
 

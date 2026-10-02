@@ -11,6 +11,7 @@ from markdown_it import MarkdownIt
 DOCUMENTS = {
     'current-state': 'docs/current-state.md',
     'experiment-3': 'docs/experiment-3-development.md',
+    'experiment-3-review': 'docs/experiment-3-reference-review.md',
     'overview': 'docs/experiment-overview.md', 'dataset-card': 'docs/dataset-card.md',
     'evaluation-plan': 'docs/evaluation-plan.md', 'performance-review': 'docs/performance-review.md',
     'policy': 'docs/policy.md', 'samples': 'docs/samples.md', 'learning-guide': 'docs/learning-guide.md',
@@ -61,6 +62,8 @@ def render_study(study, params):
         if not parsed.scheme and not parsed.netloc:
             if parsed.path == '../checkpoints/experiment-3-development-2026-10-01.json':
                 return '/experiment-3-report.json'
+            if parsed.path == '../checkpoints/experiment-3-jev-2026-10-01.json':
+                return '/experiment-3-jev-report.json'
             if href.startswith('#'):
                 return '#section-' + parsed.fragment.removeprefix('section-')
             for key, path in DOCUMENTS.items():

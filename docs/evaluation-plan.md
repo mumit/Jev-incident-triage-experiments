@@ -38,7 +38,7 @@ Each regular evaluation set has 11 families with 20 correlated variations per fa
 
 ## Next experiment
 
-The [experiment 3 development pilot](experiment-3-development.md) now compares four local ML input variants on 36 paired packets: compact baseline, dependency facts, measurement age and both. The new references remain drafts. The policy, questions and Jev checkpoint are unchanged, and all four classifiers fit only the same new training split. Jev requests are prepared but have not been sent. No final held-out set exists.
+The [experiment 3 development pilot](experiment-3-development.md) now compares four matched ML/Jev input variants on 36 paired packets: compact baseline, dependency facts, measurement age and both. The new references remain drafts. The policy, questions and Jev checkpoint are unchanged, and all four classifiers fit only the same new training split. Jev completed all 144 requests with zero failures; neither added fact block improves its aggregate score. [The reference review](experiment-3-reference-review.md) identifies question/reference ambiguities. Further revisions need new development families. No final held-out set exists.
 
 Before evaluating separate families, I will freeze the transformations and questions. The evaluation will retain all four outputs, score software priority separately and include a review of high-probability errors. Network specialists will review ambiguous diagnostic references before I freeze the answer keys. See [the overview](experiment-overview.md#next-experiment).
 

@@ -13,7 +13,7 @@ The default startup port is 8766. The current session is at [port 8768](http://1
 5. **Results.** Switch between validation, held-out test and paired challenges. Choose all-four accuracy, individual fields, semantic decisions or the separate software-priority score. Pair scoring appears only for challenges. Family cells always show all-four correctness; select one to inspect an incorrect packet, or a correct one if the approach passed that family.
 6. **Case workbench.** Follow **Evidence**, **Decisions** and **Inside an approach**. **Choose a packet** opens dataset and family selectors; **Failure filters** selects mistakes for an approach. Previous/next moves within matching packets. Hide the reference to try a decision first. **Paired change** compares both graphs or exact changed fields. Browser Back restores the case or inspection step. An empty filter explains that the previously opened evidence remains visible.
 7. **Evidence sandbox.** Edit impact or the first observation and run rules and both local ML variants. The before/after table marks changed choices. Edits persist across chapters; selecting another packet starts a new sandbox. Further edits mark the replay stale. Reset discards edits. Jev is not rerun, and edited evidence has no new reference score.
-8. **Experiment 3.** Open the separate draft development workbench to inspect dependency and measurement-age facts, prepared Jev inputs and matched local ML results. Hosted Jev and final held-out evaluation remain pending. Historical saved results stay unchanged.
+8. **Experiment 3.** Open the separate draft development workbench to inspect dependency and measurement-age facts, exact Jev inputs, saved responses and matched ML/Jev results. Specialist review and final held-out evaluation remain pending. Historical saved results stay unchanged.
 
 ## Read the study
 
@@ -57,8 +57,10 @@ These are constructed teaching scenarios, with correlated family variations. Sco
 
 ## Experiment 3 development workbench
 
-Choose **Experiment 3** to open the separate development pack. Its four steps connect raw evidence, calculated dependency/age facts, exact prepared Jev input and saved local decisions. Switch between A and B to inspect the one declared intervention. The reference remains hidden until revealed; opening it marks local decisions that disagree with the draft accepted answers.
+Choose **Experiment 3** to open the separate development pack. Its four steps connect raw evidence, calculated dependency/age facts, exact Jev input and saved ML/Jev decisions. Switch between A and B to inspect the one declared intervention. The reference remains hidden until revealed; opening it marks saved decisions that disagree with the draft accepted answers.
 
-The page compares four local ML variants and unchanged rules, exposes probabilities and fingerprints, and exports the selected Jev request. **Run local ML comparison** fits on the new training split and scores development only. It creates a new run without overwriting old evidence or calling Jev. Training packets have no saved evaluation predictions.
+The page compares four local ML variants, unchanged rules and four Jev inputs. It exposes probabilities, fingerprints, exact saved requests and returned responses, and exports the selected request. The selected input highlights its corresponding ML and Jev rows. **Run local ML comparison** fits on the new training split and scores development only. It creates a new run without overwriting old evidence or calling Jev. Training packets have no saved evaluation predictions.
 
-References and the measurement window need specialist review. Jev has not run on this pack, and no new final held-out set exists. [The development guide](experiment-3-development.md) records the local results and limitations.
+The hosted run completed 144 requests with zero failures. The added facts did not improve Jev’s aggregate score, and no variant got both packets right in a decision-changing pair. References and the measurement window still need specialist review; no final held-out set exists. [The development guide](experiment-3-development.md) records both comparisons. [The reference review](experiment-3-reference-review.md) identifies the unresolved assumptions.
+
+Saved experiment 3 predictions remain local and ignored. On a fresh clone the tracked reports remain readable, but the workbench explicitly reports missing local or hosted responses. Training packets stay unscored. The historical release bundle does not include these new runs.

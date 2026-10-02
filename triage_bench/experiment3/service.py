@@ -8,6 +8,7 @@ from triage_bench.dataset import ROOT, read_jsonl
 from triage_bench.evaluate import evaluate
 from .data import validate, changed_paths
 from .local import run
+from .audit_hosted import verify as verify_hosted
 from .transforms import VARIANTS, MODEL, sha, dependency_facts, measurement_facts, transformed_packet, request_body
 
 
@@ -31,6 +32,23 @@ class PilotStudy:
                     break
             except (OSError, ValueError, KeyError, TypeError):
                 self.status = 'A saved pilot is incomplete or invalid. Run a new local pilot.'
+
+        self.hosted_summary, self.hosted_rows, self.hosted_requests = None, {}, {}
+        self.hosted_status = 'No saved Jev development run.'
+        candidates = sorted((self.root / 'runs/experiment-3-jev').glob('*/summary.json'), key=lambda p:p.stat().st_mtime, reverse=True)
+        for candidate in candidates:
+            try:
+                self.load_hosted(candidate)
+                break
+            except (OSError,ValueError,KeyError,TypeError):
+                self.hosted_status = 'Saved Jev evidence differs or is incomplete; scores are unavailable.'
+
+    def load_hosted(self, path):
+        summary, rows, requests = verify_hosted(path,self.root,self.manifest,self.records['development'],self.keys['development'])
+        self.hosted_summary, self.hosted_rows, self.hosted_requests = summary, rows, requests
+        self.hosted_summary['run_id'] = path.parent.name
+        self.hosted_status = 'Saved Jev development run: ' + summary['status'] + '; draft references.'
+        return True
 
     def load_pilot(self, path):
         summary = json.loads(path.read_text())
@@ -62,12 +80,14 @@ class PilotStudy:
             rows[approach] = {r['id']: r for r in read_jsonl(prediction_path)}
         self.summary, self.rows = summary, rows
         self.summary['run_id'] = path.parent.name
-        self.status = 'Saved local development pilot; provisional references, no hosted Jev calls.'
+        self.status = 'Saved local development pilot; provisional references.'
         return True
 
     def catalog(self):
         return {'manifest': self.manifest, 'variants': VARIANTS, 'status': self.status, 'model': MODEL,
-                'hosted_requests_if_run': len(self.records['development']) * len(VARIANTS), 'jev_status': 'not_run',
+                'hosted_requests_if_run': len(self.records['development']) * len(VARIANTS),
+                'jev_status': self.hosted_summary['status'] if self.hosted_summary else 'not_run',
+                'hosted_status': self.hosted_status, 'hosted_pilot': self.hosted_summary,
                 'cases': {split: [{'id': r['id'], 'family': self.keys[split][r['id']]['incident_family_id'],
                                    'pair_id': self.keys[split][r['id']]['pair_id'], 'pair_kind': self.keys[split][r['id']]['pair_kind']}
                                   for r in records.values()] for split, records in self.records.items()},
@@ -87,7 +107,10 @@ class PilotStudy:
                 'request': body, 'state_sha256': sha(body['state'].encode()),
                 'questions_sha256': sha(json.dumps(body['questions'], sort_keys=True).encode()),
                 'request_bytes': len(json.dumps(body, ensure_ascii=False).encode()),
-                'outputs': outputs, 'jev_status': 'not_run'}
+                'outputs': outputs,
+                'hosted_outputs': {v:rows.get(identifier) if split == 'development' else None for v,rows in self.hosted_rows.items()},
+                'hosted_saved_requests': {v:self.hosted_requests.get((identifier,v)) if split == 'development' else None for v in VARIANTS},
+                'jev_status': self.hosted_summary['status'] if self.hosted_summary else 'not_run'}
 
     def run_local(self):
         if not self.lock.acquire(blocking=False):
