@@ -1,0 +1,24 @@
+{
+  "schema": "declared-domain-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": {
+    "date": "2026-10-02",
+    "source": "user_selected_declared_domain",
+    "definition": "Identify the declared instrument domain. Policy separately checks current affected-service relevance. Missing or ambiguous declarations establish no domain.",
+    "status": "synthetic_teaching_definition_not_specialist_reviewed"
+  },
+  "records": 64,
+  "reports": 128,
+  "families": 16,
+  "pairs": 32,
+  "distinct_report_texts": 30,
+  "construction": "Fresh generic, technical-distraction, missing/ambiguous declaration and eligibility pairs. Instrument declaration is an input fact supplied consistently in prose and structured metadata. Trust, contradictory declarations and incorrect metadata are not tested. Two graph/impact variants share texts; one prediction per distinct text is reused across occurrences.",
+  "sha256": {
+    "development.inputs.jsonl": "7c2523b2c936d4e3a920f0394acfe18dc5557aae9d16abbfe5b598e4c3b6f671",
+    "development.labels.jsonl": "936b9d5878a00d6f511997907ca402d803aa7440869e86e48ec895124e80d49d",
+    "development.observations.jsonl": "0daa170bdfbc6a9878339cd5515fd7114723df9922a88ed60d20ebffcd1bc6e4"
+  }
+}

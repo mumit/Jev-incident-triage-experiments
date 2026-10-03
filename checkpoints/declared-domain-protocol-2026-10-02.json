@@ -1,0 +1,111 @@
+{
+  "schema": "declared-domain-hosted-1",
+  "data_sha256": {
+    "development.inputs.jsonl": "7c2523b2c936d4e3a920f0394acfe18dc5557aae9d16abbfe5b598e4c3b6f671",
+    "development.labels.jsonl": "936b9d5878a00d6f511997907ca402d803aa7440869e86e48ec895124e80d49d",
+    "development.observations.jsonl": "0daa170bdfbc6a9878339cd5515fd7114723df9922a88ed60d20ebffcd1bc6e4"
+  },
+  "source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/report_scope_data.py": "bedee90a2545625d7f5a96a45d2847985c12a331e8431dfeef68e4574345a7d4",
+    "triage_bench/experiment3/report_scope_trial.py": "7a3cae73a934baa00100191422a3193879c461ffa7c17eb177d3d0cb9dff72f2",
+    "triage_bench/experiment3/metadata_data.py": "06bbc329d6b78d72a834b859fe224ae3abd33d93aba16bd8bea66f2f27b30af1",
+    "triage_bench/experiment3/metadata_policy.py": "1e4de2984342b10f89386035cc7945e054fdacee4523cd046ef99cfb861197b1",
+    "triage_bench/experiment3/metadata_trial.py": "2940403689e47458db1cb65a9a982d6a9bd08c87d1c4096a9c590b06d5b80761",
+    "triage_bench/experiment3/declared_data.py": "4f6dba6bdc16de315d44774732ce25cdf1a2c9126479bcf7db3f27d08d6920b4",
+    "triage_bench/experiment3/declared_trial.py": "fa360f61c5371db66d0cad202549c21c5a4fd19971ee64a0e81b68e5ed4551e3"
+  },
+  "records": 64,
+  "report_occurrences": 128,
+  "distinct_report_texts": 30,
+  "pairs": 32,
+  "human_decision": {
+    "date": "2026-10-02",
+    "source": "user_selected_declared_domain",
+    "definition": "Identify the declared instrument domain. Policy separately checks current affected-service relevance. Missing or ambiguous declarations establish no domain.",
+    "status": "synthetic_teaching_definition_not_specialist_reviewed"
+  },
+  "reference_status": "draft_not_specialist_reviewed",
+  "control": "jev_focal",
+  "prepared_reference_diagnostic": {
+    "reference_matches": 64,
+    "records": 64,
+    "mismatched_packets": []
+  },
+  "comparison": "Same normalized report texts, reading question, model and metadata policy. Hosted arms change domain instructions and criteria together. Software-domain controls replace only domain with a valid supplied declaration; reading predictions remain identical.",
+  "response_reuse": "One actual response per distinct text/reader, reused across correlated occurrences and paired packets. Software-domain paths make no model calls.",
+  "software_assumption": "Structured declarations match the explicit report header in this synthetic pack. Neither correctness nor operational trust of declarations is validated.",
+  "model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "context_tokens": 32768,
+  "readers": {
+    "jev_focal": "Jev \u00b7 technical-domain question",
+    "jev_declared": "Jev \u00b7 declared-domain question"
+  },
+  "maximum_requests": 60,
+  "execution": "Serial; alternating reader order by distinct text. No warmup or automatic retries.",
+  "failure_stop": "Stop on access/configuration/rate-limit/checkpoint/network errors, or three consecutive malformed responses. Every dependent packet, including software-domain controls, remains invalid when a shared reading fails.",
+  "questions": {
+    "jev_focal": {
+      "domain": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select the described domain.",
+        "criteria": {
+          "transport": "The focal measurement concerns packet forwarding, routing, links or optical transport.",
+          "ran": "The focal measurement concerns radio processing, decoding, timing or radio equipment.",
+          "power": "The focal measurement concerns electrical supply, voltage or equipment power.",
+          "core": "The focal measurement concerns subscriber registration, sessions or shared core services.",
+          "none": "No specific fault domain is described; general service recovery or an unclassified observation."
+        }
+      },
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship. Judge the operation of the specific function this report explicitly measures, not the health of the whole component or wider service. Verified successful request intake or handler operation is normal for that measured function even if later registration or end-to-end completion is unmeasured. If the report instead measures completion, request acceptance alone leaves completion unknown. Success of a different function does not cancel an explicit malfunction of the measured function. Keep expected behavior, explicit malfunction and uncertainty distinct.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    },
+    "jev_declared": {
+      "domain": {
+        "type": "choice",
+        "instructions": "Identify the single explicitly declared instrument domain in this report, not a fault domain inferred from its technical vocabulary. Use the Instrument domain declaration. Other domains mentioned as context or separate functions do not replace that declaration. If the declaration is unavailable, ambiguous, missing or invalid, select none. The declared domain identifies the instrument; it does not establish a root cause, currentness or relevance to the affected service. Policy assesses those separately.",
+        "criteria": {
+          "transport": "The instrument explicitly declares its single domain as transport.",
+          "ran": "The instrument explicitly declares its single domain as ran.",
+          "power": "The instrument explicitly declares its single domain as power.",
+          "core": "The instrument explicitly declares its single domain as core.",
+          "none": "No single valid instrument domain is declared; the declaration is missing, unavailable, ambiguous or invalid. Technical subject matter alone does not establish a declaration."
+        }
+      },
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship. Judge the operation of the specific function this report explicitly measures, not the health of the whole component or wider service. Verified successful request intake or handler operation is normal for that measured function even if later registration or end-to-end completion is unmeasured. If the report instead measures completion, request acceptance alone leaves completion unknown. Success of a different function does not cancel an explicit malfunction of the measured function. Keep expected behavior, explicit malfunction and uncertainty distinct.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    }
+  },
+  "source_base_commit": "e4b841b",
+  "state": "prepared_before_inference"
+}

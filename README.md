@@ -115,6 +115,7 @@ uv run --locked python -m scripts.run_experiment3_interpretation validate
 uv run --locked python -m scripts.run_report_language validate
 uv run --locked python -m scripts.run_report_scope validate
 uv run --locked python -m scripts.run_metadata_policy validate
+uv run --locked python -m scripts.run_declared_domain validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
@@ -150,3 +151,5 @@ Inspect the new comparison at `/report-scope` or **Comparison → Measured-funct
 The [metadata-first policy comparison](docs/metadata-policy.md) prepares 48 further development packets. Each reader feeds identical predictions to original and function/context grouping; metadata stays outside report interpretation. Missing and ambiguous scope controls remain conservative. The 96 report occurrences contain 16 distinct texts, so the hosted plan has 32 calls. The 32-call Jev run is complete: asset versus metadata grouping scores 26/48 versus 40/48 for both frozen question controls, fixing 14 packets without losses. Fault/normal readings match all 16 distinct texts; five domain readings disagree with draft references. The next decision concerns declared instrument domain versus domain-specific technical evidence.
 
 Inspect `/metadata-policy` or **Comparison → Instrument metadata policy**. The [domain decision brief](docs/metadata-domain-review.md) explains the next choice using an actual request and response. The earlier public release remains unchanged.
+
+The user selected declared instrument domain. The [next matched comparison](docs/declared-domain.md) prepares 64 further development packets and 60 hosted requests, with a software-domain control that preserves each reader’s fault/normal prediction. Existing studies stay frozen.
