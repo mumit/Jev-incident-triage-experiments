@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **183 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All seven browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **192 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All eight browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -164,3 +164,13 @@ All 32 Jev calls completed without failures. Both raw runs and tracked checkpoin
 Browser review covered matched grouping switches, identical request downloads, same-function conflicts, missing and ambiguous scope, stale exclusions, unlinked-report diagnostics, draft-reference reveal, fitted ML contributions, guide navigation and return context. Layouts at 390, 820 and 1280 pixels keep tables inside their containers; browser error logs are empty. These checks establish recording, comparison and interface behavior. They do not settle the domain definition, validate the draft references or establish operational metadata trust.
 
 The [inspection audit](../checkpoints/metadata-policy-inspection-2026-10-02.json) records the verified counts and comparison boundaries.
+
+## Declared-domain checks
+
+Nine new tests cover reproducible fresh families and separate references, the exact domain-only question difference, no structured metadata or reference leakage into Jev, safe declaration decoding, unchanged operation readings in software controls, no invented domain probabilities, recording before calls, credential redaction, shared failures, immutable runs, fitted margins and guarded inspection/export routes. Data-only fixtures keep missing predictions explicit.
+
+All 60 Jev calls succeeded from frozen preparation commit `0d5c214`. Exact requests, normalized responses, occurrence joins, domain overrides, policy predictions, tracked checkpoints and scores verify. Thirty distinct texts supply 128 correlated occurrences. Sixty ML vectors and 120 fitted score margins reconstruct from the frozen 210-report recipes. All earlier development evidence and historical data, evidence and scored results remain unchanged.
+
+Browser review covered the missing-declaration question difference, same-request software switches, exact hosted and local downloads, hidden and revealed references, ambiguous declarations, stale and disconnected faults, comparable normal/fault conflicts, unchanged ML margins, guide links and restored source/report context. Layouts at 390, 820 and 1280 pixels contain their tables; browser error logs are empty. These checks establish comparison and interface behavior, not the authority of instrument declarations, specialist approval or operational readiness.
+
+The [inspection audit](../checkpoints/declared-domain-inspection-2026-10-02.json) records verified counts and boundaries.

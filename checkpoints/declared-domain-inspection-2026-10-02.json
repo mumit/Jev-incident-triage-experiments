@@ -1,0 +1,27 @@
+{
+  "validators": 13,
+  "historical_data_evidence_results_unchanged": true,
+  "prior_development_runs_verify": true,
+  "new_source_data_predictions_and_tracked_checkpoints_verify": true,
+  "prepared_protocol_matches_inference": true,
+  "hosted_requests": 60,
+  "failed_requests": 0,
+  "distinct_report_texts": 30,
+  "correlated_report_occurrences": 128,
+  "report_vectors": 60,
+  "fitted_margins": 120,
+  "browser_exports_match_exact_hosted_and_local_boundaries": true,
+  "only_domain_question_definition_changes": true,
+  "software_domain_preserves_actual_readings_and_request": true,
+  "software_domain_has_no_invented_probabilities": true,
+  "python_tests": 192,
+  "javascript_tests": 9,
+  "browser_widths": [
+    390,
+    820,
+    1280
+  ],
+  "browser_errors": 0,
+  "reference_status": "draft_not_specialist_reviewed",
+  "next_decision": "Precedence between contradictory structured and prose declarations"
+}

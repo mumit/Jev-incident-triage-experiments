@@ -96,3 +96,9 @@ Report rules recognize every fault/normal outcome on this explicit `failure`/`no
 The candidate and software-domain paths pass the stale/unlinked fault controls and preserve NOC when declarations are missing or ambiguous. Full packet agreement remains agreement with drafts on controlled development cases; no specialist review, final held-out set, repeatability check or operational validation has occurred.
 
 The pack makes structured declarations agree with report headers. A real adapter may receive contradictory declarations or stale instrument metadata. Before the next trust comparison, its reference policy must specify which source is authoritative when structured metadata and an explicit prose declaration disagree. That decision changes input handling and owner references; it cannot be chosen from these scores.
+
+## Inspecting the comparison
+
+Open `/declared-domain` or **Comparison → Declared instrument domain**. Select the report interpreter and domain source independently. Switching to software domain preserves the selected reader’s operation readings and exact request. The page shows raw structured declarations, both Jev question definitions, actual responses, fixed policy joins and ML score contributions. Draft references remain hidden until requested, and browsing makes no model calls. A fresh clone without raw runs reports missing predictions explicitly.
+
+[The declaration-trust brief](declaration-trust-review.md) describes the next required policy choice with a hypothetical conflicting input.

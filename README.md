@@ -49,6 +49,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Declared instrument domain](docs/declared-domain.md) | Matched domain definitions, software-domain controls and reading transfer limits. |
 | [Instrument metadata](docs/metadata-policy.md) | Fixed readings, matched policy grouping and remaining domain-definition decision. |
 | [Measured-function reading](docs/report-scope.md) | Matched question change, report/triage results and hidden policy gaps. |
 | [Report language and Jev](docs/report-language.md) | Matched training result, direct-versus-report Jev comparison and the selected handler reference. |
@@ -125,6 +126,7 @@ node --check triage_bench/web/experiment3.js
 node --check triage_bench/web/report-language.js
 node --check triage_bench/web/report-scope.js
 node --check triage_bench/web/metadata-policy.js
+node --check triage_bench/web/declared-domain.js
 bash -n start.command
 ```
 
@@ -152,4 +154,6 @@ The [metadata-first policy comparison](docs/metadata-policy.md) prepares 48 furt
 
 Inspect `/metadata-policy` or **Comparison → Instrument metadata policy**. The [domain decision brief](docs/metadata-domain-review.md) explains the next choice using an actual request and response. The earlier public release remains unchanged.
 
-The user selected declared instrument domain. The [next matched comparison](docs/declared-domain.md) prepares 64 further development packets and 60 hosted requests, with a software-domain control that preserves each reader’s fault/normal prediction. Existing studies stay frozen.
+The user selected declared instrument domain. The [completed declared-domain comparison](docs/declared-domain.md) uses 64 further packets and 60 successful Jev calls. The declared question matches 64/64 against 56/64 for the technical-domain control. Software domain reaches 64/64 with either Jev reader; both ML readers stay at 40/64 because all operation readings receive unknown. Existing studies stay frozen.
+
+Inspect `/declared-domain` or **Comparison → Declared instrument domain**. The [declaration-trust brief](docs/declaration-trust-review.md) defines the next policy choice; matching prose and metadata remain a synthetic assumption.

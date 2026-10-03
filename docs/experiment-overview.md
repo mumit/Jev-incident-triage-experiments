@@ -293,4 +293,10 @@ The [matched reading-instruction comparison](report-scope.md) completed 176 Jev 
 
 The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
 
-Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [recorded domain choice](metadata-domain-review.md) identifies the declared instrument source, with service relevance checked separately by policy. These later raw runs are outside the historical public bundle.
+
+## October 2 declared-domain comparison
+
+The [declared-domain comparison](declared-domain.md) versions the user’s choice on 64 new development packets. Changing only the domain instructions and choice definitions gives 64/64 agreement versus 56/64 for the technical-domain control. Those eight differences occur when a declaration is missing but technical detail suggests a domain; they measure the chosen task definition. Software domain also reaches 64/64 using either Jev reader’s actual operation readings. ML remains 40/64 because all readings receive unknown.
+
+The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.

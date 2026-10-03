@@ -265,7 +265,7 @@ function showStage(value,focus=false) {
   if(focus)$('tab-'+stage).focus();
 }
 $('repetition').addEventListener('change',()=>{location.href='/experiment-3?'+new URLSearchParams({trial,repetition:$('repetition').value,split:selected.split,case:selected.id,variant:selected.variant})+'#'+stage;});
-$('comparison').addEventListener('change',()=>{location.href=$('comparison').value==='metadata'?'/metadata-policy':$('comparison').value==='scope'?'/report-scope':$('comparison').value==='language'?'/report-language':'/experiment-3?'+new URLSearchParams({trial:$('comparison').value});});
+$('comparison').addEventListener('change',()=>{location.href=$('comparison').value==='declared'?'/declared-domain':$('comparison').value==='metadata'?'/metadata-policy':$('comparison').value==='scope'?'/report-scope':$('comparison').value==='language'?'/report-language':'/experiment-3?'+new URLSearchParams({trial:$('comparison').value});});
 for(const button of document.querySelectorAll('[data-stage]')) {
   button.addEventListener('click',()=>showStage(button.dataset.stage));
   button.addEventListener('keydown',event=>{const i=stages.indexOf(stage);const n=event.key==='ArrowRight'?(i+1)%4:event.key==='ArrowLeft'?(i+3)%4:event.key==='Home'?0:event.key==='End'?3:null;if(n!==null){event.preventDefault();showStage(stages[n],true);}});

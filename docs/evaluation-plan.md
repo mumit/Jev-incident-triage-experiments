@@ -70,4 +70,10 @@ The completed [measured-function instruction comparison](report-scope.md) uses s
 
 The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
 
-Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [recorded domain choice](metadata-domain-review.md) identifies the declared instrument source, with service relevance checked separately by policy. These later raw runs are outside the historical public bundle.
+
+## October 2 declared-domain comparison
+
+The [declared-domain protocol](declared-domain.md) compares frozen technical-domain and declared-domain Jev questions on identical texts and metadata policy. Software-domain controls replace only domain with the valid structured declaration. Thirty distinct texts supply 128 correlated occurrences; report-field regressions and wrong readings hidden by matching triage are scored separately. Missing declarations mean none even when technical detail suggests a domain. Treat agreement with this selected definition separately from technical-domain reasoning quality.
+
+The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.

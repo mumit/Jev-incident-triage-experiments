@@ -98,4 +98,10 @@ The [study guide](report-language.md) records actual local and hosted results. I
 
 The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
 
-Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [recorded domain choice](metadata-domain-review.md) identifies the declared instrument source, with service relevance checked separately by policy. These later raw runs are outside the historical public bundle.
+
+## October 2 declared-domain comparison
+
+The [declared-domain pack](declared-domain.md) contains 64 development packets, 128 report occurrences, 16 new families, 32 pairs and 30 distinct normalized texts. Families cover generic outcomes, technical distractions, missing or ambiguous declarations, stale faults and disconnected faults. Prose and structured declarations agree by construction; no contradictory declarations or trustworthy real instrumentation are demonstrated. Report and packet references remain separate prewritten drafts.
+
+The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.

@@ -153,4 +153,10 @@ The [matched reading-instruction comparison](report-scope.md) completed 176 Jev 
 
 The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
 
-Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [recorded domain choice](metadata-domain-review.md) identifies the declared instrument source, with service relevance checked separately by policy. These later raw runs are outside the historical public bundle.
+
+## October 2 declared-domain comparison
+
+The [declared-domain checkpoint](declared-domain.md) adds 64 development packets and 60 successful Jev calls from preparation source `0d5c214`. Technical-domain versus declared-domain questions match 56/64 versus 64/64; both read all 30 distinct operation outcomes correctly. Software domain reaches 64/64 with either Jev reader. Both ML controls remain 40/64; rules improve 44/64 → 64/64 with software domain. Prior source, data and recorded results remain frozen.
+
+The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
