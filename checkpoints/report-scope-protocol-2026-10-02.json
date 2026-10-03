@@ -1,0 +1,104 @@
+{
+  "schema": "report-scope-hosted-1",
+  "model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "context_tokens": 32768,
+  "arms": {
+    "jev_original": "Jev \u00b7 original report question",
+    "jev_focal": "Jev \u00b7 measured-function question"
+  },
+  "data_sha256": {
+    "development.inputs.jsonl": "a91c141f17afcb07c960e082d4ec289d7fa8dda67f16920260332735ec75a5f0",
+    "development.labels.jsonl": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+    "development.observations.jsonl": "f827a7a8de748ff53efbfb2a9a1222bae473f372a3d1e22a89dbd8afbaadf6aa"
+  },
+  "source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/report_scope_data.py": "bedee90a2545625d7f5a96a45d2847985c12a331e8431dfeef68e4574345a7d4",
+    "triage_bench/experiment3/report_scope_trial.py": "7a3cae73a934baa00100191422a3193879c461ffa7c17eb177d3d0cb9dff72f2"
+  },
+  "records": 68,
+  "reports": 88,
+  "pairs": 34,
+  "maximum_requests": 176,
+  "human_decision": {
+    "date": "2026-10-02",
+    "decision": "Normal handler reading: successful acceptance is normal for the focal handler; downstream registration completion remains a separate measurement.",
+    "status": "user_selected_synthetic_teaching_rule_not_specialist_signoff"
+  },
+  "reference_status": "draft_not_specialist_reviewed",
+  "primary_comparison": "Identical normalized report texts, model, domain questions, choice criteria and frozen policy. Only reading-question instructions differ. The added paragraph contains several related scope clarifications; effects of individual sentences are not isolated.",
+  "execution": "Serial; arm order alternates by report. One response per planned request; no warmup or automatic retries.",
+  "failure_stop": "Immediate stop on configuration/access/rate-limit/checkpoint/network errors; otherwise stop after three consecutive malformed responses. Failed or missing report replies invalidate packet predictions.",
+  "reference_policy_diagnostic": {
+    "label": "Reference readings fed to unchanged policy. Evaluation diagnostic, not model performance or an accuracy ceiling. Incorrect readings can mask this policy gap.",
+    "mismatched_packets": [
+      "NSS-be3b5d951cb0-a",
+      "NSS-9c0e4405ab09-a"
+    ]
+  },
+  "context_bound": "UTF-8 request bytes plus 512; not the provider tokenizer.",
+  "questions": {
+    "jev_original": {
+      "domain": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select the described domain.",
+        "criteria": {
+          "transport": "The focal measurement concerns packet forwarding, routing, links or optical transport.",
+          "ran": "The focal measurement concerns radio processing, decoding, timing or radio equipment.",
+          "power": "The focal measurement concerns electrical supply, voltage or equipment power.",
+          "core": "The focal measurement concerns subscriber registration, sessions or shared core services.",
+          "none": "No specific fault domain is described; general service recovery or an unclassified observation."
+        }
+      },
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    },
+    "jev_focal": {
+      "domain": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select the described domain.",
+        "criteria": {
+          "transport": "The focal measurement concerns packet forwarding, routing, links or optical transport.",
+          "ran": "The focal measurement concerns radio processing, decoding, timing or radio equipment.",
+          "power": "The focal measurement concerns electrical supply, voltage or equipment power.",
+          "core": "The focal measurement concerns subscriber registration, sessions or shared core services.",
+          "none": "No specific fault domain is described; general service recovery or an unclassified observation."
+        }
+      },
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship. Judge the operation of the specific function this report explicitly measures, not the health of the whole component or wider service. Verified successful request intake or handler operation is normal for that measured function even if later registration or end-to-end completion is unmeasured. If the report instead measures completion, request acceptance alone leaves completion unknown. Success of a different function does not cancel an explicit malfunction of the measured function. Keep expected behavior, explicit malfunction and uncertainty distinct.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    }
+  },
+  "source_base_commit": "1deab70",
+  "state": "prepared_before_inference"
+}

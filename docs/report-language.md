@@ -127,4 +127,4 @@ uv run --locked python -m scripts.run_report_language_replay run --output runs/r
 uv run --locked python -m scripts.run_report_language_replay verify --output runs/report-language-replay/my-diagnostic
 ```
 
-[The reference decision brief](report-language-review.md) gives the two readings to choose between and the implications for new cases. Existing references and scores remain unchanged.
+[The reference decision brief](report-language-review.md) records the selected normal handler reading. The [measured-function trial](report-scope.md) applies that decision to new cases and a matched instruction comparison. Existing references and scores remain unchanged.

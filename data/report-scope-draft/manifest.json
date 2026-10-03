@@ -1,0 +1,27 @@
+{
+  "schema": "report-scope-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": {
+    "date": "2026-10-02",
+    "decision": "Normal handler reading: successful acceptance is normal for the focal handler; downstream registration completion remains a separate measurement.",
+    "status": "user_selected_synthetic_teaching_rule_not_specialist_signoff"
+  },
+  "records": 68,
+  "reports": 88,
+  "families": 17,
+  "pairs": 34,
+  "known_policy_gaps": [
+    "NSS-be3b5d951cb0-a",
+    "NSS-9c0e4405ab09-a"
+  ],
+  "training": "Reuse frozen original/broader report training only for ML controls; no new training or development tuning.",
+  "construction": "New family names and measured-function descriptions; shared packet/pair templates and explicit domain prefixes limit independence and realism.",
+  "sha256": {
+    "development.inputs.jsonl": "a91c141f17afcb07c960e082d4ec289d7fa8dda67f16920260332735ec75a5f0",
+    "development.labels.jsonl": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+    "development.observations.jsonl": "f827a7a8de748ff53efbfb2a9a1222bae473f372a3d1e22a89dbd8afbaadf6aa"
+  }
+}

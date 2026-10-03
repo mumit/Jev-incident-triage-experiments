@@ -32,3 +32,5 @@ The next matched experiment will clarify only the reading-question instruction. 
 No existing input, reference or score should be rewritten to make the model's answer correct. If a reviewer changes an earlier reference, record a separate version and separately identified re-score alongside the original result.
 
 [The study guide](report-language.md) records the controls, exact input boundaries, measured scores and immutable run locations.
+
+[The measured-function trial](report-scope.md) records the new pack, isolated instruction change and predeclared policy gaps.
