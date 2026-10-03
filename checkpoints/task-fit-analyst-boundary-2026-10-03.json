@@ -1,0 +1,29 @@
+{
+  "schema": "task-fit-analyst-boundary-1",
+  "mode": "analyst_facing",
+  "user_decision": "Analyst-facing recommendations first, October 3, 2026.",
+  "arm": "structured",
+  "model": "jev-1.13.0",
+  "advisory_threshold": 0.6,
+  "selection_rule": "Maximum calibration reading coverage with zero observed reading errors and qualifying fault misses; lowest threshold breaks ties. Evaluation plays no part.",
+  "analyst_review": "Required for every report, including high-probability fault and normal readings. The analyst owns initial-team assignment.",
+  "display_rule": "Show a domain suggestion only for qualifying fault/normal readings when the frozen policy has sufficient evidence for a domain. Otherwise show NOC retention or request clarification, with the underlying reading and raw reply inspectable.",
+  "research_criteria": {
+    "maximum_wrong_domain_recommendations": 0,
+    "maximum_qualifying_reading_errors": 0,
+    "maximum_qualifying_fault_misses": 0,
+    "minimum_reading_coverage": 0.5,
+    "minimum_domain_coverage": 0.25,
+    "maximum_failed_or_missing": 0
+  },
+  "criteria_status": "Author-set provisional synthetic study criteria, not user-approved operating limits. Half the reports must yield qualifying readings and a quarter domain suggestions to exercise the assisted workflow; zero observed errors are a research gate, not a statistical safety claim.",
+  "candidate_sha256": "44aa872354b863e2e5f9f62d84fd71bad1b27e3532f901df58c0b87a949d6e10",
+  "calibration_summary_sha256": "fc6e62357245835542ee48d7fe091135c00b802dea6e87af8b1d30333ad2c9ce",
+  "source_sha256": {
+    "triage_bench/experiment3/task_fit_advisory.py": "8e584f45a93e0413eba4f2cf2129534f7e472e2e2af97e6849dc5ff158429e7a",
+    "scripts/run_task_fit_advisory.py": "71d5f90ba4799a89ef36a691a89362cd1ce92ad3f399add05fbdb87a41232df5"
+  },
+  "evaluation_output": "runs/task-fit/evaluation-2026-10-03-v1",
+  "evaluation_rule": "One 24-call evaluation with reader, policy, threshold and criteria frozen beforehand. Failures stay in denominators. No automatic retry, retuning or replacement run.",
+  "status": "analyst_boundary_frozen_evaluation_unrun"
+}
