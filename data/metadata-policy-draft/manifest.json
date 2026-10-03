@@ -1,0 +1,23 @@
+{
+  "schema": "metadata-policy-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": {
+    "date": "2026-10-02",
+    "source": "user_selected_explicit_instrument_metadata_first",
+    "status": "synthetic_input_assumption_not_operational_validation"
+  },
+  "records": 48,
+  "reports": 96,
+  "families": 12,
+  "pairs": 24,
+  "distinct_report_texts": 16,
+  "construction": "Pairs change one metadata or eligibility field. Report texts and their meanings match across each pair. Two graph/impact variants share templates; distinct text responses are reused across packet occurrences. Supplied function and condition metadata is a synthetic assumption.",
+  "sha256": {
+    "development.inputs.jsonl": "2702c46066eb0811039a0aaabcc3c7c7a96563979565e3724cb0322797f0f0f5",
+    "development.labels.jsonl": "59e032ae7c273ca124f147636f6d0be56c234164943784b89cb7f536a8fa96db",
+    "development.observations.jsonl": "ff982778693c6b7711bdfc544e29d51b16f1a6d60abbe302ca293183a3d98a9f"
+  }
+}
