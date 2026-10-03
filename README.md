@@ -25,6 +25,8 @@ Startup does not call Jev or download language-model weights. The app fits local
 
 Start with [HANDOFF.md](HANDOFF.md) for the current state, experimental controls and next task. Restore the four historical runs from the [study evidence release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1) using the [bundle guide](docs/run-bundle.md). The archive stays outside Git history; `runs/` remains ignored.
 
+The current focus is [Jev's fit for incident triage](docs/jev-task-fit.md): public NOC/SOC implementations, limits of the measured evidence and a plan to compare inputs, questions and thresholds on new cases. The idle-handler reading choice and dependent ML training comparison are deferred.
+
 The [October 1 baseline](docs/current-state.md) fixes the current source, data, settings and results before experiment 3. Its `checkpoints/study-baseline-2026-10-01.json` supports file verification and comparisons with future saved runs.
 
 Experiment 3 now has a [development workbench](http://127.0.0.1:8768/experiment-3) with 72 new training packets, 36 development packets, deterministic input facts, matched local ML results and a completed 144-request Jev comparison. Its references remain provisional. Use `/experiment-3` on your own server. [The development guide](docs/experiment-3-development.md) records the controls, results and next review.
@@ -48,6 +50,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 | Document | What it covers |
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
+| [Jev task-fit research](docs/jev-task-fit.md) | Primary-source NOC/SOC examples, local evidence, concrete input design and the next evaluation plan. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
 | [Declaration consistency](docs/declaration-trust.md) | Shared readings, explicit declaration conflicts and NOC retention. |
 | [Declared instrument domain](docs/declared-domain.md) | Matched domain definitions, software-domain controls and reading transfer limits. |

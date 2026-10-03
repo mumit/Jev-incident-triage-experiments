@@ -8,6 +8,8 @@ Two experiments are complete. The app includes an eight-chapter study walkthroug
 
 The historical handoff and evidence belong to the [`study-evidence-v1` release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1). Its tag identifies the source version; the bundle manifest records the full source commit. The frozen inference checkpoint is `6a44f62`. Later UI and documentation work preserves its four inference files.
 
+On October 2, the user deferred the idle-handler reading choice and redirected the work to Jev's suitability for incident triage. Start with [the task-fit research](docs/jev-task-fit.md), checked against primary sources and the local evidence at `3a9f54c`. The next direction is a broader report-interpretation study with separate development, calibration and sealed evaluation families. Its protocol and thresholds are not implemented. No new inference accompanies the research; the idle-dependent ML comparison remains deferred.
+
 ## Read first
 
 1. [AGENTS.md](AGENTS.md): project conventions and experimental controls.
@@ -67,7 +69,7 @@ Raw KPI time-series anomaly detection remains separate. The historical dataset h
 
 Open the cloned repository as a Codex project so it reads `AGENTS.md`. A useful first task is:
 
-> Read HANDOFF.md and docs/declaration-trust.md. The user selected NOC retention until conflicting structured and prose declarations are resolved, preserving operation readings. The completed matched guard study from `ee12a91` improves Jev packet matches 56/80 → 80/80 with 40/40 actual readings unchanged. Rules improve 56/80 → 72/80; both frozen ML controls stay 40/80 with all readings unknown. Use the separate trust_evaluation.py checkpoints for corrected raw/operation attribution; preserve the original runs, data, references and inference source. Inspect `/declaration-trust`. The next ML format-coverage comparison needs the idle-handler reading decision in docs/idle-operation-review.md before annotations or fitting. Use separate families; never fit or tune using this pack. Specialist review and final held-out evaluation remain pending.
+> Read HANDOFF.md and docs/jev-task-fit.md. The current focus is whether Jev is a good report interpreter for incident triage and which input, question and threshold changes improve its performance. The idle-handler choice and dependent ML comparison are deferred. Prepare the task-fit protocol on separate development, calibration and sealed evaluation families; do not retune recorded packs. Preserve all historical data, references, requests and results, including the separate trust_evaluation.py attribution checkpoints. No new protocol, operational thresholds or additional model provider has been implemented. Specialist review and operational validation remain pending.
 
 API keys, `.env`, local environments and run files stay out of Git. Preserve input/answer-key separation and report missing results explicitly. The ML microscope explains a fitted score, not physical causation; Jev's hosted weights and internal reasoning remain unavailable.
 
