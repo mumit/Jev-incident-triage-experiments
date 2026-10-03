@@ -65,6 +65,34 @@ Requests, inputs and separate references are saved before calls. New run directo
 
 Local evidence includes predictions, 60 distinct-text ML vectors and 120 fitted margins. Hosted evidence records exact requests, responses, returned distributions, latency and joins. Raw runs remain ignored and are outside the historical public bundle. A fresh clone can replay local controls; new hosted runs need a server-side key and incur charges.
 
-## Current status
+## Results
 
-The pack, questions, independent references and run protocol are prepared. Actual model results will be reported only after inference and verification. Specialist review and evaluation on held-out families remain pending.
+All **60 Jev calls completed without failures** from frozen preparation commit `0d5c214`. Both raw runs verify. The [hosted checkpoint](../checkpoints/declared-domain-jev-2026-10-02.json) and [local checkpoint](../checkpoints/declared-domain-local-2026-10-02.json) retain interpretation scores, matched changes, field regressions, attribution and fingerprints.
+
+| Reader | Interpreter domain: packets match | Software domain: packets match | Interpreter / software: complete pairs match |
+|---|---:|---:|---:|
+| Jev · technical-domain question | 56/64 | 64/64 | 28/32 / 32/32 |
+| Jev · declared-domain question | 64/64 | 64/64 | 32/32 / 32/32 |
+| Report ML · original phrases | 40/64 | 40/64 | 8/32 / 8/32 |
+| Report ML · broader phrases | 40/64 | 40/64 | 8/32 / 8/32 |
+| Report rules | 44/64 | 64/64 | 16/32 / 32/32 |
+
+The declared-domain question fixes eight packets and loses none against the technical-domain control. It corrects four distinct domain annotations, covering the two fault/normal texts for each missing-declaration family. The control identifies RAN from radio decoding and power from electrical supply. Those are reasonable technical domains under its frozen definition, but the selected declaration definition requires `none`. This gain measures compliance with the chosen task; it does not prove general domain-reasoning improvement.
+
+Both Jev questions read all **30/30** distinct operation outcomes correctly. Domain agreement is 26/30 for the control and 30/30 for the candidate. Neither question has wrong report meanings hidden by matching packet decisions. Technical distractions and ambiguous declarations already pass under the control; no observed gain can be attributed to those cases. The explicit headers differ from the preceding pack, so this study cannot isolate their effect from a cross-study score comparison.
+
+The software-domain control fixes the same eight packets while retaining the technical-domain reader’s actual fault/normal predictions. It changes none of the declared-question packets. Neither intervention introduces a newly wrong owner, priority, diagnostic, evidence or report-reading field. Supplying domain in software achieves the selected task here without additional Jev calls. This does not validate declaration trust or prove that a reading-only Jev request would behave identically: both hosted requests still ask for domain and reading.
+
+### Why software domain does not rescue ML
+
+Both frozen ML models return `unknown` for all 30 distinct report texts. Neither has a correct operation-outcome annotation; domain agrees on only 6/30. The software control corrects domain to 30/30 but preserves those unknown readings. Every ML path retains NOC on all 64 packets, matching the 40 NOC references and missing all 24 domain-owner references. All 40 packet matches therefore hide report disagreements.
+
+The saved broader-phrase ML score for the generic core normal report selects unknown at 62.5%, versus normal at 24.5%. Its unknown-versus-normal log-odds margin is 0.934. `instrument`, `the` and `domain` contribute approximately +0.229, +0.216 and +0.181, while `normal` contributes -0.072. Generic framing learned from the frozen training set outweighs the normal token in this particular fitted score. These weights explain the classifier’s output, not a physical cause or a universal failure mechanism. More training phrases would need a separate matched study on new families.
+
+Report rules recognize every fault/normal outcome on this explicit `failure`/`normal` wording, but match only 14/30 declared domains. Copying domain fixes 20 packets and loses none relative to the rule reader, reaching 64/64 with no hidden report disagreements. The rule expression and its vocabulary remain unchanged. This result is specific to the deliberately simple wording and reliable synthetic declarations.
+
+### Limits and next boundary
+
+The candidate and software-domain paths pass the stale/unlinked fault controls and preserve NOC when declarations are missing or ambiguous. Full packet agreement remains agreement with drafts on controlled development cases; no specialist review, final held-out set, repeatability check or operational validation has occurred.
+
+The pack makes structured declarations agree with report headers. A real adapter may receive contradictory declarations or stale instrument metadata. Before the next trust comparison, its reference policy must specify which source is authoritative when structured metadata and an explicit prose declaration disagree. That decision changes input handling and owner references; it cannot be chosen from these scores.
