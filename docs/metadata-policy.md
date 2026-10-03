@@ -104,10 +104,10 @@ The pack supplies its own function and condition identifiers. Incorrect but conf
 
 Open **Comparison → Instrument metadata policy** or `/metadata-policy`. Select the interpreter and policy independently. Switching policy preserves the exact request and recorded report meanings while changing the grouping trace and packet decisions. The page distinguishes 16 actual text inputs from 96 correlated occurrences, exposes supplied scope separately from interpreter inputs, and keeps draft references hidden until requested. Local ML inspection uses saved vectors and fitted margins; Jev exposes returned distributions only. Browsing makes no hosted calls. A clone without raw runs shows missing predictions explicitly.
 
-## Next decision
+## Domain definition selected
 
 The remaining Jev disagreements concern **instrument domain versus domain-specific technical evidence**. For example, `Independent ran observation: A current operation trace confirms a component failure during the measured operation.` carries a RAN prefix, but gives the interpreter neither a radio function description nor the supplied `radio_decoding` metadata.
 
-I will keep this study frozen. The next domain comparison needs a choice: should the head identify an instrument’s declared domain, while policy separately checks service relevance, or require the report’s technical detail to establish that domain? Those definitions imply different annotations and inputs. Any change needs new families, prewritten references and a matched comparison; earlier references and scores must remain intact. Specialist review and final held-out evaluation remain pending.
+This study stays frozen. On October 2, the user selected declared instrument domain, with policy separately checking service relevance. The next domain comparison will version that definition explicitly. Any change needs new families, prewritten references and a matched comparison; earlier references and scores must remain intact. Specialist review and final held-out evaluation remain pending.
 
 [The domain decision brief](metadata-domain-review.md) shows the exact recorded example and the two possible task definitions.

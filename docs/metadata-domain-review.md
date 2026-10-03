@@ -4,12 +4,12 @@
 
 The metadata study leaves a task-definition ambiguity. Its draft annotations accept the report’s stated domain; the frozen Jev question describes domain-specific technical functions. Those definitions differ when a generic operation report names its source but omits the function.
 
-For the next study, the choice is between:
+The user selected the first definition below. The second explains the earlier question boundary:
 
 - **Declared instrument domain:** identify the domain named by the instrument or report. Policy separately checks currentness and its connection to the affected service. A domain name alone does not assign investigation ownership.
 - **Technical evidence domain:** identify a domain only when the report’s technical detail establishes it. A source prefix alone can receive `none`.
 
-I favor the first definition because it keeps source identification separate from service relevance. That choice still needs confirmation, followed by new families and prewritten references. The current data, questions and results remain frozen.
+I favor the first definition because it keeps source identification separate from service relevance. The user selected declared domain on October 2, 2026. The next comparison will use new families and prewritten references. The current data, questions and results remain frozen.
 
 ## A recorded example
 
