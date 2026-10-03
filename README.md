@@ -49,6 +49,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Report language and Jev](docs/report-language.md) | Matched training result, direct-versus-report Jev comparison and the remaining reference decision. |
 | [Report interpretation and policy](docs/experiment-3-interpretation.md) | Report annotations, interpreter errors, policy traces and matched architecture results. |
 | [Training wording](docs/experiment-3-wording.md) | Matched method-word intervention, negative result, controls and regressions. |
 | [Structured ML features](docs/experiment-3-structured-ml.md) | Matched feature sets, fitted vectors, score contributions and field regressions. |
@@ -109,6 +110,7 @@ uv run --locked python -m scripts.run_experiment3_robustness validate
 uv run --locked python -m scripts.run_experiment3_structured_ml validate
 uv run --locked python -m scripts.run_experiment3_wording validate
 uv run --locked python -m scripts.run_experiment3_interpretation validate
+uv run --locked python -m scripts.run_report_language validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
@@ -130,4 +132,4 @@ The working checkout passes 142 Python tests and nine JavaScript tests. Two Pyth
 
 I adapted the source from an earlier local synthetic incident benchmark. This repository adds the trained ML comparison, focused Jev requests and interactive study walkthrough.
 
-The next [report-language comparison](docs/report-language.md) is prepared with matched training wording and 140 new development packets. Its recorded preflight protocol precedes local fits and a bounded Jev architecture comparison.
+The [report-language comparison](docs/report-language.md) uses 186 matched training packets, 210 annotations and 140 new development packets. Broader phrases score 86/140 against 90/140 for original report phrases: four fixes and eight regressions. On the same pack, Jev report interpretation feeding fixed policy scores 139/140 against 127/140 for frozen direct triage, fixing 13 packets and losing one. Jev misreads five core acceptance reports, four hidden by correct triage. These are draft-reference development results; the meaning of a normal core measurement needs review before the next revision. Inspect actual training phrases, returned meanings, policy traces and saved score contributions at `/report-language` or **Comparison → Report language and Jev**.

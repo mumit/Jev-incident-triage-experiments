@@ -71,7 +71,7 @@ def render_study(study, params):
         if not parsed.scheme and not parsed.netloc:
             if parsed.path == '../checkpoints/experiment-3-development-2026-10-01.json':
                 return '/experiment-3-report.json'
-            if parsed.path in {'../checkpoints/report-language-local-2026-10-02.json','../checkpoints/report-language-jev-2026-10-02.json','../checkpoints/report-language-protocol-2026-10-02.json'}:
+            if parsed.path in {'../checkpoints/report-language-local-2026-10-02.json','../checkpoints/report-language-jev-2026-10-02.json','../checkpoints/report-language-protocol-2026-10-02.json','../checkpoints/report-language-replay-protocol-2026-10-02.json','../checkpoints/report-language-replay-2026-10-02.json'}:
                 return '/'+Path(parsed.path).name.replace('-2026-10-02','')
             if parsed.path == '../checkpoints/experiment-3-interpretation-2026-10-02.json':
                 return '/experiment-3-interpretation-report.json'

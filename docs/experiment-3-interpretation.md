@@ -80,9 +80,9 @@ In `NSI-0566b2bf8a52-b`, packet loss is “suspected” and the measurement “i
 
 In `NSI-c3ac8df8f332-a`, current transport reports contain a fault and a normal reading. Report ML calls both normal. Policy still returns the correct NOC/gather-evidence/insufficient-evidence decisions, but its trace shows no recognized conflict. In packet B, only the nominal reading becomes stale. The missed fault now produces the wrong NOC decision. Inspecting the intermediate reading explains why the correct A answer is insufficient evidence of understanding.
 
-## Next experiment
+## Subsequent experiment
 
-I will broaden the report training wording while keeping the report classifier, input boundary and policy fixed. A matched comparison should replace redundant training phrases at the same packet count and domain/reading mix, distribute service-probe language across fault, normal and unknown reports, and vary positive, negated and uncertain descriptions without changing their meanings.
+The completed [report-language study](report-language.md) broadens report training wording while keeping the report classifier, input boundary and policy fixed. A matched comparison should replace redundant training phrases at the same packet count and domain/reading mix, distribute service-probe language across fault, normal and unknown reports, and vary positive, negated and uncertain descriptions without changing their meanings.
 
 Further development families should test those distinctions and contain clause-scoped negation and uncertainty controls. The existing 108 packets are now inspected development evidence; they cannot validate the next revision independently. Report-level accuracy, complete-packet fixes, field regressions and errors hidden by correct triage must remain visible. The original packet candidate stays unchanged. Specialist review still precedes final held-out evaluation.
 
@@ -97,3 +97,5 @@ uv run --locked python -m scripts.run_experiment3_interpretation verify --output
 ```
 
 Runs are immutable. Raw evidence stays under ignored `runs/experiment-3-interpretation/`. A fresh clone can inspect inputs and annotations and replay the local study without Jev. The historical public bundle remains unchanged and does not include this run. Nothing in the lab executes network changes.
+
+The subsequent matched result is negative: 86/140 for broader report wording versus 90/140 for original phrases. Its separate hosted architecture comparison scores 139/140 for Jev report interpretation feeding policy versus 127/140 for direct triage. These are within-pack comparisons on further development families, not deltas from the 108-packet study above.

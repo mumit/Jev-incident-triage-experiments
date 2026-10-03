@@ -338,8 +338,8 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
-                if path.path in {'/report-language-local.json','/report-language-jev.json','/report-language-protocol.json'}:
-                    name={'/report-language-local.json':'local','/report-language-jev.json':'jev','/report-language-protocol.json':'protocol'}[path.path]
+                if path.path in {'/report-language-local.json','/report-language-jev.json','/report-language-protocol.json','/report-language-replay-protocol.json','/report-language-replay.json'}:
+                    name={'/report-language-local.json':'local','/report-language-jev.json':'jev','/report-language-protocol.json':'protocol','/report-language-replay-protocol.json':'replay-protocol','/report-language-replay.json':'replay'}[path.path]
                     report=app.root/('checkpoints/report-language-'+name+'-2026-10-02.json')
                     return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded '+name+' report.'})
                 if path.path=='/api/report-language/catalog':return self.send(200,language().catalog())

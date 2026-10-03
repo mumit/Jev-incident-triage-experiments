@@ -43,7 +43,7 @@ The pack uses written teaching scenarios, literal domain prefixes and shared mec
 
 The local comparison fits original and broader report language once, then feeds their predicted meanings into the frozen policy. Frozen packet ML, frozen report expressions and original incident rules provide controls. All four packet decisions, pair success, report domain/reading accuracy, field regressions and incorrect readings hidden by correct triage remain separate measures. Reference annotations feed policy only in an evaluation diagnostic after actual predictions.
 
-The subsequent Jev comparison will use these same development packets. Frozen selected-evidence direct triage will retain its existing questions. A new text-only report request will ask domain and fault/normal/unknown questions before feeding the same fixed policy used by report ML. This changes task boundaries, context and policy execution; it is an architecture comparison, not a question-only intervention. Exact inputs, question definitions, returned probabilities and policy traces will be recorded. Direct triage retains software-priority and semantic-decision scores for comparison with calculated pipeline priority.
+The Jev comparison uses these same development packets. Frozen selected-evidence direct triage retains its existing questions. A new text-only report request asks domain and fault/normal/unknown questions before feeding the same fixed policy used by report ML. This changes task boundaries, context and policy execution; it is an architecture comparison, not a question-only intervention. Exact inputs, question definitions, returned probabilities and policy traces are recorded. Direct triage retains software-priority and semantic-decision scores for comparison with calculated pipeline priority.
 
 No model executes a network change. References, the 15-minute inclusive validity threshold and same-asset comparability remain provisional.
 
@@ -69,6 +69,33 @@ The frozen report expressions, which matched all 108 previous draft references, 
 
 [The local checkpoint](../checkpoints/report-language-local-2026-10-02.json) preserves scores, fitted term weights, matched changes and evidence fingerprints. [Open the inspection workbench](http://127.0.0.1:8768/report-language). Training view exposes both actual wordings. Development view follows reports through predicted meanings, policy joins and final decisions; references remain separately revealable. Exact inputs, saved vectors and fitted score margins are available for inspection and download.
 
+## Jev result: separate interpretation helps, with one regression
+
+All 296 requests completed with zero failures on `jev-1.13.0`: 140 direct-triage requests and 156 text-only report requests. Both architectures score the same 140 development packets.
+
+| Jev architecture | All four decisions correct | Both packets correct |
+|---|---:|---:|
+| Frozen selected-evidence direct triage | 127/140 (90.7%) | 59/70 (84.3%) |
+| Report interpretation → fixed policy | 139/140 (99.3%) | 69/70 (98.6%) |
+
+The report pipeline fixes 13 direct-triage failures and loses one previously correct packet. Direct failures include uncertain measurements assigned a domain or domain diagnostic, normal readings treated as faults, and restored service sent to evidence gathering instead of monitoring. Calculated pipeline priority and direct Jev priority both match every reference, so priority does not explain this gain.
+
+Jev identifies every report domain and matches 151/156 reading annotations. All five reading errors concern core reports that say the registration handler **accepts subscriber requests**. Jev selects unknown instead of the draft normal reading. Two different normalized report texts occur across these five rows; the domain prefix makes core explicit.
+
+In `NSL-c9841c3176a5-a`, a current acceptance report and a current refusal report describe the same asset. Direct triage retains NOC. The report interpreter calls acceptance unknown and refusal fault; policy sees one supported fault without a recognized normal contradiction and assigns core, `inspect_core` and sufficient evidence. That is the sole packet regression. In four other packets, stale or otherwise ineligible normal reports, or a normal-only packet, keep final decisions correct despite the incorrect reading. The workbench exposes those intermediate errors rather than treating 139 correct packets as 139 understood incidents.
+
+The [Jev checkpoint](../checkpoints/report-language-jev-2026-10-02.json) records every request fingerprint, returned choice and probability, policy trace and matched change. [Inspect the regression](http://127.0.0.1:8768/report-language?split=development&case=NSL-c9841c3176a5-a&arm=jev_reading#inspect), reveal the draft references, then select Report 1 and its reading probabilities. Jev gives unknown 64% and normal 36%. These are provider probabilities, not calibrated operational confidence or access to internal reasoning.
+
+The gain supports further testing of separated interpretation and policy. It does not identify which architectural change caused the improvement, validate the draft annotations or establish performance on real telecom incidents. Earlier scores use other data packs and are not before/after deltas for this study.
+
+## Repeatability check and the next decision
+
+A bounded diagnostic replay repeats the two inspected acceptance texts and their matched refusal texts three times each: four distinct requests, 12 calls. The saved bodies and questions remain unchanged. Repetition tests whether the same readings recur; it introduces no new families and cannot estimate independent accuracy. The [replay protocol](../checkpoints/report-language-replay-protocol-2026-10-02.json) records that selection before calls.
+
+Before changing Jev’s definition of normal, I need to settle the meaning of the measurement: does “the handler accepts subscriber requests” establish normal operation of the focal handler, or should a normal core reading require evidence that registration completed? The current draft uses the first interpretation. A stronger definition would change report annotations and comparable-conflict references, so it needs a separate version rather than relabeling this recorded result.
+
+I will keep the current models, questions, policy and references frozen. Once that distinction is settled, new development families can contrast request acceptance, completed registration, partial success and uncertain completion. Training changes belong in a separate matched study; specialist-reviewed references and new held-out families must precede any operational claim.
+
 ## Reproduce
 
 ```bash
@@ -77,6 +104,15 @@ uv run --locked python -m scripts.run_report_language run --output runs/report-l
 uv run --locked python -m scripts.run_report_language verify --output runs/report-language/my-local-study
 ```
 
-Raw evidence stays under ignored `runs/report-language/`; runs refuse overwrites. The historical public bundle remains unchanged. Hosted requests will use the pinned Jev checkpoint and the existing server-side key, with no automatic retries.
+Raw evidence stays under ignored `runs/report-language/`; runs refuse overwrites. The historical public bundle remains unchanged. Hosted requests use the pinned Jev checkpoint and a server-side key, with no automatic retries.
 
-The [prepared protocol](../checkpoints/report-language-protocol-2026-10-02.json) records source and data fingerprints before inference. Eleven preflight tests check matched data, report/policy boundaries, fitted explanations, request recording, credential redaction, stop conditions and failure-inclusive denominators. Jev requests follow the [TypeSafe Choice API](https://docs.typesafe.ai/introduction/quickstart). The hosted preflight plans 140 direct requests plus 156 report requests, for 296 calls.
+The [prepared protocol](../checkpoints/report-language-protocol-2026-10-02.json) records source and data fingerprints before inference. Eleven preflight tests check matched data, report/policy boundaries, fitted explanations, request recording, credential redaction, stop conditions and failure-inclusive denominators. Jev requests follow the [TypeSafe Choice API](https://docs.typesafe.ai/introduction/quickstart). The hosted run completed all 296 planned calls. Its verification recomputes report readings, packet policy traces and failure-inclusive scores.
+
+
+```bash
+uv run --locked python -m scripts.run_report_language_jev preflight
+uv run --locked python -m scripts.run_report_language_jev run --output runs/report-language-jev/my-hosted-study
+uv run --locked python -m scripts.run_report_language_jev verify --output runs/report-language-jev/my-hosted-study
+```
+
+The diagnostic replay requires its original saved hosted run under `runs/report-language-jev/development-2026-10-02-v1/`. It verifies that evidence before reusing exact request bodies. A fresh clone cannot recreate this replay selection from scores alone.

@@ -98,3 +98,12 @@ Choose **Comparison → Training wording: ML**. The result view shows the method
 Choose **Comparison → Report interpretation and policy**. **Exact input** separates text-only interpreter inputs from policy facts. **Decisions** compares report meanings before showing packet choices. Open each policy trace to follow predicted meaning, freshness, service support and the resulting disposition. Select **Report ML → policy** to inspect a report's domain or reading vector, fitted probabilities and score contributions. Draft report annotations appear only after reference reveal, separately from inference inputs. Training packets show inputs and annotations without evaluation predictions.
 
 The result view distinguishes report accuracy, packet accuracy, field regressions and wrong readings hidden by correct triage. Example links open a fault misread as normal, uncertainty promoted to a fault and a missed conflict with a correct final answer. [The report-policy guide](experiment-3-interpretation.md) explains why the original frozen packet candidate remains preferable on this pack.
+
+
+## Report language and Jev
+
+Choose **Comparison → Report language and Jev** to open `/report-language`. The result tables keep matched ML wording and the Jev architecture comparison separate. Example links open a fix and a regression from each comparison.
+
+**Training** shows the two actual report wordings without evaluation predictions. **Development** follows raw reports through each predicted meaning, the selected policy trace and all seven final outputs. Reveal draft report and packet references separately; wrong meanings and decisions then receive markers. Select a report and score field to inspect ML vectors and contributions or actual Jev probabilities. Jev's internal weights and reasoning remain unavailable.
+
+**Exact input** downloads the selected boundary: a report/policy bundle, frozen packet features or an exact Jev request. Saved Jev responses include returned probabilities and usage. The experiment guide preserves packet, arm, report and section on return. Browsing this workbench makes no hosted calls.
