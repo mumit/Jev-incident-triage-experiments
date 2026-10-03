@@ -39,7 +39,7 @@ async function load(){
  try{const d=await api('/api/declaration-trust/case?'+new URLSearchParams({id:state.id,split:state.split,arm:state.arm,report:state.report}));if(generation!==serial)return;detail=d;render();$('inspect').setAttribute('aria-busy','false');$('copy').disabled=false;$('download').disabled=false;}
  catch(e){if(generation===serial){status(e.message,true);$('inspect').setAttribute('aria-busy','false');}}
 }
-function sync(){history.replaceState(null,'','/declaration-trust?'+new URLSearchParams({split:state.split,case:state.id,arm:state.arm,report:state.report})+(location.hash||'#inspect'));$('guide-link').href='/study?'+new URLSearchParams({doc:'declaration-trust',return:location.pathname+location.search+location.hash});$('decision-link').href='/study?'+new URLSearchParams({doc:'idle-operation-review',return:location.pathname+location.search+location.hash});}
+function sync(){history.replaceState(null,'','/declaration-trust?'+new URLSearchParams({split:state.split,case:state.id,arm:state.arm,report:state.report})+(location.hash||'#inspect'));$('guide-link').href='/study?'+new URLSearchParams({doc:'declaration-trust',return:location.pathname+location.search+location.hash});$('decision-link').href='/task-fit';}
 function render(){
  const r=detail.record,p=r.input,key=detail.draft_reference,show=$('references').open;
  $('case-id').textContent=`${r.id} · ${key.incident_family_id}`;$('pair-change').textContent=`Only ${detail.changed_paths.join(', ')} changes between this packet and its partner. References are drafts.`;

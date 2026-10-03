@@ -44,9 +44,9 @@ def return_path(value):
     """Only a relative walkthrough URL can become the return action."""
     value = value or ''
     parsed = urlparse(value)
-    if parsed.scheme or parsed.netloc or parsed.path not in {'/explorer', '/experiment-3', '/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust'} or '\\' in value or len(value) > 4096:
+    if parsed.scheme or parsed.netloc or parsed.path not in {'/explorer', '/experiment-3', '/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust', '/task-fit'} or '\\' in value or len(value) > 4096:
         return DEFAULT_RETURN
-    sections = CHAPTERS if parsed.path == '/explorer' else {'inspect','evidence','input','decisions','weights','results'} if parsed.path in {'/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust'} else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
+    sections = {'inspect','input','decision','results','coverage'} if parsed.path == '/task-fit' else CHAPTERS if parsed.path == '/explorer' else {'inspect','evidence','input','decisions','weights','results'} if parsed.path in {'/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust'} else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
     if parsed.fragment and parsed.fragment not in sections:
         return DEFAULT_RETURN
     return value

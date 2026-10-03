@@ -93,6 +93,8 @@ Current Jev customization happens through state, instructions, criteria and deco
 
 ## Next experiment
 
+October 3 update: the [task-fit experiment](task-fit-experiment.md) now records development, repeatability and frozen-reader calibration. Its `/task-fit` workbench exposes measured requests and responses. The plan below records the October 2 research direction; the intended use and operating threshold remain unresolved.
+
 I will prepare a task-fit study before another targeted ML training change. Its protocol will answer whether Jev interprets a broader range of reports correctly, how much review it needs and which input changes improve those outcomes.
 
 1. **Write new cases and review their references.** Cover RAN, transport, power and core reports, including counter resets, negation, historical alarms, successful intermediate operations, unresolved downstream outcomes, multiple faults and misleading instructions. Keep idle cases outside scored comparisons until the deferred definition is resolved. Synthetic results remain teaching evidence; representative operational claims require appropriately handled real examples and specialist review.

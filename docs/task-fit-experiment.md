@@ -65,7 +65,7 @@ Primary measures include report accuracy, fault/normal/unknown confusion, fully 
 
 Multiclass Brier score, log loss and reliability bins describe probability quality on successfully scored reports. Failed calls remain in coverage and accuracy totals, but have no invented probability. Review curves show coverage, reading errors, packet errors and accepted fault misses at explicit thresholds. Twenty-four calibration reports are too few to establish operational reliability. A zero observed error count must not imply zero risk, and paired reports reduce independence further.
 
-Actual requests, raw replies, policy traces and local fitted explanations stay in immutable ignored run directories. Tracked checkpoints summarize measured evidence; a fresh clone without the runs must show missing predictions explicitly.
+Actual requests, raw replies and local fitted explanations stay in immutable ignored run directories. The read-only workbench derives policy traces from those verified readings. Tracked checkpoints summarize measured evidence; a fresh clone without the runs must show missing predictions explicitly.
 
 ## Reproduce
 
@@ -102,3 +102,41 @@ Reported primary input tokens are 11,605 for Prose, 11,727 for Structured, 14,65
 Frozen rules match 7/24 readings and 15/24 packets, with eight hidden reading errors. Each frozen ML reader matches 6/24 readings and 16/24 packets, hiding ten reading errors. These text-only controls have different context and limited training coverage; their results do not establish general model superiority.
 
 The [candidate freeze](../checkpoints/task-fit-candidate-2026-10-03.json) selects **Structured** using the predeclared development rule. Its question and input construction stay unchanged for calibration. No operating threshold is selected, and final evaluation remains sealed. Operational use also requires specialist-reviewed examples and an explicit choice of acceptable errors and useful coverage.
+
+
+## Calibration and review coverage
+
+The frozen Structured reader completed all 24 calibration calls without failures, matching 23/24 report references and 23/24 packet references. The study now contains 192 actual hosted calls: 96 primary, 72 repeated and 24 calibration. [Calibration evidence](../checkpoints/task-fit-calibration-2026-10-03.json).
+
+Its one error is report `NTF-80984668148c-b`:
+
+> Instrument domain: power. Before repair the regulator was faulty. The current exercised-load measurement verifies output within its declared range.
+
+Jev returns `fault` with probabilities 0.51 fault, 0.48 normal and 0.01 unknown. The draft reference is `normal` because the current measurement verifies the repaired regulator. The frozen policy consequently recommends power rather than retaining NOC. This error concerns the reading, not a missing domain declaration or service path.
+
+| Minimum returned-reading probability | Accepted readings / 24 | Reading errors among accepted | Domain recommendations / 24 | Wrong domain recommendations | Readings in review |
+|---|---|---|---|---|---|
+| 0.50 | 18 | 1 | 10 | 1 | 6 |
+| 0.60 | 16 | 0 | 9 | 0 | 8 |
+| 0.90 | 13 | 0 | 7 | 0 | 11 |
+| 0.99 | 10 | 0 | 5 | 0 | 14 |
+
+An accepted reading is a fault or normal answer that meets the displayed threshold. A domain recommendation also requires the unchanged policy to identify a domain team with sufficient evidence. Confident normal readings can still leave NOC investigating a degraded service. At 0.60, therefore, 16 readings qualify but only nine incidents receive a domain-team recommendation. The remaining 15 incidents retain NOC or require review; those outcomes do not all imply an uncertain report reading. The [supplementary routing calculation](../checkpoints/task-fit-routing-review-2026-10-03.json) preserves every saved prediction and score.
+
+The threshold sweep describes this pack. It does not establish a safe operating threshold: even 16 independent accepted readings with zero errors would give an approximately 17% one-sided 95% upper error bound. These reports are paired, making that independence assumption optimistic. Raising the threshold also discards correct readings; the study does not yet establish whether that tradeoff helps analysts.
+
+Multiclass Brier score is 0.0450 and log loss is 0.0891 on these 24 reports. Median client latency is 146 ms and the 95th percentile is 181 ms. Provider-reported usage is 11,703 input and 912 output tokens. These measurements neither validate operational calibration nor determine billed cost.
+
+## Inspect the study
+
+Open `/task-fit` in the app. Its five steps connect the comparison table, paired reports, exact saved Jev request, actual response and software policy, then the probability sweep. Inspection makes no hosted calls. References stay hidden until revealed; missing raw runs remain explicitly unavailable on a fresh clone. The historical public bundle does not include this study.
+
+Start with the development timing report above in Prose, reveal its reference, then select Structured to see the changed state and corrected reading. Switch to Calibration and the repaired-regulator report to inspect the remaining failure. The coverage table distinguishes accepted readings from domain recommendations at each threshold. The experiment guide returns to the selected case and arm.
+
+## Next decision
+
+I regard Jev as a promising report interpreter within this controlled workflow. These results do not yet establish a sufficiently trained ML comparison, production reliability or the value of automatic routing. Structured input wins the development selection; more wording and examples add no observed benefit on this small pack.
+
+Before opening final evaluation, the next protocol needs an intended use, an acceptable wrong-assignment limit and minimum useful coverage. An analyst-facing recommendation lets a person inspect the evidence and make the assignment. Automatic initial-team routing in shadow mode would record which assignments software would make while people retain control; its evaluation needs an explicit error budget and a useful coverage target.
+
+My recommendation is to evaluate analyst-facing recommendations first. The next stage can freeze its boundary, measure the sealed synthetic set once, then prepare specialist review and a shadow study using appropriately handled real reports. The calibration failure remains evidence; changing its wording requires further development families and a separately versioned candidate. Final evaluation remains sealed, the operating threshold stays unselected and idle cases remain deferred.

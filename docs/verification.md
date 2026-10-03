@@ -1,10 +1,10 @@
 # Verification
 
-October 2, 2026. This document records the current implementation checks and their limits. [The measured review](performance-review.md) records experiment results; [the overview](experiment-overview.md) explains the study.
+October 3, 2026. This document records the current implementation checks and their limits. [The measured review](performance-review.md) records experiment results; [the overview](experiment-overview.md) explains the study.
 
 ## Automated checks
 
-The working checkout passes **192 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All eight browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **212 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All ten browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -180,3 +180,14 @@ The [inspection audit](../checkpoints/declared-domain-inspection-2026-10-02.json
 All 203 Python tests, 14 dataset validators, nine JavaScript tests and nine browser-script syntax checks pass. New checks cover explicit enum parsing, occurrence-specific domains, shared failures, independent references, ineligible-report exclusions, fitted margins, immutable evidence and corrected raw-versus-software attribution. Prior data, evidence and recorded results verify unchanged.
 
 The live study records 40 Jev requests without failures, 40 distinct texts and 160 correlated occurrences. Its local evidence includes 80 actual report vectors and 160 reconstructed fitted margins. Exact browser downloads match saved Jev requests for both policies. Browser checks at 390, 820 and 1280 pixels show no page overflow or console errors; guide returns restore the case and policy. See the [inspection audit](../checkpoints/declaration-trust-inspection-2026-10-02.json).
+
+
+## Task-fit interpretation and coverage
+
+The pack validator confirms 88 reports in 44 split-disjoint families, including 24 sealed evaluation reports. Six inference tests check matched facts and isolated changes, exclusion of poisoned answer fields, preregistered call counts, repeat request hashes, strict probability validation, missing-response denominators, hidden reading errors, unknown-review retention and checksum tampering. Three service/diagnostic tests check explicit missing-run behavior, inaccessible evaluation routes, guide return paths and the distinction between accepted readings and domain recommendations. The routing diagnostic leaves response files unchanged.
+
+The 96 development, 72 repeated and 24 calibration calls verify against their saved sources, data and requests. The Structured candidate freeze verifies. The read-only workbench exposes complete actual inputs and replies, independently revealed draft references, software traces and frozen local fitted evidence. Final evaluation inputs, labels, identifiers and requests are excluded from its catalog and case routes. UI inspection makes no hosted calls.
+
+Browser review covered the Prose timing-recovery error hidden by correct routing, the corrected Structured reading, the calibration regulator error, probability sweeps at 0.60 and 0.90, paired-report navigation, browser Back and the formatted guide's return link. Section navigation preserves revealed references. Phone, tablet and desktop checks at 390, 820 and 1280 pixels showed no page overflow; wide tables scroll within their containers. Browser error and warning logs were empty. The final suite passes all 212 Python tests, all 14 study validators plus the historical dataset validator, nine JavaScript tests, ten script syntax checks and launcher syntax.
+
+These checks establish evidence integrity and inspection behavior. They do not establish a safe routing threshold, independent references, representative network reports or operational calibration. The historical release bundle excludes task-fit raw evidence; a fresh clone shows missing predictions explicitly.

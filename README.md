@@ -25,7 +25,7 @@ Startup does not call Jev or download language-model weights. The app fits local
 
 Start with [HANDOFF.md](HANDOFF.md) for the current state, experimental controls and next task. Restore the four historical runs from the [study evidence release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1) using the [bundle guide](docs/run-bundle.md). The archive stays outside Git history; `runs/` remains ignored.
 
-The current focus is [Jev's fit for incident triage](docs/jev-task-fit.md): public NOC/SOC implementations, limits of the measured evidence and a plan to compare inputs, questions and thresholds on new cases. The idle-handler reading choice and dependent ML training comparison are deferred.
+The current focus is [Jev's fit for incident triage](docs/jev-task-fit.md). The [task-fit study](docs/task-fit-experiment.md) completes matched format, wording and example comparisons plus frozen-reader calibration. Inspect exact requests, actual responses and review coverage at `/task-fit`. Structured input matches 24/24 development readings and 23/24 calibration readings; final evaluation remains sealed pending the intended use and error/coverage targets. The idle-handler reading choice and dependent ML training comparison are deferred.
 
 The [October 1 baseline](docs/current-state.md) fixes the current source, data, settings and results before experiment 3. Its `checkpoints/study-baseline-2026-10-01.json` supports file verification and comparisons with future saved runs.
 
@@ -122,6 +122,8 @@ uv run --locked python -m scripts.run_report_language validate
 uv run --locked python -m scripts.run_report_scope validate
 uv run --locked python -m scripts.run_metadata_policy validate
 uv run --locked python -m scripts.run_declared_domain validate
+uv run --locked python -m scripts.run_declaration_trust validate
+uv run --locked python -m scripts.run_task_fit validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
@@ -132,10 +134,12 @@ node --check triage_bench/web/report-language.js
 node --check triage_bench/web/report-scope.js
 node --check triage_bench/web/metadata-policy.js
 node --check triage_bench/web/declared-domain.js
+node --check triage_bench/web/declaration-trust.js
+node --check triage_bench/web/task-fit.js
 bash -n start.command
 ```
 
-The working checkout passes 142 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 212 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

@@ -1,0 +1,82 @@
+{
+  "schema": "task-fit-routing-review-1",
+  "summary_sha256": "fc6e62357245835542ee48d7fe091135c00b802dea6e87af8b1d30333ad2c9ce",
+  "boundary": "Supplementary calculation from actual readings and frozen policy. Accepted report readings differ from actionable domain ownership. NOC retention and failures remain outside domain coverage. No operational threshold is selected; no saved prediction changes.",
+  "source_sha256": "7f4e795c0d7144b94bd3f14e465d7f148c93c228aef62620c1ab132eb6a3b967",
+  "arms": {
+    "structured": [
+      {
+        "threshold": 0,
+        "accepted_report_readings": 18,
+        "domain_recommendations": 10,
+        "domain_coverage": 0.4166666666666667,
+        "wrong_domain_recommendations": 1,
+        "noc_or_review": 14
+      },
+      {
+        "threshold": 0.5,
+        "accepted_report_readings": 18,
+        "domain_recommendations": 10,
+        "domain_coverage": 0.4166666666666667,
+        "wrong_domain_recommendations": 1,
+        "noc_or_review": 14
+      },
+      {
+        "threshold": 0.6,
+        "accepted_report_readings": 16,
+        "domain_recommendations": 9,
+        "domain_coverage": 0.375,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 15
+      },
+      {
+        "threshold": 0.7,
+        "accepted_report_readings": 16,
+        "domain_recommendations": 9,
+        "domain_coverage": 0.375,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 15
+      },
+      {
+        "threshold": 0.8,
+        "accepted_report_readings": 16,
+        "domain_recommendations": 9,
+        "domain_coverage": 0.375,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 15
+      },
+      {
+        "threshold": 0.9,
+        "accepted_report_readings": 13,
+        "domain_recommendations": 7,
+        "domain_coverage": 0.2916666666666667,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 17
+      },
+      {
+        "threshold": 0.95,
+        "accepted_report_readings": 13,
+        "domain_recommendations": 7,
+        "domain_coverage": 0.2916666666666667,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 17
+      },
+      {
+        "threshold": 0.99,
+        "accepted_report_readings": 10,
+        "domain_recommendations": 5,
+        "domain_coverage": 0.20833333333333334,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 19
+      },
+      {
+        "threshold": 1,
+        "accepted_report_readings": 9,
+        "domain_recommendations": 5,
+        "domain_coverage": 0.20833333333333334,
+        "wrong_domain_recommendations": 0,
+        "noc_or_review": 19
+      }
+    ]
+  }
+}

@@ -251,7 +251,16 @@ def handler_for(app, comparison_port=None):
     trust_study = None
     declared_study = None
     metadata_study = None
+    task_fit_study = None
     study_lock = threading.Lock()
+
+    def task_fit():
+        nonlocal task_fit_study
+        with study_lock:
+            if task_fit_study is None:
+                from .experiment3.task_fit_service import TaskFitStudy
+                task_fit_study = TaskFitStudy(app.root)
+            return task_fit_study
 
     def explorer_handler():
         nonlocal study_handler
@@ -374,6 +383,14 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path == '/api/task-fit/catalog':
+                    return self.send(200,task_fit().catalog())
+                if path.path == '/api/task-fit/case':
+                    q={k:v[0] for k,v in parse_qs(path.query).items()}
+                    return self.send(200,task_fit().case(q.get('id'),q.get('split','development'),q.get('arm','structured')))
+                if path.path in {'/task-fit','/task-fit.js','/task-fit.css'}:
+                    filename,mime={'/task-fit':('task-fit.html','text/html; charset=utf-8'),'/task-fit.js':('task-fit.js','text/javascript'),'/task-fit.css':('task-fit.css','text/css')}[path.path]
+                    return self.send(200,(Path(__file__).parent/'web'/filename).read_bytes(),mime)
                 if path.path in {'/declaration-trust-local.json','/declaration-trust-jev.json','/declaration-trust-protocol.json'}:
                     name=path.path.removeprefix('/declaration-trust-').removesuffix('.json')
                     report=app.root/('checkpoints/declaration-trust-'+name+'-2026-10-02.json')
