@@ -20,7 +20,7 @@ function summary(){
 function evaluation(){
  const b=catalog.analyst_boundary,a=catalog.analyst_assessment;
  $('study-boundary').textContent='Draft references · '+(catalog.cases.evaluation?'held-out evaluation recorded':'evaluation remains sealed or unavailable')+' · analyst review required for every report';
- $('evaluation-result').hidden=!a?.reports;
+ $('evaluation-result').hidden=!a?.reports;$('held-out-step').hidden=!a?.reports;
  if(!a?.reports)return;
  $('inspect-evaluation-error').hidden=!catalog.first_wrong_suggestion;
  if(catalog.first_wrong_suggestion)$('inspect-evaluation-error').href='/task-fit?'+new URLSearchParams({split:'evaluation',case:catalog.first_wrong_suggestion,arm:b.arm})+'#decision';
@@ -74,6 +74,7 @@ async function inspect(push=true){
   $('local').textContent=Object.keys(data.local_controls).length?pretty(data.local_controls):'No local bridge predictions on this split.';
   $('status').textContent=catalog.status.length?catalog.status.join(' · '):'Exact saved request and response loaded. No model call was made.';
   coverage();
+  if(!push&&location.hash)$(location.hash.slice(1))?.scrollIntoView({block:'start',behavior:'instant'});
  }catch(error){if(number===requestNumber){$('status').textContent=error.message;$('status').classList.add('error');}}
 }
 $('split').addEventListener('change',()=>{options();inspect();});
