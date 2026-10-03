@@ -1,8 +1,10 @@
 # Report-language reference decision
 
-## What needs a decision
+## Selected definition
 
-The next report-reader experiment needs a precise definition of a normal core measurement. The current draft treats this observation as **core / normal**:
+On October 2, 2026, the user selected **normal handler reading** for the synthetic continuation. Request acceptance establishes a normal reading of the focal handler; service completion remains a separate measurement. This confirms the existing draft meaning rather than changing any recorded reference.
+
+The current draft treats this observation as **core / normal**:
 
 > The registration handler accepts subscriber requests across independent access routes.
 
@@ -19,13 +21,13 @@ The current acceptance-versus-refusal conflict case makes the consequence visibl
 | Focal handler measurement | Normal: the stated handler behavior succeeds, while wider service status remains separate | Fault | Keep the current meaning boundary. Clarify that normal applies to the focal measurement rather than proving complete service recovery. |
 | Completed registration measurement | Unknown: acceptance alone does not establish completion | Fault, provided refusal represents a fault rather than expected rejection | Require completion evidence before a normal reading. Specify how successful, partial and rejected registrations relate to the measured function. |
 
-I favor retaining the focal-measurement definition for the synthetic continuation because it preserves the separation between report meaning and service impact. A network specialist may identify a better measurement boundary. In either case, choosing a definition does not validate the 15-minute threshold, same-asset comparability or topology assumptions.
+The selected focal-measurement definition preserves the separation between report meaning and service impact. This teaching decision does not establish specialist review or validate the 15-minute threshold, same-asset comparability or topology assumptions.
 
 ## What follows the decision
 
 The next pack should distinguish accepted requests, completed registrations, partial success, expected rejection, malfunction-driven refusal and uncertainty about completion. Current versus stale comparisons must preserve their report meanings while changing policy eligibility. A clause stating that a handler accepted requests cannot imply end-to-end recovery unless service probes establish it separately.
 
-The selected definition belongs in a new version of the report questions and prewritten report annotations. A matched comparison can then freeze that change before scoring further development families. Specialist review and new held-out families remain necessary before operational evaluation. The current 140 packets and replay texts are inspected development evidence.
+The next matched experiment will clarify only the reading-question instruction. Both Jev arms will receive identical new report texts, domain questions and choice criteria, then feed the same frozen policy. Separate annotations will state each report’s measured function before inference. A matched comparison can then freeze that change before scoring further development families. Specialist review and new held-out families remain necessary before operational evaluation. The current 140 packets and replay texts are inspected development evidence.
 
 No existing input, reference or score should be rewritten to make the model's answer correct. If a reviewer changes an earlier reference, record a separate version and separately identified re-score alongside the original result.
 
