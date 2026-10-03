@@ -1,0 +1,3075 @@
+{
+  "schema": "report-scope-local-1",
+  "source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/report_scope_data.py": "bedee90a2545625d7f5a96a45d2847985c12a331e8431dfeef68e4574345a7d4",
+    "triage_bench/experiment3/report_scope_trial.py": "7a3cae73a934baa00100191422a3193879c461ffa7c17eb177d3d0cb9dff72f2"
+  },
+  "data_sha256": {
+    "development.inputs.jsonl": "a91c141f17afcb07c960e082d4ec289d7fa8dda67f16920260332735ec75a5f0",
+    "development.labels.jsonl": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+    "development.observations.jsonl": "f827a7a8de748ff53efbfb2a9a1222bae473f372a3d1e22a89dbd8afbaadf6aa"
+  },
+  "training_sha256": {
+    "narrow/train.inputs.jsonl": "2d04fb7ad942b46998b4f35a46a3857b58e2d5e66a4267aeca12a393b18e24d4",
+    "narrow/train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "narrow/train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571",
+    "broad/train.inputs.jsonl": "7c5cade064a289c1092fec3e118d363fd6dd5af2d229531334f52d9a1e47a117",
+    "broad/train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "broad/train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571"
+  },
+  "arms": {
+    "narrow": "Report ML \u00b7 original phrases",
+    "broad": "Report ML \u00b7 broader phrases",
+    "report_rules": "Report rules \u2192 policy"
+  },
+  "parameters": {
+    "C": 2.0,
+    "max_iter": 2000,
+    "random_state": 17,
+    "class_weight": "balanced",
+    "word_ngrams": [
+      1,
+      2
+    ],
+    "character_ngrams": [
+      3,
+      5
+    ],
+    "min_df": 2,
+    "sublinear_tf": true,
+    "character_analyzer": "char_wb"
+  },
+  "records": 68,
+  "reports": 88,
+  "reference_status": "draft_not_specialist_reviewed",
+  "execution": "Reuse both frozen report training recipes as controls; fit training only, with no new training labels or development tuning.",
+  "approaches": {
+    "narrow": {
+      "metrics": {
+        "label_sha256": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+        "prediction_sha256": "aa66cbe954eb6f83f1318f4968ae4594eec1438882d0332645578204c5029ca9",
+        "records": 68,
+        "attempted_records": 68,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.16140350877192983,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 46,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.25,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 68,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.11528822055137844,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 46,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.40350877192982454,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 46,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 22,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.6764705882352942,
+        "semantic_decisions_accuracy": 0.6764705882352942,
+        "with_software_priority_accuracy": 0.6764705882352942,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 34,
+        "pair_all_fields_accuracy": 0.35294117647058826,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      },
+      "training": {
+        "sklearn_version": "1.9.1",
+        "parameters": {
+          "C": 2.0,
+          "max_iter": 2000,
+          "random_state": 17,
+          "class_weight": "balanced",
+          "word_ngrams": [
+            1,
+            2
+          ],
+          "character_ngrams": [
+            3,
+            5
+          ],
+          "min_df": 2,
+          "sublinear_tf": true,
+          "character_analyzer": "char_wb"
+        },
+        "training_packets": 186,
+        "training_reports": 210,
+        "feature_count": 921,
+        "training_inputs_sha256": "2d04fb7ad942b46998b4f35a46a3857b58e2d5e66a4267aeca12a393b18e24d4",
+        "training_annotations_sha256": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571",
+        "input_scope": "Observation detail only; asset identities normalized. No impact, paths, timestamps, policy text or packet target decisions."
+      },
+      "method_weights_normal_minus_fault": {
+        "service": 0.39755594837158326,
+        "probes": 0.39755594837158326,
+        "service probes": 0.39755594837158326,
+        "failing": -0.397832390456619,
+        "suspected": null,
+        "unconfirmed": 0.18490067757737944
+      }
+    },
+    "broad": {
+      "metrics": {
+        "label_sha256": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+        "prediction_sha256": "9b62e0c7d5ed9fdf105d4a84d58aa3261c2cde59dac1bfb3023b63db4bb9958b",
+        "records": 68,
+        "attempted_records": 68,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.16140350877192983,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 46,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.25,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 68,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.11528822055137844,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 46,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.40350877192982454,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 46,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 22,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.6764705882352942,
+        "semantic_decisions_accuracy": 0.6764705882352942,
+        "with_software_priority_accuracy": 0.6764705882352942,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 34,
+        "pair_all_fields_accuracy": 0.35294117647058826,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      },
+      "training": {
+        "sklearn_version": "1.9.1",
+        "parameters": {
+          "C": 2.0,
+          "max_iter": 2000,
+          "random_state": 17,
+          "class_weight": "balanced",
+          "word_ngrams": [
+            1,
+            2
+          ],
+          "character_ngrams": [
+            3,
+            5
+          ],
+          "min_df": 2,
+          "sublinear_tf": true,
+          "character_analyzer": "char_wb"
+        },
+        "training_packets": 186,
+        "training_reports": 210,
+        "feature_count": 1801,
+        "training_inputs_sha256": "7c5cade064a289c1092fec3e118d363fd6dd5af2d229531334f52d9a1e47a117",
+        "training_annotations_sha256": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571",
+        "input_scope": "Observation detail only; asset identities normalized. No impact, paths, timestamps, policy text or packet target decisions."
+      },
+      "method_weights_normal_minus_fault": {
+        "service": 0.7099183028900509,
+        "probes": -0.03832650730946453,
+        "service probes": -0.03832650730946453,
+        "failing": -0.08097906298246942,
+        "suspected": 0.02985027753230869,
+        "unconfirmed": -0.023763954253880754
+      }
+    },
+    "report_rules": {
+      "metrics": {
+        "label_sha256": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+        "prediction_sha256": "9aa1fbfd14b14a786241775911adbb7c64cbce215cbf3a58eb8e08b0eedd97d1",
+        "records": 68,
+        "attempted_records": 68,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.16140350877192983,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 4,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 46,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.25,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 68,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.11528822055137844,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 4,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 46,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.6764705882352942,
+            "macro_f1": 0.40350877192982454,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 46,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 22,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5588235294117647,
+              0.7941176470588235
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.6764705882352942,
+        "semantic_decisions_accuracy": 0.6764705882352942,
+        "with_software_priority_accuracy": 0.6764705882352942,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 34,
+        "pair_all_fields_accuracy": 0.35294117647058826,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    }
+  },
+  "reference_policy_diagnostic": {
+    "label": "Reference readings fed to unchanged policy. Evaluation diagnostic, not model performance or an accuracy ceiling. Incorrect readings can mask this policy gap.",
+    "mismatched_packets": [
+      "NSS-be3b5d951cb0-a",
+      "NSS-9c0e4405ab09-a"
+    ],
+    "metrics": {
+      "label_sha256": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+      "prediction_sha256": "4b99b61bd72569ac4a4629f12c41031af61792b2aa0a16ec49734abcaafdcec7",
+      "records": 68,
+      "attempted_records": 68,
+      "missing_records": 0,
+      "failed_records": 0,
+      "fields": {
+        "initial_owner": {
+          "accuracy": 0.9705882352941176,
+          "macro_f1": 0.9735224586288416,
+          "confusion_matrix": {
+            "ran": {
+              "ran": 4,
+              "transport": 0,
+              "power": 0,
+              "core": 0,
+              "noc": 0,
+              "ERROR": 0
+            },
+            "transport": {
+              "ran": 0,
+              "transport": 4,
+              "power": 0,
+              "core": 0,
+              "noc": 0,
+              "ERROR": 0
+            },
+            "power": {
+              "ran": 0,
+              "transport": 0,
+              "power": 4,
+              "core": 0,
+              "noc": 0,
+              "ERROR": 0
+            },
+            "core": {
+              "ran": 0,
+              "transport": 0,
+              "power": 0,
+              "core": 8,
+              "noc": 2,
+              "ERROR": 0
+            },
+            "noc": {
+              "ran": 0,
+              "transport": 0,
+              "power": 0,
+              "core": 0,
+              "noc": 46,
+              "ERROR": 0
+            }
+          },
+          "brier_score": null,
+          "brier_records": 0,
+          "probability_records": 0,
+          "reliability_bins": [],
+          "family_bootstrap_95_percent_interval": [
+            0.9117647058823529,
+            1.0
+          ],
+          "families": 17,
+          "coverage_curve": [
+            {
+              "threshold": 0,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            }
+          ]
+        },
+        "priority": {
+          "accuracy": 1.0,
+          "macro_f1": 0.25,
+          "confusion_matrix": {
+            "P1": {
+              "P1": 0,
+              "P2": 0,
+              "P3": 0,
+              "P4": 0,
+              "ERROR": 0
+            },
+            "P2": {
+              "P1": 0,
+              "P2": 0,
+              "P3": 0,
+              "P4": 0,
+              "ERROR": 0
+            },
+            "P3": {
+              "P1": 0,
+              "P2": 0,
+              "P3": 68,
+              "P4": 0,
+              "ERROR": 0
+            },
+            "P4": {
+              "P1": 0,
+              "P2": 0,
+              "P3": 0,
+              "P4": 0,
+              "ERROR": 0
+            }
+          },
+          "brier_score": null,
+          "brier_records": 0,
+          "probability_records": 0,
+          "reliability_bins": [],
+          "family_bootstrap_95_percent_interval": [
+            1.0,
+            1.0
+          ],
+          "families": 17,
+          "coverage_curve": [
+            {
+              "threshold": 0,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            }
+          ]
+        },
+        "next_check": {
+          "accuracy": 0.9705882352941176,
+          "macro_f1": 0.6953731847348869,
+          "confusion_matrix": {
+            "inspect_radio": {
+              "inspect_radio": 4,
+              "inspect_transport": 0,
+              "inspect_power": 0,
+              "inspect_core": 0,
+              "verify_change": 0,
+              "gather_evidence": 0,
+              "monitor": 0,
+              "ERROR": 0
+            },
+            "inspect_transport": {
+              "inspect_radio": 0,
+              "inspect_transport": 4,
+              "inspect_power": 0,
+              "inspect_core": 0,
+              "verify_change": 0,
+              "gather_evidence": 0,
+              "monitor": 0,
+              "ERROR": 0
+            },
+            "inspect_power": {
+              "inspect_radio": 0,
+              "inspect_transport": 0,
+              "inspect_power": 4,
+              "inspect_core": 0,
+              "verify_change": 0,
+              "gather_evidence": 0,
+              "monitor": 0,
+              "ERROR": 0
+            },
+            "inspect_core": {
+              "inspect_radio": 0,
+              "inspect_transport": 0,
+              "inspect_power": 0,
+              "inspect_core": 8,
+              "verify_change": 0,
+              "gather_evidence": 2,
+              "monitor": 0,
+              "ERROR": 0
+            },
+            "verify_change": {
+              "inspect_radio": 0,
+              "inspect_transport": 0,
+              "inspect_power": 0,
+              "inspect_core": 0,
+              "verify_change": 0,
+              "gather_evidence": 0,
+              "monitor": 0,
+              "ERROR": 0
+            },
+            "gather_evidence": {
+              "inspect_radio": 0,
+              "inspect_transport": 0,
+              "inspect_power": 0,
+              "inspect_core": 0,
+              "verify_change": 0,
+              "gather_evidence": 46,
+              "monitor": 0,
+              "ERROR": 0
+            },
+            "monitor": {
+              "inspect_radio": 0,
+              "inspect_transport": 0,
+              "inspect_power": 0,
+              "inspect_core": 0,
+              "verify_change": 0,
+              "gather_evidence": 0,
+              "monitor": 0,
+              "ERROR": 0
+            }
+          },
+          "brier_score": null,
+          "brier_records": 0,
+          "probability_records": 0,
+          "reliability_bins": [],
+          "family_bootstrap_95_percent_interval": [
+            0.9117647058823529,
+            1.0
+          ],
+          "families": 17,
+          "coverage_curve": [
+            {
+              "threshold": 0,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            }
+          ]
+        },
+        "insufficient_evidence": {
+          "accuracy": 0.9705882352941176,
+          "macro_f1": 0.9655521783181358,
+          "confusion_matrix": {
+            "yes": {
+              "yes": 46,
+              "no": 0,
+              "ERROR": 0
+            },
+            "no": {
+              "yes": 2,
+              "no": 20,
+              "ERROR": 0
+            }
+          },
+          "brier_score": null,
+          "brier_records": 0,
+          "probability_records": 0,
+          "reliability_bins": [],
+          "family_bootstrap_95_percent_interval": [
+            0.9117647058823529,
+            1.0
+          ],
+          "families": 17,
+          "coverage_curve": [
+            {
+              "threshold": 0,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error_rate": null
+            }
+          ]
+        }
+      },
+      "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+      "all_fields_accuracy": 0.9705882352941176,
+      "semantic_decisions_accuracy": 0.9705882352941176,
+      "with_software_priority_accuracy": 0.9705882352941176,
+      "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+      "p1_miss_rate": null,
+      "p1_records": 0,
+      "paired_families": 34,
+      "pair_all_fields_accuracy": 0.9411764705882353,
+      "successful_latency_ms": {
+        "p50": null,
+        "p95": null,
+        "records": 0
+      }
+    }
+  },
+  "report_metrics": {
+    "narrow": {
+      "fields": {
+        "domain": {
+          "correct": 10,
+          "reports": 88
+        },
+        "reading": {
+          "correct": 14,
+          "reports": 88
+        },
+        "both": {
+          "correct": 0,
+          "reports": 88
+        }
+      },
+      "incorrect_or_missing": [
+        {
+          "id": "NSS-ec1b69ec4685-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ec1b69ec4685-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4778a3b04190-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4778a3b04190-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-10b4d0e3ae9e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-10b4d0e3ae9e-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dc045cf10531-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dc045cf10531-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ba1531194ee5-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ba1531194ee5-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-c28a92bc1f56-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-c28a92bc1f56-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8bc6e185401b-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8bc6e185401b-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-31b6379bb07b-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-31b6379bb07b-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-349e007e14c6-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-349e007e14c6-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-eef0e5acb9e3-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-eef0e5acb9e3-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dd11273b28cc-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dd11273b28cc-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-562afee7c471-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-562afee7c471-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-7fd5f3807687-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-8c69780153e0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8c69780153e0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-8c69780153e0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8c69780153e0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9c0e4405ab09-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-3c95f07a48d6-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-3c95f07a48d6-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ac1126009233-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ac1126009233-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-183c30962683-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-183c30962683-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4f485b13ce73-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4f485b13ce73-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f85bc825061f-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-44dfc6d26176-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-44dfc6d26176-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-44dfc6d26176-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-44dfc6d26176-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9e093e15be39-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9e093e15be39-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8e8b619617a8-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8e8b619617a8-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6bd52e6a9279-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6bd52e6a9279-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-62ed70eace80-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-62ed70eace80-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-27a2382a6d4e-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-e2732f991347-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e2732f991347-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ed7f6709c8d8-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ed7f6709c8d8-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9ad96eb3b734-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9ad96eb3b734-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e77ff053923e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e77ff053923e-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-548a709d3682-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-b",
+          "observation_index": 1
+        }
+      ],
+      "attribution": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NSS-ec1b69ec4685-a",
+          "NSS-4778a3b04190-a",
+          "NSS-10b4d0e3ae9e-a",
+          "NSS-10b4d0e3ae9e-b",
+          "NSS-dc045cf10531-a",
+          "NSS-dc045cf10531-b",
+          "NSS-ba1531194ee5-a",
+          "NSS-ba1531194ee5-b",
+          "NSS-c28a92bc1f56-a",
+          "NSS-c28a92bc1f56-b",
+          "NSS-8bc6e185401b-a",
+          "NSS-31b6379bb07b-a",
+          "NSS-349e007e14c6-a",
+          "NSS-eef0e5acb9e3-a",
+          "NSS-dd11273b28cc-a",
+          "NSS-dd11273b28cc-b",
+          "NSS-562afee7c471-a",
+          "NSS-562afee7c471-b",
+          "NSS-7fd5f3807687-a",
+          "NSS-8c69780153e0-a",
+          "NSS-be3b5d951cb0-b",
+          "NSS-9c0e4405ab09-b",
+          "NSS-3c95f07a48d6-a",
+          "NSS-ac1126009233-a",
+          "NSS-183c30962683-a",
+          "NSS-183c30962683-b",
+          "NSS-4f485b13ce73-a",
+          "NSS-4f485b13ce73-b",
+          "NSS-f85bc825061f-a",
+          "NSS-44dfc6d26176-a",
+          "NSS-9e093e15be39-a",
+          "NSS-8e8b619617a8-a",
+          "NSS-6bd52e6a9279-a",
+          "NSS-6bd52e6a9279-b",
+          "NSS-62ed70eace80-a",
+          "NSS-62ed70eace80-b",
+          "NSS-27a2382a6d4e-a",
+          "NSS-6a94a2aa31a0-a",
+          "NSS-e2732f991347-a",
+          "NSS-ed7f6709c8d8-a",
+          "NSS-9ad96eb3b734-a",
+          "NSS-9ad96eb3b734-b",
+          "NSS-e77ff053923e-a",
+          "NSS-e77ff053923e-b",
+          "NSS-548a709d3682-a",
+          "NSS-f06b93f3d7e3-a"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NSS-ec1b69ec4685-b",
+          "NSS-4778a3b04190-b",
+          "NSS-8bc6e185401b-b",
+          "NSS-31b6379bb07b-b",
+          "NSS-349e007e14c6-b",
+          "NSS-eef0e5acb9e3-b",
+          "NSS-7fd5f3807687-b",
+          "NSS-8c69780153e0-b",
+          "NSS-be3b5d951cb0-a",
+          "NSS-9c0e4405ab09-a",
+          "NSS-3c95f07a48d6-b",
+          "NSS-ac1126009233-b",
+          "NSS-f85bc825061f-b",
+          "NSS-44dfc6d26176-b",
+          "NSS-9e093e15be39-b",
+          "NSS-8e8b619617a8-b",
+          "NSS-27a2382a6d4e-b",
+          "NSS-6a94a2aa31a0-b",
+          "NSS-e2732f991347-b",
+          "NSS-ed7f6709c8d8-b",
+          "NSS-548a709d3682-b",
+          "NSS-f06b93f3d7e3-b"
+        ]
+      },
+      "valid_packets": 68,
+      "failed_or_missing_packets": 0
+    },
+    "broad": {
+      "fields": {
+        "domain": {
+          "correct": 88,
+          "reports": 88
+        },
+        "reading": {
+          "correct": 12,
+          "reports": 88
+        },
+        "both": {
+          "correct": 12,
+          "reports": 88
+        }
+      },
+      "incorrect_or_missing": [
+        {
+          "id": "NSS-ec1b69ec4685-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ec1b69ec4685-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4778a3b04190-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4778a3b04190-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-10b4d0e3ae9e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dc045cf10531-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ba1531194ee5-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-c28a92bc1f56-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8bc6e185401b-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8bc6e185401b-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-31b6379bb07b-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-31b6379bb07b-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-349e007e14c6-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-349e007e14c6-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-eef0e5acb9e3-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-eef0e5acb9e3-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dd11273b28cc-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-562afee7c471-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-7fd5f3807687-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-8c69780153e0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8c69780153e0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-8c69780153e0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8c69780153e0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9c0e4405ab09-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-3c95f07a48d6-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-3c95f07a48d6-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ac1126009233-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ac1126009233-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-183c30962683-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4f485b13ce73-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f85bc825061f-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-44dfc6d26176-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-44dfc6d26176-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-44dfc6d26176-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-44dfc6d26176-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9e093e15be39-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9e093e15be39-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8e8b619617a8-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8e8b619617a8-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6bd52e6a9279-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-62ed70eace80-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-27a2382a6d4e-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-e2732f991347-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e2732f991347-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ed7f6709c8d8-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ed7f6709c8d8-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9ad96eb3b734-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e77ff053923e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-548a709d3682-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-b",
+          "observation_index": 1
+        }
+      ],
+      "attribution": {
+        "readings_correct_triage_correct": [
+          "NSS-10b4d0e3ae9e-b",
+          "NSS-dc045cf10531-b",
+          "NSS-ba1531194ee5-a",
+          "NSS-c28a92bc1f56-a",
+          "NSS-dd11273b28cc-b",
+          "NSS-562afee7c471-b",
+          "NSS-183c30962683-b",
+          "NSS-4f485b13ce73-b",
+          "NSS-6bd52e6a9279-b",
+          "NSS-62ed70eace80-b",
+          "NSS-9ad96eb3b734-b",
+          "NSS-e77ff053923e-b"
+        ],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NSS-ec1b69ec4685-a",
+          "NSS-4778a3b04190-a",
+          "NSS-10b4d0e3ae9e-a",
+          "NSS-dc045cf10531-a",
+          "NSS-ba1531194ee5-b",
+          "NSS-c28a92bc1f56-b",
+          "NSS-8bc6e185401b-a",
+          "NSS-31b6379bb07b-a",
+          "NSS-349e007e14c6-a",
+          "NSS-eef0e5acb9e3-a",
+          "NSS-dd11273b28cc-a",
+          "NSS-562afee7c471-a",
+          "NSS-7fd5f3807687-a",
+          "NSS-8c69780153e0-a",
+          "NSS-be3b5d951cb0-b",
+          "NSS-9c0e4405ab09-b",
+          "NSS-3c95f07a48d6-a",
+          "NSS-ac1126009233-a",
+          "NSS-183c30962683-a",
+          "NSS-4f485b13ce73-a",
+          "NSS-f85bc825061f-a",
+          "NSS-44dfc6d26176-a",
+          "NSS-9e093e15be39-a",
+          "NSS-8e8b619617a8-a",
+          "NSS-6bd52e6a9279-a",
+          "NSS-62ed70eace80-a",
+          "NSS-27a2382a6d4e-a",
+          "NSS-6a94a2aa31a0-a",
+          "NSS-e2732f991347-a",
+          "NSS-ed7f6709c8d8-a",
+          "NSS-9ad96eb3b734-a",
+          "NSS-e77ff053923e-a",
+          "NSS-548a709d3682-a",
+          "NSS-f06b93f3d7e3-a"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NSS-ec1b69ec4685-b",
+          "NSS-4778a3b04190-b",
+          "NSS-8bc6e185401b-b",
+          "NSS-31b6379bb07b-b",
+          "NSS-349e007e14c6-b",
+          "NSS-eef0e5acb9e3-b",
+          "NSS-7fd5f3807687-b",
+          "NSS-8c69780153e0-b",
+          "NSS-be3b5d951cb0-a",
+          "NSS-9c0e4405ab09-a",
+          "NSS-3c95f07a48d6-b",
+          "NSS-ac1126009233-b",
+          "NSS-f85bc825061f-b",
+          "NSS-44dfc6d26176-b",
+          "NSS-9e093e15be39-b",
+          "NSS-8e8b619617a8-b",
+          "NSS-27a2382a6d4e-b",
+          "NSS-6a94a2aa31a0-b",
+          "NSS-e2732f991347-b",
+          "NSS-ed7f6709c8d8-b",
+          "NSS-548a709d3682-b",
+          "NSS-f06b93f3d7e3-b"
+        ]
+      },
+      "valid_packets": 68,
+      "failed_or_missing_packets": 0
+    },
+    "report_rules": {
+      "fields": {
+        "domain": {
+          "correct": 88,
+          "reports": 88
+        },
+        "reading": {
+          "correct": 12,
+          "reports": 88
+        },
+        "both": {
+          "correct": 12,
+          "reports": 88
+        }
+      },
+      "incorrect_or_missing": [
+        {
+          "id": "NSS-ec1b69ec4685-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ec1b69ec4685-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4778a3b04190-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4778a3b04190-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-10b4d0e3ae9e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dc045cf10531-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ba1531194ee5-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-c28a92bc1f56-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8bc6e185401b-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8bc6e185401b-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-31b6379bb07b-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-31b6379bb07b-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-349e007e14c6-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-349e007e14c6-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-eef0e5acb9e3-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-eef0e5acb9e3-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-dd11273b28cc-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-562afee7c471-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-7fd5f3807687-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-7fd5f3807687-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-8c69780153e0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8c69780153e0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-8c69780153e0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8c69780153e0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9c0e4405ab09-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-3c95f07a48d6-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-3c95f07a48d6-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ac1126009233-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ac1126009233-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-183c30962683-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-4f485b13ce73-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f85bc825061f-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f85bc825061f-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-44dfc6d26176-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-44dfc6d26176-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-44dfc6d26176-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-44dfc6d26176-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9e093e15be39-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9e093e15be39-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8e8b619617a8-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-8e8b619617a8-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6bd52e6a9279-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-62ed70eace80-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-27a2382a6d4e-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-27a2382a6d4e-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-6a94a2aa31a0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-e2732f991347-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e2732f991347-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ed7f6709c8d8-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ed7f6709c8d8-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-9ad96eb3b734-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-e77ff053923e-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-548a709d3682-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-548a709d3682-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-b",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-f06b93f3d7e3-b",
+          "observation_index": 1
+        }
+      ],
+      "attribution": {
+        "readings_correct_triage_correct": [
+          "NSS-10b4d0e3ae9e-b",
+          "NSS-dc045cf10531-b",
+          "NSS-ba1531194ee5-a",
+          "NSS-c28a92bc1f56-a",
+          "NSS-dd11273b28cc-b",
+          "NSS-562afee7c471-b",
+          "NSS-183c30962683-b",
+          "NSS-4f485b13ce73-b",
+          "NSS-6bd52e6a9279-b",
+          "NSS-62ed70eace80-b",
+          "NSS-9ad96eb3b734-b",
+          "NSS-e77ff053923e-b"
+        ],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NSS-ec1b69ec4685-a",
+          "NSS-4778a3b04190-a",
+          "NSS-10b4d0e3ae9e-a",
+          "NSS-dc045cf10531-a",
+          "NSS-ba1531194ee5-b",
+          "NSS-c28a92bc1f56-b",
+          "NSS-8bc6e185401b-a",
+          "NSS-31b6379bb07b-a",
+          "NSS-349e007e14c6-a",
+          "NSS-eef0e5acb9e3-a",
+          "NSS-dd11273b28cc-a",
+          "NSS-562afee7c471-a",
+          "NSS-7fd5f3807687-a",
+          "NSS-8c69780153e0-a",
+          "NSS-be3b5d951cb0-b",
+          "NSS-9c0e4405ab09-b",
+          "NSS-3c95f07a48d6-a",
+          "NSS-ac1126009233-a",
+          "NSS-183c30962683-a",
+          "NSS-4f485b13ce73-a",
+          "NSS-f85bc825061f-a",
+          "NSS-44dfc6d26176-a",
+          "NSS-9e093e15be39-a",
+          "NSS-8e8b619617a8-a",
+          "NSS-6bd52e6a9279-a",
+          "NSS-62ed70eace80-a",
+          "NSS-27a2382a6d4e-a",
+          "NSS-6a94a2aa31a0-a",
+          "NSS-e2732f991347-a",
+          "NSS-ed7f6709c8d8-a",
+          "NSS-9ad96eb3b734-a",
+          "NSS-e77ff053923e-a",
+          "NSS-548a709d3682-a",
+          "NSS-f06b93f3d7e3-a"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NSS-ec1b69ec4685-b",
+          "NSS-4778a3b04190-b",
+          "NSS-8bc6e185401b-b",
+          "NSS-31b6379bb07b-b",
+          "NSS-349e007e14c6-b",
+          "NSS-eef0e5acb9e3-b",
+          "NSS-7fd5f3807687-b",
+          "NSS-8c69780153e0-b",
+          "NSS-be3b5d951cb0-a",
+          "NSS-9c0e4405ab09-a",
+          "NSS-3c95f07a48d6-b",
+          "NSS-ac1126009233-b",
+          "NSS-f85bc825061f-b",
+          "NSS-44dfc6d26176-b",
+          "NSS-9e093e15be39-b",
+          "NSS-8e8b619617a8-b",
+          "NSS-27a2382a6d4e-b",
+          "NSS-6a94a2aa31a0-b",
+          "NSS-e2732f991347-b",
+          "NSS-ed7f6709c8d8-b",
+          "NSS-548a709d3682-b",
+          "NSS-f06b93f3d7e3-b"
+        ]
+      },
+      "valid_packets": 68,
+      "failed_or_missing_packets": 0
+    }
+  },
+  "changes": {
+    "narrow": {
+      "packets_fixed": [],
+      "packets_lost": [],
+      "newly_wrong_fields": {
+        "initial_owner": [],
+        "priority": [],
+        "next_check": [],
+        "insufficient_evidence": []
+      }
+    },
+    "broad": {
+      "packets_fixed": [],
+      "packets_lost": [],
+      "newly_wrong_fields": {
+        "initial_owner": [],
+        "priority": [],
+        "next_check": [],
+        "insufficient_evidence": []
+      }
+    },
+    "report_rules": {
+      "packets_fixed": [],
+      "packets_lost": [],
+      "newly_wrong_fields": {
+        "initial_owner": [],
+        "priority": [],
+        "next_check": [],
+        "insufficient_evidence": []
+      }
+    }
+  },
+  "evidence_sha256": {
+    "broad.inspections.jsonl": "79435b511ba858e1398cba523eccf847c5b7469d468c6194f865f5a2a2509243",
+    "broad.jsonl": "9b62e0c7d5ed9fdf105d4a84d58aa3261c2cde59dac1bfb3023b63db4bb9958b",
+    "inputs.jsonl": "a91c141f17afcb07c960e082d4ec289d7fa8dda67f16920260332735ec75a5f0",
+    "labels.jsonl": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+    "narrow.inspections.jsonl": "b0a731cdd0e32d93f3bc26da87520999b3aaeada3d34ee6aeeed2ef79eee3b8c",
+    "narrow.jsonl": "aa66cbe954eb6f83f1318f4968ae4594eec1438882d0332645578204c5029ca9",
+    "observation-references.jsonl": "f827a7a8de748ff53efbfb2a9a1222bae473f372a3d1e22a89dbd8afbaadf6aa",
+    "reference-policy-diagnostic.jsonl": "4b99b61bd72569ac4a4629f12c41031af61792b2aa0a16ec49734abcaafdcec7",
+    "report_rules.jsonl": "9aa1fbfd14b14a786241775911adbb7c64cbce215cbf3a58eb8e08b0eedd97d1"
+  },
+  "source_base_commit": "2f65910",
+  "raw_run": "runs/report-scope/development-2026-10-02-v1",
+  "verification": "Saved protocol, requests or training sources, predictions, fitted margins and failure-inclusive scores verify."
+}

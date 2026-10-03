@@ -1,0 +1,1231 @@
+{
+  "schema": "report-scope-hosted-1",
+  "model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "context_tokens": 32768,
+  "arms": {
+    "jev_original": "Jev \u00b7 original report question",
+    "jev_focal": "Jev \u00b7 measured-function question"
+  },
+  "data_sha256": {
+    "development.inputs.jsonl": "a91c141f17afcb07c960e082d4ec289d7fa8dda67f16920260332735ec75a5f0",
+    "development.labels.jsonl": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+    "development.observations.jsonl": "f827a7a8de748ff53efbfb2a9a1222bae473f372a3d1e22a89dbd8afbaadf6aa"
+  },
+  "source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/report_scope_data.py": "bedee90a2545625d7f5a96a45d2847985c12a331e8431dfeef68e4574345a7d4",
+    "triage_bench/experiment3/report_scope_trial.py": "7a3cae73a934baa00100191422a3193879c461ffa7c17eb177d3d0cb9dff72f2"
+  },
+  "records": 68,
+  "reports": 88,
+  "pairs": 34,
+  "maximum_requests": 176,
+  "human_decision": {
+    "date": "2026-10-02",
+    "decision": "Normal handler reading: successful acceptance is normal for the focal handler; downstream registration completion remains a separate measurement.",
+    "status": "user_selected_synthetic_teaching_rule_not_specialist_signoff"
+  },
+  "reference_status": "draft_not_specialist_reviewed",
+  "primary_comparison": "Identical normalized report texts, model, domain questions, choice criteria and frozen policy. Only reading-question instructions differ. The added paragraph contains several related scope clarifications; effects of individual sentences are not isolated.",
+  "execution": "Serial; arm order alternates by report. One response per planned request; no warmup or automatic retries.",
+  "failure_stop": "Immediate stop on configuration/access/rate-limit/checkpoint/network errors; otherwise stop after three consecutive malformed responses. Failed or missing report replies invalidate packet predictions.",
+  "reference_policy_diagnostic": {
+    "label": "Reference readings fed to unchanged policy. Evaluation diagnostic, not model performance or an accuracy ceiling. Incorrect readings can mask this policy gap.",
+    "mismatched_packets": [
+      "NSS-be3b5d951cb0-a",
+      "NSS-9c0e4405ab09-a"
+    ]
+  },
+  "context_bound": "UTF-8 request bytes plus 512; not the provider tokenizer.",
+  "questions": {
+    "jev_original": {
+      "domain": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select the described domain.",
+        "criteria": {
+          "transport": "The focal measurement concerns packet forwarding, routing, links or optical transport.",
+          "ran": "The focal measurement concerns radio processing, decoding, timing or radio equipment.",
+          "power": "The focal measurement concerns electrical supply, voltage or equipment power.",
+          "core": "The focal measurement concerns subscriber registration, sessions or shared core services.",
+          "none": "No specific fault domain is described; general service recovery or an unclassified observation."
+        }
+      },
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    },
+    "jev_focal": {
+      "domain": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select the described domain.",
+        "criteria": {
+          "transport": "The focal measurement concerns packet forwarding, routing, links or optical transport.",
+          "ran": "The focal measurement concerns radio processing, decoding, timing or radio equipment.",
+          "power": "The focal measurement concerns electrical supply, voltage or equipment power.",
+          "core": "The focal measurement concerns subscriber registration, sessions or shared core services.",
+          "none": "No specific fault domain is described; general service recovery or an unclassified observation."
+        }
+      },
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship. Judge the operation of the specific function this report explicitly measures, not the health of the whole component or wider service. Verified successful request intake or handler operation is normal for that measured function even if later registration or end-to-end completion is unmeasured. If the report instead measures completion, request acceptance alone leaves completion unknown. Success of a different function does not cancel an explicit malfunction of the measured function. Keep expected behavior, explicit malfunction and uncertainty distinct.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    }
+  },
+  "started_at": "2026-10-03T02:21:07.326238+00:00",
+  "requests_sha256": "61ba65150bc8a29471dff16e3e1d594709f40d8706fe9b74c2169ff75a5b8e03",
+  "attempted_requests": 176,
+  "failed_requests": 0,
+  "unattempted_requests": 0,
+  "stopped_reason": null,
+  "status": "completed",
+  "approaches": {
+    "jev_original": {
+      "metrics": {
+        "label_sha256": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+        "prediction_sha256": "e03b12a335654c7bd9887e1a4f456998a9daffe61e1fef48596c56741427ea58",
+        "records": 68,
+        "attempted_records": 68,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.9852941176470589,
+            "macro_f1": 0.9882783882783883,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 4,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 4,
+                "power": 0,
+                "core": 0,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 4,
+                "core": 0,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 10,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 1,
+                "noc": 45,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.9558823529411765,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.25,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 68,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.9852941176470589,
+            "macro_f1": 0.705913134484563,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 4,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 4,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 4,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 10,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 1,
+                "verify_change": 0,
+                "gather_evidence": 45,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.9558823529411765,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.9852941176470589,
+            "macro_f1": 0.9833943833943835,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 45,
+                "no": 1,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 0,
+                "no": 22,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.9558823529411765,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.9852941176470589,
+        "semantic_decisions_accuracy": 0.9852941176470589,
+        "with_software_priority_accuracy": 0.9852941176470589,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 34,
+        "pair_all_fields_accuracy": 0.9705882352941176,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    },
+    "jev_focal": {
+      "metrics": {
+        "label_sha256": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+        "prediction_sha256": "c4378109311ae277b15d0f387c03074deae43b0153295b23345c40eb4956f131",
+        "records": 68,
+        "attempted_records": 68,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 4,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 4,
+                "power": 0,
+                "core": 0,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 4,
+                "core": 0,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 10,
+                "noc": 0,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 46,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.25,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 68,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 1.0,
+            "macro_f1": 0.7142857142857143,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 4,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 4,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 4,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 10,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 46,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 46,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 0,
+                "no": 22,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 17,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 1.0,
+        "semantic_decisions_accuracy": 1.0,
+        "with_software_priority_accuracy": 1.0,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 34,
+        "pair_all_fields_accuracy": 1.0,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    }
+  },
+  "report_metrics": {
+    "jev_original": {
+      "fields": {
+        "domain": {
+          "correct": 88,
+          "reports": 88
+        },
+        "reading": {
+          "correct": 82,
+          "reports": 88
+        },
+        "both": {
+          "correct": 82,
+          "reports": 88
+        }
+      },
+      "incorrect_or_missing": [
+        {
+          "id": "NSS-ba1531194ee5-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-c28a92bc1f56-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-562afee7c471-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-be3b5d951cb0-b",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 1
+        }
+      ],
+      "attribution": {
+        "readings_correct_triage_correct": [
+          "NSS-ec1b69ec4685-a",
+          "NSS-ec1b69ec4685-b",
+          "NSS-4778a3b04190-a",
+          "NSS-4778a3b04190-b",
+          "NSS-10b4d0e3ae9e-a",
+          "NSS-10b4d0e3ae9e-b",
+          "NSS-dc045cf10531-a",
+          "NSS-dc045cf10531-b",
+          "NSS-ba1531194ee5-b",
+          "NSS-c28a92bc1f56-b",
+          "NSS-8bc6e185401b-a",
+          "NSS-8bc6e185401b-b",
+          "NSS-31b6379bb07b-a",
+          "NSS-31b6379bb07b-b",
+          "NSS-349e007e14c6-a",
+          "NSS-349e007e14c6-b",
+          "NSS-eef0e5acb9e3-a",
+          "NSS-eef0e5acb9e3-b",
+          "NSS-dd11273b28cc-a",
+          "NSS-dd11273b28cc-b",
+          "NSS-562afee7c471-b",
+          "NSS-7fd5f3807687-a",
+          "NSS-7fd5f3807687-b",
+          "NSS-8c69780153e0-a",
+          "NSS-8c69780153e0-b",
+          "NSS-9c0e4405ab09-b",
+          "NSS-3c95f07a48d6-a",
+          "NSS-3c95f07a48d6-b",
+          "NSS-ac1126009233-a",
+          "NSS-ac1126009233-b",
+          "NSS-183c30962683-a",
+          "NSS-183c30962683-b",
+          "NSS-4f485b13ce73-a",
+          "NSS-4f485b13ce73-b",
+          "NSS-f85bc825061f-a",
+          "NSS-f85bc825061f-b",
+          "NSS-44dfc6d26176-a",
+          "NSS-44dfc6d26176-b",
+          "NSS-9e093e15be39-a",
+          "NSS-9e093e15be39-b",
+          "NSS-8e8b619617a8-a",
+          "NSS-8e8b619617a8-b",
+          "NSS-6bd52e6a9279-a",
+          "NSS-6bd52e6a9279-b",
+          "NSS-62ed70eace80-a",
+          "NSS-62ed70eace80-b",
+          "NSS-27a2382a6d4e-a",
+          "NSS-27a2382a6d4e-b",
+          "NSS-6a94a2aa31a0-a",
+          "NSS-6a94a2aa31a0-b",
+          "NSS-e2732f991347-a",
+          "NSS-e2732f991347-b",
+          "NSS-ed7f6709c8d8-a",
+          "NSS-ed7f6709c8d8-b",
+          "NSS-9ad96eb3b734-a",
+          "NSS-9ad96eb3b734-b",
+          "NSS-e77ff053923e-a",
+          "NSS-e77ff053923e-b",
+          "NSS-548a709d3682-a",
+          "NSS-548a709d3682-b",
+          "NSS-f06b93f3d7e3-a",
+          "NSS-f06b93f3d7e3-b"
+        ],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NSS-ba1531194ee5-a",
+          "NSS-c28a92bc1f56-a",
+          "NSS-562afee7c471-a",
+          "NSS-be3b5d951cb0-a",
+          "NSS-9c0e4405ab09-a"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NSS-be3b5d951cb0-b"
+        ]
+      },
+      "valid_packets": 68,
+      "failed_or_missing_packets": 0
+    },
+    "jev_focal": {
+      "fields": {
+        "domain": {
+          "correct": 88,
+          "reports": 88
+        },
+        "reading": {
+          "correct": 83,
+          "reports": 88
+        },
+        "both": {
+          "correct": 83,
+          "reports": 88
+        }
+      },
+      "incorrect_or_missing": [
+        {
+          "id": "NSS-ec1b69ec4685-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-ba1531194ee5-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-c28a92bc1f56-a",
+          "observation_index": 0
+        },
+        {
+          "id": "NSS-be3b5d951cb0-a",
+          "observation_index": 1
+        },
+        {
+          "id": "NSS-9c0e4405ab09-a",
+          "observation_index": 1
+        }
+      ],
+      "attribution": {
+        "readings_correct_triage_correct": [
+          "NSS-ec1b69ec4685-b",
+          "NSS-4778a3b04190-a",
+          "NSS-4778a3b04190-b",
+          "NSS-10b4d0e3ae9e-a",
+          "NSS-10b4d0e3ae9e-b",
+          "NSS-dc045cf10531-a",
+          "NSS-dc045cf10531-b",
+          "NSS-ba1531194ee5-b",
+          "NSS-c28a92bc1f56-b",
+          "NSS-8bc6e185401b-a",
+          "NSS-8bc6e185401b-b",
+          "NSS-31b6379bb07b-a",
+          "NSS-31b6379bb07b-b",
+          "NSS-349e007e14c6-a",
+          "NSS-349e007e14c6-b",
+          "NSS-eef0e5acb9e3-a",
+          "NSS-eef0e5acb9e3-b",
+          "NSS-dd11273b28cc-a",
+          "NSS-dd11273b28cc-b",
+          "NSS-562afee7c471-a",
+          "NSS-562afee7c471-b",
+          "NSS-7fd5f3807687-a",
+          "NSS-7fd5f3807687-b",
+          "NSS-8c69780153e0-a",
+          "NSS-8c69780153e0-b",
+          "NSS-be3b5d951cb0-b",
+          "NSS-9c0e4405ab09-b",
+          "NSS-3c95f07a48d6-a",
+          "NSS-3c95f07a48d6-b",
+          "NSS-ac1126009233-a",
+          "NSS-ac1126009233-b",
+          "NSS-183c30962683-a",
+          "NSS-183c30962683-b",
+          "NSS-4f485b13ce73-a",
+          "NSS-4f485b13ce73-b",
+          "NSS-f85bc825061f-a",
+          "NSS-f85bc825061f-b",
+          "NSS-44dfc6d26176-a",
+          "NSS-44dfc6d26176-b",
+          "NSS-9e093e15be39-a",
+          "NSS-9e093e15be39-b",
+          "NSS-8e8b619617a8-a",
+          "NSS-8e8b619617a8-b",
+          "NSS-6bd52e6a9279-a",
+          "NSS-6bd52e6a9279-b",
+          "NSS-62ed70eace80-a",
+          "NSS-62ed70eace80-b",
+          "NSS-27a2382a6d4e-a",
+          "NSS-27a2382a6d4e-b",
+          "NSS-6a94a2aa31a0-a",
+          "NSS-6a94a2aa31a0-b",
+          "NSS-e2732f991347-a",
+          "NSS-e2732f991347-b",
+          "NSS-ed7f6709c8d8-a",
+          "NSS-ed7f6709c8d8-b",
+          "NSS-9ad96eb3b734-a",
+          "NSS-9ad96eb3b734-b",
+          "NSS-e77ff053923e-a",
+          "NSS-e77ff053923e-b",
+          "NSS-548a709d3682-a",
+          "NSS-548a709d3682-b",
+          "NSS-f06b93f3d7e3-a",
+          "NSS-f06b93f3d7e3-b"
+        ],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NSS-ec1b69ec4685-a",
+          "NSS-ba1531194ee5-a",
+          "NSS-c28a92bc1f56-a",
+          "NSS-be3b5d951cb0-a",
+          "NSS-9c0e4405ab09-a"
+        ],
+        "readings_wrong_triage_wrong": []
+      },
+      "valid_packets": 68,
+      "failed_or_missing_packets": 0
+    }
+  },
+  "changes": {
+    "jev_original": {
+      "packets_fixed": [],
+      "packets_lost": [],
+      "newly_wrong_fields": {
+        "initial_owner": [],
+        "priority": [],
+        "next_check": [],
+        "insufficient_evidence": []
+      }
+    },
+    "jev_focal": {
+      "packets_fixed": [
+        "NSS-be3b5d951cb0-b"
+      ],
+      "packets_lost": [],
+      "newly_wrong_fields": {
+        "initial_owner": [],
+        "priority": [],
+        "next_check": [],
+        "insufficient_evidence": []
+      }
+    }
+  },
+  "report_changes": {
+    "reports_fixed": [
+      {
+        "id": "NSS-562afee7c471-a",
+        "observation_index": 0
+      },
+      {
+        "id": "NSS-be3b5d951cb0-b",
+        "observation_index": 1
+      }
+    ],
+    "reports_lost": [
+      {
+        "id": "NSS-ec1b69ec4685-a",
+        "observation_index": 0
+      }
+    ],
+    "newly_wrong_domain": [],
+    "newly_wrong_reading": [
+      {
+        "id": "NSS-ec1b69ec4685-a",
+        "observation_index": 0
+      }
+    ]
+  },
+  "evidence_sha256": {
+    "inputs.jsonl": "a91c141f17afcb07c960e082d4ec289d7fa8dda67f16920260332735ec75a5f0",
+    "jev_focal.jsonl": "c4378109311ae277b15d0f387c03074deae43b0153295b23345c40eb4956f131",
+    "jev_original.jsonl": "e03b12a335654c7bd9887e1a4f456998a9daffe61e1fef48596c56741427ea58",
+    "labels.jsonl": "b9f464d972556e387d8d96de041b79dce09ab6ef3f18f44fbc3f53756352ea61",
+    "observation-references.jsonl": "f827a7a8de748ff53efbfb2a9a1222bae473f372a3d1e22a89dbd8afbaadf6aa",
+    "requests.jsonl": "61ba65150bc8a29471dff16e3e1d594709f40d8706fe9b74c2169ff75a5b8e03",
+    "responses.jsonl": "b1b119ef8d4a2af2cfbe6a2c04353ba4a5c95f584fba5e5ec0eed2c4183f09df"
+  },
+  "source_base_commit": "2f65910",
+  "raw_run": "runs/report-scope-jev/development-2026-10-02-v1",
+  "verification": "Saved protocol, requests or training sources, predictions, fitted margins and failure-inclusive scores verify."
+}

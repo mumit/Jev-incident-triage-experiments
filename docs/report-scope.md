@@ -60,6 +60,44 @@ Preparation freezes packet, annotation, question and source fingerprints. Local 
 
 Raw run directories stay ignored. A fresh clone can inspect the tracked pack and protocol; missing predictions must remain explicit. New hosted runs require a server-side key and incur charges.
 
-## Results and follow-up
+## Results
 
-Inference has not run on this pack. The first review will compare report fixes and losses, newly wrong individual fields, complete-packet and pair scores, masked reading errors and the predeclared policy gaps. Any scope-aware policy revision belongs in a separate matched study on further families. This question comparison keeps the policy fixed.
+All 176 hosted calls completed without failures. Both runs verify against the frozen setup in commit `2f65910`. The [local checkpoint](../checkpoints/report-scope-local-2026-10-02.json) and [Jev checkpoint](../checkpoints/report-scope-jev-2026-10-02.json) retain scores and error identifiers.
+
+| Path | Domain correct | Reading correct | Both report fields correct | All four packet decisions correct | Complete pairs correct |
+|---|---:|---:|---:|---:|---:|
+| Jev · original report question | 88/88 | 82/88 | 82/88 | 67/68 | 33/34 |
+| Jev · measured-function question | 88/88 | 83/88 | 83/88 | 68/68 | 34/34 |
+| Report ML · original phrases | 10/88 | 14/88 | 0/88 | 46/68 | 12/34 |
+| Report ML · broader phrases | 88/88 | 12/88 | 12/88 | 46/68 | 12/34 |
+| Report rules → policy | 88/88 | 12/88 | 12/88 | 46/68 | 12/34 |
+
+The added Jev instruction fixes two report readings and loses one. It fixes one packet and loses none; no packet field becomes newly wrong. These are single responses on correlated development templates, not evidence of a repeatable gain.
+
+### What changed and what remained wrong
+
+The explicit receipt trace in `NSS-562afee7c471-a` changes from unknown to normal. Successful completion in report 2 of `NSS-be3b5d951cb0-b` also changes from unknown to normal. Recognizing that completion success conflicts with the same-function completion fault restores the draft NOC decision.
+
+The regression is `NSS-ec1b69ec4685-a`: a handler that acknowledges receipt and accepts correctly formed requests changes from normal to unknown. The measured-function arm returns equal 0.50 probabilities for normal and unknown and selects unknown. The stored choice remains the prediction; the lab does not reinterpret the tie. The packet still retains NOC because the service remains degraded without an explanatory fault.
+
+Both arms continue to call the intake report in the intake-versus-completion-scope pair unknown, despite its explicit intake scope. Both also call successful intake unknown in the two different-function packets. The instruction therefore does not resolve the selected meaning boundary consistently.
+
+### Why 68/68 does not mean the pipeline is correct
+
+Five packets in each Jev arm receive correct triage despite a wrong report reading. In the measured-function arm, these include **both predeclared policy gaps**. Calling successful intake unknown prevents the policy from recognizing a normal/fault combination; it then assigns core, matching the draft packet decision for the wrong intermediate reason.
+
+Feeding the correct normal intake reading to the same policy would instead retain NOC, exposing its inability to distinguish intake from completion. The 68/68 packet result therefore combines genuine fixes with hidden reading and policy errors. Neither arm has a recorded packet with all report readings correct and triage wrong on this run, because both misread the intake reports that would reveal the gap.
+
+### What the ML controls show
+
+The original report model selects domain none on 78/88 reports and unknown on 78/88 readings. The broader model recognizes all explicit domains but selects unknown on 84/88 readings. The rule reader also selects unknown on 84/88 readings; its fixed expression list does not cover most new measurement descriptions.
+
+Saved ML margins make one shortcut concrete. For the first intake report, original ML favors none over core with an intercept difference of +1.770 and a +0.303 contribution from the repeated word `instrument`, outweighing the available core-related terms after other contributions. This explains that fitted score, not a causal account of the physical network. Both ML models predict unknown on this report.
+
+All three local paths achieve 46/68 packet agreement by producing the same final decisions. Original ML hides wrong readings in all 46 correct packets; broader ML and report rules hide them in 34. The unchanged triage scores therefore obscure large differences in report understanding. These controls were frozen before this pack, so the result measures transfer to new wording rather than a newly trained matched ML candidate.
+
+## Next decision
+
+The next policy comparison needs a source for **which function each instrument measures**. A field such as `measured_function: request_intake` could come from a maintained instrumentation schema. Alternatively, a reader could extract it from free text, with its own uncertain and missing outputs. Those are different input assumptions and failure modes.
+
+I will keep this question study frozen. Before constructing the next pack, the measurement-scope source needs a decision. A separate comparison can then group contradictory readings by domain, asset and compatible measurement scope, preserving NOC when scope or comparability is unknown. New families, separate report annotations, missing-scope controls and specialist review remain necessary. The current drafts do not establish operational readiness.
