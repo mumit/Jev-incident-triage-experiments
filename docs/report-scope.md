@@ -2,9 +2,9 @@
 
 ## Question and controls
 
-The user selected **normal handler reading** on October 2, 2026: successful request acceptance establishes normal operation of the measured handler, while registration completion remains a separate measurement. This synthetic teaching decision preserves the earlier report references; it does not establish specialist review.
+I selected **normal handler reading** on October 2, 2026: successful request acceptance establishes normal operation of the measured handler, while registration completion remains a separate measurement. This synthetic teaching decision preserves the earlier report references; it does not establish specialist review.
 
-The next comparison tests whether an explicit reading instruction helps Jev distinguish success, malfunction and uncertainty **at the function named in a report**. Both arms receive identical new report texts, domain questions, choice criteria and the pinned `jev-1.13.0` model. Their returned meanings feed the same frozen policy. Only `questions.reading.instructions` changes.
+This comparison tests whether an explicit reading instruction helps Jev distinguish success, malfunction and uncertainty **at the function named in a report**. Both arms receive identical new report texts, domain questions, choice criteria and the pinned `jev-1.13.0` model. Their returned meanings feed the same frozen policy. Only `questions.reading.instructions` changes.
 
 The original instruction remains intact in both requests. The measured-function arm appends:
 
@@ -94,10 +94,18 @@ The original report model selects domain none on 78/88 reports and unknown on 78
 
 Saved ML margins make one shortcut concrete. For the first intake report, original ML favors none over core with an intercept difference of +1.770 and a +0.303 contribution from the repeated word `instrument`, outweighing the available core-related terms after other contributions. This explains that fitted score, not a causal account of the physical network. Both ML models predict unknown on this report.
 
-All three local paths achieve 46/68 packet agreement by producing the same final decisions. Original ML hides wrong readings in all 46 correct packets; broader ML and report rules hide them in 34. The unchanged triage scores therefore obscure large differences in report understanding. These controls were frozen before this pack, so the result measures transfer to new wording rather than a newly trained matched ML candidate.
+All three local paths retain NOC on every packet and achieve 46/68 agreement through those identical fallback decisions. Original ML hides wrong readings in all 46 correct packets; broader ML and report rules hide them in 34. The unchanged triage scores therefore obscure large differences in report understanding. These controls were frozen before this pack, so the result measures transfer to new wording rather than a newly trained matched ML candidate.
 
 ## Next decision
 
-The next policy comparison needs a source for **which function each instrument measures**. A field such as `measured_function: request_intake` could come from a maintained instrumentation schema. Alternatively, a reader could extract it from free text, with its own uncertain and missing outputs. Those are different input assumptions and failure modes.
+The next policy comparison needs a source for **which function each instrument measures**. A field such as `measured_function: request_intake` could come from a maintained instrumentation schema. Alternatively, a reader could extract it from free text, with its own uncertain and missing outputs. Those are different input assumptions and failure modes. Neither source is established by this synthetic pack.
+
+For a metadata-first study, a supplied field might identify report 1 as `measured_function: registration_completion` and report 2 as `measured_function: request_intake`. These fields describe instrumentation scope, not fault status or a reference answer. Missing or ambiguous scope needs an explicit control rather than an assumed function.
 
 I will keep this question study frozen. Before constructing the next pack, the measurement-scope source needs a decision. A separate comparison can then group contradictory readings by domain, asset and compatible measurement scope, preserving NOC when scope or comparability is unknown. New families, separate report annotations, missing-scope controls and specialist review remain necessary. The current drafts do not establish operational readiness.
+
+## Inspection workbench
+
+Open [the measured-function workbench](http://127.0.0.1:8768/report-scope) or choose **Comparison → Measured-function reading**. The result view keeps report and packet scores separate, with links to report fixes, a regression and both known policy gaps. Select a family, pair, packet, interpreter and report to follow raw evidence through meanings and the selected policy trace.
+
+The exact-input section compares both complete Jev reading instructions and exports the selected request. ML inspection shows saved vectors and fitted contributions; Jev inspection shows actual returned distributions and responses. Revealing references also displays the reference-reading-fed policy diagnostic, clearly separate from model predictions. The guide preserves the selected inspection context. Browsing makes no model calls, and a fresh clone shows unavailable results explicitly.

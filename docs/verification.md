@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **142 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All four browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **172 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All six browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -148,3 +148,9 @@ Twenty new tests cover matched wording and separate annotations, clause meanings
 The actual local study scores 140 packets and 156 reports. Both fitted report arms preserve 312 report vectors and 624 score margins; the frozen packet bridge preserves 140 vectors and 560 margins. The hosted comparison completed 296 calls, and the diagnostic replay completed another 12, all without reported failures. Their prepared protocols, source/data hashes, exact requests, normalized responses, policy traces, tracked checkpoints and recomputed scores verify. All ten data validators pass. Historical inference sources, nine original data files, 67 evidence files and 18 recorded results remain unchanged; the historical source audit identifies only the five previously changed app/reader/walkthrough files.
 
 Browser review covered actual matched training wording without evaluation predictions, report selection, both report score fields, the frozen packet classifier, direct Jev and report/policy Jev. Reference reveal preserves expanded policy traces and marks wrong report meanings as well as packet decisions. Copy feedback appeared; downloaded training input matched the prepared bundle, and downloaded Jev input matched its actual saved request. The formatted guide returns to the same packet, arm and report. The replay table shows repeated meanings separately from original predictions. Desktop, 820-pixel and 390-pixel layouts keep tables inside scrollable containers. The final Python suite passes all 162 tests; all nine JavaScript tests and browser-script syntax checks pass. Browser error logs are empty. These checks establish evidence integrity and app behavior, not valid operational references or representative network performance.
+
+## Measured-function comparison and inspection
+
+The 68-packet/88-report pack validates, including 34 single-field pairs, fresh families, separate annotations and two policy gaps declared before inference. Both raw runs verify against frozen commit `2f65910`; the 176 hosted requests all completed. Verification recomputes report scores, packet traces, regressions and failure-inclusive denominators. All 176 saved ML report vectors and 352 fitted margins verify. The tracked checkpoints match raw evidence. Earlier inference sources, data and recorded results remain unchanged.
+
+The new workbench preserves exact question differences, report selection, fitted ML margins, returned Jev distributions and a separately revealed reference-policy diagnostic. Its downloaded Jev input matches the saved request. Missing or invalid runs remain unavailable rather than acquiring fabricated predictions; local-origin protection covers the new endpoints. The formatted guide returns to the same packet, interpreter and report. Phone, tablet and desktop checks keep tables in scrollable containers. The full suite passes 172 Python tests; focused service checks also pass after the final diagnostic-display change. All nine JavaScript tests and six syntax checks pass. These checks verify implementation and evidence, not reference validity or operational readiness.

@@ -247,6 +247,7 @@ def handler_for(app, comparison_port=None):
     wording_study = None
     interpretation_study = None
     language_study = None
+    scope_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -256,6 +257,14 @@ def handler_for(app, comparison_port=None):
                 from .explorer import Study, handler_for as explorer_handler_for
                 study_handler = explorer_handler_for(Study(app.root))
         return study_handler
+
+    def scope():
+        nonlocal scope_study
+        with study_lock:
+            if scope_study is None:
+                from .experiment3.report_scope_service import ReportScopeStudy
+                scope_study=ReportScopeStudy(app.root)
+            return scope_study
 
     def language():
         nonlocal language_study
@@ -338,6 +347,14 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path in {'/report-scope-local.json','/report-scope-jev.json','/report-scope-protocol.json'}:
+                    name=path.path.removeprefix('/report-scope-').removesuffix('.json')
+                    report=app.root/('checkpoints/report-scope-'+name+'-2026-10-02.json')
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded '+name+' report.'})
+                if path.path=='/api/report-scope/catalog':return self.send(200,scope().catalog())
+                if path.path in {'/api/report-scope/case','/api/report-scope/export'}:
+                    q={k:v[0] for k,v in parse_qs(path.query).items()};data=scope().case(q.get('id'),q.get('split','development'),q.get('arm','jev_focal'),int(q.get('report','0')))
+                    return self.send(200,data['request'],download=data['record']['id']+'-'+q.get('arm','jev_focal')+'-input.json') if path.path.endswith('/export') else self.send(200,data)
                 if path.path in {'/report-language-local.json','/report-language-jev.json','/report-language-protocol.json','/report-language-replay-protocol.json','/report-language-replay.json'}:
                     name={'/report-language-local.json':'local','/report-language-jev.json':'jev','/report-language-protocol.json':'protocol','/report-language-replay-protocol.json':'replay-protocol','/report-language-replay.json':'replay'}[path.path]
                     report=app.root/('checkpoints/report-language-'+name+'-2026-10-02.json')
@@ -396,7 +413,7 @@ def handler_for(app, comparison_port=None):
                     return self.send(200,sorted(jobs,key=lambda j:j['created_at'],reverse=True))
                 if path.path.startswith('/api/jobs/'):
                     return self.send(200,app.snapshot(path.path.split('/')[-1]))
-                assets={'/report-language':('report-language.html','text/html; charset=utf-8'),'/report-language.js':('report-language.js','text/javascript'),'/report-language.css':('report-language.css','text/css'),'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
+                assets={'/report-scope':('report-scope.html','text/html; charset=utf-8'),'/report-scope.js':('report-scope.js','text/javascript'),'/report-language':('report-language.html','text/html; charset=utf-8'),'/report-language.js':('report-language.js','text/javascript'),'/report-language.css':('report-language.css','text/css'),'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
                 if path.path in assets:
                     filename,mime=assets[path.path]
                     return self.send(200,(Path(__file__).parent/'web'/filename).read_bytes(),mime)

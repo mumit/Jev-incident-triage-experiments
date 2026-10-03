@@ -109,3 +109,7 @@ Choose **Comparison → Report language and Jev** to open `/report-language`. Th
 **Exact input** downloads the selected boundary: a report/policy bundle, frozen packet features or an exact Jev request. Saved Jev responses include returned probabilities and usage. The experiment guide preserves packet, arm, report and section on return. Browsing this workbench makes no hosted calls.
 
 The result view also shows the four exact report texts across three diagnostic repeats. This table preserves the original packet predictions and distinguishes repeated agreement from correctness. The study guide links to the reference decision brief.
+
+## Measured-function reading
+
+Choose **Comparison → Measured-function reading** or the next-study link on `/report-language`. The new workbench separates report accuracy from triage agreement and opens both predeclared policy gaps. Compare exact Jev instructions, switch the selected report and inspect returned probabilities or saved ML contributions. Reference reveal includes a separate reference-reading-fed policy diagnostic: correct intake and completion readings still produce an incorrect NOC disposition in the two gap packets. Exports contain inference input only. The guide returns to the selected packet, arm, report and section.

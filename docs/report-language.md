@@ -95,9 +95,9 @@ A bounded diagnostic replay repeated the two inspected acceptance texts and thei
 All 12 calls completed with zero failures. The first acceptance wording produced unknown, normal, unknown; the second produced unknown in every repeat. Both matched refusal texts produced fault in every repeat. Agreement with the draft meanings was 2/4, 3/4 and 2/4 reports across the three repetitions. Those are four selected texts, not 12 independent scenarios or a revised score for the 140-packet evaluation. The [replay checkpoint](../checkpoints/report-language-replay-2026-10-02.json) preserves exact bodies, raw replies, probabilities and per-text agreement. The workbench shows these repetitions separately from original predictions.
 
 
-On October 2, the user selected **normal handler reading**: request acceptance establishes normal operation of the measured handler, while registration completion remains separate. This confirms the existing draft boundary and preserves every recorded reference. The next matched question experiment will clarify the measured-function scope on new development families.
+On October 2, the user selected **normal handler reading**: request acceptance establishes normal operation of the measured handler, while registration completion remains separate. This confirms the existing draft boundary and preserves every recorded reference. The completed [measured-function comparison](report-scope.md) tests that scope with new families and a reading-instruction change.
 
-I will keep the current models, questions, policy and references frozen. New development families will contrast request acceptance, completed registration, partial success and uncertain completion. Training changes belong in a separate matched study; specialist-reviewed references and new held-out families must precede any operational claim.
+I will keep the current models, questions, policy and references frozen. The measured-function pack contrasts request acceptance, completed registration, partial success and uncertain completion. Training changes belong in a separate matched study; specialist-reviewed references and new held-out families must precede any operational claim.
 
 ## Reproduce
 

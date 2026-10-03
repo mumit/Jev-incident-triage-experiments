@@ -49,7 +49,8 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
-| [Report language and Jev](docs/report-language.md) | Matched training result, direct-versus-report Jev comparison and the remaining reference decision. |
+| [Measured-function reading](docs/report-scope.md) | Matched question change, report/triage results and hidden policy gaps. |
+| [Report language and Jev](docs/report-language.md) | Matched training result, direct-versus-report Jev comparison and the selected handler reference. |
 | [Report interpretation and policy](docs/experiment-3-interpretation.md) | Report annotations, interpreter errors, policy traces and matched architecture results. |
 | [Training wording](docs/experiment-3-wording.md) | Matched method-word intervention, negative result, controls and regressions. |
 | [Structured ML features](docs/experiment-3-structured-ml.md) | Matched feature sets, fitted vectors, score contributions and field regressions. |
@@ -137,3 +138,5 @@ The [report-language comparison](docs/report-language.md) uses 186 matched train
 The exact-request diagnostic replay records unknown/normal variability on one acceptance wording and recurring unknown on another; both refusal controls remain fault. [The reference decision brief](docs/report-language-review.md) records the user-selected normal handler reading for the next matched question study.
 
 The [measured-function trial](docs/report-scope.md) prepares a matched reading-instruction comparison on 68 new packets and 88 reports. Successful intake is normal for the focal handler, with completion assessed separately. The frozen policy has two predeclared function-comparability gaps. All 176 Jev calls completed. Original versus measured-function questions score 82/88 versus 83/88 report readings and 67/68 versus 68/68 packets. Two report fixes and one loss leave both predeclared policy gaps hidden by wrong readings. No earlier reference or result changes.
+
+Inspect the new comparison at `/report-scope` or **Comparison → Measured-function reading**. Exact instructions, returned meanings, policy traces and reference diagnostics remain separate. Measurement-scope provenance is the next decision.
