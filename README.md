@@ -129,3 +129,5 @@ The working checkout passes 142 Python tests and nine JavaScript tests. Two Pyth
 - [Scikit-learn logistic regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)
 
 I adapted the source from an earlier local synthetic incident benchmark. This repository adds the trained ML comparison, focused Jev requests and interactive study walkthrough.
+
+The next [report-language comparison](docs/report-language.md) is prepared with matched training wording and 140 new development packets. Its recorded preflight protocol precedes local fits and a bounded Jev architecture comparison.

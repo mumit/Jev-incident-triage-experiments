@@ -1,0 +1,74 @@
+{
+  "schema": "report-language-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "arms": {
+    "narrow": "Original report phrases",
+    "broad": "Broader report phrases"
+  },
+  "intervention": "Only training observation detail changes. Counts, report meanings, packet targets and all non-text evidence stay matched. New development inputs and annotations are identical across arms.",
+  "policy_assumptions": "Frozen report policy: 15-minute inclusive window, current visible service support and same-asset/domain comparability. Clause references distinguish focal current evidence from an auxiliary check or earlier alarm; specialist review pending.",
+  "training_origin_sha256": {
+    "train.inputs.jsonl": "2d04fb7ad942b46998b4f35a46a3857b58e2d5e66a4267aeca12a393b18e24d4",
+    "train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571"
+  },
+  "splits": {
+    "train": {
+      "records": 186,
+      "families": 31,
+      "pairs": 93
+    },
+    "development": {
+      "records": 140,
+      "families": 35,
+      "pairs": 70
+    }
+  },
+  "observation_counts": {
+    "train": 210,
+    "development": 156
+  },
+  "training_class_counts": {
+    "transport": {
+      "fault": 18,
+      "normal": 18,
+      "unknown": 12
+    },
+    "ran": {
+      "fault": 18,
+      "normal": 18,
+      "unknown": 12
+    },
+    "power": {
+      "fault": 18,
+      "normal": 18,
+      "unknown": 12
+    },
+    "core": {
+      "fault": 18,
+      "normal": 18,
+      "unknown": 12
+    },
+    "none": {
+      "normal": 6,
+      "unknown": 12
+    }
+  },
+  "sha256": {
+    "broad/development.inputs.jsonl": "9851688b4c3ecc82545b7f02c67be15ade4a4716be0cdddc449fee1cbee78424",
+    "broad/development.labels.jsonl": "fc863cebb6bfb62b838968691ffe95bc2803b83ec606e15f7a182dedcde48064",
+    "broad/development.observations.jsonl": "dbdf0a8a336825c9c7b6f026c826293482b2f522c8806455daf9a6a249293158",
+    "broad/train.inputs.jsonl": "7c5cade064a289c1092fec3e118d363fd6dd5af2d229531334f52d9a1e47a117",
+    "broad/train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "broad/train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571",
+    "narrow/development.inputs.jsonl": "9851688b4c3ecc82545b7f02c67be15ade4a4716be0cdddc449fee1cbee78424",
+    "narrow/development.labels.jsonl": "fc863cebb6bfb62b838968691ffe95bc2803b83ec606e15f7a182dedcde48064",
+    "narrow/development.observations.jsonl": "dbdf0a8a336825c9c7b6f026c826293482b2f522c8806455daf9a6a249293158",
+    "narrow/train.inputs.jsonl": "2d04fb7ad942b46998b4f35a46a3857b58e2d5e66a4267aeca12a393b18e24d4",
+    "narrow/train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "narrow/train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571"
+  }
+}

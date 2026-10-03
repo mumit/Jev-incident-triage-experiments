@@ -1,0 +1,75 @@
+{
+  "schema": "report-language-hosted-1",
+  "requested_model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "declared_context_tokens": 32768,
+  "arms": {
+    "jev_direct": "Jev \u00b7 direct triage",
+    "jev_reading": "Jev \u00b7 report \u2192 policy"
+  },
+  "data_sha256": {
+    "broad/development.inputs.jsonl": "9851688b4c3ecc82545b7f02c67be15ade4a4716be0cdddc449fee1cbee78424",
+    "broad/development.labels.jsonl": "fc863cebb6bfb62b838968691ffe95bc2803b83ec606e15f7a182dedcde48064",
+    "broad/development.observations.jsonl": "dbdf0a8a336825c9c7b6f026c826293482b2f522c8806455daf9a6a249293158",
+    "broad/train.inputs.jsonl": "7c5cade064a289c1092fec3e118d363fd6dd5af2d229531334f52d9a1e47a117",
+    "broad/train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "broad/train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571",
+    "narrow/development.inputs.jsonl": "9851688b4c3ecc82545b7f02c67be15ade4a4716be0cdddc449fee1cbee78424",
+    "narrow/development.labels.jsonl": "fc863cebb6bfb62b838968691ffe95bc2803b83ec606e15f7a182dedcde48064",
+    "narrow/development.observations.jsonl": "dbdf0a8a336825c9c7b6f026c826293482b2f522c8806455daf9a6a249293158",
+    "narrow/train.inputs.jsonl": "2d04fb7ad942b46998b4f35a46a3857b58e2d5e66a4267aeca12a393b18e24d4",
+    "narrow/train.labels.jsonl": "24c49c881e85df80b45814be125cb71eb4cb807816c96f03ef2cb8016506566c",
+    "narrow/train.observations.jsonl": "319f355f25c762177130d5411453ec4a7f702ad079d4e5fce955c92ca942d571"
+  },
+  "source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/hosted.py": "faeb5d6f5f90957523a935da185addd25674c3b7f5ccbd4e729516f8e2d5be3b",
+    "triage_bench/experiment3/question_trial.py": "7e707c2ee5815cc574d8850c42c266c7ffc7e584bf74818f1ffbcb1671a0e3c5"
+  },
+  "records": 140,
+  "report_count": 156,
+  "maximum_requests": 296,
+  "reference_status": "draft_not_specialist_reviewed",
+  "execution": "Serial, alternating direct/report block order by packet; one response per request, no warmup or automatic retries.",
+  "comparison": "Frozen selected-evidence direct triage versus text-only report interpretation feeding frozen ML report policy. Task boundary, context, evidence retention, questions and software execution differ; this is an architecture comparison.",
+  "failure_stop": "Stop immediately for access/configuration/rate-limit/overload/checkpoint/network failures; otherwise stop after three consecutive malformed responses. Missing and failed report requests invalidate packet triage.",
+  "timeout_seconds": 60,
+  "context_preflight": "UTF-8 request bytes plus 512 <= declared capacity; not a tokenizer.",
+  "report_questions_sha256": "24db875b28fcef58dd421e1f5fd4e6727ad18128571117939169bebd2c49d955",
+  "direct_questions_sha256": "5ade42531f02c832f9244d32d51482bace2fadcf6d92145e11f2ee4b579202b1",
+  "local_parameters": {
+    "C": 2.0,
+    "max_iter": 2000,
+    "random_state": 17,
+    "class_weight": "balanced",
+    "word_ngrams": [
+      1,
+      2
+    ],
+    "character_ngrams": [
+      3,
+      5
+    ],
+    "min_df": 2,
+    "sublinear_tf": true,
+    "character_analyzer": "char_wb"
+  },
+  "source_base_commit": "73aeeb37719ba660b02f55d84d613cb0607c951c",
+  "state": "prepared_before_inference",
+  "local_intervention": "Training report wording only; counts, annotations, policy and model settings fixed."
+}
