@@ -90,7 +90,10 @@ The gain supports further testing of separated interpretation and policy. It doe
 
 ## Repeatability check and the next decision
 
-A bounded diagnostic replay repeats the two inspected acceptance texts and their matched refusal texts three times each: four distinct requests, 12 calls. The saved bodies and questions remain unchanged. Repetition tests whether the same readings recur; it introduces no new families and cannot estimate independent accuracy. The [replay protocol](../checkpoints/report-language-replay-protocol-2026-10-02.json) records that selection before calls.
+A bounded diagnostic replay repeated the two inspected acceptance texts and their matched refusal texts three times each: four distinct requests, 12 calls. The saved bodies and questions remain unchanged. Repetition checks whether the same readings recur; it introduces no new families and cannot estimate independent accuracy. The [replay protocol](../checkpoints/report-language-replay-protocol-2026-10-02.json) records that selection before calls.
+
+All 12 calls completed with zero failures. The first acceptance wording produced unknown, normal, unknown; the second produced unknown in every repeat. Both matched refusal texts produced fault in every repeat. Agreement with the draft meanings was 2/4, 3/4 and 2/4 reports across the three repetitions. Those are four selected texts, not 12 independent scenarios or a revised score for the 140-packet evaluation. The [replay checkpoint](../checkpoints/report-language-replay-2026-10-02.json) preserves exact bodies, raw replies, probabilities and per-text agreement. The workbench shows these repetitions separately from original predictions.
+
 
 Before changing Jev’s definition of normal, I need to settle the meaning of the measurement: does “the handler accepts subscriber requests” establish normal operation of the focal handler, or should a normal core reading require evidence that registration completed? The current draft uses the first interpretation. A stronger definition would change report annotations and comparable-conflict references, so it needs a separate version rather than relabeling this recorded result.
 
@@ -116,3 +119,12 @@ uv run --locked python -m scripts.run_report_language_jev verify --output runs/r
 ```
 
 The diagnostic replay requires its original saved hosted run under `runs/report-language-jev/development-2026-10-02-v1/`. It verifies that evidence before reusing exact request bodies. A fresh clone cannot recreate this replay selection from scores alone.
+
+
+```bash
+uv run --locked python -m scripts.run_report_language_replay preflight
+uv run --locked python -m scripts.run_report_language_replay run --output runs/report-language-replay/my-diagnostic
+uv run --locked python -m scripts.run_report_language_replay verify --output runs/report-language-replay/my-diagnostic
+```
+
+[The reference decision brief](report-language-review.md) gives the two readings to choose between and the implications for new cases. Existing references and scores remain unchanged.

@@ -3,6 +3,8 @@ from pathlib import Path
 from http.server import ThreadingHTTPServer
 from types import SimpleNamespace
 from urllib.parse import urlencode
+from unittest.mock import patch
+from triage_bench.dataset import write_jsonl
 from triage_bench.app import App,handler_for
 from triage_bench.dataset import ROOT
 from triage_bench.experiment3.report_language_data import DIRECTORY
@@ -26,11 +28,19 @@ class ReportLanguageServiceTests(unittest.TestCase):
         for kwargs in [{'arm':'bad'},{'report_index':True},{'report_index':-1},{'report_index':99},{'split':'held-out'}]:
             with self.assertRaises(ValueError):self.study.case(id,**kwargs)
 
+    def test_replay_inspection_requires_verified_saved_evidence(self):
+        run=self.root/'runs/report-language-replay/fixture';run.mkdir(parents=True);(run/'summary.json').write_text('{}')
+        write_jsonl(run/'requests.jsonl',[{'id':'example','observation_index':0,'repetition':1,'body':{'state':'Report text only:\nExample focal reading'}}])
+        with patch('triage_bench.experiment3.report_language_repeat.verify',return_value={'reports':[],'maximum_requests':12}) as checked:
+            study=ReportLanguageStudy(self.root);self.assertEqual(study.catalog()['replay']['texts'][0]['text'],'Example focal reading');checked.assert_called_once_with(run/'summary.json',self.root/'runs/report-language-jev/development-2026-10-02-v1')
+        with patch('triage_bench.experiment3.report_language_repeat.verify',side_effect=ValueError('changed evidence')):
+            study=ReportLanguageStudy(self.root);self.assertIsNone(study.catalog()['replay']);self.assertIn('repeat results unavailable',study.catalog()['status'])
+
     def test_reader_preserves_new_workbench_context_and_checkpoint_links(self):
         back='/report-language?split=development&case=NSL-c9841c3176a5-a&arm=jev_reading&report=0#weights'
         self.assertEqual(return_path(back),back);self.assertNotEqual(return_path('/report-language#unknown'),'/report-language#unknown')
         page=render_study(SimpleNamespace(root=ROOT,records={'validation':{'NS-b073aba91088':{}}}),{'doc':'report-language','return':back}).decode()
-        self.assertIn('arm=jev_reading',page);self.assertIn('/report-language-protocol.json',page)
+        self.assertIn('arm=jev_reading',page);self.assertIn('/report-language-protocol.json',page);self.assertIn('/report-language-replay.json',page);self.assertIn('doc=report-language-review',page)
 
     def test_http_exports_exact_inputs_without_inference_or_reference_keys(self):
         app=App();app.root=self.root;server=ThreadingHTTPServer(('127.0.0.1',0),handler_for(app));worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()

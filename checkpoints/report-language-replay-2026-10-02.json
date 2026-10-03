@@ -1,0 +1,190 @@
+{
+  "schema": "report-language-repeat-1",
+  "model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "context_tokens": 32768,
+  "source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/hosted.py": "faeb5d6f5f90957523a935da185addd25674c3b7f5ccbd4e729516f8e2d5be3b",
+    "triage_bench/experiment3/question_trial.py": "7e707c2ee5815cc574d8850c42c266c7ffc7e584bf74818f1ffbcb1671a0e3c5",
+    "triage_bench/experiment3/report_language_repeat.py": "3d6e92b29bac816746caf231643c5f1a5566cbcafd2852da657b936da11b14be"
+  },
+  "original_summary_sha256": "f59dd6b90ba984b3d958d24629fe3e08cf2f085c53bdaf45f0ffae2e1c2f31f8",
+  "maximum_requests": 12,
+  "distinct_requests": 4,
+  "repetitions": 3,
+  "selection": "Two distinct misread acceptance reports and their matched refusal reports, selected after inspecting development failures. No new families or changed questions. This is a diagnostic repetition, not an independent accuracy estimate.",
+  "reference_status": "draft_not_specialist_reviewed",
+  "policy_change": false,
+  "started_at": "2026-10-03T01:31:14.055738+00:00",
+  "per_repetition": [
+    {
+      "repetition": 1,
+      "correct_both": 2,
+      "planned_reports": 4,
+      "attempted": 4
+    },
+    {
+      "repetition": 2,
+      "correct_both": 3,
+      "planned_reports": 4,
+      "attempted": 4
+    },
+    {
+      "repetition": 3,
+      "correct_both": 2,
+      "planned_reports": 4,
+      "attempted": 4
+    }
+  ],
+  "reports": [
+    {
+      "id": "NSL-a8d5a7d47a26-b",
+      "observation_index": 1,
+      "draft_meaning": {
+        "domain": "core",
+        "reading": "normal"
+      },
+      "original_meaning": {
+        "domain": "core",
+        "reading": "unknown"
+      },
+      "repeated_meanings": [
+        {
+          "domain": "core",
+          "reading": "unknown"
+        },
+        {
+          "domain": "core",
+          "reading": "normal"
+        },
+        {
+          "domain": "core",
+          "reading": "unknown"
+        }
+      ],
+      "attempted": 3,
+      "failed_or_missing": 0,
+      "all_repeats_agree": false,
+      "correct_repeats": 1
+    },
+    {
+      "id": "NSL-a8d5a7d47a26-b",
+      "observation_index": 0,
+      "draft_meaning": {
+        "domain": "core",
+        "reading": "fault"
+      },
+      "original_meaning": {
+        "domain": "core",
+        "reading": "fault"
+      },
+      "repeated_meanings": [
+        {
+          "domain": "core",
+          "reading": "fault"
+        },
+        {
+          "domain": "core",
+          "reading": "fault"
+        },
+        {
+          "domain": "core",
+          "reading": "fault"
+        }
+      ],
+      "attempted": 3,
+      "failed_or_missing": 0,
+      "all_repeats_agree": true,
+      "correct_repeats": 3
+    },
+    {
+      "id": "NSL-c9841c3176a5-a",
+      "observation_index": 0,
+      "draft_meaning": {
+        "domain": "core",
+        "reading": "normal"
+      },
+      "original_meaning": {
+        "domain": "core",
+        "reading": "unknown"
+      },
+      "repeated_meanings": [
+        {
+          "domain": "core",
+          "reading": "unknown"
+        },
+        {
+          "domain": "core",
+          "reading": "unknown"
+        },
+        {
+          "domain": "core",
+          "reading": "unknown"
+        }
+      ],
+      "attempted": 3,
+      "failed_or_missing": 0,
+      "all_repeats_agree": true,
+      "correct_repeats": 0
+    },
+    {
+      "id": "NSL-c9841c3176a5-a",
+      "observation_index": 1,
+      "draft_meaning": {
+        "domain": "core",
+        "reading": "fault"
+      },
+      "original_meaning": {
+        "domain": "core",
+        "reading": "fault"
+      },
+      "repeated_meanings": [
+        {
+          "domain": "core",
+          "reading": "fault"
+        },
+        {
+          "domain": "core",
+          "reading": "fault"
+        },
+        {
+          "domain": "core",
+          "reading": "fault"
+        }
+      ],
+      "attempted": 3,
+      "failed_or_missing": 0,
+      "all_repeats_agree": true,
+      "correct_repeats": 3
+    }
+  ],
+  "attempted_requests": 12,
+  "failed_requests": 0,
+  "unattempted_requests": 0,
+  "stopped_reason": null,
+  "status": "completed",
+  "evidence_sha256": {
+    "original-responses.jsonl": "8201504cfffd987716ef7b7c84b49e10ba3a9fe4e2c64991f2eea01d82a112d6",
+    "references.jsonl": "9023e3866245e5da11705df153421314b8de6f50d490cfa75fc6d04ae7ad72b5",
+    "requests.jsonl": "862aa68d7d8336877564ecdeb868f06b20df8e0921c98ac25c1c6ce658683b5f",
+    "responses.jsonl": "e2f1c73f8a5ffa7f30c28407f3ae42753e7405b1cdcd2d49d6d452dc4a339c00"
+  },
+  "run_id": "diagnostic-2026-10-02-v1",
+  "source_base_commit": "d190f34"
+}

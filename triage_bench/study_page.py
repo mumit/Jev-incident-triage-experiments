@@ -16,6 +16,7 @@ DOCUMENTS = {
     'experiment-3-conflicts': 'docs/experiment-3-conflict-repetition.md',
     'experiment-3-selection': 'docs/experiment-3-evidence-selection.md',
     'report-language':'docs/report-language.md',
+    'report-language-review':'docs/report-language-review.md',
     'experiment-3-interpretation': 'docs/experiment-3-interpretation.md',
     'experiment-3-wording': 'docs/experiment-3-wording.md',
     'experiment-3-structured': 'docs/experiment-3-structured-ml.md',

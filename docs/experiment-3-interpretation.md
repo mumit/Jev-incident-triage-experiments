@@ -2,7 +2,7 @@
 
 October 2, 2026. This study separates two jobs: interpreting an observation and applying the incident policy. A report can describe a power fault even when stale evidence or an unknown service path means NOC should investigate first. Earlier packet classifiers learned those decisions together; this comparison exposes the intermediate reading.
 
-Report ML followed by fixed policy gets 62/108 new development packets right, compared with 55/108 for matched packet ML and 70/108 for the previous frozen candidate. Its reading errors outweigh the benefit of separating the jobs. I will retain the previous candidate and test broader report wording next. Jev makes no calls in this study.
+Report ML followed by fixed policy gets 62/108 new development packets right, compared with 55/108 for matched packet ML and 70/108 for the previous frozen candidate. Its reading errors outweigh the benefit of separating the jobs. That result left the previous candidate unchanged and motivated the subsequent matched [report-language study](report-language.md). Jev makes no calls in this study.
 
 ## Data and annotations
 
@@ -82,9 +82,9 @@ In `NSI-c3ac8df8f332-a`, current transport reports contain a fault and a normal 
 
 ## Subsequent experiment
 
-The completed [report-language study](report-language.md) broadens report training wording while keeping the report classifier, input boundary and policy fixed. A matched comparison should replace redundant training phrases at the same packet count and domain/reading mix, distribute service-probe language across fault, normal and unknown reports, and vary positive, negated and uncertain descriptions without changing their meanings.
+The completed [report-language study](report-language.md) holds report settings and policy fixed while replacing training phrases at the same counts and domain/reading mix. It distributes service-probe language across fault, normal and unknown reports and evaluates further families with negation, uncertainty and clause-scope controls.
 
-Further development families should test those distinctions and contain clause-scoped negation and uncertainty controls. The existing 108 packets are now inspected development evidence; they cannot validate the next revision independently. Report-level accuracy, complete-packet fixes, field regressions and errors hidden by correct triage must remain visible. The original packet candidate stays unchanged. Specialist review still precedes final held-out evaluation.
+The matched result is negative: 86/140 for broader wording versus 90/140 for original phrases. Its separate hosted architecture comparison scores 139/140 for Jev report interpretation feeding policy versus 127/140 for direct triage. These are within-pack comparisons on further development families, not deltas from this 108-packet study. The earlier packets remain inspected development evidence; specialist review and new held-out families remain pending.
 
 ## Inspect and reproduce
 
@@ -97,5 +97,3 @@ uv run --locked python -m scripts.run_experiment3_interpretation verify --output
 ```
 
 Runs are immutable. Raw evidence stays under ignored `runs/experiment-3-interpretation/`. A fresh clone can inspect inputs and annotations and replay the local study without Jev. The historical public bundle remains unchanged and does not include this run. Nothing in the lab executes network changes.
-
-The subsequent matched result is negative: 86/140 for broader report wording versus 90/140 for original phrases. Its separate hosted architecture comparison scores 139/140 for Jev report interpretation feeding policy versus 127/140 for direct triage. These are within-pack comparisons on further development families, not deltas from the 108-packet study above.

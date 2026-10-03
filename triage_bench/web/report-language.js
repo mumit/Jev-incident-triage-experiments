@@ -28,6 +28,9 @@ function renderScores(){
  if(local){for(const [label,id] of [['A broader-wording fix',local.changes.broad.packets_fixed[0]],['A broader-wording regression',local.changes.broad.packets_lost[0]]])if(id)examples.push([label,id,'broad']);}
  if(hosted){for(const [label,id] of [['A Jev pipeline fix',hosted.changes.jev_reading.packets_fixed[0]],['A Jev pipeline regression',hosted.changes.jev_reading.packets_lost[0]]])if(id)examples.push([label,id,'jev_reading']);}
  $('examples').innerHTML=examples.map(([label,id,arm])=>`<a href="/report-language?${new URLSearchParams({split:'development',case:id,arm})}#inspect">${esc(label)}</a>`).join('');
+ const replay=catalog.replay;
+ $('replay-table').innerHTML=replay?table(['Inspected report','Original reading','Repeat 1','Repeat 2','Repeat 3','All repeats agree'],replay.reports.map(r=>[`${esc(r.id)} · report ${r.observation_index+1}<details><summary>Read the unchanged text</summary><p>${esc(replay.texts.find(t=>t.id===r.id&&t.observation_index===r.observation_index).text)}</p></details>`,esc(r.original_meaning.reading),...[0,1,2].map(i=>esc(r.repeated_meanings[i]?.reading||'Failed or missing')),r.all_repeats_agree?'Yes':'No'])):'<p>No saved diagnostic replay. The packet evaluation above is unchanged.</p>';
+
 }
 function families(preferred){const rows=catalog.cases[state.split];options('family',[...new Set(rows.map(r=>r.family))].map(f=>[f,f]),preferred);pairs();}
 function pairs(preferred){const rows=catalog.cases[state.split].filter(r=>r.family===$('family').value);options('pair',[...new Set(rows.map(r=>r.pair_id))].map((p,i)=>[p,'Pair '+(i+1)]),preferred);selectPacket('a');}

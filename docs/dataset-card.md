@@ -80,3 +80,12 @@ The [wording study](experiment-3-wording.md) reuses the 96 structured-study trai
 ## Report-interpretation pack
 
 The [report-policy study](experiment-3-interpretation.md) adds 186 training packets in 31 families and 108 development packets in 27 further families. Separate annotations describe the 210 training and 124 development reports as domain plus fault, normal or unknown. A stale or disconnected fault retains its fault annotation even when the packet reference retains NOC. These report meanings are written from the templates before fitting, not inferred from packet answers. Development pairs vary paths, measurement time, contradictions, negation, uncertainty and missing inventory. Domain names appear literally in report prefixes; shared templates and vocabulary make this a limited teaching pack. References, validity thresholds and same-asset comparability remain provisional. There is no final held-out split.
+
+
+## Matched report-language pack
+
+`data/report-language-draft/` contains original and broader training variants of the same 186 packets, 31 families and 210 separate report annotations. Only report detail changes; identifiers, method nouns, targets and non-text evidence remain matched. The original variant preserves the previous report-policy training inputs exactly.
+
+Both arms receive the same 140 development packets, 35 new families, 70 pairs and 156 report annotations. These written cases extend path, currentness, conflict, negation, uncertainty and clause-scope mechanisms. Families and pairs share templates; 140 packets are not 140 independent real incidents. Explicit domain prefixes simplify classification. Focal clause meanings, core acceptance as a normal handler reading, 15-minute validity and comparable instruments remain draft assumptions.
+
+The [study guide](report-language.md) records actual local and hosted results. Its diagnostic replay selects four inspected report texts and repeats their exact requests; it adds no new families or independent evaluation examples. [The reference decision](report-language-review.md) must precede any new core-reading annotations. No final held-out set exists.

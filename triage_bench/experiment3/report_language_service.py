@@ -19,7 +19,7 @@ class ReportLanguageStudy:
             self.records[split]={r['id']:r for r in read_jsonl(self.directory/'narrow'/(split+'.inputs.jsonl'))};self.keys[split]={r['id']:r for r in read_jsonl(self.directory/'narrow'/(split+'.labels.jsonl'))};self.annotations[split]={}
             for a in read_jsonl(self.directory/'narrow'/(split+'.observations.jsonl')):self.annotations[split].setdefault(a['id'],[]).append(a)
         self.training={a:{r['id']:r for r in read_jsonl(self.directory/a/'train.inputs.jsonl')} for a in TRAINING_ARMS}
-        self.local=None;self.hosted=None;self.rows={};self.inspections={};self.bridge_explanations={};self.bridge_vectors={};self.requests=[];self.responses=[];self.status=[]
+        self.local=None;self.hosted=None;self.replay=None;self.rows={};self.inspections={};self.bridge_explanations={};self.bridge_vectors={};self.requests=[];self.responses=[];self.status=[]
         for kind,folder in [('local','report-language'),('hosted','report-language-jev')]:
             paths=sorted((self.root/'runs'/folder).glob('*/summary.json'),key=lambda p:p.stat().st_mtime,reverse=True)
             for p in paths:
@@ -35,8 +35,18 @@ class ReportLanguageStudy:
         if not self.local:self.status.append('No saved local predictions. Inputs and references remain available.')
         if not self.hosted:self.status.append('Jev has no saved responses on this pack.')
 
+        paths=sorted((self.root/'runs/report-language-replay').glob('*/summary.json'),key=lambda p:p.stat().st_mtime,reverse=True)
+        for p in paths:
+            try:
+                from .report_language_repeat import verify as verify_replay
+                summary=verify_replay(p,self.root/'runs/report-language-jev/development-2026-10-02-v1')
+                requests=read_jsonl(p.parent/'requests.jsonl')
+                self.replay={**summary,'run_id':p.parent.name,'texts':[{'id':q['id'],'observation_index':q['observation_index'],'text':q['body']['state'].removeprefix('Report text only:\n')} for q in requests if q['repetition']==1]}
+                break
+            except (OSError,ValueError,KeyError,TypeError):self.status.append('Saved diagnostic replay differs; repeat results unavailable.')
+
     def catalog(self):
-        return {'manifest':self.manifest,'arms':{**ARMS,**HOSTED},'local':self.local,'hosted':self.hosted,'status':' '.join(self.status) or 'Saved local and hosted evidence verifies.',
+        return {'manifest':self.manifest,'arms':{**ARMS,**HOSTED},'local':self.local,'hosted':self.hosted,'replay':self.replay,'status':' '.join(self.status) or 'Saved local and hosted evidence verifies.',
                 'cases':{s:[{'id':r['id'],'family':self.keys[s][r['id']]['incident_family_id'],'pair_id':self.keys[s][r['id']]['pair_id'],'control':self.keys[s][r['id']].get('control','training')} for r in records.values()] for s,records in self.records.items()}}
 
     def case(self,identifier,split='development',arm='broad',report_index=0):

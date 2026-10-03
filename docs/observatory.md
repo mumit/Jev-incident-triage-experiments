@@ -107,3 +107,5 @@ Choose **Comparison → Report language and Jev** to open `/report-language`. Th
 **Training** shows the two actual report wordings without evaluation predictions. **Development** follows raw reports through each predicted meaning, the selected policy trace and all seven final outputs. Reveal draft report and packet references separately; wrong meanings and decisions then receive markers. Select a report and score field to inspect ML vectors and contributions or actual Jev probabilities. Jev's internal weights and reasoning remain unavailable.
 
 **Exact input** downloads the selected boundary: a report/policy bundle, frozen packet features or an exact Jev request. Saved Jev responses include returned probabilities and usage. The experiment guide preserves packet, arm, report and section on return. Browsing this workbench makes no hosted calls.
+
+The result view also shows the four exact report texts across three diagnostic repeats. This table preserves the original packet predictions and distinguishes repeated agreement from correctness. The study guide links to the reference decision brief.
