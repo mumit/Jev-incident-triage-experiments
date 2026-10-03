@@ -30,6 +30,23 @@ Both paths preserve actual reading probabilities. Copied domain values carry no 
 
 Evaluation separates distinct-text domain and reading scores, full-packet matches, paired success, field regressions and wrong readings hidden by matching packet decisions. Reference-reading-fed policy checks diagnose the implementation; they are not model performance or an accuracy ceiling. Saved local vectors and fitted score margins explain classifier decisions.
 
-## Status
+## Recorded results
 
-The data, references, policy diagnostic and requests are prepared before inference. Live results will be recorded separately after the source is committed. All earlier packs, requests and measured results remain frozen.
+Preparation source: `ee12a91`. [Protocol](../checkpoints/declaration-trust-protocol-2026-10-02.json), [local evaluation](../checkpoints/declaration-trust-local-2026-10-02.json), [Jev evaluation](../checkpoints/declaration-trust-jev-2026-10-02.json).
+
+| Frozen reader | Base packet matches | Guard packet matches | Base / guard pair matches | Correct operation readings |
+|---|---|---|---|---|
+| Jev · declared-domain question | 56/80 | 80/80 | 16/40 → 40/40 | 40/40 |
+| ML · original wording | 40/80 | 40/80 | 0/40 → 0/40 | 0/40 |
+| ML · broader wording | 40/80 | 40/80 | 0/40 → 0/40 | 0/40 |
+| Report rules | 56/80 | 72/80 | 16/40 → 32/40 | 36/40 |
+
+Jev completed 40 hosted calls without failures. Its unchanged readings let the guard fix 24 packets, with no packet losses or newly wrong fields. These are policy fixes under the selected synthetic rule, not an improvement in Jev’s reading ability. The guard excludes stale and disconnected conflicting reports as intended. Both reference-reading-fed diagnostics and model scores remain inspectable separately.
+
+Both ML controls predict `unknown` for all 40 outcomes. Their 40 matching NOC packets conceal incorrect readings; the guard cannot recover missing fault interpretations. Report rules fix 16 packets without losses, but four fault texts receive `unknown`. Eight matching packets under the guard still conceal wrong operation readings.
+
+The first recorded attribution reused a scorer that compared copied structured domains with prose annotations. That comparison falsely counts deliberate source differences as reader errors. A separate verified evaluation corrects attribution using raw interpreter outputs and scores operation readings alone as a second view. Packet scores, distinct-text scores and model responses were unaffected; the original run files remain unchanged. The linked evaluations and app use corrected attribution.
+
+## Next boundary
+
+Agreement does not establish truth: both declarations could be wrong together. This guard checks consistency on simple explicit headers; it cannot validate source authority or resolve ambiguous declarations. A useful next ML comparison would add separate training examples of these instrument-report formats, keeping this study frozen and scoring further development families. Confidence in telecom operation still requires specialist-reviewed references and representative data before final held-out evaluation.

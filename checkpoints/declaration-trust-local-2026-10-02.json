@@ -1,0 +1,3838 @@
+{
+  "schema": "declaration-trust-evaluation-1",
+  "run_summary_sha256": "e87dae84487fba1b98da021c750a649cb8a613de95573475a02e02667c4e27d6",
+  "evaluation_source_sha256": {
+    "triage_bench/experiment3/trust_evaluation.py": "7e595fa12bc826f1351741f22244d2417f5ecc6dc0f9079628443e3e9a033225"
+  },
+  "recorded_source_sha256": {
+    "triage_bench/experiment3/structured_data.py": "131b87b0c6431e255e7489d6ebe9e6afe9a2548b255b812082e32af6cecd8c97",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiment3/structured_ml.py": "e9574077538beb1fad6048e33deb113163dabae35592b5184a01139d5e4f426e",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/evaluate.py": "6ce252d9f2f03d1a39daa06a98f47c1503ad4ff8f052c2bc930e8221d07a2ed2",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/interpretation_data.py": "5c2e4844d7e38f0bba48c890f1a0f06eecf7696e4fdc0a3f37e78a524c6411f3",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/interpretation_trial.py": "d92a09697368741e6e201152205f9f57476d374505f785b1814c0466639fb38a",
+    "triage_bench/experiment3/report_language_data.py": "7edc4e7d24e946b27b6a8fbd776db8eaf0f2d9fd18279eccdc48e2fdbc67a244",
+    "triage_bench/experiment3/report_language_trial.py": "1857aea27964ebb77954c6d4a30f3cef24d905ee66dd14f5c7299d9e660b47bd",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/report_scope_data.py": "bedee90a2545625d7f5a96a45d2847985c12a331e8431dfeef68e4574345a7d4",
+    "triage_bench/experiment3/report_scope_trial.py": "7a3cae73a934baa00100191422a3193879c461ffa7c17eb177d3d0cb9dff72f2",
+    "triage_bench/experiment3/metadata_data.py": "06bbc329d6b78d72a834b859fe224ae3abd33d93aba16bd8bea66f2f27b30af1",
+    "triage_bench/experiment3/metadata_policy.py": "1e4de2984342b10f89386035cc7945e054fdacee4523cd046ef99cfb861197b1",
+    "triage_bench/experiment3/metadata_trial.py": "2940403689e47458db1cb65a9a982d6a9bd08c87d1c4096a9c590b06d5b80761",
+    "triage_bench/experiment3/declared_data.py": "4f6dba6bdc16de315d44774732ce25cdf1a2c9126479bcf7db3f27d08d6920b4",
+    "triage_bench/experiment3/declared_trial.py": "fa360f61c5371db66d0cad202549c21c5a4fd19971ee64a0e81b68e5ed4551e3",
+    "triage_bench/experiment3/trust_data.py": "bd1623e2e4d2e40a048844978ebd81bff73905bf74e0fbff219d7f95f2d2c1cb",
+    "triage_bench/experiment3/trust_policy.py": "93f361e8141f00f1db8eea164a3cba5dde43914e0cefb4db18ca69ee2ffde5d6",
+    "triage_bench/experiment3/trust_trial.py": "9b2d55e70aea9b414e9ba2d2f2ccee7cb4824bcf205bf6d41b5e366856c09b06"
+  },
+  "approaches": {
+    "narrow__unguarded": {
+      "metrics": {
+        "label_sha256": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+        "prediction_sha256": "f44e29e36c5ae45b413f56a7ae896b0f9c1a41f9c37e329484033c71e6bc8010",
+        "records": 80,
+        "attempted_records": 80,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.5,
+            "macro_f1": 0.13333333333333333,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 40,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.5,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 40,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 40,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.5,
+            "macro_f1": 0.09523809523809523,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 40,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.5,
+            "macro_f1": 0.3333333333333333,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.5,
+        "semantic_decisions_accuracy": 0.5,
+        "with_software_priority_accuracy": 0.5,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 40,
+        "pair_all_fields_accuracy": 0.0,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    },
+    "narrow__guarded": {
+      "metrics": {
+        "label_sha256": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+        "prediction_sha256": "c518f2e7f85a7841cf8b946f62f728f634f4a5dd01d1efad4822fdc58c1fbadf",
+        "records": 80,
+        "attempted_records": 80,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.5,
+            "macro_f1": 0.13333333333333333,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 40,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.5,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 40,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 40,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.5,
+            "macro_f1": 0.09523809523809523,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 40,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.5,
+            "macro_f1": 0.3333333333333333,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.5,
+        "semantic_decisions_accuracy": 0.5,
+        "with_software_priority_accuracy": 0.5,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 40,
+        "pair_all_fields_accuracy": 0.0,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    },
+    "broad__unguarded": {
+      "metrics": {
+        "label_sha256": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+        "prediction_sha256": "d457a9f20cd472fae2e4dd020e290e16b75f393955c43d43888c3f071e9b6e6e",
+        "records": 80,
+        "attempted_records": 80,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.5,
+            "macro_f1": 0.13333333333333333,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 40,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.5,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 40,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 40,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.5,
+            "macro_f1": 0.09523809523809523,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 40,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.5,
+            "macro_f1": 0.3333333333333333,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.5,
+        "semantic_decisions_accuracy": 0.5,
+        "with_software_priority_accuracy": 0.5,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 40,
+        "pair_all_fields_accuracy": 0.0,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    },
+    "broad__guarded": {
+      "metrics": {
+        "label_sha256": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+        "prediction_sha256": "45727d63659ae878d38c7117acd2f18d1343b6de918b0b7beb15c0e69cce7f33",
+        "records": 80,
+        "attempted_records": 80,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.5,
+            "macro_f1": 0.13333333333333333,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 10,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 40,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.5,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 40,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 40,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.5,
+            "macro_f1": 0.09523809523809523,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 10,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 40,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.5,
+            "macro_f1": 0.3333333333333333,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.5,
+              0.5
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.5,
+        "semantic_decisions_accuracy": 0.5,
+        "with_software_priority_accuracy": 0.5,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 40,
+        "pair_all_fields_accuracy": 0.0,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    },
+    "report_rules__unguarded": {
+      "metrics": {
+        "label_sha256": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+        "prediction_sha256": "c547fc7a2ed4c4a28b2258d9b07a2ba4640e8af73de6d4fed79081cc52acef1e",
+        "records": 80,
+        "attempted_records": 80,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.7,
+            "macro_f1": 0.7151515151515151,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 8,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 8,
+                "power": 0,
+                "core": 0,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 8,
+                "core": 0,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 8,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 4,
+                "transport": 4,
+                "power": 4,
+                "core": 4,
+                "noc": 24,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.6,
+              0.8
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.5,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 40,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 40,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.7,
+            "macro_f1": 0.5108225108225108,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 8,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 8,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 8,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 8,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 4,
+                "inspect_transport": 4,
+                "inspect_power": 4,
+                "inspect_core": 4,
+                "verify_change": 0,
+                "gather_evidence": 24,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.6,
+              0.8
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.7,
+            "macro_f1": 0.696969696969697,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 24,
+                "no": 16,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 8,
+                "no": 32,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.6,
+              0.8
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.7,
+        "semantic_decisions_accuracy": 0.7,
+        "with_software_priority_accuracy": 0.7,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 40,
+        "pair_all_fields_accuracy": 0.4,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    },
+    "report_rules__guarded": {
+      "metrics": {
+        "label_sha256": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+        "prediction_sha256": "d568237f4150e97aff1b069441f5cb4705dd3c2a2051a2543e919b26210e419d",
+        "records": 80,
+        "attempted_records": 80,
+        "missing_records": 0,
+        "failed_records": 0,
+        "fields": {
+          "initial_owner": {
+            "accuracy": 0.9,
+            "macro_f1": 0.8929292929292929,
+            "confusion_matrix": {
+              "ran": {
+                "ran": 8,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "transport": {
+                "ran": 0,
+                "transport": 8,
+                "power": 0,
+                "core": 0,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "power": {
+                "ran": 0,
+                "transport": 0,
+                "power": 8,
+                "core": 0,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "core": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 8,
+                "noc": 2,
+                "ERROR": 0
+              },
+              "noc": {
+                "ran": 0,
+                "transport": 0,
+                "power": 0,
+                "core": 0,
+                "noc": 40,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.8,
+              0.975
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "priority": {
+            "accuracy": 1.0,
+            "macro_f1": 0.5,
+            "confusion_matrix": {
+              "P1": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P2": {
+                "P1": 0,
+                "P2": 40,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P3": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 40,
+                "P4": 0,
+                "ERROR": 0
+              },
+              "P4": {
+                "P1": 0,
+                "P2": 0,
+                "P3": 0,
+                "P4": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              1.0,
+              1.0
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "next_check": {
+            "accuracy": 0.9,
+            "macro_f1": 0.6378066378066378,
+            "confusion_matrix": {
+              "inspect_radio": {
+                "inspect_radio": 8,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_transport": {
+                "inspect_radio": 0,
+                "inspect_transport": 8,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_power": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 8,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "inspect_core": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 8,
+                "verify_change": 0,
+                "gather_evidence": 2,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "verify_change": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "gather_evidence": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 40,
+                "monitor": 0,
+                "ERROR": 0
+              },
+              "monitor": {
+                "inspect_radio": 0,
+                "inspect_transport": 0,
+                "inspect_power": 0,
+                "inspect_core": 0,
+                "verify_change": 0,
+                "gather_evidence": 0,
+                "monitor": 0,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.8,
+              0.975
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          },
+          "insufficient_evidence": {
+            "accuracy": 0.9,
+            "macro_f1": 0.898989898989899,
+            "confusion_matrix": {
+              "yes": {
+                "yes": 40,
+                "no": 0,
+                "ERROR": 0
+              },
+              "no": {
+                "yes": 8,
+                "no": 32,
+                "ERROR": 0
+              }
+            },
+            "brier_score": null,
+            "brier_records": 0,
+            "probability_records": 0,
+            "reliability_bins": [],
+            "family_bootstrap_95_percent_interval": [
+              0.8,
+              0.975
+            ],
+            "families": 20,
+            "coverage_curve": [
+              {
+                "threshold": 0,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.5,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.7,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.8,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.9,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.95,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              },
+              {
+                "threshold": 0.99,
+                "accepted": 0,
+                "coverage": 0.0,
+                "error_rate": null
+              }
+            ]
+          }
+        },
+        "limitations": "Synthetic policy benchmark. Repeated family realizations are not independent incidents. No production benefit is measured.",
+        "all_fields_accuracy": 0.9,
+        "semantic_decisions_accuracy": 0.9,
+        "with_software_priority_accuracy": 0.9,
+        "software_priority_note": "Separate counterfactual score: keep the three model decisions and replace priority using the published policy. Original predictions are unchanged; failed responses remain failures.",
+        "p1_miss_rate": null,
+        "p1_records": 0,
+        "paired_families": 40,
+        "pair_all_fields_accuracy": 0.8,
+        "successful_latency_ms": {
+          "p50": null,
+          "p95": null,
+          "records": 0
+        }
+      }
+    }
+  },
+  "report_metrics": {
+    "narrow": {
+      "fields": {
+        "domain": {
+          "correct_occurrences": 0,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 0,
+          "distinct_texts": 40
+        },
+        "reading": {
+          "correct_occurrences": 0,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 0,
+          "distinct_texts": 40
+        },
+        "both": {
+          "correct_occurrences": 0,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 0,
+          "distinct_texts": 40
+        }
+      },
+      "incorrect_or_missing_texts": [
+        "b071b0e41d300ba33f31e3f2bb4071138d962528aa18e5eaa9a5bc72e1483949",
+        "ad5924335a9a8238649e2511a14d97e2357064fa9ed39b54c8db47fd4c34afca",
+        "5b1d20c0f98ce735906f6e43c8031961a86a6a3d3499dbd980fb02e6149d5a1a",
+        "0dff272bfa2e18767261f53cd018d4749aab53fb968f0d199ae64e5a5375528a",
+        "408190e42e39b670007f129d6e11842100dc1341aa2e4ca6ad7bd981f3ea09a9",
+        "5bc255493f576ade90294d8d4e49fd59a524a2ce409c8eb197813d3202d09e3c",
+        "7083a0bffe323a5c4ec9fc7d4546556cca38366dbaa1afa2f7636aba940b3082",
+        "4508d2770ef4a515eabe6f5a7e905bed171e327d179c7876791d9f8351ae3933",
+        "dc0886c5a674f4a53c8d75a864aaa57eceed70e489a7d2f8165922afa3d023ea",
+        "4d5ae913bd7d2a4792af1848b4564f1767bb4b845285d7c94d9a79cb857f5aa1",
+        "fa878b63824e03db9800e3fcb653755c9d277edbcf8453821a6406c6690aad1d",
+        "fcaa1ca81ecf858836a10e87a42b4646852add5e39d245b0c267cffc0bcfb2b8",
+        "d9397c15745d740482e0a0b6abeca58e0653e313a3a91a1ae5619f7b7dc9a119",
+        "2ab53e1c9f8f9879d100e763c5fb97954291a7742fa4b95db145b59f6706f818",
+        "d1499dc2a715939891c1af64b8429fa71f3cf6ea56d189e40b1821772aacd1bb",
+        "f77bfdd2b9bd8ac3b0acdb92d68c6a88f878f548f7c90063e10ce74ac4c8178b",
+        "fc9123ffcf91a884c34e67e049b0fa7bcc80702ad75407ef3f972eb3527c7b63",
+        "6739ed41c397ad533b91d2a1e489ffeebd0a7d022befbf56273ba5a264d32eca",
+        "d6f55b89f3fed46d6bed608f8b2831852a59cbccc20109f7378548d9d9edc42b",
+        "e888aac54dec87e58e4ac39d8d27b7e0039d8fe7d29f1e72fe8e125e6b55734f",
+        "949aef78893022c4dd420d4e430dc15fbcdea17c57512a82d21093f314c46c88",
+        "6eb74da0b869733b15cc65652507abd5e69541a42c6471bb066c3854e1e3ad00",
+        "8d26176ce8766b73cfc8b92cf5353c39e991077eaa0c43da987c60fa413e80f8",
+        "c60cafc4733f3a9cb8bc03873456a9b15feec70ce6bf8f4b40fef16a1eccdb08",
+        "389e85b4ed66f9daf1b86891684372c7524f44498161694be3ef35a567139aa6",
+        "81d2f55400e95d9c71c56e1697da07735fef5e6b8d45188dec796dfd5ee0580f",
+        "7fae06152d462de7d4b759206f7fe1d5f520f2afa9303d370860d4a4a148a12b",
+        "6247ecec640ea3fbc0ffe30ddffd59890460ac4516b435913bd885202e11d642",
+        "186c62db9f268f80beda56ee5cc1b279cc7fd8d8667baad174c8e61b977520d4",
+        "b5dcbcb3215bd4ba8453d64f9a43d0e98bbf26fe755b94616b79203ff33a5547",
+        "ca17e7254a42b1698c333e3930bcf4a4bec67cdd4dfb82efd5df387cb62d8563",
+        "c1e9473f8c0e5df18599a149628e44308781fdea3fc18ea461cd7d969d0e76f6",
+        "8f18240c22e121d7d8e41ef90ddc098d53540b7746202b9ea9faccfc4fbd5ea8",
+        "2ccf224f65e18316e015d7e3229802dd1b8e67c276b16b2f8abbc58569b65015",
+        "36a6514ae0422e4434714a3e1b23787836aca56c6c494fa62ec0ac2bbb9cd5d2",
+        "d05f0c75c74a6c1f3e4a05744112177e18e99ddbe8545330955333c7e2f54b88",
+        "a0b4ae1ae2ea3c7dbfe4ec5ecc2186a90cb2cfd4767008580189ad5df70afd7b",
+        "25335e80ce2f8e14bad5ceb9733df7546cf2656767c0443c6bd2e252ea7551c2",
+        "ed143c3a9598017f6801e7bd148eb6ab706a080e7bde8ba760ca19af448d4b35",
+        "eb5a5eecb344cadfdebc6f8f74d0eac5c681892c7300e6e41500cf222984f56d"
+      ]
+    },
+    "broad": {
+      "fields": {
+        "domain": {
+          "correct_occurrences": 0,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 0,
+          "distinct_texts": 40
+        },
+        "reading": {
+          "correct_occurrences": 0,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 0,
+          "distinct_texts": 40
+        },
+        "both": {
+          "correct_occurrences": 0,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 0,
+          "distinct_texts": 40
+        }
+      },
+      "incorrect_or_missing_texts": [
+        "b071b0e41d300ba33f31e3f2bb4071138d962528aa18e5eaa9a5bc72e1483949",
+        "ad5924335a9a8238649e2511a14d97e2357064fa9ed39b54c8db47fd4c34afca",
+        "5b1d20c0f98ce735906f6e43c8031961a86a6a3d3499dbd980fb02e6149d5a1a",
+        "0dff272bfa2e18767261f53cd018d4749aab53fb968f0d199ae64e5a5375528a",
+        "408190e42e39b670007f129d6e11842100dc1341aa2e4ca6ad7bd981f3ea09a9",
+        "5bc255493f576ade90294d8d4e49fd59a524a2ce409c8eb197813d3202d09e3c",
+        "7083a0bffe323a5c4ec9fc7d4546556cca38366dbaa1afa2f7636aba940b3082",
+        "4508d2770ef4a515eabe6f5a7e905bed171e327d179c7876791d9f8351ae3933",
+        "dc0886c5a674f4a53c8d75a864aaa57eceed70e489a7d2f8165922afa3d023ea",
+        "4d5ae913bd7d2a4792af1848b4564f1767bb4b845285d7c94d9a79cb857f5aa1",
+        "fa878b63824e03db9800e3fcb653755c9d277edbcf8453821a6406c6690aad1d",
+        "fcaa1ca81ecf858836a10e87a42b4646852add5e39d245b0c267cffc0bcfb2b8",
+        "d9397c15745d740482e0a0b6abeca58e0653e313a3a91a1ae5619f7b7dc9a119",
+        "2ab53e1c9f8f9879d100e763c5fb97954291a7742fa4b95db145b59f6706f818",
+        "d1499dc2a715939891c1af64b8429fa71f3cf6ea56d189e40b1821772aacd1bb",
+        "f77bfdd2b9bd8ac3b0acdb92d68c6a88f878f548f7c90063e10ce74ac4c8178b",
+        "fc9123ffcf91a884c34e67e049b0fa7bcc80702ad75407ef3f972eb3527c7b63",
+        "6739ed41c397ad533b91d2a1e489ffeebd0a7d022befbf56273ba5a264d32eca",
+        "d6f55b89f3fed46d6bed608f8b2831852a59cbccc20109f7378548d9d9edc42b",
+        "e888aac54dec87e58e4ac39d8d27b7e0039d8fe7d29f1e72fe8e125e6b55734f",
+        "949aef78893022c4dd420d4e430dc15fbcdea17c57512a82d21093f314c46c88",
+        "6eb74da0b869733b15cc65652507abd5e69541a42c6471bb066c3854e1e3ad00",
+        "8d26176ce8766b73cfc8b92cf5353c39e991077eaa0c43da987c60fa413e80f8",
+        "c60cafc4733f3a9cb8bc03873456a9b15feec70ce6bf8f4b40fef16a1eccdb08",
+        "389e85b4ed66f9daf1b86891684372c7524f44498161694be3ef35a567139aa6",
+        "81d2f55400e95d9c71c56e1697da07735fef5e6b8d45188dec796dfd5ee0580f",
+        "7fae06152d462de7d4b759206f7fe1d5f520f2afa9303d370860d4a4a148a12b",
+        "6247ecec640ea3fbc0ffe30ddffd59890460ac4516b435913bd885202e11d642",
+        "186c62db9f268f80beda56ee5cc1b279cc7fd8d8667baad174c8e61b977520d4",
+        "b5dcbcb3215bd4ba8453d64f9a43d0e98bbf26fe755b94616b79203ff33a5547",
+        "ca17e7254a42b1698c333e3930bcf4a4bec67cdd4dfb82efd5df387cb62d8563",
+        "c1e9473f8c0e5df18599a149628e44308781fdea3fc18ea461cd7d969d0e76f6",
+        "8f18240c22e121d7d8e41ef90ddc098d53540b7746202b9ea9faccfc4fbd5ea8",
+        "2ccf224f65e18316e015d7e3229802dd1b8e67c276b16b2f8abbc58569b65015",
+        "36a6514ae0422e4434714a3e1b23787836aca56c6c494fa62ec0ac2bbb9cd5d2",
+        "d05f0c75c74a6c1f3e4a05744112177e18e99ddbe8545330955333c7e2f54b88",
+        "a0b4ae1ae2ea3c7dbfe4ec5ecc2186a90cb2cfd4767008580189ad5df70afd7b",
+        "25335e80ce2f8e14bad5ceb9733df7546cf2656767c0443c6bd2e252ea7551c2",
+        "ed143c3a9598017f6801e7bd148eb6ab706a080e7bde8ba760ca19af448d4b35",
+        "eb5a5eecb344cadfdebc6f8f74d0eac5c681892c7300e6e41500cf222984f56d"
+      ]
+    },
+    "report_rules": {
+      "fields": {
+        "domain": {
+          "correct_occurrences": 120,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 30,
+          "distinct_texts": 40
+        },
+        "reading": {
+          "correct_occurrences": 144,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 36,
+          "distinct_texts": 40
+        },
+        "both": {
+          "correct_occurrences": 108,
+          "report_occurrences": 160,
+          "correct_distinct_texts": 27,
+          "distinct_texts": 40
+        }
+      },
+      "incorrect_or_missing_texts": [
+        "408190e42e39b670007f129d6e11842100dc1341aa2e4ca6ad7bd981f3ea09a9",
+        "5bc255493f576ade90294d8d4e49fd59a524a2ce409c8eb197813d3202d09e3c",
+        "dc0886c5a674f4a53c8d75a864aaa57eceed70e489a7d2f8165922afa3d023ea",
+        "fa878b63824e03db9800e3fcb653755c9d277edbcf8453821a6406c6690aad1d",
+        "d9397c15745d740482e0a0b6abeca58e0653e313a3a91a1ae5619f7b7dc9a119",
+        "2ab53e1c9f8f9879d100e763c5fb97954291a7742fa4b95db145b59f6706f818",
+        "d1499dc2a715939891c1af64b8429fa71f3cf6ea56d189e40b1821772aacd1bb",
+        "949aef78893022c4dd420d4e430dc15fbcdea17c57512a82d21093f314c46c88",
+        "6eb74da0b869733b15cc65652507abd5e69541a42c6471bb066c3854e1e3ad00",
+        "186c62db9f268f80beda56ee5cc1b279cc7fd8d8667baad174c8e61b977520d4",
+        "b5dcbcb3215bd4ba8453d64f9a43d0e98bbf26fe755b94616b79203ff33a5547",
+        "a0b4ae1ae2ea3c7dbfe4ec5ecc2186a90cb2cfd4767008580189ad5df70afd7b",
+        "25335e80ce2f8e14bad5ceb9733df7546cf2656767c0443c6bd2e252ea7551c2"
+      ]
+    }
+  },
+  "changes": {
+    "narrow": {
+      "narrow__unguarded": {
+        "packets_fixed": [],
+        "packets_lost": [],
+        "newly_wrong_fields": {
+          "initial_owner": [],
+          "priority": [],
+          "next_check": [],
+          "insufficient_evidence": []
+        }
+      },
+      "narrow__guarded": {
+        "packets_fixed": [],
+        "packets_lost": [],
+        "newly_wrong_fields": {
+          "initial_owner": [],
+          "priority": [],
+          "next_check": [],
+          "insufficient_evidence": []
+        }
+      }
+    },
+    "broad": {
+      "broad__unguarded": {
+        "packets_fixed": [],
+        "packets_lost": [],
+        "newly_wrong_fields": {
+          "initial_owner": [],
+          "priority": [],
+          "next_check": [],
+          "insufficient_evidence": []
+        }
+      },
+      "broad__guarded": {
+        "packets_fixed": [],
+        "packets_lost": [],
+        "newly_wrong_fields": {
+          "initial_owner": [],
+          "priority": [],
+          "next_check": [],
+          "insufficient_evidence": []
+        }
+      }
+    },
+    "report_rules": {
+      "report_rules__unguarded": {
+        "packets_fixed": [],
+        "packets_lost": [],
+        "newly_wrong_fields": {
+          "initial_owner": [],
+          "priority": [],
+          "next_check": [],
+          "insufficient_evidence": []
+        }
+      },
+      "report_rules__guarded": {
+        "packets_fixed": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "packets_lost": [],
+        "newly_wrong_fields": {
+          "initial_owner": [],
+          "priority": [],
+          "next_check": [],
+          "insufficient_evidence": []
+        }
+      }
+    }
+  },
+  "attribution": {
+    "narrow__unguarded": {
+      "raw_interpreter": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      },
+      "operation_reading": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      }
+    },
+    "narrow__guarded": {
+      "raw_interpreter": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      },
+      "operation_reading": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      }
+    },
+    "broad__unguarded": {
+      "raw_interpreter": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      },
+      "operation_reading": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      }
+    },
+    "broad__guarded": {
+      "raw_interpreter": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      },
+      "operation_reading": {
+        "readings_correct_triage_correct": [],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-15fad51908c2-a",
+          "NDT-7e347c1f74a4-a",
+          "NDT-fe5cf6b26670-a",
+          "NDT-66b0846de0f9-a",
+          "NDT-814248a8e198-a",
+          "NDT-26d31a4d37e0-a",
+          "NDT-cf19af203b82-a",
+          "NDT-39cc3c6793e2-a",
+          "NDT-0afb73acab37-a",
+          "NDT-663cbfb923ed-a",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-0f6b136bd34c-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "failed_or_missing_packets": []
+      }
+    },
+    "report_rules__unguarded": {
+      "raw_interpreter": {
+        "readings_correct_triage_correct": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-fe5cf6b26670-a",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-a",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-a",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-a",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-a",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-a",
+          "NDT-39cc3c6793e2-b",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-a",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "readings_correct_triage_wrong": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_correct": [
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-15fad51908c2-a",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-a",
+          "NDT-7e347c1f74a4-b",
+          "NDT-0afb73acab37-a",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-a",
+          "NDT-663cbfb923ed-b",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a"
+        ],
+        "failed_or_missing_packets": []
+      },
+      "operation_reading": {
+        "readings_correct_triage_correct": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-297fa2398f2b-a",
+          "NDT-90137859f4d7-a",
+          "NDT-3d87bfc416ae-a",
+          "NDT-fd2702a8ec87-a",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-094743ac01c1-a",
+          "NDT-a593622d0ddf-a",
+          "NDT-347c1aaefd0c-a",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-a",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-a",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-a",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-a",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-a",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-a",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-a",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-a",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-a",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-a",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-a",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-5dd11f6a2737-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-45e6317770b2-a"
+        ],
+        "readings_correct_triage_wrong": [
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-4a8886677989-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-a45fa6ae6960-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_wrong_triage_correct": [
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a"
+        ],
+        "failed_or_missing_packets": []
+      }
+    },
+    "report_rules__guarded": {
+      "raw_interpreter": {
+        "readings_correct_triage_correct": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-a",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-a",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-a",
+          "NDT-3d87bfc416ae-b",
+          "NDT-094743ac01c1-a",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-a",
+          "NDT-a593622d0ddf-b",
+          "NDT-347c1aaefd0c-a",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-fe5cf6b26670-a",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-a",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-a",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-a",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-a",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-a",
+          "NDT-39cc3c6793e2-b",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-a",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-a",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-a",
+          "NDT-5dd11f6a2737-b",
+          "NDT-c21614c628bd-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-a",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-fd2702a8ec87-a",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b",
+          "NDT-15fad51908c2-a",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-a",
+          "NDT-7e347c1f74a4-b",
+          "NDT-0afb73acab37-a",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-a",
+          "NDT-663cbfb923ed-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-a",
+          "NDT-a45fa6ae6960-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a"
+        ],
+        "failed_or_missing_packets": []
+      },
+      "operation_reading": {
+        "readings_correct_triage_correct": [
+          "NDT-44d9f4f5ac25-a",
+          "NDT-44d9f4f5ac25-b",
+          "NDT-297fa2398f2b-a",
+          "NDT-297fa2398f2b-b",
+          "NDT-90137859f4d7-a",
+          "NDT-90137859f4d7-b",
+          "NDT-3d87bfc416ae-a",
+          "NDT-3d87bfc416ae-b",
+          "NDT-fd2702a8ec87-a",
+          "NDT-fd2702a8ec87-b",
+          "NDT-6e4fba63bb7c-a",
+          "NDT-6e4fba63bb7c-b",
+          "NDT-094743ac01c1-a",
+          "NDT-094743ac01c1-b",
+          "NDT-a593622d0ddf-a",
+          "NDT-a593622d0ddf-b",
+          "NDT-347c1aaefd0c-a",
+          "NDT-347c1aaefd0c-b",
+          "NDT-0c4b4c2d465f-a",
+          "NDT-0c4b4c2d465f-b",
+          "NDT-529fd8a5f9e7-a",
+          "NDT-529fd8a5f9e7-b",
+          "NDT-fbe74fbe7bbd-a",
+          "NDT-fbe74fbe7bbd-b",
+          "NDT-15fad51908c2-a",
+          "NDT-15fad51908c2-b",
+          "NDT-7e347c1f74a4-a",
+          "NDT-7e347c1f74a4-b",
+          "NDT-fe5cf6b26670-a",
+          "NDT-fe5cf6b26670-b",
+          "NDT-66b0846de0f9-a",
+          "NDT-66b0846de0f9-b",
+          "NDT-814248a8e198-a",
+          "NDT-814248a8e198-b",
+          "NDT-26d31a4d37e0-a",
+          "NDT-26d31a4d37e0-b",
+          "NDT-cf19af203b82-a",
+          "NDT-cf19af203b82-b",
+          "NDT-39cc3c6793e2-a",
+          "NDT-39cc3c6793e2-b",
+          "NDT-0afb73acab37-a",
+          "NDT-0afb73acab37-b",
+          "NDT-663cbfb923ed-a",
+          "NDT-663cbfb923ed-b",
+          "NDT-f6e5e36dfdaf-a",
+          "NDT-f6e5e36dfdaf-b",
+          "NDT-0f6b136bd34c-a",
+          "NDT-0f6b136bd34c-b",
+          "NDT-7c4755c0d0b0-a",
+          "NDT-7c4755c0d0b0-b",
+          "NDT-4a8886677989-a",
+          "NDT-4a8886677989-b",
+          "NDT-139e9518eaa5-a",
+          "NDT-139e9518eaa5-b",
+          "NDT-5dd11f6a2737-a",
+          "NDT-5dd11f6a2737-b",
+          "NDT-ff7df633dcee-a",
+          "NDT-ff7df633dcee-b",
+          "NDT-a45fa6ae6960-a",
+          "NDT-a45fa6ae6960-b",
+          "NDT-c21614c628bd-a",
+          "NDT-c21614c628bd-b",
+          "NDT-45e6317770b2-a",
+          "NDT-45e6317770b2-b"
+        ],
+        "readings_correct_triage_wrong": [],
+        "readings_wrong_triage_correct": [
+          "NDT-617b299628ab-b",
+          "NDT-feabe0c0ccfa-b",
+          "NDT-8be5a20c28bc-b",
+          "NDT-477929be4143-b",
+          "NDT-4adf0feea7e4-b",
+          "NDT-431a83d38baf-b",
+          "NDT-d769398a8eb2-b",
+          "NDT-1ab341f40cae-b"
+        ],
+        "readings_wrong_triage_wrong": [
+          "NDT-617b299628ab-a",
+          "NDT-feabe0c0ccfa-a",
+          "NDT-8be5a20c28bc-a",
+          "NDT-477929be4143-a",
+          "NDT-4adf0feea7e4-a",
+          "NDT-431a83d38baf-a",
+          "NDT-d769398a8eb2-a",
+          "NDT-1ab341f40cae-a"
+        ],
+        "failed_or_missing_packets": []
+      }
+    }
+  },
+  "correction": "Recorded generic attribution compares effective structured domains with prose annotations. This separate evaluation uses raw interpreter domains and separately scores operation readings. Packet and distinct-text scores were unaffected. Original run evidence is unchanged."
+}

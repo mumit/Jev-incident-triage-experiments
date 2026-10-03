@@ -64,3 +64,9 @@ class DeclarationTrustTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as f:
    out=Path(f)/'run';s=run_local(out);self.assertEqual(verify(out/'summary.json')[0],s);self.assertEqual(s['attempted_predictions'],120)
    for r in ['narrow','broad']:self.assertEqual(s['training_metadata'][r]['training_reports'],210);self.assertEqual(len(read_jsonl(out/(r+'.inspections.jsonl'))),40)
+
+ def test_corrected_attribution_separates_metadata_from_raw_prose_domain(self):
+  from triage_bench.experiment3.trust_evaluation import corrected_attribution
+  ann=[dict(id='x',observation_index=0,domain='core',reading='fault')];keys={'x':dict(labels={'initial_owner':'noc'})};row=dict(status='ok',predictions={'initial_owner':'noc'},readings=[dict(observation_index=0,domain='ran',reading='fault')],raw_readings=[dict(observation_index=0,domain='core',reading='fault')])
+  a=corrected_attribution({'guard':{'x':row}},ann,keys)['guard'];self.assertEqual(a['operation_reading']['readings_correct_triage_correct'],['x']);self.assertEqual(a['raw_interpreter']['readings_correct_triage_correct'],['x'])
+  row['raw_readings'][0]['domain']='none';a=corrected_attribution({'guard':{'x':row}},ann,keys)['guard'];self.assertEqual(a['operation_reading']['readings_correct_triage_correct'],['x']);self.assertEqual(a['raw_interpreter']['readings_wrong_triage_correct'],['x'])
