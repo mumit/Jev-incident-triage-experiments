@@ -14,6 +14,8 @@ The walkthrough reads the fixed saved experiment runs. A fresh clone has no hist
 
 ## Keep comparisons anchored
 
+The [task-fit experiment](task-fit-experiment.md) tests report interpretation with matched format, wording and training-example changes. Read its recorded status before making new calls. Training, development, calibration and evaluation families stay separate; evaluation remains sealed until the operating boundary is recorded. Unknown and failed responses count toward review workload. Local text-only bridge controls have less context and cannot establish a matched model ranking.
+
 The [current-state baseline](current-state.md) records the source, data, training settings and measured results before experiment 3. Verify its checkpoint before changing the experiment. Compare score changes only on matching evaluation inputs, answer keys and policy; new families need baseline and changed variants on the same new cases. The baseline guide gives the verification and comparison commands.
 
 ## Run a new comparison

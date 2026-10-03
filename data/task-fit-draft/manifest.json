@@ -1,0 +1,48 @@
+{
+  "schema": "task-fit-data-1",
+  "synthetic": true,
+  "operator": "Northstar Telecom",
+  "reference_status": "draft_not_specialist_reviewed",
+  "split_boundary": "Scenario families and full report texts are disjoint. Shared concepts and written style limit independence. Evaluation is procedurally sealed, not independently authored.",
+  "idle_definition": "Deferred; no unexercised-handler outcomes are scored.",
+  "splits": {
+    "train": {
+      "records": 16,
+      "reports": 16,
+      "families": 8,
+      "pairs": 8
+    },
+    "development": {
+      "records": 24,
+      "reports": 24,
+      "families": 12,
+      "pairs": 12
+    },
+    "calibration": {
+      "records": 24,
+      "reports": 24,
+      "families": 12,
+      "pairs": 12
+    },
+    "evaluation": {
+      "records": 24,
+      "reports": 24,
+      "families": 12,
+      "pairs": 12
+    }
+  },
+  "sha256": {
+    "calibration.inputs.jsonl": "8f2192155b68662b21b5d9247e097d272cf3402b6a34df44c5096ad655d4843a",
+    "calibration.labels.jsonl": "981c0b78acf0d6738cd67e9130d1ffb07ea94c91ef096c2b36997ff37896149e",
+    "calibration.observations.jsonl": "cc2c9c5897a17a9131054d8cd60f3287e408a572f8a07fd5832d30890e13b0a1",
+    "development.inputs.jsonl": "338089877fe413e5590b8cde1db925d7570f2d0c4201db93bb832b0106f1621d",
+    "development.labels.jsonl": "285fe42060e3de07dc079039e152d52801409a2780089e2b2d5ecc383232f4a8",
+    "development.observations.jsonl": "f92c60520e76c11f647f2919ae135083246592c3cffacfe990b53b5246067ea6",
+    "evaluation.inputs.jsonl": "0a6231f68c2d94248fd1df820eb005676779c121ba28cc12f45802550113cbbf",
+    "evaluation.labels.jsonl": "4213cf09f46ef5db7d4ffc2a3647650282894cf79b331c0f5a0d27d815f0e2d9",
+    "evaluation.observations.jsonl": "454cdb850eca2ef4a0e9dd900e8e61211f72b561e360c842365fe4351ce50377",
+    "train.inputs.jsonl": "84a6773c933a45b1449684bb3df152efc8fcce124bb86163df74e3119e88ed40",
+    "train.labels.jsonl": "07e8698043fe83f234ced04ff652dd548ed1f5052737c8f395ea688337ddef42",
+    "train.observations.jsonl": "e8a56ac9a19c38430795c7d42ca98f4e245714f3e924bd61989af1af5e77d8a4"
+  }
+}

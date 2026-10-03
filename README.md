@@ -51,6 +51,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Jev task-fit research](docs/jev-task-fit.md) | Primary-source NOC/SOC examples, local evidence, concrete input design and the next evaluation plan. |
+| [Task-fit experiment](docs/task-fit-experiment.md) | New split families, matched format/wording/example arms, candidate selection and review coverage. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
 | [Declaration consistency](docs/declaration-trust.md) | Shared readings, explicit declaration conflicts and NOC retention. |
 | [Declared instrument domain](docs/declared-domain.md) | Matched domain definitions, software-domain controls and reading transfer limits. |

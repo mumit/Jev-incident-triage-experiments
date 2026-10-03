@@ -10,6 +10,8 @@ The historical handoff and evidence belong to the [`study-evidence-v1` release](
 
 On October 2, the user deferred the idle-handler reading choice and redirected the work to Jev's suitability for incident triage. Start with [the task-fit research](docs/jev-task-fit.md), checked against primary sources and the local evidence at `3a9f54c`. The next direction is a broader report-interpretation study with separate development, calibration and sealed evaluation families. Its protocol and thresholds are not implemented. No new inference accompanies the research; the idle-dependent ML comparison remains deferred.
 
+On October 3, the user authorized progress until a decision is required, with commits at substantial steps. The [task-fit protocol](docs/task-fit-experiment.md) now prepares 88 new reports in 44 split-disjoint families: 16 training and 24 each for development, calibration and evaluation. Four matched hosted arms separate format, wording and training examples. The six-report repeated diagnostic stays separate. Frozen local readers are text-only bridge controls. No hosted result exists at this preparation stage. Final evaluation stays sealed until the operating boundary is defined.
+
 ## Read first
 
 1. [AGENTS.md](AGENTS.md): project conventions and experimental controls.
@@ -69,7 +71,7 @@ Raw KPI time-series anomaly detection remains separate. The historical dataset h
 
 Open the cloned repository as a Codex project so it reads `AGENTS.md`. A useful first task is:
 
-> Read HANDOFF.md and docs/jev-task-fit.md. The current focus is whether Jev is a good report interpreter for incident triage and which input, question and threshold changes improve its performance. The idle-handler choice and dependent ML comparison are deferred. Prepare the task-fit protocol on separate development, calibration and sealed evaluation families; do not retune recorded packs. Preserve all historical data, references, requests and results, including the separate trust_evaluation.py attribution checkpoints. No new protocol, operational thresholds or additional model provider has been implemented. Specialist review and operational validation remain pending.
+> Read HANDOFF.md and docs/task-fit-experiment.md. The task-fit protocol is prepared; inspect its current status before running it. Preserve all historical inputs, questions, references and inference sources. Separate primary development scores from repeated responses. Freeze the reader using the predeclared development selection rule before calibration. Keep final evaluation sealed until the operating-boundary protocol is recorded. The idle-handler definition and dependent ML comparison are deferred; no other model provider is authorized. References remain provisional and operational validation is pending.
 
 API keys, `.env`, local environments and run files stay out of Git. Preserve input/answer-key separation and report missing results explicitly. The ML microscope explains a fitted score, not physical causation; Jev's hosted weights and internal reasoning remain unavailable.
 
