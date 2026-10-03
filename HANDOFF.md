@@ -12,6 +12,8 @@ On October 2, the user deferred the idle-handler reading choice and redirected t
 
 On October 3, the user authorized progress until a decision is required, with commits at substantial steps. The [task-fit protocol](docs/task-fit-experiment.md) now prepares 88 new reports in 44 split-disjoint families: 16 training and 24 each for development, calibration and evaluation. Four matched hosted arms separate format, wording and training examples. The six-report repeated diagnostic stays separate. Frozen local readers are text-only bridge controls. No hosted result exists at this preparation stage. Final evaluation stays sealed until the operating boundary is defined.
 
+Task-fit development is now complete from `b72a533`: 96 primary and 72 repeated hosted calls, zero failures. Prose matches 23/24 readings; Structured, Focused and Examples each match 24/24. The Prose timing-recovery error is hidden by matching NOC triage. All four readers match the six preselected reports in every repeat; the failed timing report was not repeated. The predeclared selection rule freezes Structured in `checkpoints/task-fit-candidate-2026-10-03.json`. Calibration is the next execution step; the operating threshold remains unselected. Local rules match 7/24 readings and both ML controls 6/24; these are text-only bridge controls, not a matched model ranking. Preserve task_fit_data.py, task_fit_trial.py and all recorded source dependencies after inference.
+
 ## Read first
 
 1. [AGENTS.md](AGENTS.md): project conventions and experimental controls.

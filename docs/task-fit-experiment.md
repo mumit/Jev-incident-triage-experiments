@@ -84,4 +84,21 @@ Replace `SELECTED_ARM` with the recorded candidate. Hosted execution uses the ig
 
 ## Current state
 
-The cases, validator, matched requests, evaluator and candidate-freeze tools are prepared. Hosted results and an operating threshold are not yet recorded. Final evaluation remains sealed. Operational use also requires specialist-reviewed examples and an explicit choice of acceptable errors and useful coverage.
+Preparation source: `b72a533`. All 96 primary calls and 72 repeated calls completed without failures. The 72 local predictions are classifier/rule outputs, not hosted calls. [Primary results](../checkpoints/task-fit-development-2026-10-03.json), [repeated diagnostic](../checkpoints/task-fit-repeat-2026-10-03.json), [local controls](../checkpoints/task-fit-local-2026-10-03.json).
+
+| Jev arm | Correct readings / 24 | Correct reading pairs / 12 | Packet matches / 24 | Wrong readings hidden by packet matches |
+|---|---|---|---|---|
+| Prose | 23 | 11 | 24 | 1 |
+| Structured | 24 | 12 | 24 | 0 |
+| Focused | 24 | 12 | 24 | 0 |
+| Examples | 24 | 12 | 24 | 0 |
+
+The Prose arm reads the current verified timing recovery as `unknown`: “Earlier notes reported loss of timing. The current alignment test verifies synchronization to the required reference.” Structured input returns `normal`. Both readings retain NOC under the frozen degraded-service policy, so packet accuracy hides this report error. The format comparison fixes one reading and loses none. Additional wording and training examples add no correct readings on this pack.
+
+All four arms match the six preselected reports in every repeat, without label flips. The timing-recovery failure was not among those six; repetition does not establish that its format difference will persist.
+
+Reported primary input tokens are 11,605 for Prose, 11,727 for Structured, 14,655 for Focused and 20,583 for Examples. Additional wording and examples increase token usage without an observed accuracy gain here. Median client request latency is approximately 133–140 ms across arms. These figures describe this machine and these successful calls; usage is not reconciled billing.
+
+Frozen rules match 7/24 readings and 15/24 packets, with eight hidden reading errors. Each frozen ML reader matches 6/24 readings and 16/24 packets, hiding ten reading errors. These text-only controls have different context and limited training coverage; their results do not establish general model superiority.
+
+The [candidate freeze](../checkpoints/task-fit-candidate-2026-10-03.json) selects **Structured** using the predeclared development rule. Its question and input construction stay unchanged for calibration. No operating threshold is selected, and final evaluation remains sealed. Operational use also requires specialist-reviewed examples and an explicit choice of acceptable errors and useful coverage.
