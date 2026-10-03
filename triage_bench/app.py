@@ -246,6 +246,7 @@ def handler_for(app, comparison_port=None):
     structured_study = None
     wording_study = None
     interpretation_study = None
+    language_study = None
     study_lock = threading.Lock()
 
     def explorer_handler():
@@ -255,6 +256,14 @@ def handler_for(app, comparison_port=None):
                 from .explorer import Study, handler_for as explorer_handler_for
                 study_handler = explorer_handler_for(Study(app.root))
         return study_handler
+
+    def language():
+        nonlocal language_study
+        with study_lock:
+            if language_study is None:
+                from .experiment3.report_language_service import ReportLanguageStudy
+                language_study=ReportLanguageStudy(app.root)
+            return language_study
 
     def pilot(kind='facts'):
         nonlocal pilot_study, question_study, conflict_study, selection_study, robustness_study, structured_study, wording_study, interpretation_study
@@ -329,6 +338,14 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path in {'/report-language-local.json','/report-language-jev.json','/report-language-protocol.json'}:
+                    name={'/report-language-local.json':'local','/report-language-jev.json':'jev','/report-language-protocol.json':'protocol'}[path.path]
+                    report=app.root/('checkpoints/report-language-'+name+'-2026-10-02.json')
+                    return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded '+name+' report.'})
+                if path.path=='/api/report-language/catalog':return self.send(200,language().catalog())
+                if path.path in {'/api/report-language/case','/api/report-language/export'}:
+                    q={k:v[0] for k,v in parse_qs(path.query).items()};data=language().case(q.get('id'),q.get('split','development'),q.get('arm','broad'),int(q.get('report','0')))
+                    return self.send(200,data['request'],download=data['record']['id']+'-'+q.get('arm','broad')+'-input.json') if path.path.endswith('/export') else self.send(200,data)
                 if path.path == '/experiment-3-interpretation-report.json':
                     report=app.root / 'checkpoints/experiment-3-interpretation-2026-10-02.json'
                     return self.send(200,report.read_bytes()) if report.is_file() else self.send(404,{'error':'No recorded interpretation comparison.'})
@@ -379,7 +396,7 @@ def handler_for(app, comparison_port=None):
                     return self.send(200,sorted(jobs,key=lambda j:j['created_at'],reverse=True))
                 if path.path.startswith('/api/jobs/'):
                     return self.send(200,app.snapshot(path.path.split('/')[-1]))
-                assets={'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
+                assets={'/report-language':('report-language.html','text/html; charset=utf-8'),'/report-language.js':('report-language.js','text/javascript'),'/report-language.css':('report-language.css','text/css'),'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
                 if path.path in assets:
                     filename,mime=assets[path.path]
                     return self.send(200,(Path(__file__).parent/'web'/filename).read_bytes(),mime)
