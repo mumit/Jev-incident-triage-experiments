@@ -15,7 +15,7 @@ The archive contains each run's inputs, separate answer keys, predictions, metri
 
 `bundle-manifest.json` records the source commit, inference checkpoint, Jev checkpoint, dataset fingerprints, file sizes and SHA-256 checksums. `RESTORE.md` repeats these instructions. Personal absolute paths in `input_file` metadata become repository-relative paths. JSON metadata formatting is normalized; prediction rows, returned probabilities and responses remain unchanged.
 
-The archive contains only the four selected synthetic runs. It excludes the later task-fit development, repeat and calibration runs, whose summaries are tracked under `checkpoints/task-fit-*`. Their exact requests and replies remain in ignored `runs/task-fit/`; a fresh clone without them shows missing predictions explicitly. It excludes credentials, `.env`, configuration files, local environments and unrelated runs. Creation checks credential fields, known local keys, token patterns, personal paths and excluded operator identities. The bundle has no model weights.
+The archive contains only the four selected synthetic runs. It excludes the later task-fit development, repeat, calibration and held-out advisory evaluation runs, whose summaries are tracked under `checkpoints/task-fit-*`. Their exact requests and replies remain in ignored `runs/task-fit/`; a fresh clone without them shows missing predictions explicitly. It excludes credentials, `.env`, configuration files, local environments and unrelated runs. Creation checks credential fields, known local keys, token patterns, personal paths and excluded operator identities. The bundle has no model weights.
 
 ## Download and restore
 

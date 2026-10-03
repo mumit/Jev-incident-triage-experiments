@@ -71,3 +71,41 @@ class TaskFitServiceTests(unittest.TestCase):
             self.assertEqual(accepted['noc_or_review'],1)
             self.assertEqual(next(p for p in points if p['threshold']==.95)['domain_recommendations'],0)
             self.assertEqual((root/'responses.jsonl').read_bytes(),before)
+
+    def test_evaluation_opens_only_after_complete_verified_boundary_and_assessment(self):
+        from triage_bench.experiment3.task_fit_trial import prepare, finish, MODEL
+        from triage_bench.experiment3.task_fit_advisory import assess, CRITERIA
+        from triage_bench.experiment3.transforms import sha
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); directory=root/'data/task-fit-draft'
+            shutil.copytree(ROOT/'data/task-fit-draft',directory)
+            (root/'checkpoints').mkdir()
+            boundary={'arm':'structured','advisory_threshold':.6,'research_criteria':CRITERIA}
+            (root/'checkpoints/task-fit-analyst-boundary-2026-10-03.json').write_text(json.dumps(boundary))
+            profile={'model':MODEL,'endpoint':'http://127.0.0.1:12345','context_tokens':32768}
+            plan,records,requests=prepare(profile,'evaluation',['structured'],directory)
+            plan['analyst_boundary']=boundary
+            output=root/'runs/task-fit/evaluation-2026-10-03-v1'; output.mkdir(parents=True)
+            refs=read_jsonl(directory/'evaluation.observations.jsonl'); rows=[]
+            for record,ref,request in zip(records,refs,requests):
+                probs={v:.9 if v==ref['reading'] else .05 for v in ('fault','normal','unknown')}
+                rows.append({'id':record['id'],'arm':'structured','repetition':1,'status':'ok',
+                    'request_sha256':request['request_sha256'],'reading':ref['reading'],'probabilities':probs,
+                    'provider_confidence':None,'raw_response':{'model':MODEL,'answers':{'reading':{'choice':ref['reading'],'probabilities':probs}}}})
+            for name,values in [('inputs',records),('requests',requests),('responses',rows),('observations',refs),('labels',read_jsonl(directory/'evaluation.labels.jsonl'))]:
+                (output/f'{name}.jsonl').write_text(''.join(json.dumps(v)+'\n' for v in values))
+            finish(output,plan,records,rows,directory=directory)
+            with patch('triage_bench.experiment3.task_fit_service.check_boundary',return_value=boundary):
+                # A summary alone cannot open sealed cases.
+                self.assertNotIn('evaluation',TaskFitStudy(root).catalog()['cases'])
+                assessment=assess(output,boundary,directory)
+                (output/'analyst-assessment.json').write_text(json.dumps(assessment))
+                study=TaskFitStudy(root); self.assertIn('evaluation',study.catalog()['cases'])
+                self.assertIsNone(study.catalog()['first_wrong_suggestion'])
+                case=study.case(records[0]['id'],'evaluation','structured')
+                self.assertTrue(case['advisory']['analyst_review_required'])
+                with self.assertRaises(ValueError):study.case(records[0]['id'],'evaluation','examples')
+                # Altering even a displayed assessment count reseals the cases.
+                assessment['domain_recommendations']+=1
+                (output/'analyst-assessment.json').write_text(json.dumps(assessment))
+                self.assertNotIn('evaluation',TaskFitStudy(root).catalog()['cases'])

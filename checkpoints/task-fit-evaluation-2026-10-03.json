@@ -1,0 +1,2289 @@
+{
+  "schema": "task-fit-hosted-1",
+  "split": "evaluation",
+  "arms": {
+    "structured": "Jev \u00b7 structured input"
+  },
+  "model": "jev-1.13.0",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "context_tokens": 32768,
+  "data_sha256": {
+    "train.inputs.jsonl": "84a6773c933a45b1449684bb3df152efc8fcce124bb86163df74e3119e88ed40",
+    "train.observations.jsonl": "e8a56ac9a19c38430795c7d42ca98f4e245714f3e924bd61989af1af5e77d8a4",
+    "evaluation.inputs.jsonl": "0a6231f68c2d94248fd1df820eb005676779c121ba28cc12f45802550113cbbf",
+    "evaluation.labels.jsonl": "4213cf09f46ef5db7d4ffc2a3647650282894cf79b331c0f5a0d27d815f0e2d9",
+    "evaluation.observations.jsonl": "454cdb850eca2ef4a0e9dd900e8e61211f72b561e360c842365fe4351ce50377"
+  },
+  "source_sha256": {
+    "triage_bench/experiment3/task_fit_data.py": "147ee1e59a281532e61aae99bca1a5e97a0fd62e81e208352930db136e5d9d4c",
+    "triage_bench/experiment3/task_fit_trial.py": "9a61adf6c8630a8d424356a0161d6bec455bb5fbf8bcdd88887f6f8c1601600d",
+    "triage_bench/experiment3/data.py": "e5c5048e0562c8fd8688462f21cb807a0eadec6dabf1f434616fa4aa4d024d46",
+    "triage_bench/experiment3/report_language_hosted.py": "1b99d3edeece822733027ed1a5907114e3f49338cd784fff832467395d3d1a36",
+    "triage_bench/experiment3/report_scope_trial.py": "7a3cae73a934baa00100191422a3193879c461ffa7c17eb177d3d0cb9dff72f2",
+    "triage_bench/experiment3/interpretation_model.py": "a0fbf2a318d8bf0ab98c987eeea2631b6579a9d981691c761da8c93d592ea54d",
+    "triage_bench/experiment3/metadata_policy.py": "1e4de2984342b10f89386035cc7945e054fdacee4523cd046ef99cfb861197b1",
+    "triage_bench/experiment3/trust_policy.py": "93f361e8141f00f1db8eea164a3cba5dde43914e0cefb4db18ca69ee2ffde5d6",
+    "triage_bench/experiment3/declared_data.py": "4f6dba6bdc16de315d44774732ce25cdf1a2c9126479bcf7db3f27d08d6920b4",
+    "triage_bench/experiment3/selection.py": "ce63ea7d6782b09aeae2c74a8e6eb055c9ea20c283ddd069c46cb5efb265bd59",
+    "triage_bench/experiment3/transforms.py": "829a8b3e01c855f17efe1227652a7ad798d93ff30d6c98803c3a27302b5414d2",
+    "triage_bench/experiment3/hosted.py": "faeb5d6f5f90957523a935da185addd25674c3b7f5ccbd4e729516f8e2d5be3b",
+    "triage_bench/experiment3/structured_features.py": "61ee44f35cf8c94452cf5f5554854c74c0d9f730ceb2b202883de0b8fa477566",
+    "triage_bench/experiments.py": "efe3b7b0f14848ec0652f8680ff890d1e18f31c6f01a598853e1e1ef35c00727",
+    "triage_bench/policy.py": "3644cb6043de531ec8384bf8807fa86b8bddf49e47a5a382d7a04e783dd089b0",
+    "triage_bench/runner.py": "6851e727336e626b69ad632776974b20f81467e1a564675b9442dc40380d95cd",
+    "triage_bench/experiment3/task_fit_advisory.py": "8e584f45a93e0413eba4f2cf2129534f7e472e2e2af97e6849dc5ff158429e7a",
+    "scripts/run_task_fit_advisory.py": "71d5f90ba4799a89ef36a691a89362cd1ce92ad3f399add05fbdb87a41232df5"
+  },
+  "records": 24,
+  "families": 12,
+  "maximum_requests": 24,
+  "repetitions": 1,
+  "repeat_diagnostic": false,
+  "reference_status": "draft_not_specialist_reviewed",
+  "training_examples": [
+    {
+      "focal_function": "radio_decoding",
+      "report_text": "Instrument domain: ran. The decoder correctly decoded all supplied valid codewords.",
+      "reading": "normal"
+    },
+    {
+      "focal_function": "radio_decoding",
+      "report_text": "Instrument domain: ran. An internal decoder defect prevented decoding the supplied valid codewords.",
+      "reading": "fault"
+    },
+    {
+      "focal_function": "timing_alignment",
+      "report_text": "Instrument domain: ran. The timing trace is unavailable; alignment to the required reference is unconfirmed.",
+      "reading": "unknown"
+    },
+    {
+      "focal_function": "regulated_output",
+      "report_text": "Instrument domain: power. The output regulator maintained the declared range during the exercised load test.",
+      "reading": "normal"
+    },
+    {
+      "focal_function": "registration_completion",
+      "report_text": "Instrument domain: core. The completion worker failed internally and could not finish the submitted registrations.",
+      "reading": "fault"
+    },
+    {
+      "focal_function": "registration_completion",
+      "report_text": "Instrument domain: core. The completion record is missing. Intake succeeded, but registration completion is unconfirmed.",
+      "reading": "unknown"
+    }
+  ],
+  "comparisons": [
+    [
+      "prose",
+      "structured",
+      "format"
+    ],
+    [
+      "structured",
+      "focused",
+      "wording"
+    ],
+    [
+      "focused",
+      "examples",
+      "examples"
+    ]
+  ],
+  "input_boundary": "Only focal function and complete original report. No packet answers, impact, eligibility facts or report references. The examples arm adds only preselected training report labels.",
+  "execution": "Serial, rotated arm order, no automatic retries or warmup. Requests have a 30-second timeout.",
+  "failure_stop": "Access, rate-limit, network or version errors stop immediately. Three consecutive malformed answers stop the run. Failed and unattempted requests remain in denominators.",
+  "context_preflight": "UTF-8 request bytes +512, not a provider token count.",
+  "split_counts": {
+    "records": 24,
+    "reports": 24,
+    "families": 12,
+    "pairs": 12
+  },
+  "questions": {
+    "structured": {
+      "reading": {
+        "type": "choice",
+        "instructions": "Interpret the focal component evidence in this report. Select fault, normal or unknown according to the report, respecting clause scope. Do not infer an incident disposition, freshness or service relationship.",
+        "criteria": {
+          "fault": "An explicit observation establishes failure or impairment of the focal component. A passing auxiliary check or an unconfirmed earlier alarm does not cancel an independent current fault observation.",
+          "normal": "The focal component measurement establishes normal operation or explicitly rules out the stated fault. Fault-related words under negation do not establish a fault. Verified general service recovery is normal.",
+          "unknown": "The focal reading is uncertain, suspected, inconclusive or not established. Distinguish uncertainty about the focal measurement from uncertainty about an unrelated check or earlier alarm."
+        }
+      }
+    }
+  },
+  "analyst_boundary": {
+    "schema": "task-fit-analyst-boundary-1",
+    "mode": "analyst_facing",
+    "user_decision": "Analyst-facing recommendations first, October 3, 2026.",
+    "arm": "structured",
+    "model": "jev-1.13.0",
+    "advisory_threshold": 0.6,
+    "selection_rule": "Maximum calibration reading coverage with zero observed reading errors and qualifying fault misses; lowest threshold breaks ties. Evaluation plays no part.",
+    "analyst_review": "Required for every report, including high-probability fault and normal readings. The analyst owns initial-team assignment.",
+    "display_rule": "Show a domain suggestion only for qualifying fault/normal readings when the frozen policy has sufficient evidence for a domain. Otherwise show NOC retention or request clarification, with the underlying reading and raw reply inspectable.",
+    "research_criteria": {
+      "maximum_wrong_domain_recommendations": 0,
+      "maximum_qualifying_reading_errors": 0,
+      "maximum_qualifying_fault_misses": 0,
+      "minimum_reading_coverage": 0.5,
+      "minimum_domain_coverage": 0.25,
+      "maximum_failed_or_missing": 0
+    },
+    "criteria_status": "Author-set provisional synthetic study criteria, not user-approved operating limits. Half the reports must yield qualifying readings and a quarter domain suggestions to exercise the assisted workflow; zero observed errors are a research gate, not a statistical safety claim.",
+    "candidate_sha256": "44aa872354b863e2e5f9f62d84fd71bad1b27e3532f901df58c0b87a949d6e10",
+    "calibration_summary_sha256": "fc6e62357245835542ee48d7fe091135c00b802dea6e87af8b1d30333ad2c9ce",
+    "source_sha256": {
+      "triage_bench/experiment3/task_fit_advisory.py": "8e584f45a93e0413eba4f2cf2129534f7e472e2e2af97e6849dc5ff158429e7a",
+      "scripts/run_task_fit_advisory.py": "71d5f90ba4799a89ef36a691a89362cd1ce92ad3f399add05fbdb87a41232df5"
+    },
+    "evaluation_output": "runs/task-fit/evaluation-2026-10-03-v1",
+    "evaluation_rule": "One 24-call evaluation with reader, policy, threshold and criteria frozen beforehand. Failures stay in denominators. No automatic retry, retuning or replacement run.",
+    "status": "analyst_boundary_frozen_evaluation_unrun"
+  },
+  "analyst_boundary_file_sha256": "526f482489195deaae1b0b059d5f3417e170ec1e0e550f527a4dceaedfa015b1",
+  "started_at": "2026-10-03T23:05:29.949463+00:00",
+  "attempted_requests": 24,
+  "failed_requests": 0,
+  "unattempted_requests": 0,
+  "stopped_reason": null,
+  "status": "completed",
+  "metrics": {
+    "structured": [
+      {
+        "reports": 24,
+        "correct_readings": 21,
+        "reading_accuracy": 0.875,
+        "packet_matches": 22,
+        "complete_pairs": 12,
+        "reading_pairs_correct": 10,
+        "packet_pairs_correct": 11,
+        "failed_or_missing": 0,
+        "masked_wrong_readings": 1,
+        "fault_read_as_nonfault": [],
+        "incorrect_or_missing_ids": [
+          "NTF-9df8eaf75258-a",
+          "NTF-ce9267c9a469-a",
+          "NTF-ce9267c9a469-b"
+        ],
+        "confusion": {
+          "fault": {
+            "fault": 8,
+            "normal": 0,
+            "unknown": 0,
+            "missing": 0
+          },
+          "normal": {
+            "fault": 1,
+            "normal": 8,
+            "unknown": 1,
+            "missing": 0
+          },
+          "unknown": {
+            "fault": 1,
+            "normal": 0,
+            "unknown": 5,
+            "missing": 0
+          }
+        },
+        "multiclass_brier": 0.15113333333333334,
+        "log_loss": 0.2395712189327922,
+        "probability_reports": 24,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "count": 0,
+            "correct": 0,
+            "probability_sum": 0.0,
+            "accuracy": null,
+            "mean_probability": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "count": 0,
+            "correct": 0,
+            "probability_sum": 0.0,
+            "accuracy": null,
+            "mean_probability": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "count": 1,
+            "correct": 0,
+            "probability_sum": 0.57,
+            "accuracy": 0.0,
+            "mean_probability": 0.57
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "count": 3,
+            "correct": 2,
+            "probability_sum": 2.1,
+            "accuracy": 0.6666666666666666,
+            "mean_probability": 0.7000000000000001
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "count": 20,
+            "correct": 19,
+            "probability_sum": 19.51,
+            "accuracy": 0.95,
+            "mean_probability": 0.9755
+          }
+        ],
+        "reliability_status": "Descriptive tiny synthetic sample; not operational calibration.",
+        "packets": [
+          {
+            "id": "NTF-d74274341db8-a",
+            "status": "ok",
+            "reading": "unknown",
+            "reference_reading": "unknown",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "ran",
+                  "reading": "unknown",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "d7427-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "radio_decoding",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "ran",
+                  "asset_id": "d7427-x",
+                  "function": "radio_decoding",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "unknown"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-d74274341db8-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "ran",
+              "priority": "P3",
+              "next_check": "inspect_radio",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "ran",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "d7427-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "radio_decoding",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "ran"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "ran",
+                  "asset_id": "d7427-x",
+                  "function": "radio_decoding",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "ran",
+                  "priority": "P3",
+                  "next_check": "inspect_radio",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-785c42a21ed4-a",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "ran",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "785c4-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "timing_alignment",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "ran",
+                  "asset_id": "785c4-x",
+                  "function": "timing_alignment",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-785c42a21ed4-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "ran",
+              "priority": "P3",
+              "next_check": "inspect_radio",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "ran",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "785c4-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "timing_alignment",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "ran"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "ran",
+                  "asset_id": "785c4-x",
+                  "function": "timing_alignment",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "ran",
+                  "priority": "P3",
+                  "next_check": "inspect_radio",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-3145e429dd99-a",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "transport",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "3145e-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "frame_forwarding",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "transport",
+                  "asset_id": "3145e-x",
+                  "function": "frame_forwarding",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-3145e429dd99-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "transport",
+              "priority": "P3",
+              "next_check": "inspect_transport",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "transport",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "3145e-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "frame_forwarding",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "transport"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "transport",
+                  "asset_id": "3145e-x",
+                  "function": "frame_forwarding",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "transport",
+                  "priority": "P3",
+                  "next_check": "inspect_transport",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-dc8f01d2cc80-a",
+            "status": "ok",
+            "reading": "unknown",
+            "reference_reading": "unknown",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "transport",
+                  "reading": "unknown",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "dc8f0-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "egress_delivery",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "transport",
+                  "asset_id": "dc8f0-x",
+                  "function": "egress_delivery",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "unknown"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-dc8f01d2cc80-b",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "transport",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "dc8f0-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "egress_delivery",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "transport",
+                  "asset_id": "dc8f0-x",
+                  "function": "egress_delivery",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-17e912351621-a",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "power",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "17e91-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "regulated_output",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "power",
+                  "asset_id": "17e91-x",
+                  "function": "regulated_output",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-17e912351621-b",
+            "status": "ok",
+            "reading": "unknown",
+            "reference_reading": "unknown",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "power",
+                  "reading": "unknown",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "17e91-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "regulated_output",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "power",
+                  "asset_id": "17e91-x",
+                  "function": "regulated_output",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "unknown"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-5735699ff117-a",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "power",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "57356-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "battery_runtime",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "power",
+                  "asset_id": "57356-x",
+                  "function": "battery_runtime",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-5735699ff117-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "power",
+              "priority": "P3",
+              "next_check": "inspect_power",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "power",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "57356-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "battery_runtime",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "power"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "power",
+                  "asset_id": "57356-x",
+                  "function": "battery_runtime",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "power",
+                  "priority": "P3",
+                  "next_check": "inspect_power",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-9df8eaf75258-a",
+            "status": "ok",
+            "reading": "unknown",
+            "reference_reading": "normal",
+            "reading_correct": false,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "core",
+                  "reading": "unknown",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "9df8e-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "request_intake",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "core",
+                  "asset_id": "9df8e-x",
+                  "function": "request_intake",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "unknown"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-9df8eaf75258-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "core",
+              "priority": "P3",
+              "next_check": "inspect_core",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "core",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "9df8e-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "request_intake",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "core"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "core",
+                  "asset_id": "9df8e-x",
+                  "function": "request_intake",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "core",
+                  "priority": "P3",
+                  "next_check": "inspect_core",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-bbc43d46fbb5-a",
+            "status": "ok",
+            "reading": "unknown",
+            "reference_reading": "unknown",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "core",
+                  "reading": "unknown",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "bbc43-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "registration_completion",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "core",
+                  "asset_id": "bbc43-x",
+                  "function": "registration_completion",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "unknown"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-bbc43d46fbb5-b",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "core",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "bbc43-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "registration_completion",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "core",
+                  "asset_id": "bbc43-x",
+                  "function": "registration_completion",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-727a68dcf49c-a",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "ran",
+              "priority": "P3",
+              "next_check": "inspect_radio",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "ran",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "727a6-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "radio_decoding",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "ran"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "ran",
+                  "asset_id": "727a6-x",
+                  "function": "radio_decoding",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "ran",
+                  "priority": "P3",
+                  "next_check": "inspect_radio",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-727a68dcf49c-b",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "ran",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "727a6-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "radio_decoding",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "ran",
+                  "asset_id": "727a6-x",
+                  "function": "radio_decoding",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "ran"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-cbb0bc8fe73c-a",
+            "status": "ok",
+            "reading": "unknown",
+            "reference_reading": "unknown",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "transport",
+                  "reading": "unknown",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "cbb0b-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "egress_delivery",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "transport",
+                  "asset_id": "cbb0b-x",
+                  "function": "egress_delivery",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "unknown"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-cbb0bc8fe73c-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "transport",
+              "priority": "P3",
+              "next_check": "inspect_transport",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "transport",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "cbb0b-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "egress_delivery",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "transport"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "transport",
+                  "asset_id": "cbb0b-x",
+                  "function": "egress_delivery",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "transport"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "transport",
+                  "priority": "P3",
+                  "next_check": "inspect_transport",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-4f77d5d4bd2e-a",
+            "status": "ok",
+            "reading": "normal",
+            "reference_reading": "normal",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "noc",
+              "priority": "P3",
+              "next_check": "gather_evidence",
+              "insufficient_evidence": "yes"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "power",
+                  "reading": "normal",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "4f77d-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "regulated_output",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [],
+              "current_conflicts": [],
+              "reason": "No current supported fault domain is established. Normal, unknown, stale or unlinked reports do not assign a team.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "power",
+                  "asset_id": "4f77d-x",
+                  "function": "regulated_output",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "normal"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": false,
+                    "blocks_ownership": false,
+                    "exclusion": "Ineligible report or no eligible fault on this asset."
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "noc",
+                  "priority": "P3",
+                  "next_check": "gather_evidence",
+                  "insufficient_evidence": "yes"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-4f77d5d4bd2e-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "fault",
+            "reading_correct": true,
+            "packet_correct": true,
+            "predictions": {
+              "initial_owner": "power",
+              "priority": "P3",
+              "next_check": "inspect_power",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "power",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "4f77d-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "regulated_output",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "power"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "power",
+                  "asset_id": "4f77d-x",
+                  "function": "regulated_output",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "power"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "power",
+                  "priority": "P3",
+                  "next_check": "inspect_power",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-ce9267c9a469-a",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "normal",
+            "reading_correct": false,
+            "packet_correct": false,
+            "predictions": {
+              "initial_owner": "core",
+              "priority": "P3",
+              "next_check": "inspect_core",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "core",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "ce926-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "request_intake",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "core"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "core",
+                  "asset_id": "ce926-x",
+                  "function": "request_intake",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "core",
+                  "priority": "P3",
+                  "next_check": "inspect_core",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          },
+          {
+            "id": "NTF-ce9267c9a469-b",
+            "status": "ok",
+            "reading": "fault",
+            "reference_reading": "unknown",
+            "reading_correct": false,
+            "packet_correct": false,
+            "predictions": {
+              "initial_owner": "core",
+              "priority": "P3",
+              "next_check": "inspect_core",
+              "insufficient_evidence": "no"
+            },
+            "trace": {
+              "observations": [
+                {
+                  "observation_index": 0,
+                  "domain": "core",
+                  "reading": "fault",
+                  "eligible": true,
+                  "freshness": "current",
+                  "supported_sites": 1,
+                  "asset_id": "ce926-x",
+                  "measurement_scope": {
+                    "state": "declared",
+                    "function": "request_intake",
+                    "comparison_context": "exercise-A"
+                  }
+                }
+              ],
+              "supported_fault_domains": [
+                "core"
+              ],
+              "current_conflicts": [],
+              "reason": "One current linked fault domain remains; supplied function/context metadata shows no comparable normal contradiction.",
+              "assumption": "Scope and condition identifiers are supplied by a synthetic instrumentation schema. Same identifiers mean comparable measurement conditions; distinct declared identifiers mean distinct conditions. Metadata trust and comparability need operational validation.",
+              "policy_version": "northstar-metadata-grouping-1",
+              "unresolved_scope_reports": [],
+              "grouping": [
+                {
+                  "domain": "core",
+                  "asset_id": "ce926-x",
+                  "function": "request_intake",
+                  "comparison_context": "exercise-A",
+                  "readings": [
+                    "fault"
+                  ]
+                }
+              ],
+              "declaration_guard": {
+                "version": "northstar-declaration-consistency-1",
+                "enabled": true,
+                "facts": [
+                  {
+                    "observation_index": 0,
+                    "structured": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "prose_header": {
+                      "state": "declared",
+                      "domain": "core"
+                    },
+                    "conflict": false,
+                    "eligible": true,
+                    "fault_bearing_asset": true,
+                    "blocks_ownership": false,
+                    "exclusion": null
+                  }
+                ],
+                "blocked_observations": [],
+                "before": {
+                  "initial_owner": "core",
+                  "priority": "P3",
+                  "next_check": "inspect_core",
+                  "insufficient_evidence": "no"
+                },
+                "boundary": "Compare valid explicit enum declarations on eligible fault-bearing assets. Do not infer domain or operation reading from technical vocabulary. Missing/ambiguous structured domains remain none under the frozen base policy."
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "comparisons_measured": {},
+  "review_curves": {
+    "structured": {
+      "boundary": "Descriptive thresholds on probability of the returned reading. Unknown and failed/missing responses always require review. No threshold is selected.",
+      "uncertainty": "The zero-error upper bound assumes independent Bernoulli trials. Paired synthetic reports violate that assumption; the bound is illustrative and optimistic, not an operational guarantee.",
+      "points": [
+        {
+          "threshold": 0,
+          "eligible_recommendations": 18,
+          "review_reports": 6,
+          "coverage": 0.75,
+          "reading_errors": 2,
+          "packet_errors": 2,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.1111111111111111,
+          "zero_errors_upper95": null
+        },
+        {
+          "threshold": 0.5,
+          "eligible_recommendations": 18,
+          "review_reports": 6,
+          "coverage": 0.75,
+          "reading_errors": 2,
+          "packet_errors": 2,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.1111111111111111,
+          "zero_errors_upper95": null
+        },
+        {
+          "threshold": 0.6,
+          "eligible_recommendations": 17,
+          "review_reports": 7,
+          "coverage": 0.7083333333333334,
+          "reading_errors": 1,
+          "packet_errors": 1,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.058823529411764705,
+          "zero_errors_upper95": null
+        },
+        {
+          "threshold": 0.7,
+          "eligible_recommendations": 16,
+          "review_reports": 8,
+          "coverage": 0.6666666666666666,
+          "reading_errors": 1,
+          "packet_errors": 1,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.0625,
+          "zero_errors_upper95": null
+        },
+        {
+          "threshold": 0.8,
+          "eligible_recommendations": 16,
+          "review_reports": 8,
+          "coverage": 0.6666666666666666,
+          "reading_errors": 1,
+          "packet_errors": 1,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.0625,
+          "zero_errors_upper95": null
+        },
+        {
+          "threshold": 0.9,
+          "eligible_recommendations": 15,
+          "review_reports": 9,
+          "coverage": 0.625,
+          "reading_errors": 0,
+          "packet_errors": 0,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.0,
+          "zero_errors_upper95": 0.18103627252208465
+        },
+        {
+          "threshold": 0.95,
+          "eligible_recommendations": 14,
+          "review_reports": 10,
+          "coverage": 0.5833333333333334,
+          "reading_errors": 0,
+          "packet_errors": 0,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.0,
+          "zero_errors_upper95": 0.19263617565013536
+        },
+        {
+          "threshold": 0.99,
+          "eligible_recommendations": 12,
+          "review_reports": 12,
+          "coverage": 0.5,
+          "reading_errors": 0,
+          "packet_errors": 0,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.0,
+          "zero_errors_upper95": 0.22092219194555585
+        },
+        {
+          "threshold": 1,
+          "eligible_recommendations": 10,
+          "review_reports": 14,
+          "coverage": 0.4166666666666667,
+          "reading_errors": 0,
+          "packet_errors": 0,
+          "accepted_fault_misses": 0,
+          "reading_error_rate": 0.0,
+          "zero_errors_upper95": 0.2588655508930523
+        }
+      ]
+    }
+  },
+  "request_accounting": {
+    "structured": {
+      "attempted": 24,
+      "failed": 0,
+      "latency_median_ms": 140.61466651037335,
+      "latency_p95_ms": 195.4572919930797,
+      "reported_tokens": {
+        "input_tokens": 11735,
+        "output_tokens": 912
+      },
+      "billing_status": "Provider usage, not reconciled billed cost; missing usage is not zero cost."
+    }
+  },
+  "evidence_sha256": {
+    "inputs.jsonl": "0a6231f68c2d94248fd1df820eb005676779c121ba28cc12f45802550113cbbf",
+    "labels.jsonl": "4213cf09f46ef5db7d4ffc2a3647650282894cf79b331c0f5a0d27d815f0e2d9",
+    "observations.jsonl": "454cdb850eca2ef4a0e9dd900e8e61211f72b561e360c842365fe4351ce50377",
+    "requests.jsonl": "ca8013a385ed920e0cfd47ecf5c18bb99288beefb6c164cefb81851b5b255870",
+    "responses.jsonl": "5ce62db9181a9da652f49bbb88cf63b6a2b3166d6e76bda5dbf563ce4cc9682a"
+  }
+}

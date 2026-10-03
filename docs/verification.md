@@ -4,7 +4,7 @@ October 3, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **212 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All ten browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **216 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All ten browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -184,10 +184,21 @@ The live study records 40 Jev requests without failures, 40 distinct texts and 1
 
 ## Task-fit interpretation and coverage
 
-The pack validator confirms 88 reports in 44 split-disjoint families, including 24 sealed evaluation reports. Six inference tests check matched facts and isolated changes, exclusion of poisoned answer fields, preregistered call counts, repeat request hashes, strict probability validation, missing-response denominators, hidden reading errors, unknown-review retention and checksum tampering. Three service/diagnostic tests check explicit missing-run behavior, inaccessible evaluation routes, guide return paths and the distinction between accepted readings and domain recommendations. The routing diagnostic leaves response files unchanged.
+At preparation, the pack validator confirmed 88 reports in 44 split-disjoint families, including 24 sealed evaluation reports. Six inference tests check matched facts and isolated changes, exclusion of poisoned answer fields, preregistered call counts, repeat request hashes, strict probability validation, missing-response denominators, hidden reading errors, unknown-review retention and checksum tampering. Three service/diagnostic tests check explicit missing-run behavior, inaccessible evaluation routes, guide return paths and the distinction between accepted readings and domain recommendations. The routing diagnostic leaves response files unchanged.
 
-The 96 development, 72 repeated and 24 calibration calls verify against their saved sources, data and requests. The Structured candidate freeze verifies. The read-only workbench exposes complete actual inputs and replies, independently revealed draft references, software traces and frozen local fitted evidence. Final evaluation inputs, labels, identifiers and requests are excluded from its catalog and case routes. UI inspection makes no hosted calls.
+The 96 development, 72 repeated and 24 calibration calls verify against their saved sources, data and requests. The Structured candidate freeze verifies. The read-only workbench exposes complete actual inputs and replies, independently revealed draft references, software traces and frozen local fitted evidence. At that checkpoint, final evaluation inputs, labels, identifiers and requests were excluded from catalog and case routes. The later advisory evaluation below records the conditions for opening completed cases. UI inspection makes no hosted calls.
 
 Browser review covered the Prose timing-recovery error hidden by correct routing, the corrected Structured reading, the calibration regulator error, probability sweeps at 0.60 and 0.90, paired-report navigation, browser Back and the formatted guide's return link. Section navigation preserves revealed references. Phone, tablet and desktop checks at 390, 820 and 1280 pixels showed no page overflow; wide tables scroll within their containers. Browser error and warning logs were empty. The final suite passes all 212 Python tests, all 14 study validators plus the historical dataset validator, nine JavaScript tests, ten script syntax checks and launcher syntax.
 
 These checks establish evidence integrity and inspection behavior. They do not establish a safe routing threshold, independent references, representative network reports or operational calibration. The historical release bundle excludes task-fit raw evidence; a fresh clone shows missing predictions explicitly.
+
+
+## Analyst-facing held-out evaluation
+
+The user selected analyst-facing recommendations. Preparation commit `3f3c8b8` records the 0.60 advisory display threshold, author-set synthetic research criteria, candidate/calibration fingerprints and new wrapper source before any evaluation call. Three new tests cover calibration-only boundary selection, threshold tampering, immutable freezes, confident unknown and low-confidence withholding, mandatory analyst review, preregistration before calls, rate-limit stop behavior, key redaction and rerun refusal.
+
+All 24 actual evaluation calls completed and verify. Replay reproduces both full scores and the advisory assessment: 21/24 report readings, 22/24 packet decisions, 17 qualifying readings, nine domain suggestions and one wrong qualifying core suggestion. The two zero-error research criteria fail. The interface displays that failure and retains analyst review on all 24 reports.
+
+A further service fixture keeps evaluation unavailable without a complete verified assessment, opens it when all required evidence matches, rejects nonfrozen evaluation arms and reseals cases after an assessment count changes. Fresh clones without raw runs retain explicit missing results. These controls preserve the one-shot comparison and do not validate the research criteria as operational limits.
+
+Final browser review covered the failed criterion table, the direct link to the 0.84 wrong suggestion, withholding its 0.57 paired reading, browser Back, guide return links and the analyst review plan. Desktop, tablet and phone checks at 1280, 820 and 390 pixels showed no page overflow; tables remain scrollable within their containers. Browser error and warning logs were empty. The full suite passes 216 Python tests; focused service tests, nine JavaScript tests and all ten syntax checks also pass. Historical and 14 study validators pass, and all five task-fit runs verify unchanged.

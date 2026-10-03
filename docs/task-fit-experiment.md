@@ -13,9 +13,9 @@ This is a synthetic study with draft references. It cannot establish operational
 | Training | 16 | 8 | Six preselected examples: two fault, two normal and two unknown. No Jev training calls. |
 | Development | 24 | 12 | Compare four arms and select a reader. |
 | Calibration | 24 | 12 | Describe the frozen reader's probabilities and review coverage. |
-| Evaluation | 24 | 12 | Remains sealed until the operating-boundary protocol is recorded. |
+| Evaluation | 24 | 12 | Completed once under the frozen analyst-facing boundary; now inspectable. |
 
-Each packet has one report. Each family has two related reports that change only the report text. Families and full report texts are disjoint across splits; common vocabulary, concepts and the author's style remain shared. Evaluation is procedurally sealed, not independently authored or a sample of real incidents.
+Each packet has one report. Each family has two related reports that change only the report text. Families and full report texts are disjoint across splits; common vocabulary, concepts and the author's style remain shared. Evaluation stayed procedurally sealed until its advisory protocol was recorded; it was not independently authored or sampled from real incidents.
 
 The cases cover RAN, transport, power and core. They include negation, earlier alarms, a failed auxiliary function, missing traces, expected rejection of malformed requests, counter resets, successful intermediate operations and instructions embedded in logs. Currentness, service linkage and instrument declarations are supplied synthetic facts and held fixed within pairs. This study isolates interpretation; it does not test metadata trust or raw KPI anomaly detection.
 
@@ -101,7 +101,7 @@ Reported primary input tokens are 11,605 for Prose, 11,727 for Structured, 14,65
 
 Frozen rules match 7/24 readings and 15/24 packets, with eight hidden reading errors. Each frozen ML reader matches 6/24 readings and 16/24 packets, hiding ten reading errors. These text-only controls have different context and limited training coverage; their results do not establish general model superiority.
 
-The [candidate freeze](../checkpoints/task-fit-candidate-2026-10-03.json) selects **Structured** using the predeclared development rule. Its question and input construction stay unchanged for calibration. No operating threshold is selected, and final evaluation remains sealed. Operational use also requires specialist-reviewed examples and an explicit choice of acceptable errors and useful coverage.
+The [candidate freeze](../checkpoints/task-fit-candidate-2026-10-03.json) selects **Structured** using the predeclared development rule. Its question and input construction stay unchanged for calibration. At reader selection, no operating threshold was selected. The subsequent advisory boundary and held-out result are recorded below. Operational use still requires specialist-reviewed examples and explicit acceptable-error and useful-coverage targets.
 
 
 ## Calibration and review coverage
@@ -133,12 +133,12 @@ Open `/task-fit` in the app. Its five steps connect the comparison table, paired
 
 Start with the development timing report above in Prose, reveal its reference, then select Structured to see the changed state and corrected reading. Switch to Calibration and the repaired-regulator report to inspect the remaining failure. The coverage table distinguishes accepted readings from domain recommendations at each threshold. The experiment guide returns to the selected case and arm.
 
-## Next decision
+## Analyst-facing evaluation and next step
 
-I regard Jev as a promising report interpreter within this controlled workflow. These results do not yet establish a sufficiently trained ML comparison, production reliability or the value of automatic routing. Structured input wins the development selection; more wording and examples add no observed benefit on this small pack.
+The user selected analyst-facing recommendations on October 3. Preparation commit `3f3c8b8` records the [advisory protocol](task-fit-analyst-evaluation.md): a calibration-selected 0.60 display threshold and author-set provisional research criteria, frozen before evaluation. Every report requires analyst review. No operational error budget or automatic routing is approved.
 
-Before opening final evaluation, the next protocol needs an intended use, an acceptable wrong-assignment limit and minimum useful coverage. An analyst-facing recommendation lets a person inspect the evidence and make the assignment. Automatic initial-team routing in shadow mode would record which assignments software would make while people retain control; its evaluation needs an explicit error budget and a useful coverage target.
+All 24 held-out calls completed without failures. The reader matches 21/24 report references and 22/24 packet references. At frozen threshold 0.60, 17 readings qualify and nine domain suggestions include one wrong core suggestion at probability 0.84. The candidate fails the zero-error research criteria. The completed evaluation is now inspectable at `/task-fit`; the advisory guide explains all three reading errors and the fixed assessment.
 
-My recommendation is to evaluate analyst-facing recommendations first. The next stage can freeze its boundary, measure the sealed synthetic set once, then prepare specialist review and a shadow study using appropriately handled real reports. The calibration failure remains evidence; changing its wording requires further development families and a separately versioned candidate. Final evaluation remains sealed, the operating threshold stays unselected and idle cases remain deferred.
+I would retain Jev as an analyst-assistance candidate, with the evidence visible and every suggestion reviewed. These results do not establish a fair ranking against a sufficiently trained ML reader or reliable confidence-qualified assignments. Explicit function definitions are a concrete next input test on new development families. Changing the boundary after seeing the held-out errors would invalidate this evaluation as a selection-independent check.
 
-October 3 decision: the user selected analyst-facing recommendations first. The [advisory evaluation protocol](task-fit-analyst-evaluation.md) records a calibration-selected 0.60 display threshold and author-set provisional research criteria before evaluation. Every report requires analyst review. No operational error budget or automatic routing is approved.
+The [analyst review plan](analyst-review-plan.md) prepares specialist review and a local batch of real reports. Those reports, reviewed reference meanings and measured analyst effort are not available yet. Further synthetic cases can test input design but cannot establish operational task fit. Idle-handler semantics remain deferred.

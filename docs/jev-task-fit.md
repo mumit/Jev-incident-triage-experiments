@@ -93,7 +93,7 @@ Current Jev customization happens through state, instructions, criteria and deco
 
 ## Next experiment
 
-October 3 update: the [task-fit experiment](task-fit-experiment.md) now records development, repeatability and frozen-reader calibration. Its `/task-fit` workbench exposes measured requests and responses. The plan below records the October 2 research direction; the intended use and operating threshold remain unresolved.
+October 3 update: the [task-fit experiment](task-fit-experiment.md) now records development, repeatability, frozen-reader calibration and a [held-out analyst-facing evaluation](task-fit-analyst-evaluation.md). Its `/task-fit` workbench exposes measured requests and responses. The plan below records the October 2 research direction; the user selected analyst-facing recommendations. The frozen 0.60 advisory boundary lets through one wrong core suggestion, failing the provisional zero-error criteria. No automatic-routing threshold or operational error budget is approved.
 
 I will prepare a task-fit study before another targeted ML training change. Its protocol will answer whether Jev interprets a broader range of reports correctly, how much review it needs and which input changes improve those outcomes.
 

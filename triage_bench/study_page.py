@@ -10,6 +10,8 @@ from markdown_it import MarkdownIt
 
 DOCUMENTS = {
     'task-fit': 'docs/task-fit-experiment.md',
+    'task-fit-analyst': 'docs/task-fit-analyst-evaluation.md',
+    'analyst-review-plan': 'docs/analyst-review-plan.md',
     'jev-task-fit': 'docs/jev-task-fit.md',
     'current-state': 'docs/current-state.md',
     'experiment-3': 'docs/experiment-3-development.md',
@@ -46,7 +48,7 @@ def return_path(value):
     parsed = urlparse(value)
     if parsed.scheme or parsed.netloc or parsed.path not in {'/explorer', '/experiment-3', '/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust', '/task-fit'} or '\\' in value or len(value) > 4096:
         return DEFAULT_RETURN
-    sections = {'inspect','input','decision','results','coverage'} if parsed.path == '/task-fit' else CHAPTERS if parsed.path == '/explorer' else {'inspect','evidence','input','decisions','weights','results'} if parsed.path in {'/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust'} else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
+    sections = {'inspect','input','decision','results','coverage','evaluation-result'} if parsed.path == '/task-fit' else CHAPTERS if parsed.path == '/explorer' else {'inspect','evidence','input','decisions','weights','results'} if parsed.path in {'/report-language', '/report-scope', '/metadata-policy', '/declared-domain', '/declaration-trust'} else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
     if parsed.fragment and parsed.fragment not in sections:
         return DEFAULT_RETURN
     return value

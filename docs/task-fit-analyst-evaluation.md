@@ -50,6 +50,41 @@ Boundary creation and preflight are already recorded. Evaluation uses the server
 
 ## Status and next step
 
-The advisory boundary is frozen; evaluation has not run. Once its evidence verifies, the workbench can expose the completed evaluation alongside development and calibration. A fresh clone without raw evidence must show its absence explicitly.
+Preparation commit: `3f3c8b8`. All 24 held-out calls completed without failures. Source, boundary, request and response fingerprints verify, and recomputation reproduces the [evaluation summary](../checkpoints/task-fit-evaluation-2026-10-03.json) and [advisory assessment](../checkpoints/task-fit-analyst-assessment-2026-10-03.json). The workbench now exposes the verified evaluation. A fresh clone without the raw runs keeps its cases unavailable.
 
 The next operational evidence needs appropriately handled real reports and specialist-reviewed references. Analysts would inspect the source, recommendation and policy, record agreement or correction, and measure review effort. Further model changes need new development cases; this evaluation cannot serve as a tuning set or be rerun to replace an inconvenient result. Idle-handler semantics and other model providers remain outside this stage.
+
+
+## Held-out results
+
+| Measure | Development, Structured | Calibration, Structured | Held-out evaluation, Structured |
+|---|---|---|---|
+| Correct report readings | 24/24 | 23/24 | 21/24 |
+| Correct packet decisions | 24/24 | 23/24 | 22/24 |
+| Qualifying readings at 0.60 | Not used for boundary selection | 16/24 | 17/24 |
+| Domain suggestions at 0.60 | Not used for boundary selection | 9/24 | 9/24 |
+| Wrong domain suggestions at 0.60 | Not used for boundary selection | 0/9 | 1/9 |
+
+Evaluation meets the two coverage floors and completes every call, but fails both the zero-wrong-domain and zero-wrong-qualifying-reading criteria. All eight reference faults receive fault readings; none becomes a qualifying normal reading. The nine domain suggestions include eight correct suggestions and one incorrect core suggestion. All 24 reports still require analyst review.
+
+Three report errors explain the result:
+
+| Case | Report evidence | Draft reference → actual reading | Consequence |
+|---|---|---|---|
+| `NTF-9df8eaf75258-a` | After repair, the handler admits valid requests as specified; end-to-end completion is not measured. | normal → unknown, probability 0.67 | Suggestion withheld. Correct NOC routing hides the reading error. |
+| `NTF-ce9267c9a469-a` | The caller times out waiting for completion; intake receipts verify acceptance of valid requests. | normal → fault, probability 0.84 | Wrong core-team suggestion passes the frozen 0.60 threshold. |
+| `NTF-ce9267c9a469-b` | The caller times out; receipts were not captured, so admission is unconfirmed. | unknown → fault, probability 0.57 | The advisory boundary withholds the suggestion, although raw policy alone would recommend core. |
+
+The paired timeout reports reveal a recurring scope problem. Jev treats failed end-to-end completion as a handler fault even when acceptance is verified or unconfirmed. The report's focal function is supplied, so these failures cannot be attributed simply to omitted scope metadata. Unknown and normal errors both matter: a confident false fault can cause an unnecessary team assignment, while a wrong unknown can hide correct evidence and increase investigation effort.
+
+Median client latency is 141 ms and the 95th percentile is 195 ms. Provider-reported usage is 11,735 input and 912 output tokens. Multiclass Brier score is 0.1511 and log loss is 0.2396. These are small synthetic measurements, not operational probability calibration or billed cost.
+
+## What this changes
+
+I would keep Jev as an analyst-assistance candidate, with its evidence visible and every suggestion reviewed. This evaluation does not support claiming that a confidence-qualified suggestion is reliable, and it does not establish a fair ranking against an adequately trained ML reader.
+
+The next input experiment should test explicit function definitions on new development families. For example, the request could explain that `request_intake` measures admission of valid requests and excludes downstream completion, while preserving the complete original report. That definition describes the task; it must not insert a normal/fault answer or remove conflicting evidence. The existing Focused arm added general measured-function wording on an earlier pack; it did not establish that explicit semantic definitions fix these held-out failures.
+
+Raising the threshold after seeing the 0.84 error would reuse evaluation evidence to select a new boundary. The 0.60 result remains recorded. A revised reader or boundary needs new development/calibration cases and a new held-out set.
+
+Before an operational study, specialists need to review the reference meanings and supply a range of appropriately handled real reports. The [analyst review plan](analyst-review-plan.md) prepares that work. No real reports or specialist judgments are present in this repository; that evidence is the current external dependency.
