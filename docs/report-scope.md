@@ -96,13 +96,13 @@ Saved ML margins make one shortcut concrete. For the first intake report, origin
 
 All three local paths retain NOC on every packet and achieve 46/68 agreement through those identical fallback decisions. Original ML hides wrong readings in all 46 correct packets; broader ML and report rules hide them in 34. The unchanged triage scores therefore obscure large differences in report understanding. These controls were frozen before this pack, so the result measures transfer to new wording rather than a newly trained matched ML candidate.
 
-## Next decision
+## Selected next step
 
 The next policy comparison needs a source for **which function each instrument measures**. A field such as `measured_function: request_intake` could come from a maintained instrumentation schema. Alternatively, a reader could extract it from free text, with its own uncertain and missing outputs. Those are different input assumptions and failure modes. Neither source is established by this synthetic pack.
 
 For a metadata-first study, a supplied field might identify report 1 as `measured_function: registration_completion` and report 2 as `measured_function: request_intake`. These fields describe instrumentation scope, not fault status or a reference answer. Missing or ambiguous scope needs an explicit control rather than an assumed function.
 
-I will keep this question study frozen. Before constructing the next pack, the measurement-scope source needs a decision. A separate comparison can then group contradictory readings by domain, asset and compatible measurement scope, preserving NOC when scope or comparability is unknown. New families, separate report annotations, missing-scope controls and specialist review remain necessary. The current drafts do not establish operational readiness.
+I selected explicit instrument metadata for the next comparison on October 2. This question study remains frozen. A separate comparison can then group contradictory readings by domain, asset and compatible measurement scope, preserving NOC when scope or comparability is unknown. New families, separate report annotations, missing-scope controls and specialist review remain necessary. The current drafts do not establish operational readiness.
 
 ## Inspection workbench
 
