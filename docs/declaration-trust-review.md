@@ -4,7 +4,7 @@
 
 The [declared-domain comparison](declared-domain.md) shows that software can supply domain while Jev reads the operation outcome on this synthetic pack. Every structured declaration agrees with its report header. The study tests neither conflicting declarations nor source authority.
 
-The next metadata-trust comparison needs a reference rule for that disagreement. This is a policy choice, not a decision the previous scores can establish.
+On October 2, 2026, the user selected **retain NOC until the declaration conflict is resolved**. The report’s operation reading remains separate. This is a synthetic teaching rule, not verified instrumentation authority.
 
 ## A hypothetical input
 
@@ -19,8 +19,8 @@ Two policies would produce different references:
 | Treat conflicting declarations as unresolved | NOC | Gather evidence to resolve the declaration | Yes |
 | Treat structured instrument metadata as authoritative | RAN | Inspect radio | No |
 
-I favor retaining NOC until the declaration conflict is resolved, because the lab has no verified instrumentation authority or lineage. If structured metadata is intended as the authoritative source, that assumption should be explicit and tested separately. Either choice preserves the operation reading and current affected-service link checks.
+The selected rule retains NOC until the declaration conflict is resolved. If structured metadata is intended as the authoritative source, that assumption should be explicit and tested separately. Either choice preserves the operation reading and current affected-service link checks.
 
 ## Work after the choice
 
-New development families can compare agreeing, missing, ambiguous, conflicting and stale declarations. The selected precedence rule must determine references before inference. Existing data, questions, references and results remain frozen. No conclusion here validates real instrumentation trust or authorizes automated network changes.
+New development families can compare agreeing, missing, ambiguous, conflicting and stale declarations. The selected NOC rule will determine new references before inference. Existing data, questions, references and results remain frozen. No conclusion here validates real instrumentation trust or authorizes automated network changes.
