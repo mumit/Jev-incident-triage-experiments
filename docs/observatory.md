@@ -124,4 +124,8 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 Open **Comparison → Declared instrument domain** or `/declared-domain`. Select the interpreter and domain source independently. Switching to supplied domain preserves its actual operation reading and exact interpreter request. Inspect both domain question definitions, raw declaration metadata, saved responses and policy traces. Software domain supplies no probability; its ML view retains only the reading score. Guide return links restore the packet, source path and report.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+Open **Comparison → Declaration consistency** or `/declaration-trust`. Select a reader and policy independently. The raw report table shows interpreter outputs; the policy join table shows supplied structured domain, parsed prose header, disagreement, eligibility, fault-bearing asset and actual blocking status. Switching policy preserves the saved request, response and operation reading. Follow A/B pairs, reveal draft references, download exact inputs and inspect ML reading margins.

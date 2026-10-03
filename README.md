@@ -49,6 +49,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Declaration consistency](docs/declaration-trust.md) | Shared readings, explicit declaration conflicts and NOC retention. |
 | [Declared instrument domain](docs/declared-domain.md) | Matched domain definitions, software-domain controls and reading transfer limits. |
 | [Instrument metadata](docs/metadata-policy.md) | Fixed readings, matched policy grouping and remaining domain-definition decision. |
 | [Measured-function reading](docs/report-scope.md) | Matched question change, report/triage results and hidden policy gaps. |

@@ -10,7 +10,7 @@ On October 2, 2026, the user selected **retain NOC until the declaration conflic
 
 Structured instrument metadata declares `ran`, while the report’s explicit `Instrument domain` header declares `power`. The report records a focal operation failure. Its measurement is current, its asset has a visible path to affected service, and its measurement scope is resolved.
 
-This is a proposed test case, not a recorded failure. The operation can still be read as `fault`; the unresolved question is which declared domain can support an owner.
+This example originally described a proposed test; the separate [declaration-consistency study](declaration-trust.md) now records further families with this conflict. The operation can still be read as `fault`; the unresolved question is which declared domain can support an owner.
 
 Two policies would produce different references:
 
@@ -21,6 +21,6 @@ Two policies would produce different references:
 
 The selected rule retains NOC until the declaration conflict is resolved. If structured metadata is intended as the authoritative source, that assumption should be explicit and tested separately. Either choice preserves the operation reading and current affected-service link checks.
 
-## Work after the choice
+## Completed comparison
 
-New development families can compare agreeing, missing, ambiguous, conflicting and stale declarations. The selected NOC rule will determine new references before inference. Existing data, questions, references and results remain frozen. No conclusion here validates real instrumentation trust or authorizes automated network changes.
+The [matched guard study](declaration-trust.md) now tests agreeing, missing, ambiguous, conflicting and ineligible declarations on further development families. Its references were written before inference. Jev’s correct shared readings yield 56/80 base matches and 80/80 guarded matches; ML’s all-unknown readings remain a separate limitation. Existing studies are unchanged. Source authority, metadata age, specialist validation and final held-out evaluation remain unresolved.

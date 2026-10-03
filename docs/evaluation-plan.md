@@ -76,4 +76,8 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 The [declared-domain protocol](declared-domain.md) compares frozen technical-domain and declared-domain Jev questions on identical texts and metadata policy. Software-domain controls replace only domain with the valid structured declaration. Thirty distinct texts supply 128 correlated occurrences; report-field regressions and wrong readings hidden by matching triage are scored separately. Missing declarations mean none even when technical detail suggests a domain. Treat agreement with this selected definition separately from technical-domain reasoning quality.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+The [declaration-consistency protocol](declaration-trust.md) holds frozen readers and actual operation predictions fixed across two software-domain policies. Pair interventions change one metadata or eligibility field. Domain annotations describe prose; both policies instead copy structured domain by occurrence. Score raw interpreter heads separately from software facts, and report operation-reading errors hidden by packet matches. Corrected attribution lives in separate evaluation checkpoints; original runs stay immutable.

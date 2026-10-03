@@ -110,4 +110,8 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 The [declared-domain study](declared-domain.md) separates identifying an instrument source from judging its operation. The explicit domain question and software domain both reach 64/64 draft packet matches using Jev’s correct operation readings. Frozen ML stays at 40/64 because every outcome receives unknown. Inspect the generic core normal report in `/declared-domain` to see how its learned framing features outweigh the normal token. New training changes need a separate matched study.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+The [declaration consistency study](declaration-trust.md) keeps each operation reading fixed while comparing ownership policies. Jev improves 56/80 → 80/80 through 24 policy fixes; ML remains 40/80 because every outcome receives unknown. Use `/declaration-trust` to inspect copied metadata, explicit prose headers, conflicts and eligibility exclusions. The guard checks consistency, not truth.

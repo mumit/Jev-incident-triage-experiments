@@ -159,4 +159,10 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 The [declared-domain checkpoint](declared-domain.md) adds 64 development packets and 60 successful Jev calls from preparation source `0d5c214`. Technical-domain versus declared-domain questions match 56/64 versus 64/64; both read all 30 distinct operation outcomes correctly. Software domain reaches 64/64 with either Jev reader. Both ML controls remain 40/64; rules improve 44/64 → 64/64 with software domain. Prior source, data and recorded results remain frozen.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+The [declaration guard comparison](declaration-trust.md) is complete from preparation source `ee12a91`: 80 new development packets, 160 correlated report occurrences and 40 distinct texts. Forty Jev calls succeed; packet matches improve 56/80 → 80/80 with unchanged correct readings. Rules improve 56/80 → 72/80; both ML controls remain 40/80. Separate evaluation records correct the generic scorer’s comparison of effective metadata domains with prose annotations. Earlier evidence remains unchanged.
+
+The next training step awaits the [idle-handler reading definition](idle-operation-review.md); no idle examples have entered training or evaluation.

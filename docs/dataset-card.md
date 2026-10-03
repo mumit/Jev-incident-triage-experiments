@@ -104,4 +104,8 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 The [declared-domain pack](declared-domain.md) contains 64 development packets, 128 report occurrences, 16 new families, 32 pairs and 30 distinct normalized texts. Families cover generic outcomes, technical distractions, missing or ambiguous declarations, stale faults and disconnected faults. Prose and structured declarations agree by construction; no contradictory declarations or trustworthy real instrumentation are demonstrated. Report and packet references remain separate prewritten drafts.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+The [declaration-trust pack](declaration-trust.md) adds 80 development packets in 20 families and 40 pairs. Its 160 report occurrences reuse 40 normalized texts. Text annotations remain constant when paired structured metadata changes. Families cover fault/normal declaration conflicts, missing/ambiguous metadata, eligibility exclusions and clean function comparisons. Explicit headers and outcomes are teaching fixtures, not representative telemetry. Metadata expiry and source authority are untested.

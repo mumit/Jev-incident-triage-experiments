@@ -1,0 +1,28 @@
+{
+  "validators": 14,
+  "prior_evidence_audit": "Northstar-Declared-Domain-Evidence-Audit.json",
+  "historical_data_evidence_results_unchanged": true,
+  "prior_development_runs_verify": true,
+  "new_source_data_predictions_and_corrected_evaluations_verify": true,
+  "prepared_protocol_matches_inference": true,
+  "hosted_requests": 40,
+  "failed_requests": 0,
+  "distinct_report_texts": 40,
+  "correlated_report_occurrences": 160,
+  "report_vectors": 80,
+  "fitted_margins": 160,
+  "browser_downloads_match_saved_requests": true,
+  "policy_switch_preserves_actual_readings_request_and_response": true,
+  "occurrence_specific_software_domains_have_no_invented_probabilities": true,
+  "raw_and_operation_attribution_separate_from_software_domain": true,
+  "python_tests": 203,
+  "javascript_tests": 9,
+  "browser_widths": [
+    390,
+    820,
+    1280
+  ],
+  "browser_errors": 0,
+  "reference_status": "draft_not_specialist_reviewed",
+  "metadata_age_authority_and_truth_unvalidated": true
+}

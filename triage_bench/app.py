@@ -248,6 +248,7 @@ def handler_for(app, comparison_port=None):
     interpretation_study = None
     language_study = None
     scope_study = None
+    trust_study = None
     declared_study = None
     metadata_study = None
     study_lock = threading.Lock()
@@ -259,6 +260,14 @@ def handler_for(app, comparison_port=None):
                 from .explorer import Study, handler_for as explorer_handler_for
                 study_handler = explorer_handler_for(Study(app.root))
         return study_handler
+
+    def trust():
+        nonlocal trust_study
+        with study_lock:
+            if trust_study is None:
+                from .experiment3.trust_service import TrustStudy
+                trust_study=TrustStudy(app.root)
+            return trust_study
 
     def declared():
         nonlocal declared_study
@@ -365,6 +374,14 @@ def handler_for(app, comparison_port=None):
             if not self.trusted(): return self.send(403,{'error':'Local origin required.'})
             path=urlparse(self.path)
             try:
+                if path.path in {'/declaration-trust-local.json','/declaration-trust-jev.json','/declaration-trust-protocol.json'}:
+                    name=path.path.removeprefix('/declaration-trust-').removesuffix('.json')
+                    report=app.root/('checkpoints/declaration-trust-'+name+'-2026-10-02.json')
+                    return self.send(200,report.read_bytes(),'application/json') if report.exists() else self.send(404,{'error':'Declared-domain report unavailable.'})
+                if path.path=='/api/declaration-trust/catalog':return self.send(200,trust().catalog())
+                if path.path in {'/api/declaration-trust/case','/api/declaration-trust/export'}:
+                    q={k:v[0] for k,v in parse_qs(path.query).items()};data=trust().case(q.get('id'),q.get('split','development'),q.get('arm','jev_declared__guarded'),int(q.get('report','0')))
+                    return self.send(200,data['request'],download=data['record']['id']+'-'+q.get('arm','jev_declared__guarded')+'-input.json') if path.path.endswith('/export') else self.send(200,data)
                 if path.path in {'/declared-domain-local.json','/declared-domain-jev.json','/declared-domain-protocol.json'}:
                     name=path.path.removeprefix('/declared-domain-').removesuffix('.json')
                     report=app.root/('checkpoints/declared-domain-'+name+'-2026-10-02.json')
@@ -447,7 +464,7 @@ def handler_for(app, comparison_port=None):
                     return self.send(200,sorted(jobs,key=lambda j:j['created_at'],reverse=True))
                 if path.path.startswith('/api/jobs/'):
                     return self.send(200,app.snapshot(path.path.split('/')[-1]))
-                assets={'/declared-domain':('declared-domain.html','text/html; charset=utf-8'),'/declared-domain.js':('declared-domain.js','text/javascript'),'/metadata-policy':('metadata-policy.html','text/html; charset=utf-8'),'/metadata-policy.js':('metadata-policy.js','text/javascript'),'/report-scope':('report-scope.html','text/html; charset=utf-8'),'/report-scope.js':('report-scope.js','text/javascript'),'/report-language':('report-language.html','text/html; charset=utf-8'),'/report-language.js':('report-language.js','text/javascript'),'/report-language.css':('report-language.css','text/css'),'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
+                assets={'/declaration-trust':('declaration-trust.html','text/html; charset=utf-8'),'/declaration-trust.js':('declaration-trust.js','text/javascript'),'/declared-domain':('declared-domain.html','text/html; charset=utf-8'),'/declared-domain.js':('declared-domain.js','text/javascript'),'/metadata-policy':('metadata-policy.html','text/html; charset=utf-8'),'/metadata-policy.js':('metadata-policy.js','text/javascript'),'/report-scope':('report-scope.html','text/html; charset=utf-8'),'/report-scope.js':('report-scope.js','text/javascript'),'/report-language':('report-language.html','text/html; charset=utf-8'),'/report-language.js':('report-language.js','text/javascript'),'/report-language.css':('report-language.css','text/css'),'/experiment-3':('experiment3.html','text/html; charset=utf-8'), '/experiment3.js':('experiment3.js','text/javascript'), '/experiment3.css':('experiment3.css','text/css'), '/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript'),'/style.css':('style.css','text/css')}
                 if path.path in assets:
                     filename,mime=assets[path.path]
                     return self.send(200,(Path(__file__).parent/'web'/filename).read_bytes(),mime)

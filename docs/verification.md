@@ -174,3 +174,9 @@ All 60 Jev calls succeeded from frozen preparation commit `0d5c214`. Exact reque
 Browser review covered the missing-declaration question difference, same-request software switches, exact hosted and local downloads, hidden and revealed references, ambiguous declarations, stale and disconnected faults, comparable normal/fault conflicts, unchanged ML margins, guide links and restored source/report context. Layouts at 390, 820 and 1280 pixels contain their tables; browser error logs are empty. These checks establish comparison and interface behavior, not the authority of instrument declarations, specialist approval or operational readiness.
 
 The [inspection audit](../checkpoints/declared-domain-inspection-2026-10-02.json) records verified counts and boundaries.
+
+## Declaration consistency verification, October 2
+
+All 203 Python tests, 14 dataset validators, nine JavaScript tests and nine browser-script syntax checks pass. New checks cover explicit enum parsing, occurrence-specific domains, shared failures, independent references, ineligible-report exclusions, fitted margins, immutable evidence and corrected raw-versus-software attribution. Prior data, evidence and recorded results verify unchanged.
+
+The live study records 40 Jev requests without failures, 40 distinct texts and 160 correlated occurrences. Its local evidence includes 80 actual report vectors and 160 reconstructed fitted margins. Exact browser downloads match saved Jev requests for both policies. Browser checks at 390, 820 and 1280 pixels show no page overflow or console errors; guide returns restore the case and policy. See the [inspection audit](../checkpoints/declaration-trust-inspection-2026-10-02.json).

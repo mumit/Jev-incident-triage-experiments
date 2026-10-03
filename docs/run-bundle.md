@@ -101,4 +101,8 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 The completed [declared-domain study](declared-domain.md) records source preparation `0d5c214` and tracked protocol/local/hosted checkpoints. Its raw evidence remains in ignored `runs/declared-domain/development-2026-10-02-v1/` and `runs/declared-domain-jev/development-2026-10-02-v1/`, outside the historical public release. A fresh clone can replay frozen local controls and inspect inputs; saved responses and fitted evidence require the corresponding later runs. Do not replace the historical bundle with these results.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+The [declaration guard study](declaration-trust.md) records preparation `ee12a91`. Its raw runs live in ignored `runs/declaration-trust/development-2026-10-02-v1/` and `runs/declaration-trust-jev/development-2026-10-02-v1/`, outside the historical release. Tracked evaluation checkpoints correct a generic attribution error without altering those files; packet and distinct-text scores were unaffected. A later evidence bundle must include these raw runs and the separate evaluator at its recorded version.

@@ -299,4 +299,8 @@ Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for 
 
 The [declared-domain comparison](declared-domain.md) versions the user’s choice on 64 new development packets. Changing only the domain instructions and choice definitions gives 64/64 agreement versus 56/64 for the technical-domain control. Those eight differences occur when a declaration is missing but technical detail suggests a domain; they measure the chosen task definition. Software domain also reaches 64/64 using either Jev reader’s actual operation readings. ML remains 40/64 because all readings receive unknown.
 
-The [next trust choice](declaration-trust-review.md) concerns contradictory structured and prose declarations. Specialist review and held-out evaluation remain pending.
+The [recorded trust choice](declaration-trust-review.md) retains NOC until conflicting declarations are resolved. The [matched guard study](declaration-trust.md) records that comparison. Specialist review and held-out evaluation remain pending.
+
+## October 2 declaration consistency comparison
+
+The [declaration guard](declaration-trust.md) versions NOC retention when current linked structured and prose declarations disagree on a fault-bearing asset. On 80 further packets, Jev’s shared correct readings give 56/80 base matches and 80/80 guarded matches. No reading improvement occurs. Frozen ML stays at 40/80 with all readings unknown; report rules reach 72/80. This separates policy consistency from interpretation quality and exposes NOC matches that conceal reading errors.
