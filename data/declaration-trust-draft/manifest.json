@@ -1,0 +1,24 @@
+{
+  "schema": "declaration-trust-data-1",
+  "operator": "Northstar Telecom",
+  "synthetic": true,
+  "reference_status": "draft_not_specialist_reviewed",
+  "evaluation_status": "development_only_no_held_out_set",
+  "human_decision": {
+    "date": "2026-10-02",
+    "source": "user_selected_retain_noc_on_declaration_conflict",
+    "definition": "Retain NOC until conflicting structured and explicit prose domain declarations are resolved. Preserve operation reading. Only current affected-service evidence on a fault-bearing asset can block ownership.",
+    "status": "synthetic_teaching_definition_not_specialist_reviewed"
+  },
+  "records": 80,
+  "reports": 160,
+  "families": 20,
+  "pairs": 40,
+  "distinct_report_texts": 40,
+  "construction": "Further families with agreeing/conflicting, missing/ambiguous, current/stale and linked/unlinked declarations plus clean comparability controls. Each pair changes one metadata or eligibility field, never report text or annotation. Identical text can have different structured declarations; copy metadata by occurrence, never from the first occurrence. Metadata age and authority are not tested.",
+  "sha256": {
+    "development.inputs.jsonl": "54f5c2b3b73f790aac9f1a993f57f8efbbb7805a03c1bf9f577d609676aca115",
+    "development.labels.jsonl": "3c182215088f92960959d2f2033ea46b6a291f1faecda6a80dd890212b4a3240",
+    "development.observations.jsonl": "37c8b0caa053bfc3bc60a2e1e0e1c6ebac75ec7cb8a86b45a09a8598abea25e7"
+  }
+}
