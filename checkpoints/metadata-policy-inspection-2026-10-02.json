@@ -1,0 +1,24 @@
+{
+  "validators": 12,
+  "historical_data_evidence_results_unchanged": true,
+  "prior_development_runs_verify": true,
+  "new_source_data_predictions_and_tracked_checkpoints_verify": true,
+  "prepared_protocol_matches_inference": true,
+  "hosted_requests": 32,
+  "failed_requests": 0,
+  "distinct_report_texts": 16,
+  "correlated_report_occurrences": 96,
+  "report_vectors": 32,
+  "fitted_margins": 64,
+  "both_browser_exports_match_same_exact_request": true,
+  "policy_switch_preserves_saved_readings": true,
+  "python_tests": 183,
+  "javascript_tests": 9,
+  "browser_widths": [
+    390,
+    820,
+    1280
+  ],
+  "reference_status": "draft_not_specialist_reviewed",
+  "next_decision": "Declared instrument domain or domain established by technical detail"
+}

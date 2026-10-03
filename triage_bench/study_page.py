@@ -15,6 +15,8 @@ DOCUMENTS = {
     'experiment-3-questions': 'docs/experiment-3-question-precedence.md',
     'experiment-3-conflicts': 'docs/experiment-3-conflict-repetition.md',
     'experiment-3-selection': 'docs/experiment-3-evidence-selection.md',
+    'metadata-policy':'docs/metadata-policy.md',
+    'metadata-domain-review':'docs/metadata-domain-review.md',
     'report-scope':'docs/report-scope.md',
     'report-language':'docs/report-language.md',
     'report-language-review':'docs/report-language-review.md',
@@ -36,9 +38,9 @@ def return_path(value):
     """Only a relative walkthrough URL can become the return action."""
     value = value or ''
     parsed = urlparse(value)
-    if parsed.scheme or parsed.netloc or parsed.path not in {'/explorer', '/experiment-3', '/report-language', '/report-scope'} or '\\' in value or len(value) > 4096:
+    if parsed.scheme or parsed.netloc or parsed.path not in {'/explorer', '/experiment-3', '/report-language', '/report-scope', '/metadata-policy'} or '\\' in value or len(value) > 4096:
         return DEFAULT_RETURN
-    sections = CHAPTERS if parsed.path == '/explorer' else {'inspect','evidence','input','decisions','weights','results'} if parsed.path in {'/report-language', '/report-scope'} else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
+    sections = CHAPTERS if parsed.path == '/explorer' else {'inspect','evidence','input','decisions','weights','results'} if parsed.path in {'/report-language', '/report-scope', '/metadata-policy'} else {'evidence', 'facts', 'input', 'decisions', 'case-heading'}
     if parsed.fragment and parsed.fragment not in sections:
         return DEFAULT_RETURN
     return value
@@ -73,6 +75,8 @@ def render_study(study, params):
         if not parsed.scheme and not parsed.netloc:
             if parsed.path == '../checkpoints/experiment-3-development-2026-10-01.json':
                 return '/experiment-3-report.json'
+            if parsed.path in {'../checkpoints/metadata-policy-local-2026-10-02.json','../checkpoints/metadata-policy-jev-2026-10-02.json','../checkpoints/metadata-policy-protocol-2026-10-02.json'}:
+                return '/' + Path(parsed.path).name.replace('-2026-10-02','')
             if parsed.path in {'../checkpoints/report-scope-local-2026-10-02.json','../checkpoints/report-scope-jev-2026-10-02.json','../checkpoints/report-scope-protocol-2026-10-02.json'}:
                 return '/' + parsed.path.removeprefix('../checkpoints/').replace('-2026-10-02','')
             if parsed.path in {'../checkpoints/report-language-local-2026-10-02.json','../checkpoints/report-language-jev-2026-10-02.json','../checkpoints/report-language-protocol-2026-10-02.json','../checkpoints/report-language-replay-protocol-2026-10-02.json','../checkpoints/report-language-replay-2026-10-02.json'}:
@@ -108,7 +112,7 @@ def render_study(study, params):
             identifier = query.get('case', [None])[0]
             if identifier in identifiers:
                 return explore('cases', identifier)
-            if parsed.path in {'/', '/explorer', '/study', '/study.md', '/experiment-3'}:
+            if parsed.path in {'/', '/explorer', '/study', '/study.md', '/experiment-3', '/report-language', '/report-scope', '/metadata-policy'}:
                 return parsed.path + ('?' + parsed.query if parsed.query else '') + ('#' + parsed.fragment if parsed.fragment else '')
         return href
 

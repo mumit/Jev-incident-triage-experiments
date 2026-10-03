@@ -49,6 +49,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
+| [Instrument metadata](docs/metadata-policy.md) | Fixed readings, matched policy grouping and remaining domain-definition decision. |
 | [Measured-function reading](docs/report-scope.md) | Matched question change, report/triage results and hidden policy gaps. |
 | [Report language and Jev](docs/report-language.md) | Matched training result, direct-versus-report Jev comparison and the selected handler reference. |
 | [Report interpretation and policy](docs/experiment-3-interpretation.md) | Report annotations, interpreter errors, policy traces and matched architecture results. |
@@ -112,12 +113,17 @@ uv run --locked python -m scripts.run_experiment3_structured_ml validate
 uv run --locked python -m scripts.run_experiment3_wording validate
 uv run --locked python -m scripts.run_experiment3_interpretation validate
 uv run --locked python -m scripts.run_report_language validate
+uv run --locked python -m scripts.run_report_scope validate
+uv run --locked python -m scripts.run_metadata_policy validate
 uv run --locked python -m unittest discover -s tests -v
 node --test tests/explorer-ui.test.cjs
 node --check triage_bench/web/app.js
 node --check triage_bench/web/explorer.js
 node --check triage_bench/web/study.js
 node --check triage_bench/web/experiment3.js
+node --check triage_bench/web/report-language.js
+node --check triage_bench/web/report-scope.js
+node --check triage_bench/web/metadata-policy.js
 bash -n start.command
 ```
 
@@ -142,3 +148,5 @@ The [measured-function trial](docs/report-scope.md) prepares a matched reading-i
 Inspect the new comparison at `/report-scope` or **Comparison → Measured-function reading**. Exact instructions, returned meanings, policy traces and reference diagnostics remain separate. The user selected instrument metadata first for a separate matched policy comparison.
 
 The [metadata-first policy comparison](docs/metadata-policy.md) prepares 48 further development packets. Each reader feeds identical predictions to original and function/context grouping; metadata stays outside report interpretation. Missing and ambiguous scope controls remain conservative. The 96 report occurrences contain 16 distinct texts, so the hosted plan has 32 calls. The 32-call Jev run is complete: asset versus metadata grouping scores 26/48 versus 40/48 for both frozen question controls, fixing 14 packets without losses. Fault/normal readings match all 16 distinct texts; five domain readings disagree with draft references. The next decision concerns declared instrument domain versus domain-specific technical evidence.
+
+Inspect `/metadata-policy` or **Comparison → Instrument metadata policy**. The [domain decision brief](docs/metadata-domain-review.md) explains the next choice using an actual request and response. The earlier public release remains unchanged.

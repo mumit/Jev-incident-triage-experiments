@@ -4,7 +4,7 @@ October 2, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **172 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All six browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **183 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All seven browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -154,3 +154,13 @@ Browser review covered actual matched training wording without evaluation predic
 The 68-packet/88-report pack validates, including 34 single-field pairs, fresh families, separate annotations and two policy gaps declared before inference. Both raw runs verify against frozen commit `2f65910`; the 176 hosted requests all completed. Verification recomputes report scores, packet traces, regressions and failure-inclusive denominators. All 176 saved ML report vectors and 352 fitted margins verify. The tracked checkpoints match raw evidence. Earlier inference sources, data and recorded results remain unchanged.
 
 The new workbench preserves exact question differences, report selection, fitted ML margins, returned Jev distributions and a separately revealed reference-policy diagnostic. Its downloaded Jev input matches the saved request. Missing or invalid runs remain unavailable rather than acquiring fabricated predictions; local-origin protection covers the new endpoints. The formatted guide returns to the same packet, interpreter and report. Phone, tablet and desktop checks keep tables in scrollable containers. The full suite passes 172 Python tests; focused service checks also pass after the final diagnostic-display change. All nine JavaScript tests and six syntax checks pass. These checks verify implementation and evidence, not reference validity or operational readiness.
+
+## Instrument metadata policy checks
+
+Eleven new tests cover reproducible fresh families, prewritten independent references, malformed and unresolved scope, stale/unlinked exclusion, deduplicated exact requests, identical readings across policies, recording before calls, credential redaction, rate-limit and malformed-response stops, shared-response failure denominators, fitted ML margins and guarded read-only exports. A fresh data-only fixture exposes requests and references without inventing predictions.
+
+All 32 Jev calls completed without failures. Both raw runs and tracked checkpoints verify against frozen preparation source `9904290`. Sixteen distinct texts join 96 correlated report occurrences; each reader’s predictions remain identical across its two policy arms. The 32 local ML vectors and 64 fitted margins reconstruct. Earlier development evidence and historical data, evidence and scored results remain unchanged.
+
+Browser review covered matched grouping switches, identical request downloads, same-function conflicts, missing and ambiguous scope, stale exclusions, unlinked-report diagnostics, draft-reference reveal, fitted ML contributions, guide navigation and return context. Layouts at 390, 820 and 1280 pixels keep tables inside their containers; browser error logs are empty. These checks establish recording, comparison and interface behavior. They do not settle the domain definition, validate the draft references or establish operational metadata trust.
+
+The [inspection audit](../checkpoints/metadata-policy-inspection-2026-10-02.json) records the verified counts and comparison boundaries.

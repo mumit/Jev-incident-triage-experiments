@@ -65,3 +65,9 @@ The [training-wording comparison](experiment-3-wording.md) is complete on 80 new
 The exact-request diagnostic replay repeats four inspected report texts three times; those 12 responses are not independent cases. Preserve the original 140-packet scores. [The reference decision brief](report-language-review.md) records the user-selected normal handler boundary. Version changes rather than relabeling recorded evidence.
 
 The completed [measured-function instruction comparison](report-scope.md) uses separately prewritten report annotations and 68 further development packets. Two policy gaps were declared before calls. Scores must distinguish report correctness, triage correctness and incorrect readings hiding policy errors. Any scope-aware policy change needs a separate matched comparison, new families and an explicit source for measurement scope.
+
+## October 2 instrument metadata comparison
+
+The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
+
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.

@@ -99,3 +99,9 @@ The [report-language comparison](report-language.md) uses 186 matched training p
 ## Measured-function question result
 
 The [matched reading-instruction comparison](report-scope.md) completed 176 Jev calls on 68 further development packets and 88 reports. Added scope guidance changes report agreement from 82/88 to 83/88 and packet agreement from 67/68 to 68/68, with two report fixes and one loss. Five wrong readings remain hidden by correct triage, including both predeclared function-comparability policy gaps. Frozen ML controls score 46/68 packets while transferring poorly to the new wording. Inspect `/report-scope`; measurement-scope provenance needs a decision before the next policy comparison.
+
+## October 2 instrument metadata comparison
+
+The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
+
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.

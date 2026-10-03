@@ -113,3 +113,9 @@ The result view also shows the four exact report texts across three diagnostic r
 ## Measured-function reading
 
 Choose **Comparison → Measured-function reading** or the next-study link on `/report-language`. The new workbench separates report accuracy from triage agreement and opens both predeclared policy gaps. Compare exact Jev instructions, switch the selected report and inspect returned probabilities or saved ML contributions. Reference reveal includes a separate reference-reading-fed policy diagnostic: correct intake and completion readings still produce an incorrect NOC disposition in the two gap packets. Exports contain inference input only. The guide returns to the selected packet, arm, report and section.
+
+## October 2 instrument metadata comparison
+
+The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
+
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.

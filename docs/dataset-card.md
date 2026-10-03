@@ -93,3 +93,9 @@ The [study guide](report-language.md) records actual local and hosted results. I
 ## Measured-function pack
 
 `data/report-scope-draft/` contains 68 development packets, 88 report annotations written separately from packet references, 17 further families and 34 single-field pairs. Eight core patterns and nine transport/RAN/power patterns separate intake, completion, expected rejection, malfunction and uncertainty. Shared templates, explicit domain prefixes and declared measurement scopes limit realism. Two predeclared packets expose the fixed policy’s inability to distinguish functions on one asset. Frozen ML training remains in the previous pack; no new annotations enter fitting. [The guide](report-scope.md) records the complete protocol and results.
+
+## October 2 instrument metadata comparison
+
+The [metadata policy study](metadata-policy.md) holds each interpreter’s readings fixed across asset and metadata grouping on 48 new development packets. Both Jev question controls improve 26/48 → 40/48, fixing 14 packets without losses. Frozen original and broader ML stay at 24/48; report rules improve 24/48 → 30/48. Sixteen distinct report texts supply 96 correlated occurrences; only 32 Jev calls were made. Metadata enters policy alone, with conservative handling of unresolved relevant scope.
+
+Inspect **Comparison → Instrument metadata policy** at `/metadata-policy` for raw scope, both policy traces, exact requests, returned meanings and ML score contributions. References remain drafts. The [next domain decision](metadata-domain-review.md) distinguishes instrument declaration from technical evidence; its resolution is needed before changing domain interpretation. These later raw runs are outside the historical public bundle.
