@@ -1,5 +1,13 @@
 # Handoff: Jev incident triage experiments
 
+## Current next task: public-data comparison
+
+On October 3, the user selected a public-data assessment to test Jev's usefulness across network operations and similar areas. Read [the dataset assessment](docs/public-data-assessment.md) first. OpenRCA Telecom is accessible through selective archive reads, but its telemetry is noncommercial and covers database/service infrastructure. The first comparison will use the RCAEval fallback, with source revision pinned in `triage_bench/public_data.py`.
+
+Three exploratory RE2 Online Boutique cases cover CPU, delay and socket faults. Verified raw files, draft metric inputs and separate references stay in `runs/public-data/preflight-2026-10-03-v1/`. The preparation tool makes no hosted calls, trains no model and reports no performance scores. Install the optional reader with `uv sync --locked --extra public-data`; inspect the preparation commands in the assessment. Preserve the three inspected service/fault repetition groups as development only. Future splits need group separation and a frozen protocol before inference. The known injection boundary is supplied for this preflight; it does not establish incident detection. Logs and traces need mapping/unit checks before joining metric inputs.
+
+The next step is to freeze a public-data comparison protocol and prepare grouped development, calibration and held-out cases. Compare a capable statistical/ML baseline with Jev on the same evidence and candidate construction; do not copy source paths or reference metadata into requests. All synthetic studies below remain frozen, including the failed task-fit advisory criteria. Other model providers and network actions remain outside scope.
+
 ## Purpose and current state
 
 I compare hosted Jev, trained ML and rules on incident decisions for the fictional **Northstar Telecom** network. The study examines failures and whether clearer inputs, questions or software calculations improve decisions. It recommends diagnostics without executing network changes.

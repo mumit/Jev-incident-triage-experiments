@@ -4,7 +4,7 @@ October 3, 2026. This document records the current implementation checks and the
 
 ## Automated checks
 
-The working checkout passes **216 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All ten browser scripts pass syntax checks, and the launcher passes its shell syntax check.
+The working checkout passes **222 Python tests and nine JavaScript tests**. Dataset validation confirms 600 training, 220 validation, 220 test and 24 challenge packets. All ten browser scripts pass syntax checks, and the launcher passes its shell syntax check.
 
 The checks cover:
 
@@ -204,3 +204,11 @@ A further service fixture keeps evaluation unavailable without a complete verifi
 Final browser review covered the failed criterion table, the direct link to the 0.84 wrong suggestion, withholding its 0.57 paired reading, browser Back, guide return links and the analyst review plan. Desktop, tablet and phone checks at 1280, 820 and 390 pixels showed no page overflow; tables remain scrollable within their containers. Browser error and warning logs were empty. The full suite passes 216 Python tests; focused service tests, nine JavaScript tests and all ten syntax checks also pass. Historical and 14 study validators pass, and all five task-fit runs verify unchanged.
 
 A final navigation check found that initially hidden evaluation results could miss their URL anchor before evidence loaded. The workbench now restores the requested section after rendering and adds a held-out-result link once verified evidence is available. Browser inspection confirms the evaluation panel lands at the top of the viewport; the advisory protocol returns to that same section.
+
+## Public-data preflight, October 3
+
+The assessment selectively extracts OpenRCA query/reference files and one middleware metric file with ZIP CRC checks, then records their hashes and observed schemas. RCAEval preparation downloads three pinned RE2 Online Boutique cases, verifies publisher hashes, and checks the local files against their recorded fingerprints. Metric window sizes and log/trace row counts match the published case index. The checkpoint records source hashes and separate prepared-input/reference fingerprints. Raw files stay outside Git.
+
+Six new tests reject answer-bearing columns, changed source files, duplicate or foreign manifest paths, invalid timestamp scales and empty windows. They preserve missing values and ensure incident samples cannot change the baseline scale. The actual three-case preparation verifies the Parquet schemas and writes inputs separately from references; a leakage scan finds no source directories or answer metadata in the states.
+
+All 222 Python tests, nine JavaScript tests, 15 dataset validators, ten browser-script syntax checks and launcher syntax pass. The live formatted assessment and its Markdown download serve correctly. These checks validate access, input preparation and historical preservation; no public-data model scores or operational claims are recorded.

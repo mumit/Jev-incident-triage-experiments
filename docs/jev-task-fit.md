@@ -2,6 +2,8 @@
 
 Research checked October 2, 2026. Local evidence checkpoint: `3a9f54c`.
 
+October 3 direction update: the user selected public data to examine broader operations capability without access to real reports or specialist-reviewed triage references. The [public-data assessment](public-data-assessment.md) records source inspection and selects RCAEval for the next comparison. The October 2 research and completed synthetic results below remain historical evidence.
+
 ## Assessment
 
 Jev is a credible candidate for bounded interpretation within telecom incident triage. The evidence does not yet establish that it is the best model for the complete task, or that its decisions support unattended operation. I will continue evaluating it as a report interpreter, with software handling evidence eligibility, scope, declaration consistency and policy.

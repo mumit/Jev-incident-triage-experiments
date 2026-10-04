@@ -10,3 +10,6 @@ dependencies = [
 
 [tool.uv]
 package = false
+
+[project.optional-dependencies]
+public-data = ["pyarrow==25.0.1"]

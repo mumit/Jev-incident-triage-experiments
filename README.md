@@ -25,6 +25,8 @@ Startup does not call Jev or download language-model weights. The app fits local
 
 Start with [HANDOFF.md](HANDOFF.md) for the current state, experimental controls and next task. Restore the four historical runs from the [study evidence release](https://github.com/mumit/Jev-incident-triage-experiments/releases/tag/study-evidence-v1) using the [bundle guide](docs/run-bundle.md). The archive stays outside Git history; `runs/` remains ignored.
 
+The next comparison uses public operations data. The [dataset assessment](docs/public-data-assessment.md) records selective OpenRCA inspection and the RCAEval fallback. Three exploratory RCAEval cases are prepared locally; no new model scores are recorded. Read the assessment at `/study?doc=public-data`.
+
 The current focus is [Jev's fit for incident triage](docs/jev-task-fit.md). The [task-fit study](docs/task-fit-experiment.md) completes matched format, wording and example comparisons plus frozen-reader calibration. Inspect exact requests, actual responses and review coverage at `/task-fit`. Structured input matches 24/24 development readings and 23/24 calibration readings; the user selected analyst-facing recommendations first. The [advisory evaluation protocol](docs/task-fit-analyst-evaluation.md) now freezes the display threshold and provisional synthetic research criteria before the one evaluation. Its held-out result matches 21/24 readings; one wrong suggestion passes the 0.60 boundary, so the zero-error research criteria fail. Every report requires analyst review. The idle-handler reading choice and dependent ML training comparison are deferred.
 
 The [October 1 baseline](docs/current-state.md) fixes the current source, data, settings and results before experiment 3. Its `checkpoints/study-baseline-2026-10-01.json` supports file verification and comparisons with future saved runs.
@@ -50,6 +52,7 @@ The [report-policy study](docs/experiment-3-interpretation.md) compares a text-o
 | Document | What it covers |
 |---|---|
 | [Experiment overview](docs/experiment-overview.md) | Purpose, data definitions, both experiments, input changes, results and the next experiment. |
+| [Public-data assessment](docs/public-data-assessment.md) | Verified sources, data terms, leakage checks and the first public-data comparison. |
 | [Jev task-fit research](docs/jev-task-fit.md) | Primary-source NOC/SOC examples, local evidence, concrete input design and the next evaluation plan. |
 | [Task-fit experiment](docs/task-fit-experiment.md) | New split families, matched format/wording/example arms, candidate selection and review coverage. |
 | [Experiment 3 development](docs/experiment-3-development.md) | Draft cases, transformations, matched ML/Jev results and exact request inspection. |
@@ -139,7 +142,7 @@ node --check triage_bench/web/task-fit.js
 bash -n start.command
 ```
 
-The working checkout passes 216 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
+The working checkout passes 222 Python tests and nine JavaScript tests. Two Python checks depend on historical run files and skip on a fresh clone. See [verification](docs/verification.md) for their scope.
 
 ## References
 

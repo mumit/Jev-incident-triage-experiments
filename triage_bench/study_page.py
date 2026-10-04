@@ -9,6 +9,7 @@ from urllib.parse import parse_qs, urlencode, urlparse
 from markdown_it import MarkdownIt
 
 DOCUMENTS = {
+    'public-data': 'docs/public-data-assessment.md',
     'task-fit': 'docs/task-fit-experiment.md',
     'task-fit-analyst': 'docs/task-fit-analyst-evaluation.md',
     'analyst-review-plan': 'docs/analyst-review-plan.md',
